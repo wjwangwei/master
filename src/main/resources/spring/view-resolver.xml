@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="velocityViewResolver"  class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <property name="cache" value="false" />
+        <property name="layoutUrl" value="/layouts/master.vm" />
+        <property name="prefix" value="/pages/" />
+        <property name="suffix" value=".vm" />
+        <property name="exposeSpringMacroHelpers" value="true" />
+        <property name="contentType" value="text/html;charset=UTF-8" />
+        <property name="viewClass" value="org.springframework.web.servlet.view.velocity.VelocityLayoutView" />
+        <!--
+        <property name="attributesMap">
+            <map>
+                <entry key="csrfTool"><bean class="com.XXX.velocity.CSRFTool"/></entry>
+                <entry key="shiro"><bean class="com.XXX.velocity.Permission"/></entry>
+            </map>
+        </property>
+        -->
+    </bean>
+
+
+    <!--<mvc:resources mapping="/resources/**" location="/resources/" />-->
+    <!--<mvc:resources mapping="/assets/**" location="/src/resources/assets/" />-->
+    <!--<mvc:annotation-driven />-->
+
+    <!--<mvc:resources mapping="/webjars/**" location="/resources/assets/" />-->
+    <!--<mvc:resources mapping="/assets/**" location="/resources/assets/" cache-period="31556926" />-->
+    <!--<mvc:resources mapping="/images/**" location="/assets/images/" cache-period="31556926" />-->
+    <!--<mvc:resources mapping="/css/**" location="/assets/css/" cache-period="31556926" />-->
+    <!--<mvc:resources mapping="/js/**" location="/assets/js/" cache-period="31556926" />-->
+
+</beans>
