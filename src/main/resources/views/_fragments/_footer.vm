@@ -20,8 +20,10 @@
 <script src="webjars/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="js/jquery.plugins.js"></script>
 <script src="js/custom.js"></script>
-<script type="text/javascript" src="js/jsFunctions.js"></script>
-<script type="text/javascript" src="js/jsSearch.js"></script>
+<script src="js/jquery.mockjax.js"></script>
+<script src="js/jquery.autocomplete.js"></script>
+<script src="js/jsFunctions.js"></script>
+<script src="js/jsSearch.js"></script>
 ##CSS on View Should be included at the bottom of the JS files.
 #macro(footerJs $jsIncludes)
     $jsIncludes

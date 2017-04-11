@@ -56,6 +56,32 @@
         });
     }
 
+    /*
+     * JQuery AutoComplete for Destination Search
+     */
+    var destinationAutoSuggDOM = $('input[name=cityTitle]');
+    destinationAutoSuggDOM.on('keyup paste', function () {
+        var $this = $(this);
+        $this.autocomplete({
+            serviceUrl: '/api/suggest/destination',
+            minChar: 3,
+            deferRequestBy: 3000,
+            paramName: 'search',
+            type: 'GET',
+            transformResult: function (response) {
+                return {
+                    suggestions: $.map(JSON.parse(response), function (dataItem) {
+                        return {value: dataItem.cityName + ", " + dataItem.countryName, data: dataItem.id};
+                    })
+                };
+            },
+            onSelect: function (suggestion) {
+                $('input[name=cityId]').attr('value', suggestion.data);
+            }
+        });
+    });
+
+
     function customRange(dates) {
         if (this.id == 'dateCheckin') {
             $('#dateCheckout').datepick('option', 'minDate', dates[0] || null);

@@ -1,6 +1,8 @@
 package com.nehow.controllers;
 
 import com.nehow.models.Country;
+import com.nehow.models.Destination;
+import com.nehow.models.Nationality;
 import com.nehow.ws.WebserviceManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +23,13 @@ public class ApiController {
     private WebserviceManager apiManager;
 
     @RequestMapping("/suggest/nationality")
-    public List<Country> getNationality(@RequestParam("search") String search) {
+    public List<Nationality> getNationality(@RequestParam("search") String search) {
         return Arrays.asList(apiManager.getNationality(search));
+    }
+
+    @RequestMapping("/suggest/destination")
+    public List<Destination> getDestinations(@RequestParam("search") String search) {
+        return Arrays.asList(apiManager.getDestination(search));
     }
 
 

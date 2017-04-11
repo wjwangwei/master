@@ -61,10 +61,10 @@ public class WebserviceManager {
      * @param key keyword
      * @return array
      */
-//    public Destination[] getDestination(String key) {
-//        ResponseEntity<Destination[]> resp = restTemplate.getForEntity(svcProperty.getRootUrl() + "/suggestion/destination?key=" + key, Destination[].class);
-//        return resp.getBody();
-//    }
+    public Destination[] getDestination(String key) {
+        ResponseEntity<Destination[]> resp = restTemplate.getForEntity(svcProperty.getRootUrl() + "/suggestion/destination?key=" + key, Destination[].class);
+        return resp.getBody();
+    }
 
     /**
      * fetch hotel availabilities

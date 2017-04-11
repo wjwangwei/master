@@ -150,6 +150,5 @@
         </div>
     </div>
 </form>
-#footerJs("")
 ##<script type="text/javascript" src="js/jsFunctions.js"></script>
 ##<script type="text/javascript" src="js/jsSearch.js"></script>
