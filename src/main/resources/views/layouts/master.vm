@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+    #parse("_fragments/_header.vm")
+<body>
+    #parse("_fragments/_nav.vm")
+    <!-- Contents -->
+    <div class="content">
+        $screen_content
+    </div>
+    #parse("_fragments/_footer.vm")
+</body>
+</html>

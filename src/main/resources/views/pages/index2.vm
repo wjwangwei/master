@@ -1,0 +1,12 @@
+#set($title = "Home")
+<section class="section_hero hero_home_search">
+    <div class="container" style="height: 550px;">
+        <div class="hero-content">
+            <h1>WELCOME TO HOTELEVERLINK.COM</h1>
+            <h3>Strong Supply, Competitive Rate, Efficient Technology, Quality Experience</h3>
+            <div class="form-search">
+                #parse("_fragments/_search-form.vm")
+            </div>
+        </div>
+    </div>
+</section>
