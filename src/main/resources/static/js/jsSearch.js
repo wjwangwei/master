@@ -22,10 +22,17 @@
                 search: $this.val()
             },
             beforeSend: function () {
-                // $('<span class="fa fa-spinner fa-spin"></span>').appendTo($this);
+                $(".fa-spinner").remove();
+                $('<span class="fa fa-spinner fa-spin"></span>').appendTo($this);
             },
-            success: function (resp) {
-
+            success: function (resp, status, xhr) {
+                if (xhr.status === 200) {
+                    var dpDown = $('.dropdown-menu, .hide');
+                    dpDown.show();
+                    $.each(resp, function (i, obj) {
+                        
+                    });
+                }
             }
         })
     }
