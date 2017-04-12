@@ -71,13 +71,13 @@
     var destinationAutoSuggDOM = $('input[name=cityTitle]');
     destinationAutoSuggDOM.on('keyup keyenter paste', function () {
         var $this = $(this);
-        setTimeout(function () {
+        // setTimeout(function () {
             $this.autocomplete({
                 serviceUrl: '/api/suggest/destination',
                 paramName: 'search',
                 type: 'GET',
                 minChar: 3,
-                // preventBadQueries: true,
+                preventBadQueries: true,
                 noSuggestionNotice: "<strong>Sorry, not result found for" + $this.val() + "</strong>",
                 transformResult: function (response) {
                     return {
@@ -90,7 +90,7 @@
                     $('input[name=cityId]').attr('value', suggestion.data);
                 }
             });
-        }, 500);
+        // }, 500);
         $this.focus();
     });
     /*

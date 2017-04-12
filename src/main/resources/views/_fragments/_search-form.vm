@@ -15,15 +15,10 @@
                 <label>Nationality</label>
                 <div class="dropdown dropdown-lang has-selector">
                     <span class=" lang-active"></span><!--lang-en -->
-                    <input type="text" class="form-control dropdown-toggle" id="nationalitySearch" placeholder="United Kingdom" data-toggle="dropdown">
+                    <input type="text" class="form-control dropdown-toggle" id="nationalitySearch" placeholder="Nationality" data-toggle="dropdown">
                     <input type="hidden" name="nationalityId">
                     <div class="dropdown-menu hide" id="nationality-dropdown">
-                        <ul id="ul-nationality">
-##                            <li class="lang-en active">English</li>
-##                            <li class="lang-gr">Germany</li>
-##                            <li class="lang-fr">French</li>
-##                            <li class="lang-sp">Spanich</li>
-                        </ul>
+                        <ul id="ul-nationality"></ul>
                     </div>
                 </div>
             </div>
