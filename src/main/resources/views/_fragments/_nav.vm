@@ -1,7 +1,7 @@
 <div class="header">
     <div class="header-top">
         <div class="container">
-            <a class="navbar-brand" href="#" title="HotelEverlink"><img src="images/logo.png" alt=""></a>
+            <a class="navbar-brand" href="#" title="HotelEverlink"><img src="/images/logo.png" alt=""></a>
             <!--
             <div class="customer-support">
                 <h5>24/7 Customer Support</h5>

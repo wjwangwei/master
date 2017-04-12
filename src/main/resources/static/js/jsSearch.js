@@ -4,8 +4,11 @@
 (function () {
     'use strict';
 
-    var typingTimer, doneTypingInterval = 1000, nationalitySearchDOM = $("#nationalitySearch");
-    nationalitySearchDOM.on('keyup paste', function () {
+    var MAX_NUM_ROOM = 5;
+    var MAX_CHILD_AGE = 17;
+
+    var typingTimer, doneTypingInterval = 500, nationalitySearchDOM = $("#nationalitySearch");
+    nationalitySearchDOM.on('keyup keyenter paste', function () {
         typingTimer = setTimeout(searchNationality, doneTypingInterval);
     });
 
@@ -60,14 +63,15 @@
      * JQuery AutoComplete for Destination Search
      */
     var destinationAutoSuggDOM = $('input[name=cityTitle]');
-    destinationAutoSuggDOM.on('keyup paste', function () {
+    destinationAutoSuggDOM.on('keyup keyenter paste', function () {
         var $this = $(this);
         $this.autocomplete({
             serviceUrl: '/api/suggest/destination',
-            minChar: 3,
-            deferRequestBy: 3000,
             paramName: 'search',
             type: 'GET',
+            minChar: 3,
+            preventBadQueries: true,
+            noSuggestionNotice: "<strong>Sorry, not result found for" + $this.val() + "</strong>",
             transformResult: function (response) {
                 return {
                     suggestions: $.map(JSON.parse(response), function (dataItem) {
@@ -79,7 +83,96 @@
                 $('input[name=cityId]').attr('value', suggestion.data);
             }
         });
+        $this.focus();
     });
+    /*
+     * End of AutoComplete for Destination Search
+     */
+
+    $('#controlQty button').on('click', function () {
+        var _this = $('#controlQty'), _butt = $(this), qty = _this.find('input').attr('value');
+        var qtys;
+        if (_butt.hasClass('btn-plus')) {
+            qtys = parseInt(qty) + 1;
+            if (qtys <= MAX_NUM_ROOM) {
+                _this.find('input').attr('value', qtys);
+                console.info(qty);
+                addRoomDOM(qtys);
+            } else $.growl.error({
+                title: "Limit Exceeded",
+                message: "Sorry, you cannot search more than " + MAX_NUM_ROOM + " room at a time"
+            });
+        } else {
+            qtys = parseInt(qty) - 1;
+            qtys = (qtys <= 1) ? 1 : qtys;
+            _this.find('input').attr('value', qtys);
+            removeRoomDOM(qtys + 1);
+        }
+        return false;
+    });
+    childAgeModifyDOM($("select[name=room1NoOfChild]"), 1);
+
+    function childAgeModifyDOM($this, roomIndex) {
+        $this.on('change', function () {
+            var noOfChild = parseInt($this.val());
+            var html = '';
+            if (noOfChild <= 0) $('.chdAgeDIV').html(''); else {
+                for (var i = 1; i <= noOfChild; i++) {
+                    html += '<div class="col-sm-6">';
+                    html += '<div class="form-group">';
+                    html += '<label>Child ' + i + ' Age</label>';
+                    html += '<select class="selector" name="room' + roomIndex + 'child' + i + 'age" style="width:100%;">';
+                    for (var age = 0; age <= MAX_CHILD_AGE; age++) {
+                        html += '<option' + ' value="' + age + '">' + age + '</option>';
+                    }
+                    html += '</select>';
+                    html += '</div>';
+                    html += '</div>';
+                }
+                $('.chdAgeDIV' + roomIndex).html(html);
+                //Re-apply the JQuery Select2 Plugin
+                $("select.selector").select2();
+            }
+
+        });
+    }
+
+    function addRoomDOM(roomIndex) {
+        var html = '<li id="roomDIV' + roomIndex + '">';
+        html += '<div class="form-group-room-title">ROOM ' + roomIndex + '</div>';
+        html += '<div class="row gutter5">';
+        html += '<div class="col-sm-6">';
+        html += '<div class="form-group">';
+        html += '<label>Adults (+18)</label>';
+        html += '<select class="selector" name="room' + roomIndex + 'NoOfAdult" style="width:100%;">';
+        html += '<option value="1">1</option>';
+        html += '<option value="2" selected>2</option>';
+        html += '<option value="3">3</option>';
+        html += '<option value="4">4</option>';
+        html += '</select></div></div>';
+
+        html += '<div class="col-sm-6">';
+        html += '<div class="form-group">';
+        html += '<label>Children (0-17)</label>';
+        html += '<select class="selector" name="room' + roomIndex + 'NoOfChild" style="width:100%;">';
+        html += '<option value="0" selected>0</option>';
+        html += '<option value="1">1</option>';
+        html += '<option value="2">2</option>';
+        html += '</select></div></div>';
+
+        html += '</div>';
+        html += '<div class="row gutter5 chdAgeDIV' + roomIndex + '"></div>';
+        html += '</li>';
+        $(html).appendTo($(".form-group-room"));
+        //Re-apply the JQuery Select2 Plugin
+        $("select.selector").select2();
+        childAgeModifyDOM($("select[name=room" + roomIndex + "NoOfChild]"), roomIndex);
+    }
+
+    function removeRoomDOM(roomIndex) {
+        console.log(roomIndex);
+        $("#roomDIV" + roomIndex).remove();
+    }
 
 
     function customRange(dates) {
@@ -111,9 +204,33 @@
     });
 
     $("form[name=hotelSearch]").on('submit', function (e) {
-        e.preventDefault();
-
-
+        //perform validation to ensure the user selected the right fields.
+        //TODO validation
+        var isValid = true;
+        if (isValid) {
+            var serializeData = $(this).serialize();
+            var btn = $(this).find('button[type=submit]');
+            btn.html('<i class="fa fa-spinner fa-spin"></i> Loading, please wait.');
+            btn.removeClass('arrow-right');
+            // $.ajax({
+            //     url: '/hotel/search?' + serializeData,
+            //     dataType: 'JSON',
+            //     type: 'GET',
+            //     beforeSend: function () {
+            //
+            //     },
+            //     complete: function () {
+            //         btn.addClass('arrow-right');
+            //         btn.html("FIND HOTELS")
+            //     }
+            // })
+        } else {
+            e.preventDefault();
+            $.growl.error({
+                title: "Field Required",
+                message: "Invalid input, please check input fields"
+            });
+        }
     });
 
 })();

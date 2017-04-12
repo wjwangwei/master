@@ -44,21 +44,6 @@ $(document).ready(function(){
 		return false;
 	});
 
-	$('#controlQty button').on('click',function() {
-		var _this = $('#controlQty'),
-			_butt = $(this),
-			qty = _this.find('input').val();
-		if (_butt.hasClass('btn-plus')) {
-			var qtys = parseInt(qty)+1;
-			_this.find('input').val(qtys);
-		} else {
-			if (qty > 1) {
-				var qtys = parseInt(qty)-1;
-				_this.find('input').val(qtys);
-			}
-		}
-		return false;
-	});
 
 	$('.toggle-facilities').on('click',function(){
 		var facs = $(this).closest('.facility-list').find('.facility-list-more');
@@ -85,7 +70,7 @@ $(document).ready(function(){
 
 	// Bootstrap
 	$('[data-toggle="tooltip"]').tooltip({
-		container: 'body'
+		container: 'hotelSearchody'
 	});
 	$('[data-toggle="popover"]').popover({
 		container: 'body'
