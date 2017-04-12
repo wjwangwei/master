@@ -41,10 +41,10 @@ public class WebserviceManager {
      * fetch exchange rates
      * @return array
      */
-//    public ExchangeRate[] getExchangeRate() {
-//        ResponseEntity<ExchangeRate[]> resp = restTemplate.getForEntity(svcProperty.getRootUrl() + "/customer/exchange-rate", ExchangeRate[].class);
-//        return resp.getBody();
-//    }
+    public ExchangeRate[] getExchangeRate() {
+        ResponseEntity<ExchangeRate[]> resp = restTemplate.getForEntity(svcProperty.getRootUrl() + "/customer/exchange-rate", ExchangeRate[].class);
+        return resp.getBody();
+    }
 
     /**
      * fetch nationality suggestions
@@ -72,36 +72,36 @@ public class WebserviceManager {
      * @param isHotel true if destination is hotel
      * @return
      */
-//    public HotelAvailability[] getCityAvailability(JSONObject param, boolean isHotel) {
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.APPLICATION_JSON);
-//
-//        HttpEntity<String> entity = new HttpEntity<String>(param.toString(), headers);
-//
-//        // determine url
-//        String strUrl = "/hotel/availability/city";
-//        if (isHotel) {
-//            strUrl = "/hotel/availability/hotel";
-//        }
-//
-//        // call available web service
-//        ResponseEntity<JSONObject> response = restTemplate.exchange(svcProperty.getRootUrl() + strUrl, HttpMethod.POST, entity, JSONObject.class);
-//        JSONObject jsonResponse = response.getBody();
-//        JSONArray jsonArray = jsonResponse.getJSONArray("hotelAvailabilities");;
-//
-//        //
-//        // transfer json to object
-//        //
-//        HotelAvailability[] hotelAvailabilities = null;
-//        ObjectMapper mapper = new ObjectMapper();
-//
-//        try {
-//            hotelAvailabilities = mapper.readValue(jsonArray.toString(), HotelAvailability[].class);
-//        }
-//        catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return hotelAvailabilities;
-//    }
+    public HotelAvailability[] getCityAvailability(JSONObject param, boolean isHotel) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<String> entity = new HttpEntity<String>(param.toString(), headers);
+
+        // determine url
+        String strUrl = "/hotel/availability/city";
+        if (isHotel) {
+            strUrl = "/hotel/availability/hotel";
+        }
+
+        // call available web service
+        ResponseEntity<JSONObject> response = restTemplate.exchange(svcProperty.getRootUrl() + strUrl, HttpMethod.POST, entity, JSONObject.class);
+        JSONObject jsonResponse = response.getBody();
+        JSONArray jsonArray = jsonResponse.getJSONArray("hotelAvailabilities");;
+
+        //
+        // transfer json to object
+        //
+        HotelAvailability[] hotelAvailabilities = null;
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            hotelAvailabilities = mapper.readValue(jsonArray.toString(), HotelAvailability[].class);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return hotelAvailabilities;
+    }
 }

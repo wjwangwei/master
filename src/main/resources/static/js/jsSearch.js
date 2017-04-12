@@ -7,6 +7,12 @@
     var MAX_NUM_ROOM = 5;
     var MAX_CHILD_AGE = 17;
 
+
+    var roomCount = 1;
+    var adultCount = 2;
+    var childCount = 0;
+
+
     var typingTimer, doneTypingInterval = 500, nationalitySearchDOM = $("#nationalitySearch");
     nationalitySearchDOM.on('keyup keyenter paste', function () {
         typingTimer = setTimeout(searchNationality, doneTypingInterval);

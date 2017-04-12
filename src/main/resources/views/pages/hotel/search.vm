@@ -1,1 +1,724 @@
-<h1>Hotel Search Result</h1>
+#parse("_fragments/_search-form-modify.vm")
+#set($title = "Search Result")
+<!-- BREADCRUMB -->
+<section class="breadcrumb-wrapper">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">England</a></li>
+            <li><a href="#">Greater London</a></li>
+            <li class="active">London</li>
+        </ol>
+    </div>
+</section>
+<section class="space-xs pt0">
+    <div class="container">
+        <div id="main-contents" class="sideleft">
+
+            <!-- Sidebar -->
+            <div id="side" class="side-sm">
+                <div class="widget widget_filters">
+                    <div class="widget_filters-heading">Filter by search result</div>
+                    <div class="widget-filter widget-filter-search">
+                        <div class="widget-filter-title">Hotel Name</div>
+                        <hgroup>
+                            <button type="submit"></button>
+                            <input type="text" class="form-control" placeholder="Search by hotel name">
+                        </hgroup>
+                    </div>
+                    <div class="widget-filter widget-filter-rating">
+                        <div class="widget-filter-title toggle-filter">Star Rating</div>
+                        <hgroup>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="rating" class="checkbox-filter">
+                                    <div class="rate rate-sm"><span class="rate5"></span></div> 5 stars (28)
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="rating" class="checkbox-filter">
+                                    <div class="rate rate-sm"><span class="rate4"></span></div> 4 stars (84)
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="rating" class="checkbox-filter">
+                                    <div class="rate rate-sm"><span class="rate3"></span></div> 3 stars (117)
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="rating" class="checkbox-filter">
+                                    <div class="rate rate-sm"><span class="rate2"></span></div> 2 stars (152)
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="rating" class="checkbox-filter">
+                                    <div class="rate rate-sm"><span class="rate1"></span></div> 1 star (6)
+                                </label>
+                            </div>
+                        </hgroup>
+                    </div>
+                    <div class="widget-filter widget-filter-price-range">
+                        <div class="widget-filter-title">What's your budget?</div>
+                        <hgroup>
+                            <div id="filter_pricerange"></div>
+                        </hgroup>
+                    </div>
+                    <div class="widget-filter widget-filter-listing">
+                        <div class="widget-filter-title toggle-filter">Popular</div>
+                        <hgroup>
+                            <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">210</span>Hotels</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">112</span>Breakfast included</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">365</span>Free cancellation</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">895</span>Free WiFi</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">457</span>Value Deal</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">210</span>Hostel/Backpacker accommodation</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">112</span>Apart-hotel</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">365</span>Apartment</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">895</span>Hotel resort</label></div>
+                            <a href="#" class="more">Show more (24)</a>
+                        </hgroup>
+                    </div>
+                    <div class="widget-filter widget-filter-listing">
+                        <div class="widget-filter-title toggle-filter">Search Nearby</div>
+                        <hgroup>
+                            <div class="checkbox"><label><input type="checkbox" name="search_nearby" class="checkbox-filter"><span class="checkbox-counter">210</span>National Orchid Garden</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="search_nearby" class="checkbox-filter"><span class="checkbox-counter">112</span>Chinatown Heritage Center</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="search_nearby" class="checkbox-filter"><span class="checkbox-counter">365</span>Universal Studio Singapore&right;</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="search_nearby" class="checkbox-filter"><span class="checkbox-counter">895</span>Singapore Flyer</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="search_nearby" class="checkbox-filter"><span class="checkbox-counter">457</span>Singapore Botanic Gardens</label></div>
+                            <a href="#" class="more">Show more (24)</a>
+                        </hgroup>
+                    </div>
+                    <div class="widget-filter widget-filter-listing">
+                        <div class="widget-filter-title toggle-filter">Review Score</div>
+                        <hgroup>
+                            <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">210</span>Wonderful: 9+</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">112</span>Very good: 8+</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">365</span>Good: 7+</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">895</span>Pleasant: 6+</label></div>
+                            <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">457</span>No rating</label></div>
+                        </hgroup>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main contents -->
+            <div id="main">
+                <hr class="break break30">
+                <ul class="filter">
+                    <li><span class="filter-label">Sort by:</span></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Price<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Lowest prices</a></li>
+                            <li><a href="#">Highest prices</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Star<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><div class="rate rate-sm"><span class="rate5"></span></div> 5 stars</a></li>
+                            <li><a href="#"><div class="rate rate-sm"><span class="rate4"></span></div> 4 stars</a></li>
+                            <li><a href="#"><div class="rate rate-sm"><span class="rate3"></span></div> 3 stars</a></li>
+                            <li><a href="#"><div class="rate rate-sm"><span class="rate2"></span></div> 2 stars</a></li>
+                            <li><a href="#"><div class="rate rate-sm"><span class="rate1"></span></div> 1 star</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="items">
+                    <li class="item clearfix">
+                        <figure>
+                            <a href="#"><img src="images/temp/temp_hotel001_310x235.jpg" alt=""></a>
+                        </figure>
+                        <hgroup>
+                            <div class="item-header">
+                                <div class="item-header-title">
+                                    <div class="item-header-rates">
+                                        <div class="item-header-score">Excellent 8.6</div>
+                                        <div class="item-header-reviews">2,339 reviews</div>
+                                    </div>
+                                    Valarmathi Kongunaatu Samayal
+                                    <div class="rate"><span class="rate5"></span></div>
+                                </div>
+                                <div class="item-header-meta">Distance to Bejing station Museum is 45km(41mi) </div>
+                            </div>
+                            <div class="item-options">
+                                <div class="item-option item-option-heading">
+                                    <div class="item-option-roomtype">Room Type</div>
+                                    <div class="item-option-breakfast">Breakfast</div>
+                                    <div class="item-option-policy">Policy</div>
+                                    <div class="item-option-price">Price</div>
+                                    <div class="item-option-action"></div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Double Room x2</div>
+                                        <div class="roomtype-name">Double Room + Twin Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Superior Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-footer">
+                                <a href="#" class="seeall">SEE ALL ROOM OPTIONS</a>
+                            </div>
+                        </hgroup>
+                    </li>
+                    <li class="item clearfix">
+                        <figure>
+                            <a href="#"><img src="images/temp/temp_hotel002_310x235.jpg" alt=""></a>
+                        </figure>
+                        <hgroup>
+                            <div class="item-header">
+                                <div class="item-header-title">
+                                    <div class="item-header-rates">
+                                        <div class="item-header-score">Excellent 8.6</div>
+                                        <div class="item-header-reviews">2,339 reviews</div>
+                                    </div>
+                                    Valarmathi Kongunaatu Samayal
+                                    <div class="rate"><span class="rate5"></span></div>
+                                </div>
+                                <div class="item-header-meta">Distance to Bejing station Museum is 45km(41mi) </div>
+                            </div>
+                            <div class="item-options">
+                                <div class="item-option item-option-heading">
+                                    <div class="item-option-roomtype">Room Type</div>
+                                    <div class="item-option-breakfast">Breakfast</div>
+                                    <div class="item-option-policy">Policy</div>
+                                    <div class="item-option-price">Price</div>
+                                    <div class="item-option-action"></div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Double Room x2</div>
+                                        <div class="roomtype-name">Double Room + Twin Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Superior Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-footer">
+                                <a href="#" class="seeall">SEE ALL ROOM OPTIONS</a>
+                            </div>
+                        </hgroup>
+                    </li>
+                    <li class="item clearfix">
+                        <figure>
+                            <a href="#"><img src="images/temp/temp_hotel003_310x235.jpg" alt=""></a>
+                        </figure>
+                        <hgroup>
+                            <div class="item-header">
+                                <div class="item-header-title">
+                                    <div class="item-header-rates">
+                                        <div class="item-header-score">Excellent 8.6</div>
+                                        <div class="item-header-reviews">2,339 reviews</div>
+                                    </div>
+                                    Valarmathi Kongunaatu Samayal
+                                    <div class="rate"><span class="rate5"></span></div>
+                                </div>
+                                <div class="item-header-meta">Distance to Bejing station Museum is 45km(41mi) </div>
+                            </div>
+                            <div class="item-options">
+                                <div class="item-option item-option-heading">
+                                    <div class="item-option-roomtype">Room Type</div>
+                                    <div class="item-option-breakfast">Breakfast</div>
+                                    <div class="item-option-policy">Policy</div>
+                                    <div class="item-option-price">Price</div>
+                                    <div class="item-option-action"></div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Double Room x2</div>
+                                        <div class="roomtype-name">Double Room + Twin Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Superior Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-footer">
+                                <a href="#" class="seeall">SEE ALL ROOM OPTIONS</a>
+                            </div>
+                        </hgroup>
+                    </li>
+                    <li class="item clearfix">
+                        <figure>
+                            <a href="#"><img src="images/temp/temp_hotel004_310x235.jpg" alt=""></a>
+                        </figure>
+                        <hgroup>
+                            <div class="item-header">
+                                <div class="item-header-title">
+                                    <div class="item-header-rates">
+                                        <div class="item-header-score">Excellent 8.6</div>
+                                        <div class="item-header-reviews">2,339 reviews</div>
+                                    </div>
+                                    Valarmathi Kongunaatu Samayal
+                                    <div class="rate"><span class="rate5"></span></div>
+                                </div>
+                                <div class="item-header-meta">Distance to Bejing station Museum is 45km(41mi) </div>
+                            </div>
+                            <div class="item-options">
+                                <div class="item-option item-option-heading">
+                                    <div class="item-option-roomtype">Room Type</div>
+                                    <div class="item-option-breakfast">Breakfast</div>
+                                    <div class="item-option-policy">Policy</div>
+                                    <div class="item-option-price">Price</div>
+                                    <div class="item-option-action"></div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Double Room x2</div>
+                                        <div class="roomtype-name">Double Room + Twin Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Superior Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-footer">
+                                <a href="#" class="seeall">SEE ALL ROOM OPTIONS</a>
+                            </div>
+                        </hgroup>
+                    </li>
+                    <li class="item clearfix">
+                        <figure>
+                            <a href="#"><img src="images/temp/temp_hotel005_310x235.jpg" alt=""></a>
+                        </figure>
+                        <hgroup>
+                            <div class="item-header">
+                                <div class="item-header-title">
+                                    <div class="item-header-rates">
+                                        <div class="item-header-score">Excellent 8.6</div>
+                                        <div class="item-header-reviews">2,339 reviews</div>
+                                    </div>
+                                    Valarmathi Kongunaatu Samayal
+                                    <div class="rate"><span class="rate5"></span></div>
+                                </div>
+                                <div class="item-header-meta">Distance to Bejing station Museum is 45km(41mi) </div>
+                            </div>
+                            <div class="item-options">
+                                <div class="item-option item-option-heading">
+                                    <div class="item-option-roomtype">Room Type</div>
+                                    <div class="item-option-breakfast">Breakfast</div>
+                                    <div class="item-option-policy">Policy</div>
+                                    <div class="item-option-price">Price</div>
+                                    <div class="item-option-action"></div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Double Room x2</div>
+                                        <div class="roomtype-name">Double Room + Twin Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Superior Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-footer">
+                                <a href="#" class="seeall">SEE ALL ROOM OPTIONS</a>
+                            </div>
+                        </hgroup>
+                    </li>
+                    <li class="item clearfix">
+                        <figure>
+                            <a href="#"><img src="images/temp/temp_hotel006_310x235.jpg" alt=""></a>
+                        </figure>
+                        <hgroup>
+                            <div class="item-header">
+                                <div class="item-header-title">
+                                    <div class="item-header-rates">
+                                        <div class="item-header-score">Excellent 8.6</div>
+                                        <div class="item-header-reviews">2,339 reviews</div>
+                                    </div>
+                                    Valarmathi Kongunaatu Samayal
+                                    <div class="rate"><span class="rate5"></span></div>
+                                </div>
+                                <div class="item-header-meta">Distance to Bejing station Museum is 45km(41mi) </div>
+                            </div>
+                            <div class="item-options">
+                                <div class="item-option item-option-heading">
+                                    <div class="item-option-roomtype">Room Type</div>
+                                    <div class="item-option-breakfast">Breakfast</div>
+                                    <div class="item-option-policy">Policy</div>
+                                    <div class="item-option-price">Price</div>
+                                    <div class="item-option-action"></div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Double Room x2</div>
+                                        <div class="roomtype-name">Double Room + Twin Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Superior Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-footer">
+                                <a href="#" class="seeall">SEE ALL ROOM OPTIONS</a>
+                            </div>
+                        </hgroup>
+                    </li>
+                    <li class="item clearfix">
+                        <figure>
+                            <a href="#"><img src="images/temp/temp_hotel007_310x235.jpg" alt=""></a>
+                        </figure>
+                        <hgroup>
+                            <div class="item-header">
+                                <div class="item-header-title">
+                                    <div class="item-header-rates">
+                                        <div class="item-header-score">Excellent 8.6</div>
+                                        <div class="item-header-reviews">2,339 reviews</div>
+                                    </div>
+                                    Valarmathi Kongunaatu Samayal
+                                    <div class="rate"><span class="rate5"></span></div>
+                                </div>
+                                <div class="item-header-meta">Distance to Bejing station Museum is 45km(41mi) </div>
+                            </div>
+                            <div class="item-options">
+                                <div class="item-option item-option-heading">
+                                    <div class="item-option-roomtype">Room Type</div>
+                                    <div class="item-option-breakfast">Breakfast</div>
+                                    <div class="item-option-policy">Policy</div>
+                                    <div class="item-option-price">Price</div>
+                                    <div class="item-option-action"></div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Double Room x2</div>
+                                        <div class="roomtype-name">Double Room + Twin Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Superior Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-footer">
+                                <a href="#" class="seeall">SEE ALL ROOM OPTIONS</a>
+                            </div>
+                        </hgroup>
+                    </li>
+                    <li class="item clearfix">
+                        <figure>
+                            <a href="#"><img src="images/temp/temp_hotel001_310x235.jpg" alt=""></a>
+                        </figure>
+                        <hgroup>
+                            <div class="item-header">
+                                <div class="item-header-title">
+                                    <div class="item-header-rates">
+                                        <div class="item-header-score">Excellent 8.6</div>
+                                        <div class="item-header-reviews">2,339 reviews</div>
+                                    </div>
+                                    Valarmathi Kongunaatu Samayal
+                                    <div class="rate"><span class="rate5"></span></div>
+                                </div>
+                                <div class="item-header-meta">Distance to Bejing station Museum is 45km(41mi) </div>
+                            </div>
+                            <div class="item-options">
+                                <div class="item-option item-option-heading">
+                                    <div class="item-option-roomtype">Room Type</div>
+                                    <div class="item-option-breakfast">Breakfast</div>
+                                    <div class="item-option-policy">Policy</div>
+                                    <div class="item-option-price">Price</div>
+                                    <div class="item-option-action"></div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Double Room x2</div>
+                                        <div class="roomtype-name">Double Room + Twin Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                                <div class="item-option">
+                                    <div class="item-option-roomtype">
+                                        <div class="roomtype-name">Superior Room</div>
+                                    </div>
+                                    <div class="item-option-breakfast">Available</div>
+                                    <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                    <div class="item-option-price">
+                                        <div class="price-discount">
+                                            <div class="price-discount-percentage">46%</div>
+                                            <div class="price-discount-amount">$25,962</div>
+                                        </div>
+                                        <div class="price-amount">
+                                            <div class="price-amount-value">$567.75 <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                            <div class="price-amount-notes">Rooms per night</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-option-action">
+                                        <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-footer">
+                                <a href="#" class="seeall">SEE ALL ROOM OPTIONS</a>
+                            </div>
+                        </hgroup>
+                    </li>
+                </ul>
+
+                <hr class="break break10">
+
+                <div class="pagination-wrapper">
+                    <ul class="pagination">
+                        <li><a href="#" aria-label="Previous"><span aria-hidden="true">Prevous</span></a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li class="active"><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">7</a></li>
+                        <li><a href="#">8</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">112</a></li>
+                        <li><a href="#" aria-label="Next"><span aria-hidden="true">Next</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
