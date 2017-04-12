@@ -5,6 +5,7 @@ package com.nehow.models;
  */
 public class Country extends BaseModel {
 
+    private String countryId;
     private String countryIsoCode;
     private String countryName;
 
@@ -22,5 +23,13 @@ public class Country extends BaseModel {
 
     public void setCountryName(String countryName) {
         this.countryName = countryName;
+    }
+
+    public String getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(String countryId) {
+        this.countryId = countryId;
     }
 }

@@ -1,4 +1,4 @@
-package com.nehow.ws;
+package com.nehow.services;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

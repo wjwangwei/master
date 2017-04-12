@@ -1,11 +1,12 @@
-package com.nehow.ws;
+package com.nehow.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nehow.models.*;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;

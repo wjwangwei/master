@@ -1,6 +1,6 @@
 package com.nehow.models;
 
-import com.highjump.common.CommonUtils;
+import com.nehow.services.CommonUtils;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,0 +1,79 @@
+{
+  "request": {
+    "countryId": "AE",
+    "cityId": 34489,
+    "checkIn": "2017-04-13",
+    "checkOut": "2017-04-21",
+    "rooms": [
+      {
+        "roomIndex": 1,
+        "rooms": "1",
+        "adults": "2",
+        "children": "0"
+      }
+    ],
+    "nationality": "NG",
+    "currency": "USD",
+    "queryId": "14919976469106536",
+    "supplierId": "expedia,gta,veturis"
+  },
+  "exchangeRates": [
+    {
+      "id": 1448,
+      "currency0": "HKD",
+      "currency1": "CNY",
+      "rate": 0.8915
+    },
+    {
+      "id": 1451,
+      "currency0": "USD",
+      "currency1": "CNY",
+      "rate": 6.9261
+    },
+    {
+      "id": 1452,
+      "currency0": "GBP",
+      "currency1": "CNY",
+      "rate": 8.4341
+    },
+    {
+      "id": 1458,
+      "currency0": "EUR",
+      "currency1": "CNY",
+      "rate": 7.3456
+    }
+  ],
+  "markups": {
+    "dotw": 3,
+    "ivector": 1.5,
+    "sujaba": 2,
+    "miki": 2,
+    "ptclub": 2,
+    "hotelspro": 2,
+    "jac": 1.5,
+    "jltour": 2,
+    "travellanda": 2,
+    "qunar": 2,
+    "gta": 1,
+    "restel": 2,
+    "travco": 2,
+    "alaba": 2,
+    "forever": 2,
+    "hotelbeds": 2,
+    "veturis": 5,
+    "tourico": 2
+  },
+  "starRating": {
+    "low": 0,
+    "high": 100
+  },
+  "score": 0,
+  "sort": {
+    "field": "rate",
+    "mode": "ascend"
+  },
+  "limit": {
+    "start": 0,
+    "length": 20
+  }
+}

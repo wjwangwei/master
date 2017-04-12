@@ -71,24 +71,26 @@
     var destinationAutoSuggDOM = $('input[name=cityTitle]');
     destinationAutoSuggDOM.on('keyup keyenter paste', function () {
         var $this = $(this);
-        $this.autocomplete({
-            serviceUrl: '/api/suggest/destination',
-            paramName: 'search',
-            type: 'GET',
-            minChar: 3,
-            preventBadQueries: true,
-            noSuggestionNotice: "<strong>Sorry, not result found for" + $this.val() + "</strong>",
-            transformResult: function (response) {
-                return {
-                    suggestions: $.map(JSON.parse(response), function (dataItem) {
-                        return {value: dataItem.cityName + ", " + dataItem.countryName, data: dataItem.id};
-                    })
-                };
-            },
-            onSelect: function (suggestion) {
-                $('input[name=cityId]').attr('value', suggestion.data);
-            }
-        });
+        setTimeout(function () {
+            $this.autocomplete({
+                serviceUrl: '/api/suggest/destination',
+                paramName: 'search',
+                type: 'GET',
+                minChar: 3,
+                // preventBadQueries: true,
+                noSuggestionNotice: "<strong>Sorry, not result found for" + $this.val() + "</strong>",
+                transformResult: function (response) {
+                    return {
+                        suggestions: $.map(JSON.parse(response), function (dataItem) {
+                            return {value: dataItem.cityName + ", " + dataItem.countryName, data: dataItem.id};
+                        })
+                    };
+                },
+                onSelect: function (suggestion) {
+                    $('input[name=cityId]').attr('value', suggestion.data);
+                }
+            });
+        }, 500);
         $this.focus();
     });
     /*
