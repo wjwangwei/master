@@ -1,0 +1,90 @@
+<!-- Sidebar -->
+<div id="side" class="side-sm">
+    <div class="widget widget_filters">
+        <div class="widget_filters-heading">Filter by search result</div>
+        <div class="widget-filter widget-filter-search">
+            <div class="widget-filter-title">Hotel Name</div>
+            <hgroup>
+                <button type="submit"></button>
+                <input type="text" class="form-control" name="filtername" placeholder="Search by hotel name">
+            </hgroup>
+        </div>
+        <div class="widget-filter widget-filter-rating">
+            <div class="widget-filter-title toggle-filter">Star Rating</div>
+            <hgroup>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="rating" class="checkbox-filter">
+                        <div class="rate rate-sm"><span class="rate5"></span></div> 5 stars (28)
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="rating" class="checkbox-filter">
+                        <div class="rate rate-sm"><span class="rate4"></span></div> 4 stars (84)
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="rating" class="checkbox-filter">
+                        <div class="rate rate-sm"><span class="rate3"></span></div> 3 stars (117)
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="rating" class="checkbox-filter">
+                        <div class="rate rate-sm"><span class="rate2"></span></div> 2 stars (152)
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="rating" class="checkbox-filter">
+                        <div class="rate rate-sm"><span class="rate1"></span></div> 1 star (6)
+                    </label>
+                </div>
+            </hgroup>
+        </div>
+##        <div class="widget-filter widget-filter-price-range">
+##            <div class="widget-filter-title">What's your budget?</div>
+##            <hgroup>
+##                <div id="filter_pricerange"></div>
+##            </hgroup>
+##        </div>
+##        <div class="widget-filter widget-filter-listing">
+##            <div class="widget-filter-title toggle-filter">Popular</div>
+##            <hgroup>
+##                <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">210</span>Hotels</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">112</span>Breakfast included</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">365</span>Free cancellation</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">895</span>Free WiFi</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">457</span>Value Deal</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">210</span>Hostel/Backpacker accommodation</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">112</span>Apart-hotel</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">365</span>Apartment</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="popular" class="checkbox-filter"><span class="checkbox-counter">895</span>Hotel resort</label></div>
+##                <a href="#" class="more">Show more (24)</a>
+##            </hgroup>
+##        </div>
+##        <div class="widget-filter widget-filter-listing">
+##            <div class="widget-filter-title toggle-filter">Search Nearby</div>
+##            <hgroup>
+##                <div class="checkbox"><label><input type="checkbox" name="search_nearby" class="checkbox-filter"><span class="checkbox-counter">210</span>National Orchid Garden</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="search_nearby" class="checkbox-filter"><span class="checkbox-counter">112</span>Chinatown Heritage Center</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="search_nearby" class="checkbox-filter"><span class="checkbox-counter">365</span>Universal Studio Singapore&right;</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="search_nearby" class="checkbox-filter"><span class="checkbox-counter">895</span>Singapore Flyer</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="search_nearby" class="checkbox-filter"><span class="checkbox-counter">457</span>Singapore Botanic Gardens</label></div>
+##                <a href="#" class="more">Show more (24)</a>
+##            </hgroup>
+##        </div>
+##        <div class="widget-filter widget-filter-listing">
+##            <div class="widget-filter-title toggle-filter">Review Score</div>
+##            <hgroup>
+##                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">210</span>Wonderful: 9+</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">112</span>Very good: 8+</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">365</span>Good: 7+</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">895</span>Pleasant: 6+</label></div>
+##                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">457</span>No rating</label></div>
+##            </hgroup>
+##        </div>
+    </div>
+</div>

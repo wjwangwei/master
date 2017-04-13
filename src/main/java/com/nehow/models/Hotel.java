@@ -1,14 +1,17 @@
 package com.nehow.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.nehow.services.CommonUtils;
 import org.springframework.stereotype.Component;
 
 @Component
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Hotel extends BaseModel {
     private String hotelId;
     private String hotelName;
     private String hotelCnName;
     private String bookingUrl;
+    private String scoreDescription;
 
     private int starRating;
     private double latitude;
@@ -308,5 +311,13 @@ public class Hotel extends BaseModel {
      */
     public String getPictureUrl() {
         return CommonUtils.getPicBaseUrl() + pictureId;
+    }
+
+    public String getScoreDescription() {
+        return scoreDescription;
+    }
+
+    public void setScoreDescription(String scoreDescription) {
+        this.scoreDescription = scoreDescription;
     }
 }

@@ -4,7 +4,34 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.nehow" annotation-config="true" />
+    <context:component-scan base-package="com.nehow" annotation-config="true"/>
 
-    <import resource="view-resolver.xml" />
+    <import resource="view-resolver.xml"/>
+
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
+        <property name="arguments" ref="securityManager"/>
+    </bean>
+
+    <!--<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">-->
+        <!--<property name="securityManager" ref="securityManager"/>-->
+        <!--<property name="loginUrl" value="/"/>-->
+        <!--<property name="successUrl" value="/home"/>-->
+
+        <!--<property name="filterChainDefinitions">-->
+            <!--<value>-->
+                <!--# /admin/** = authc, roles[admin]-->
+                <!--/** = authc-->
+            <!--</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm"/>
+    </bean>
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <bean id="myRealm" class="com.nehow.MyRealm"/>
+
 </beans>

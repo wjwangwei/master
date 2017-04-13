@@ -36,6 +36,7 @@ textarea.form-control{height:auto;}
 .has-icon > [class^=icon-]{position:absolute;left:10px;top:9px;width:25px;height:25px;background:url(../images/sprites.png) no-repeat;}
 .has-icon > .icon-calendar{background-position:0 -68px;}
 .has-icon > .icon-pushpin{background-position:-25px -68px;}
+.has-icon > .icon-flag{background-position:-25px -68px;}
 .has-icon.dropdown-open::before{content:"";position:absolute;z-index:1050;left:50%;bottom:-15px;margin-left:-12px;width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:11px solid #c4c4c4;}
 .has-icon.dropdown-open::after{content:"";position:absolute;z-index:1051;left:50%;bottom:-16px;margin-left:-11px;width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-bottom:10px solid #fff;}
 .calendardaten{position:absolute;left:0;top:57px;}
@@ -185,7 +186,8 @@ textarea.form-control{height:auto;}
 /* Layout
 ================================================== */
 @media (min-width:1200px){
-	.container{width:1310px;} /* should be 1280px when this done */
+    /*.container{width:1310px;}  should be 1280px when this done */
+	.container{width:100%;} /* should be 1280px when this done */
 }
 .row.gutter0{margin-right:0;margin-left:0;}
 .gutter0 > .col-xs-1,.gutter0 > .col-sm-1,.gutter0 > .col-md-1,.gutter0 > .col-lg-1,
@@ -624,7 +626,7 @@ textarea.form-control{height:auto;}
 .item-header-title{margin:-5px 0 0;color:#55228c;font-family:"Arial",sans-serif;font-size:18px;font-weight:bold;letter-spacing:-1px;}
 .item-header-title .rate{margin-left:5px;}
 .item-header-rates{float:right;margin-top:2px;text-align:right;line-height:1.2;}
-.item-header-rates .item-header-score{color:#000;font-size:22px;font-weight:800;letter-spacing:-1px;}
+.item-header-rates .item-header-score{color:#000;font-size:22px;font-weight:800;letter-spacing:-1px;text-transform: capitalize;}
 .item-header-rates .item-header-reviews{color:#555;font-family:"Arial",sans-serif;font-size:12px;font-weight:400;letter-spacing:0;}
 .item-header-meta{color:#aaa;font-family:"Arial",sans-serif;font-size:12px;font-weight:400;}
 

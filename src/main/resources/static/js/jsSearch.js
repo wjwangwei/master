@@ -14,13 +14,13 @@
 
 
     var typingTimer, doneTypingInterval = 500, nationalitySearchDOM = $("#nationalitySearch");
-    nationalitySearchDOM.on('keyup keyenter paste', function () {
-        typingTimer = setTimeout(searchNationality, doneTypingInterval);
-    });
+    // nationalitySearchDOM.on('keyup keyenter paste', function () {
+    //     typingTimer = setTimeout(searchNationality, doneTypingInterval);
+    // });
 
-    nationalitySearchDOM.on('keydown', function () {
-        clearTimeout(typingTimer);
-    });
+    // nationalitySearchDOM.on('keydown', function () {
+    //     clearTimeout(typingTimer);
+    // });
 
     function searchNationality() {
         var $this = nationalitySearchDOM;
@@ -69,33 +69,60 @@
      * JQuery AutoComplete for Destination Search
      */
     var destinationAutoSuggDOM = $('input[name=cityTitle]');
+    var destinationAutoSuggDOM = $('input[name=cityTitle]');
     destinationAutoSuggDOM.on('keyup keyenter paste', function () {
         var $this = $(this);
         // setTimeout(function () {
-            $this.autocomplete({
-                serviceUrl: '/api/suggest/destination',
-                paramName: 'search',
-                type: 'GET',
-                minChar: 3,
-                preventBadQueries: true,
-                noSuggestionNotice: "<strong>Sorry, not result found for" + $this.val() + "</strong>",
-                transformResult: function (response) {
-                    return {
-                        suggestions: $.map(JSON.parse(response), function (dataItem) {
-                            return {value: dataItem.cityName + ", " + dataItem.countryName, data: dataItem.id};
-                        })
-                    };
-                },
-                onSelect: function (suggestion) {
-                    $('input[name=cityId]').attr('value', suggestion.data);
-                }
-            });
+        $this.autocomplete({
+            serviceUrl: '/api/suggest/destination',
+            paramName: 'search',
+            type: 'GET',
+            minChar: 3,
+            preventBadQueries: true,
+            noSuggestionNotice: "<strong>Sorry, not result found for" + $this.val() + "</strong>",
+            transformResult: function (response) {
+                return {
+                    suggestions: $.map(JSON.parse(response), function (dataItem) {
+                        return {value: dataItem.cityName + ", " + dataItem.countryName, data: dataItem.id};
+                    })
+                };
+            },
+            onSelect: function (suggestion) {
+                $('input[name=cityId]').attr('value', suggestion.data);
+            }
+        });
         // }, 500);
         $this.focus();
     });
+
+    nationalitySearchDOM.on('keyup keyenter paste', function () {
+        var $this = $(this);
+        $this.autocomplete({
+            serviceUrl: '/api/suggest/nationality',
+            paramName: 'search',
+            type: 'GET',
+            minChar: 3,
+            preventBadQueries: true,
+            noSuggestionNotice: "<strong>Sorry, not result found for" + $this.val() + "</strong>",
+            transformResult: function (response) {
+                return {
+                    suggestions: $.map(JSON.parse(response), function (dataItem) {
+                        return {value: dataItem.countryId + ", " + dataItem.countryName, data: dataItem.id};
+                    })
+                };
+            },
+            onSelect: function (suggestion) {
+                $('input[name=nationalityId]').attr('value', suggestion.data);
+            }
+        });
+        $this.focus();
+    });
+
+
     /*
      * End of AutoComplete for Destination Search
      */
+
 
     $('#controlQty button').on('click', function () {
         var _this = $('#controlQty'), _butt = $(this), qty = _this.find('input').attr('value');
@@ -211,11 +238,36 @@
         }
     });
 
+    var msg = "";
+
+    function searchEngineValidation($this) {
+        var isValid = false;
+        var cityId = $this.find('input[name=cityId]').val();
+        var nationalityId = $this.find('input[name=nationalityId]').val();
+        var checkIn = $this.find('input[name=checkIn]').val();
+        var checkOut = $this.find('input[name=checkOut]').val();
+        if (cityId === 'undefined' || cityId === '') {
+            msg = "Please search and select a destination city";
+            isValid = false;
+        } else if (nationalityId === 'undefined' || nationalityId === '') {
+            msg = "Residual nationality country is required.";
+            isValid = false;
+        } else if (checkIn === 'undefined' || checkIn === '') {
+            msg = "Check-in date is required";
+            isValid = false;
+        } else if (checkOut === 'undefined' || checkOut === '') {
+            msg = "Check-out date is required";
+            isValid = false;
+        } else {
+            isValid = true;
+            msg = "";
+        }
+        return isValid;
+    };
+
     $("form[name=hotelSearch]").on('submit', function (e) {
         //perform validation to ensure the user selected the right fields.
-        //TODO validation
-        var isValid = true;
-        if (isValid) {
+        if (searchEngineValidation($(this))) {
             var serializeData = $(this).serialize();
             var btn = $(this).find('button[type=submit]');
             btn.html('<i class="fa fa-spinner fa-spin"></i> Loading, please wait.');
@@ -232,12 +284,13 @@
             //         btn.html("FIND HOTELS")
             //     }
             // })
+            return true;
         } else {
-            e.preventDefault();
             $.growl.error({
                 title: "Field Required",
-                message: "Invalid input, please check input fields"
+                message: msg
             });
+            return false;
         }
     });
 

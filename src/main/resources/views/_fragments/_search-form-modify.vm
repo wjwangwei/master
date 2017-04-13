@@ -1,3 +1,4 @@
+#set($Integer = 0)
 <section class="page-heading">
     <div class="container">
         <div class="form-search">
@@ -8,7 +9,8 @@
                             <label>City for Destinations</label>
                             <div class="has-icon">
                                 <span class="icon-pushpin"></span>
-                                <input type="text" class="form-control" name="" placeholder="City or Destinations">
+                                <input type="text" class="form-control" name="cityTitle" value="${requestParam.getParameter("cityTitle")}" placeholder="City or Destinations">
+                                <input type="hidden" name="cityId" value="$requestParam.getParameter("cityId")">
                             </div>
                         </div>
                     </div>
@@ -16,15 +18,11 @@
                         <div class="form-group">
                             <label>Nationality</label>
                             <div class="dropdown dropdown-lang has-selector">
-                                <span class="lang-en lang-active"></span>
-                                <input type="text" class="form-control dropdown-toggle" name="" placeholder="United Kingdom" data-toggle="dropdown">
-                                <div class="dropdown-menu">
-                                    <ul>
-                                        <li class="lang-en active">English</li>
-                                        <li class="lang-gr">Germany</li>
-                                        <li class="lang-fr">French</li>
-                                        <li class="lang-sp">Spanich</li>
-                                    </ul>
+                                <span class=" lang-active"></span><!--lang-en -->
+                                <input type="text" class="form-control dropdown-toggle" id="nationalitySearch" value="${requestParam.getParameter("nationality")}" name="nationality" placeholder="Nationality" data-toggle="dropdown">
+                                <input type="hidden" name="nationalityId" value="${request.get("nationalityId")}">
+                                <div class="dropdown-menu hide" id="nationality-dropdown">
+                                    <ul id="ul-nationality"></ul>
                                 </div>
                             </div>
                         </div>
@@ -36,8 +34,7 @@
                                     <label>Checkin</label>
                                     <div class="has-icon">
                                         <span class="icon-calendar"></span>
-                                        <input type="text" class="form-control" id="dateCheckin" name="" placeholder="Checkin">
-                                        <div class="calendardaten"></div>
+                                        <input type="text" class="form-control" id="dateCheckin" name="checkIn" placeholder="Check-In" value="${requestParam.getParameter("checkIn")}" />                                        <div class="calendardaten"></div>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +43,7 @@
                                     <label>Checkout</label>
                                     <div class="has-icon">
                                         <span class="icon-calendar"></span>
-                                        <input type="text" class="form-control" id="dateCheckout" name="" placeholder="Checkout">
+                                        <input type="text" class="form-control" id="dateCheckout" name="checkOut" placeholder="Check-Out" value="${requestParam.getParameter("checkOut")}">
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +52,7 @@
                                     <label>Room, Adults (18+), Children (0-17)</label>
                                     <div class="dropdown dropdown-room has-selector">
                                         <span class="lang-en lang-active"></span>
-                                        <a href="#" class="form-control dropdown-toggle">2 Rooms, 2 Adults, 2 Children</a>
+                                        <a href="#" class="form-control dropdown-toggle"><span class="roomCount">${roomcount}</span> Rooms, <span class="adultCounts">${adultcount}</span> Adults, <span class="childCount">${childcount}</span> Children</a>
                                         <div class="dropdown-menu">
                                             <div class="form-group-qty clearfix">
                                                 <label>Room</label>
@@ -63,169 +60,62 @@
                                                     <div class="input-group-btn">
                                                         <button type="button" class="btn btn-min"></button>
                                                     </div>
-                                                    <input type="text" class="form-control" value="2">
+                                                    <input type="text" class="form-control" name="noOfRooms" value="${requestParam.getParameter("noOfRooms")}" readonly />
                                                     <div class="input-group-btn">
                                                         <button type="button" class="btn btn-plus"></button>
                                                     </div>
                                                 </div>
                                             </div>
                                             <ul class="form-group-room">
-                                                <li>
-                                                    <div class="form-group-room-title">ROOM 1</div>
-                                                    <div class="form-group">
-                                                        <label>Room Type</label>
-                                                        <select class="selector" style="width:100%;">
-                                                            <option value="">Single</option>
-                                                            <option value="">Double</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="row gutter5">
-                                                        <div class="col-sm-4">
-                                                            <div class="form-group">
-                                                                <label>Adults (+18)</label>
-                                                                <select class="selector" style="width:100%;">
-                                                                    <option value="">1</option>
-                                                                    <option value="" selected>2</option>
-                                                                    <option value="">3</option>
-                                                                    <option value="">...</option>
-                                                                </select>
+                                                #foreach(${roomIndex} in [1..$roomcount])
+                                                    <li id="roomDIV${roomIndex}">
+                                                        <div class="form-group-room-title">ROOM ${roomIndex}</div>
+                                                        <div class="row gutter5">
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    #set($noOfAdult = ${requestParam.getParameter("room${roomIndex}NoOfAdult")})
+                                                                    <label>Adults (+18)</label>
+                                                                    <select class="selector" name="room${roomIndex}NoOfAdult}" style="width:100%;">
+                                                                        <option #if($noOfAdult == 1) selected #end value="1">1</option>
+                                                                        <option #if($noOfAdult == 2) selected #end value="2">2</option>
+                                                                        <option #if($noOfAdult == 3) selected #end value="3">3</option>
+                                                                        <option #if($noOfAdult == 4) selected #end value="4">4</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    #set($noOfChild = ${requestParam.getParameter("room${roomIndex}NoOfChild")})
+                                                                    <label>Children (0-17)</label>
+                                                                    <select class="selector" name="room${roomIndex}NoOfChild}" style="width:100%;">
+                                                                        <option #if($noOfChild == 0) selected #end value="0">0</option>
+                                                                        <option #if($noOfChild == 1) selected #end value="1">1</option>
+                                                                        <option #if($noOfChild == 2) selected #end value="2">2</option>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-4">
-                                                            <div class="form-group">
-                                                                <label>Children (0-17)</label>
-                                                                <select class="selector" style="width:100%;">
-                                                                    <option value="" selected>1</option>
-                                                                    <option value="">2</option>
-                                                                    <option value="">3</option>
-                                                                    <option value="">...</option>
-                                                                </select>
-                                                            </div>
+                                                        <div class="row gutter5 chdAgeDIV${roomIndex}">
+                                                            #set($a = "room${roomIndex}NoOfChild")
+                                                            #set($roomNoOfChild = ${requestParam.getParameter($a)})
+                                                            #if($roomNoOfChild != "0" && $roomNoOfChild != "")
+                                                                #foreach(${childAgeIndex} in [1..$Integer.parseInt($roomNoOfChild)])
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group">
+                                                                            <label>Child $childAgeIndex Age</label>
+                                                                            <select class="selector" name="room${roomIndex}child${childAgeIndex}age" style="width:100%;">
+                                                                                #foreach(${age} in [0..17])
+                                                                                    <option #if($age.toString().equals($requestParam.getParameter("room${roomIndex}child${childAgeIndex}age"))) selected #end value="$age">$age</option>
+##                                                                                    room${roomIndex}child${childAgeIndex}age
+                                                                                #end
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                #end
+                                                            #end
                                                         </div>
-                                                    </div>
-                                                    <div class="row gutter5">
-                                                        <div class="col-sm-4">
-                                                            <div class="form-group">
-                                                                <label>Child 1 Age</label>
-                                                                <select class="selector" style="width:100%;">
-                                                                    <option value="">1</option>
-                                                                    <option value="">2</option>
-                                                                    <option value="">3</option>
-                                                                    <option value="">4</option>
-                                                                    <option value="">5</option>
-                                                                    <option value="" selected>6</option>
-                                                                    <option value="">...</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <div class="form-group">
-                                                                <label>Child 1 Age</label>
-                                                                <select class="selector" style="width:100%;">
-                                                                    <option value="">1</option>
-                                                                    <option value="">2</option>
-                                                                    <option value="">3</option>
-                                                                    <option value="">4</option>
-                                                                    <option value="">5</option>
-                                                                    <option value="" selected>6</option>
-                                                                    <option value="">...</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <div class="form-group">
-                                                                <label>Child 1 Age</label>
-                                                                <select class="selector" style="width:100%;">
-                                                                    <option value="">1</option>
-                                                                    <option value="">2</option>
-                                                                    <option value="">3</option>
-                                                                    <option value="">4</option>
-                                                                    <option value="">5</option>
-                                                                    <option value="" selected>6</option>
-                                                                    <option value="">...</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="form-group-room-title">ROOM 2</div>
-                                                    <div class="form-group">
-                                                        <label>Room Type</label>
-                                                        <select class="selector" style="width:100%;">
-                                                            <option value="">Single</option>
-                                                            <option value="">Double</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="row gutter5">
-                                                        <div class="col-sm-4">
-                                                            <div class="form-group">
-                                                                <label>Adults (+18)</label>
-                                                                <select class="selector" style="width:100%;">
-                                                                    <option value="">1</option>
-                                                                    <option value="" selected>2</option>
-                                                                    <option value="">3</option>
-                                                                    <option value="">...</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <div class="form-group">
-                                                                <label>Children (0-17)</label>
-                                                                <select class="selector" style="width:100%;">
-                                                                    <option value="" selected>1</option>
-                                                                    <option value="">2</option>
-                                                                    <option value="">3</option>
-                                                                    <option value="">...</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row gutter5">
-                                                        <div class="col-sm-4">
-                                                            <div class="form-group">
-                                                                <label>Child 1 Age</label>
-                                                                <select class="selector" style="width:100%;">
-                                                                    <option value="">1</option>
-                                                                    <option value="">2</option>
-                                                                    <option value="">3</option>
-                                                                    <option value="">4</option>
-                                                                    <option value="">5</option>
-                                                                    <option value="" selected>6</option>
-                                                                    <option value="">...</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <div class="form-group">
-                                                                <label>Child 1 Age</label>
-                                                                <select class="selector" style="width:100%;">
-                                                                    <option value="">1</option>
-                                                                    <option value="">2</option>
-                                                                    <option value="">3</option>
-                                                                    <option value="">4</option>
-                                                                    <option value="">5</option>
-                                                                    <option value="" selected>6</option>
-                                                                    <option value="">...</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-4">
-                                                            <div class="form-group">
-                                                                <label>Child 1 Age</label>
-                                                                <select class="selector" style="width:100%;">
-                                                                    <option value="">1</option>
-                                                                    <option value="">2</option>
-                                                                    <option value="">3</option>
-                                                                    <option value="">4</option>
-                                                                    <option value="">5</option>
-                                                                    <option value="" selected>6</option>
-                                                                    <option value="">...</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
+                                                #end
                                             </ul>
                                         </div>
                                     </div>

@@ -11,7 +11,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public String index() {
-        return "index2";
+        return "index";
     }
 
 

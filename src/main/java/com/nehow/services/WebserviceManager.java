@@ -81,14 +81,16 @@ public class WebserviceManager {
 
         // determine url
         String strUrl = "/hotel/availability/city";
-        if (isHotel) {
-            strUrl = "/hotel/availability/hotel";
-        }
+//        if (isHotel) {
+//            strUrl = "/hotel/availability/hotel";
+//        }
 
         // call available web service
+        System.out.println(svcProperty.getRootUrl() + strUrl);
         ResponseEntity<JSONObject> response = restTemplate.exchange(svcProperty.getRootUrl() + strUrl, HttpMethod.POST, entity, JSONObject.class);
+        System.out.println("RESPONSE: " + response.getBody().toString());
         JSONObject jsonResponse = response.getBody();
-        JSONArray jsonArray = jsonResponse.getJSONArray("hotelAvailabilities");;
+        JSONArray jsonArray = jsonResponse.getJSONArray("hotelAvailabilities");
 
         //
         // transfer json to object
@@ -105,4 +107,6 @@ public class WebserviceManager {
 
         return hotelAvailabilities;
     }
+
+
 }

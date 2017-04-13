@@ -1,5 +1,8 @@
 package com.nehow.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class HotelAvailability {
     private Hotel hotel;
     private double lowestRate;

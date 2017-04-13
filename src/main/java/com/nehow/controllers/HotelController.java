@@ -1,8 +1,10 @@
 package com.nehow.controllers;
 
 import com.nehow.models.*;
+import com.nehow.services.CommonUtils;
 import com.nehow.services.WebserviceManager;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONNull;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,10 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Map;
+import java.util.*;
 import java.lang.System;
 
 /**
@@ -78,13 +84,24 @@ public class HotelController extends BaseController {
 
         if (destination != null) {
             jsonRequest.put("countryId", destination.getCountryId());
-            jsonRequest.put("cityId", destination.getCityId());
+            jsonRequest.put("cityId", Objects.toString(destination.getCityId()));
 
             // if hotel, add hotel parameter
             if (destination.isHotel()) {
                 jsonRequest.put("hotelId", destination.getHotelId());
             }
+        } else {
+            jsonRequest.put("cityId", request.getParameter("cityId"));
+            //TODO //change the countryId hard-coded into the request
+            jsonRequest.put("countryId", "TH");
         }
+
+        //TEST
+        jsonRequest.put("cityId", "48201");
+        jsonRequest.put("countryId", "TH");
+        jsonRequest.put("nationality", "CN");
+
+
         // date convert
         try {
             SimpleDateFormat sdfFrom = new SimpleDateFormat("MM/dd/yyyy");
@@ -102,25 +119,44 @@ public class HotelController extends BaseController {
         JSONArray jsonRooms = new JSONArray();
         for (int roomIndex = 1; roomIndex <= noOfRooms; roomIndex++) {
             JSONObject jsonRoom = new JSONObject();
-            jsonRoom.put("roomIndex", roomIndex);
-            jsonRoom.put("rooms", "1");
-            jsonRoom.put("adults", request.getParameter("room" + roomIndex + "NoOfAdult"));
-            jsonRoom.put("children", request.getParameter("room" + roomIndex + "NoOfChild"));
-            jsonRoom.put("ages", null);
+            jsonRoom.put("roomIndex", Objects.toString(roomIndex));
+            int roomPerSearch = 1;
+            jsonRoom.put("rooms", roomPerSearch);
+            jsonRoom.put("adults", Integer.parseInt(request.getParameter("room" + roomIndex + "NoOfAdult")));
+            int childrenCount = Integer.parseInt(request.getParameter("room" + roomIndex + "NoOfChild"));
+            jsonRoom.put("children", childrenCount);
+            List<Integer> ages = null;
+            if (childrenCount > 0) {
+                ages = new ArrayList<>();
+                for (int childIndex = 1; childIndex <= childrenCount; childIndex++) {
+                    ages.add(Integer.parseInt(request.getParameter("room" + roomIndex + "child" + childIndex + "age")));
+                }
+            }
+            jsonRoom.put("roomType", "");
+            jsonRoom.put("roomRateCode", JSONNull.getInstance());
+            jsonRoom.put("ages", ages == null ? JSONNull.getInstance() : ages);
             jsonRooms.add(jsonRoom);
         }
         jsonRequest.put("rooms", jsonRooms);
         if (nationality != null) {
             jsonRequest.put("nationality", nationality.getCountryId());
+        } else {
+            jsonRequest.put("nationality", request.getParameter("nationality").split(",")[0]);
         }
+
         jsonRequest.put("currency", "USD");
 
-        // query id
-        int nRnd = (int) (Math.random() * 10000);
-        String strQueryId = String.valueOf(System.currentTimeMillis()) + String.valueOf(nRnd);
-        jsonRequest.put("queryId", strQueryId);
-
-        jsonRequest.put("supplierId", "expedia,gta,veturis");
+        String strQueryId = "";
+        try {
+            System.currentTimeMillis();
+            strQueryId = "jamiu" + "197.149.93.214" + System.currentTimeMillis() + Math.random();
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            md5.update(StandardCharsets.UTF_8.encode(strQueryId));
+            strQueryId = String.format("%032x", new BigInteger(1, md5.digest()));
+        } catch (Exception ignored) {
+        }
+        jsonRequest.put("queryId", "71701fb329892e076175ba56c0060d70"); //strQueryId
+        jsonRequest.put("supplierId", "restel,ivector");
         jsonParam.put("request", jsonRequest);
 
 
@@ -188,18 +224,24 @@ public class HotelController extends BaseController {
         model.put("checkout", checkOut);
         model.put("roomcount", noOfRooms);
 
-//        model.put("adultcnt", adultCount);
-//        model.put("childcnt", childCount);
-//        model.put("childage", childAge);
+        model.put("adultcount", 1);
+        model.put("childcount", 1);
+        model.put("childage", null);
+
+        model.put("requestParam", request);
+        model.put("request", jsonParam);
+
+
+        System.out.println(jsonParam.toString());
 
         HotelAvailability[] hotelAvailabilities = apiManager.getCityAvailability(jsonParam, (destination != null && destination.isHotel()));
 
-        System.out.println(jsonParam.toString());
         System.out.println("Hotel Size: " + hotelAvailabilities.length);
         // hotel data
+        model.put("pictureUrl", CommonUtils.getPicBaseUrl());
         model.put("hotelAvailabilities", hotelAvailabilities);
 
-        return "hotel/search";
+        return "hotel/search-results";
     }
 
 }

@@ -22,7 +22,7 @@ public class Room extends BaseModel {
     private Meal meal;
     private Policies policies;
 
-    private String priceBreakdowns;
+    private PriceBreakDown[] priceBreakdowns;
     private String messages;
     private String cancellationPolicyCode;
     private String allotment;
@@ -166,11 +166,11 @@ public class Room extends BaseModel {
         this.policies = policies;
     }
 
-    public String getPriceBreakdowns() {
+    public PriceBreakDown[] getPriceBreakdowns() {
         return priceBreakdowns;
     }
 
-    public void setPriceBreakdowns(String priceBreakdowns) {
+    public void setPriceBreakdowns(PriceBreakDown[] priceBreakdowns) {
         this.priceBreakdowns = priceBreakdowns;
     }
 
