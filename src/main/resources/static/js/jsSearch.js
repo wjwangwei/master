@@ -298,6 +298,7 @@
             var btn = $(this).find('button[type=submit]');
             btn.html('<i class="fa fa-spinner fa-spin"></i> Loading...');
             btn.removeClass('arrow-right');
+            $('body').focus();
             //query the web-service API
             NProgress.start(); 
             queryHotelXhr(data, btn);
