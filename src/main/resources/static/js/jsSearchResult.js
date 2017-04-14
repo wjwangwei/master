@@ -6,6 +6,7 @@
     // $(".room-avail").find(".item-option:gt(2)")
     //     .hide().end();
 
+
     var isDisplayed = false;
     $(".seeall").on('click', function () {
 
@@ -39,5 +40,22 @@
             }
         })
     });
+
+    /**
+     * Filter and Sorting of Results
+     *
+     */
+    $('input[name=filtername]').on('keyup paste', function () {
+        var filterVal = $(this).val();
+        $.each($("#main").find(".items").find('li,.item'), function (i, obj) {
+            var itemName = $(obj).attr('data-hotelname');
+            if (itemName.toLocaleLowerCase().indexOf(filterVal) === -1) {
+                $(obj).hide();
+            } else {
+                $(obj).show();
+            }
+        });
+    });
+
 })();
 

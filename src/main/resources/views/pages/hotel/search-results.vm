@@ -9,7 +9,8 @@
         </ol>
     </div>
 </section>
-#if(!$searchResponse)
+$searchResponse.hotelAvailabilities
+#if(${searchResponse.hotelAvailabilities.length} <= 0)
     #set($title = "No Result Found")
     <div class="tabled-heading">
         <h2>Sorry, not result found for your request. Please try again</h2>
@@ -110,10 +111,10 @@
                                                     <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span>
                                                 </div>
                                                 <div class="item-option-price">
-                                                    <div class="price-discount">
-                                                        <div class="price-discount-percentage">46%</div>
-                                                        <div class="price-discount-amount">$ava25,962</div>
-                                                    </div>
+##                                                    <div class="price-discount">
+##                                                        <div class="price-discount-percentage">46%</div>
+##                                                        <div class="price-discount-amount">$ava25,962</div>
+##                                                    </div>
                                                     <div class="price-amount">
                                                         <div class="price-amount-value"><span onload="javascript: displayCurrency($availability.currency)"></span> $availability.totalRate
                                                             <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
