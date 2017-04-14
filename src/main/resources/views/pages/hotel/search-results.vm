@@ -9,73 +9,79 @@
         </ol>
     </div>
 </section>
-#if($searchResponse.hotelAvailabilities.length != 0)
+#if(!$searchResponse || $searchResponse.hotelAvailabilities.length <= 0)
+    #set($title = "No Result Found")
+    <div class="tabled-heading">
+        <h2>Sorry, not result found for your request. Please try again</h2>
+    </div>
+#else
     #set($title = "Search Result")
     <div class="space-xs pt0">
-        <div class="container">
-            <div id="main-contents" class="sideleft">
-                #parse("pages/hotel/_filter.vm")
-                <!-- Main contents -->
-                <div id="main">
-                    <hr class="break break30">
-                    <ul class="filter">
-                        <li><span class="filter-label">Sort by:</span></li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Price<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#" class="xhr-sort-pricerate" data-sortprice="ascend">Lowest prices</a></li>
-                                <li><a href="#" class="xhr-sort-pricerate" data-sortprice="decend">Highest prices</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Star<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#" class="xhr-sort-pricerate"><div data-rating="5" class="rate rate-sm"><span class="rate5"></span></div> 5 stars</a></li>
-                                <li><a href="#" class="xhr-sort-pricerate"><div data-rating="4" class="rate rate-sm"><span class="rate4"></span></div> 4 stars</a></li>
-                                <li><a href="#" class="xhr-sort-pricerate"><div data-rating="3" class="rate rate-sm"><span class="rate3"></span></div> 3 stars</a></li>
-                                <li><a href="#" class="xhr-sort-pricerate"><div data-rating="2" class="rate rate-sm"><span class="rate2"></span></div> 2 stars</a></li>
-                                <li><a href="#" class="xhr-sort-pricerate"><div data-rating="1" class="rate rate-sm"><span class="rate1"></span></div> 1 star</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+    <div class="container">
+        <div id="main-contents" class="sideleft">
+            #parse("pages/hotel/_filter.vm")
+            <!-- Main contents -->
+            <div id="main">
+                <hr class="break break30">
+                <ul class="filter">
+                    <li><span class="filter-label">Sort by:</span></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Price<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="xhr-sort-pricerate" data-sortprice="ascend">Lowest prices</a></li>
+                            <li><a href="#" class="xhr-sort-pricerate" data-sortprice="decend">Highest prices</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Star<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="xhr-sort-pricerate"><div data-rating="5" class="rate rate-sm"><span class="rate5"></span></div> 5 stars</a></li>
+                            <li><a href="#" class="xhr-sort-pricerate"><div data-rating="4" class="rate rate-sm"><span class="rate4"></span></div> 4 stars</a></li>
+                            <li><a href="#" class="xhr-sort-pricerate"><div data-rating="3" class="rate rate-sm"><span class="rate3"></span></div> 3 stars</a></li>
+                            <li><a href="#" class="xhr-sort-pricerate"><div data-rating="2" class="rate rate-sm"><span class="rate2"></span></div> 2 stars</a></li>
+                            <li><a href="#" class="xhr-sort-pricerate"><div data-rating="1" class="rate rate-sm"><span class="rate1"></span></div> 1 star</a></li>
+                        </ul>
+                    </li>
+                </ul>
 
-                    <ul class="items">
-                        #foreach($availabilities in $searchResponse.hotelAvailabilities)
-                            #set($hotel = $availabilities.hotel)
-                            <li class="item clearfix" data-hotelname="$hotel.hotelName">
-                                <figure>
-                                    <a href="#"><img src="${pictureUrl}$hotel.pictureId"  style="min-height: 231px;" alt=""></a>
-                                </figure>
-                                <hgroup>
-                                    <div class="item-header">
-                                        <div class="item-header-title">
-                                            <div class="item-header-rates">
-                                                <div class="item-header-score">
-                                                    #if($hotel.score >= 90)
-                                                        Wonderful $hotel.score
-                                                    #elseif($hotel.score >= 80)
-                                                        Very good $hotel.score
-                                                    #elseif($hotel.score >= 70)
-                                                        Good $hotel.score
-                                                    #elseif($hotel.score > 60)
-                                                        Pleasant $hotel.score
-                                                    #else
+                <ul class="items">
+                    #foreach($availabilities in $searchResponse.hotelAvailabilities)
+                        #set($hotel = $availabilities.hotel)
+                        <li class="item clearfix" data-hotelname="$hotel.hotelName">
+                            <figure>
+                                <a href="#"><img src="${pictureUrl}$hotel.pictureId"  style="min-height: 231px;" alt=""></a>
+                            </figure>
+                            <hgroup>
+                                <div class="item-header">
+                                    <div class="item-header-title">
+                                        <div class="item-header-rates">
+                                            <div class="item-header-score">
+                                                #if($hotel.score >= 90)
+                                                    Wonderful $hotel.score
+                                                #elseif($hotel.score >= 80)
+                                                    Very good $hotel.score
+                                                #elseif($hotel.score >= 70)
+                                                    Good $hotel.score
+                                                #elseif($hotel.score > 60)
+                                                    Pleasant $hotel.score
+                                                #else
 
-                                                    #end
-                                                </div>
-                                                <div class="item-header-reviews">$hotel.reviews review#if($hotel.reviews > 1)s#end</div>
+                                                #end
                                             </div>
-                                            $hotel.hotelName
-                                            <div class="rate"><span class="rate$hotel.getStarRatingSimple()"></span></div>
+                                            <div class="item-header-reviews">$hotel.reviews review#if($hotel.reviews > 1)s#end</div>
                                         </div>
-                                        <div class="item-header-meta">$hotel.address</div>
+                                        $hotel.hotelName
+                                        <div class="rate"><span class="rate$hotel.getStarRatingSimple()"></span></div>
                                     </div>
-                                    <div class="item-options">
-                                        <div class="item-option room-avail item-option-heading">
-                                            <div class="item-option-roomtype">Room Type</div>
-                                            <div class="item-option-breakfast">Breakfast</div>
-                                            <div class="item-option-policy">Policy</div>
-                                            <div class="item-option-price">Price</div>
-                                            <div class="item-option-action"></div>
-                                        </div>
+                                    <div class="item-header-meta">$hotel.address</div>
+                                </div>
+                                <div class="item-options">
+                                    <div class="item-option room-avail item-option-heading">
+                                        <div class="item-option-roomtype">Room Type</div>
+                                        <div class="item-option-breakfast">Breakfast</div>
+                                        <div class="item-option-policy">Policy</div>
+                                        <div class="item-option-price">Price</div>
+                                        <div class="item-option-action"></div>
+                                    </div>
+                                    <div class="room-avail">
                                         #foreach($availability in $availabilities.availabilities)
                                             <div class="item-option">
                                                 <div class="item-option-roomtype">
@@ -110,7 +116,7 @@
                                                     </div>
                                                     <div class="price-amount">
                                                         <div class="price-amount-value"><span onload="javascript: displayCurrency($availability.currency)"></span> $availability.totalRate
-                                                        <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                                            <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
                                                         <div class="price-amount-notes">Rooms per night</div>
                                                     </div>
                                                 </div>
@@ -120,40 +126,36 @@
                                             </div>
                                         #end
                                     </div>
-                                    <div class="item-footer">
-                                        <a href="#" class="seeall">SEE ALL ROOM OPTIONS</a>
-                                    </div>
-                                </hgroup>
-                            </li>
-                        #end
+                                </div>
+                                <div class="item-footer">
+                                    <a href="#" class="seeall">SEE ALL ROOM OPTIONS</a>
+                                </div>
+                            </hgroup>
+                        </li>
+                    #end
+                </ul>
+
+                <hr class="break break10">
+
+                <div class="pagination-wrapper">
+                    <ul class="pagination">
+                        <li><a href="#" aria-label="Previous"><span aria-hidden="true">Prevous</span></a></li>
+                    ##                            <li><a href="#">1</a></li>
+                    ##                            <li><span>...</span></li>
+                    ##                            <li><a href="#">2</a></li>
+                    ##                            <li class="active"><a href="#">3</a></li>
+                    ##                            <li><a href="#">4</a></li>
+                    ##                            <li><a href="#">5</a></li>
+                    ##                            <li><a href="#">6</a></li>
+                    ##                            <li><a href="#">7</a></li>
+                    ##                            <li><a href="#">8</a></li>
+                    ##                            <li><span>...</span></li>
+                    ##                            <li><a href="#">112</a></li>
+                        <li><a href="#" aria-label="Next"><span aria-hidden="true">Next</span></a></li>
                     </ul>
-
-                    <hr class="break break10">
-
-                    <div class="pagination-wrapper">
-                        <ul class="pagination">
-                            <li><a href="#" aria-label="Previous"><span aria-hidden="true">Prevous</span></a></li>
-##                            <li><a href="#">1</a></li>
-##                            <li><span>...</span></li>
-##                            <li><a href="#">2</a></li>
-##                            <li class="active"><a href="#">3</a></li>
-##                            <li><a href="#">4</a></li>
-##                            <li><a href="#">5</a></li>
-##                            <li><a href="#">6</a></li>
-##                            <li><a href="#">7</a></li>
-##                            <li><a href="#">8</a></li>
-##                            <li><span>...</span></li>
-##                            <li><a href="#">112</a></li>
-                            <li><a href="#" aria-label="Next"><span aria-hidden="true">Next</span></a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-#else
-    #set($title = "No Result Found")
-    <div class="tabled-heading">
-        <h2>Sorry, not result found for your request. Please try again</h2>
-    </div>
+</div>
 #end

@@ -3,8 +3,8 @@
  */
 (function () {
     //Hide Hotel Availability if greater than 2
-    $(".room-avail").find("div:gt(2)")
-        .hide().end();
+    // $(".room-avail").find(".item-option:gt(2)")
+    //     .hide().end();
 
     var isDisplayed = false;
     $(".seeall").on('click', function () {

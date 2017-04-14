@@ -2,7 +2,7 @@
 <section class="page-heading">
     <div class="container">
         <div class="form-search">
-            <form method="post" action="">
+            <form method="get" role="form" enctype="application/x-www-form-urlencoded" action="#springUrl("/hotel/search")" name="hotelSearch">
                 <div class="row gutter5">
                     <div class="col-md-3">
                         <div class="form-group">
@@ -20,7 +20,7 @@
                             <div class="dropdown dropdown-lang has-selector">
                                 <span class=" lang-active"></span><!--lang-en -->
                                 <input type="text" class="form-control dropdown-toggle" id="nationalitySearch" value="${requestParam.getParameter("nationality")}" name="nationality" placeholder="Nationality" data-toggle="dropdown">
-                                <input type="hidden" name="nationalityId" value="${request.get("nationalityId")}">
+                                <input type="hidden" name="nationalityId" value="${requestParam.getParameter("nationalityId")}">
                                 <div class="dropdown-menu hide" id="nationality-dropdown">
                                     <ul id="ul-nationality"></ul>
                                 </div>
@@ -75,7 +75,7 @@
                                                                 <div class="form-group">
                                                                     #set($noOfAdult = ${requestParam.getParameter("room${roomIndex}NoOfAdult")})
                                                                     <label>Adults (+18)</label>
-                                                                    <select class="selector" name="room${roomIndex}NoOfAdult}" style="width:100%;">
+                                                                    <select class="selector" name="room${roomIndex}NoOfAdult" style="width:100%;">
                                                                         <option #if($noOfAdult == 1) selected #end value="1">1</option>
                                                                         <option #if($noOfAdult == 2) selected #end value="2">2</option>
                                                                         <option #if($noOfAdult == 3) selected #end value="3">3</option>
@@ -87,7 +87,7 @@
                                                                 <div class="form-group">
                                                                     #set($noOfChild = ${requestParam.getParameter("room${roomIndex}NoOfChild")})
                                                                     <label>Children (0-17)</label>
-                                                                    <select class="selector" name="room${roomIndex}NoOfChild}" style="width:100%;">
+                                                                    <select class="selector" name="room${roomIndex}NoOfChild" style="width:100%;">
                                                                         <option #if($noOfChild == 0) selected #end value="0">0</option>
                                                                         <option #if($noOfChild == 1) selected #end value="1">1</option>
                                                                         <option #if($noOfChild == 2) selected #end value="2">2</option>

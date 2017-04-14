@@ -5,6 +5,7 @@ import com.nehow.models.*;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -32,6 +33,7 @@ public class WebserviceManager {
      * fetch supplier markup
      * @return
      */
+    @Cacheable("supplierMarkup")
     public Map<String, Double> getSupplierMarkup() {
         Object markup = restTemplate.getForObject(svcProperty.getRootUrl() + "/customer/supplier-markup/0", Map.class);
 
@@ -42,6 +44,7 @@ public class WebserviceManager {
      * fetch exchange rates
      * @return array
      */
+    @Cacheable("exchangeRate")
     public ExchangeRate[] getExchangeRate() {
         ResponseEntity<ExchangeRate[]> resp = restTemplate.getForEntity(svcProperty.getRootUrl() + "/customer/exchange-rate", ExchangeRate[].class);
         return resp.getBody();
@@ -52,6 +55,7 @@ public class WebserviceManager {
      * @param key keyword
      * @return array
      */
+    @Cacheable("nationality")
     public Nationality[] getNationality(String key) {
         ResponseEntity<Nationality[]> resp = restTemplate.getForEntity(svcProperty.getRootUrl() + "/suggestion/nationality?key=" + key, Nationality[].class);
         return resp.getBody();
@@ -62,6 +66,7 @@ public class WebserviceManager {
      * @param key keyword
      * @return array
      */
+    @Cacheable("destinations")
     public Destination[] getDestination(String key) {
         ResponseEntity<Destination[]> resp = restTemplate.getForEntity(svcProperty.getRootUrl() + "/suggestion/destination?key=" + key, Destination[].class);
         return resp.getBody();

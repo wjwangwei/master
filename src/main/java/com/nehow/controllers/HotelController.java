@@ -42,28 +42,6 @@ public class HotelController extends BaseController {
             HttpServletRequest request,
             Map<String, Object> model) {
 
-        Destination destination = null;
-        Nationality nationality = null;
-
-        //
-        // parameters for page
-        //
-        model.put("page", "index");
-        // merge all parameters
-        model.putAll(request.getParameterMap());
-
-        // update nationality
-        model.remove("nationality");
-        if (nationality != null) {
-            model.put("nationality", nationality);
-        }
-
-        // update destination
-        model.remove("destination");
-        if (destination != null) {
-            model.put("destination", destination);
-        }
-
         model.put("checkin", checkIn);
         model.put("checkout", checkOut);
         model.put("roomcount", noOfRooms);
@@ -74,8 +52,7 @@ public class HotelController extends BaseController {
 
         HotelSearchResponse searchResponse = (HotelSearchResponse) context.getAttribute(kHotel);
         model.put("requestParam", request);
-//        model.put("request", jsonParam);
-//        model.put("pictureUrl", CommonUtils.getPicBaseUrl());
+        model.put("pictureUrl", CommonUtils.getPicBaseUrl());
         model.put("searchResponse", searchResponse);
 
         return "hotel/search-results";

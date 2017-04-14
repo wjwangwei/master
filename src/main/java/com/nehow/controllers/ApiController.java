@@ -105,7 +105,7 @@ public class ApiController extends BaseController {
         }
 
         //TEST
-        jsonRequest.put("cityId", "48201");
+//        jsonRequest.put("cityId", "48201");
         jsonRequest.put("countryId", "TH");
         jsonRequest.put("nationality", "CN");
 
@@ -156,7 +156,7 @@ public class ApiController extends BaseController {
         String strQueryId = "";
         try {
             System.currentTimeMillis();
-            strQueryId = "jamiu" + "197.149.93.214" + System.currentTimeMillis() + Math.random();
+            strQueryId = "nehow" + "197.149.93.214" + System.currentTimeMillis() + Math.random();
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             md5.update(StandardCharsets.UTF_8.encode(strQueryId));
             strQueryId = String.format("%032x", new BigInteger(1, md5.digest()));
