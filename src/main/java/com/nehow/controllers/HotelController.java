@@ -59,18 +59,20 @@ public class HotelController extends BaseController {
         if (searchResponse != null && searchResponse.getHotelAvailabilities().length > 0) {
             List<HotelAvailability> availabilities = Arrays.asList(searchResponse.getHotelAvailabilities());
             Map<Integer, Integer> starRatingCount = new HashMap<>();
-            Set<Integer> rating = new HashSet<>();
+            Set<Integer> rating = new TreeSet<>();
 
-            Map<String, Integer> reviewScoreCount = new HashMap<>();
-            Set<String> review = new HashSet<>();
+//            Map<String, Integer> reviewScoreCount = new HashMap<>();
+//            Set<String> review = new HashSet<>();
 
 
             availabilities.stream().forEach(o -> rating.add(o.getHotel().getStarRatingSimple()));
+
             rating.stream().forEach(a -> starRatingCount.put(a, availabilities.stream().filter(o -> o.getHotel().getStarRatingSimple() == a).toArray().length));
 
 
-            model.put("starRatings", starRatingCount);
-            model.put("reviewScores", reviewScoreCount);
+            model.put("starRatings", rating);
+            model.put("starRatingCounts", starRatingCount);
+//            model.put("reviewScores", reviewScoreCount);
             isResultAvail = true;
         } else {
             isResultAvail = false;
