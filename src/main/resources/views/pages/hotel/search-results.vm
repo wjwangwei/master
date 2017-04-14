@@ -9,13 +9,7 @@
         </ol>
     </div>
 </section>
-$searchResponse.hotelAvailabilities
-#if(${searchResponse.hotelAvailabilities.length} <= 0)
-    #set($title = "No Result Found")
-    <div class="tabled-heading">
-        <h2>Sorry, not result found for your request. Please try again</h2>
-    </div>
-#else
+#if($isResult)
     #set($title = "Search Result")
     <div class="space-xs pt0">
     <div class="container">
@@ -46,7 +40,7 @@ $searchResponse.hotelAvailabilities
                 <ul class="items">
                     #foreach($availabilities in $searchResponse.hotelAvailabilities)
                         #set($hotel = $availabilities.hotel)
-                        <li class="item clearfix" data-hotelname="$hotel.hotelName">
+                        <li class="item clearfix" data-hotelname="$hotel.hotelName" data-starrating="$hotel.getStarRatingSimple()" data-reviewscore="$hotel.score">
                             <figure>
                                 <a href="#"><img src="${pictureUrl}$hotel.pictureId"  style="min-height: 231px;" alt=""></a>
                             </figure>
@@ -111,10 +105,10 @@ $searchResponse.hotelAvailabilities
                                                     <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span>
                                                 </div>
                                                 <div class="item-option-price">
-##                                                    <div class="price-discount">
-##                                                        <div class="price-discount-percentage">46%</div>
-##                                                        <div class="price-discount-amount">$ava25,962</div>
-##                                                    </div>
+                                                ##                                                    <div class="price-discount">
+                                                ##                                                        <div class="price-discount-percentage">46%</div>
+                                                ##                                                        <div class="price-discount-amount">$ava25,962</div>
+                                                ##                                                    </div>
                                                     <div class="price-amount">
                                                         <div class="price-amount-value"><span onload="javascript: displayCurrency($availability.currency)"></span> $availability.totalRate
                                                             <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
@@ -159,4 +153,9 @@ $searchResponse.hotelAvailabilities
         </div>
     </div>
 </div>
+#else
+    #set($title = "No Result Found")
+    <div class="tabled-heading">
+        <h2>Sorry, not result found for your request. Please try again</h2>
+    </div>
 #end

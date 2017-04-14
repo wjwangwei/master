@@ -1,1 +1,3634 @@
-{"rewriteKeyCount": 2, "completeRewriteKeyCount": 0, "hotelCount": 0, "availabilityCount": 0, "hotelAvailabilities":[]}
+{
+  "rewriteKeyCount": 1,
+  "completeRewriteKeyCount": 1,
+  "hotelCount": 2,
+  "availabilityCount": 11,
+  "hotelAvailabilities": [
+    {
+      "hotel": {
+        "id": 4698,
+        "hotelId": "837613",
+        "hotelName": "Phuket Merlin Hotel",
+        "hotelCnName": "普及美林酒店",
+        "bookingUrl": null,
+        "starRating": 30,
+        "latitude": 7.89046,
+        "longitude": 98.3869,
+        "pictureId": "/hotel/613/837613/1.jpg",
+        "score": 56,
+        "scoreDescription": "No rating",
+        "reviews": 24,
+        "scoreDetail": "{\"\\u6e05\\u6d01\\u7a0b\\u5ea6\":\"6\",\"\\u8212\\u9002\\u7a0b\\u5ea6\":\"5.4\",\"\\u9152\\u5e97\\u5730\\u70b9\":\"5.5\",\"\\u8bbe\\u65bd\":\"5.2\",\"\\u5458\\u5de5\\u7d20\\u8d28\":\"6.4\",\"\\u6027\\u4ef7\\u6bd4\":\"5.3\"}",
+        "brand": null,
+        "location": "普吉镇",
+        "cityId": "48206",
+        "countryId": "TH",
+        "postCode": null,
+        "address": "158/1 Jawaraj Road , Phuket Town , Phuket 83000 ,  Thailand  ",
+        "rooms": 180,
+        "facilities": null,
+        "roomFacilities": null,
+        "policies": null,
+        "description": null,
+        "taId": 0,
+        "email": null,
+        "fax": null,
+        "telephone": "011-1214411",
+        "source": null,
+        "status": null,
+        "remark": null,
+        "updateTime": "2016-06-21",
+        "pictures": null
+      },
+      "lowestRate": 4920.964352,
+      "availabilities": [
+        {
+          "supplierId": "restel",
+          "currency": "CNY",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837613",
+          "hotelCode": "680902",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 4921,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 4921,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 334.96,
+            "totalOriginalRate": 334.96,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "true",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "CNY",
+                "roomCode": "02",
+                "roomName": "Superior 2 Queen Beds (twin use)",
+                "roomType": "TWIN",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|0",
+                "roomRateCode": "[\"02#1#MK#41.87#0#BB#OK#20170421#20170422#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170422#20170423#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170423#20170424#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170424#20170425#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170425#20170426#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170426#20170427#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170427#20170428#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170428#20170429#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 4921,
+                "totalOriginalRate": 4921,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "true",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170421#20170422#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170422#20170423#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170423#20170424#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170424#20170425#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170425#20170426#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170426#20170427#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170427#20170428#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170428#20170429#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#41.87#0#BB#OK#20170421#20170422#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170422#20170423#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170423#20170424#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170424#20170425#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170425#20170426#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170426#20170427#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170427#20170428#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170428#20170429#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048792
+        },
+        {
+          "supplierId": "restel",
+          "currency": "CNY",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837613",
+          "hotelCode": "680902",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 4921,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 4921,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 334.96,
+            "totalOriginalRate": 334.96,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "true",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "CNY",
+                "roomCode": "02",
+                "roomName": "Superior King",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|0",
+                "roomRateCode": "[\"02#1#MK#41.87#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 4921,
+                "totalOriginalRate": 4921,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "true",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 615.2,
+                    "originalRate": 615.2,
+                    "adultRate": 615.2,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#41.87#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048792
+        },
+        {
+          "supplierId": "restel",
+          "currency": "CNY",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837613",
+          "hotelCode": "680902",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 7382.1,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 7382.1,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 502.48,
+            "totalOriginalRate": 502.48,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "true",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "CNY",
+                "roomCode": "02",
+                "roomName": "Superior King Bed (with extra bed)",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|0",
+                "roomRateCode": "[\"02#1#MK#62.81#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 7382.1,
+                "totalOriginalRate": 7382.1,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "true",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 922.8,
+                    "originalRate": 922.8,
+                    "adultRate": 922.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 922.8,
+                    "originalRate": 922.8,
+                    "adultRate": 922.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 922.8,
+                    "originalRate": 922.8,
+                    "adultRate": 922.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 922.8,
+                    "originalRate": 922.8,
+                    "adultRate": 922.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 922.8,
+                    "originalRate": 922.8,
+                    "adultRate": 922.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 922.8,
+                    "originalRate": 922.8,
+                    "adultRate": 922.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 922.8,
+                    "originalRate": 922.8,
+                    "adultRate": 922.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 922.8,
+                    "originalRate": 922.8,
+                    "adultRate": 922.8,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#62.81#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048792
+        }
+      ],
+      "supplierAvailabilities": [
+        {
+          "supplierId": "restel",
+          "currency": "EUR",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837613",
+          "hotelCode": "680902",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 334.96,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 334.96,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 334.96,
+            "totalOriginalRate": 334.96,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "true",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "EUR",
+                "roomCode": "02",
+                "roomName": "Superior 2 Queen Beds (twin use)",
+                "roomType": "TWIN",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|0",
+                "roomRateCode": "[\"02#1#MK#41.87#0#BB#OK#20170421#20170422#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170422#20170423#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170423#20170424#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170424#20170425#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170425#20170426#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170426#20170427#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170427#20170428#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170428#20170429#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 334.96,
+                "totalOriginalRate": 334.96,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "true",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170421#20170422#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170422#20170423#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170423#20170424#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170424#20170425#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170425#20170426#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170426#20170427#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170427#20170428#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170428#20170429#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#41.87#0#BB#OK#20170421#20170422#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170422#20170423#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170423#20170424#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170424#20170425#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170425#20170426#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170426#20170427#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170427#20170428#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170428#20170429#EU#2-0#00001|RB|1_PUB#Superior 2 Queen Beds (twin use)#201704141840#680902#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048792
+        },
+        {
+          "supplierId": "restel",
+          "currency": "EUR",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837613",
+          "hotelCode": "680902",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 334.96,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 334.96,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 334.96,
+            "totalOriginalRate": 334.96,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "true",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "EUR",
+                "roomCode": "02",
+                "roomName": "Superior King",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|0",
+                "roomRateCode": "[\"02#1#MK#41.87#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 334.96,
+                "totalOriginalRate": 334.96,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "true",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#41.87#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#",
+                    "rate": 41.87,
+                    "originalRate": 41.87,
+                    "adultRate": 41.87,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#41.87#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\",\"02#1#MK#41.87#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|1_PUB#Superior King#201704141840#680902#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048792
+        },
+        {
+          "supplierId": "restel",
+          "currency": "EUR",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837613",
+          "hotelCode": "680902",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 502.48,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 502.48,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 502.48,
+            "totalOriginalRate": 502.48,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "true",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "EUR",
+                "roomCode": "02",
+                "roomName": "Superior King Bed (with extra bed)",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|0",
+                "roomRateCode": "[\"02#1#MK#62.81#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 502.48,
+                "totalOriginalRate": 502.48,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "true",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 62.81,
+                    "originalRate": 62.81,
+                    "adultRate": 62.81,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 62.81,
+                    "originalRate": 62.81,
+                    "adultRate": 62.81,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 62.81,
+                    "originalRate": 62.81,
+                    "adultRate": 62.81,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 62.81,
+                    "originalRate": 62.81,
+                    "adultRate": 62.81,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 62.81,
+                    "originalRate": 62.81,
+                    "adultRate": 62.81,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 62.81,
+                    "originalRate": 62.81,
+                    "adultRate": 62.81,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 62.81,
+                    "originalRate": 62.81,
+                    "adultRate": 62.81,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#62.81#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#",
+                    "rate": 62.81,
+                    "originalRate": 62.81,
+                    "adultRate": 62.81,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#62.81#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\",\"02#1#MK#62.81#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|1_PUB#Superior King Bed (with extra bed)#201704141840#680902#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048792
+        }
+      ]
+    },
+    {
+      "hotel": {
+        "id": 22580,
+        "hotelId": "837031",
+        "hotelName": "The Westin Siray Bay Resort &amp; Spa Phuket",
+        "hotelCnName": "威斯汀西瑞湾水疗度假村",
+        "bookingUrl": null,
+        "starRating": 50,
+        "latitude": 7.87229,
+        "longitude": 98.4292,
+        "pictureId": "/hotel/31/837031/1.jpg",
+        "score": 86,
+        "scoreDescription": "Very good",
+        "reviews": 317,
+        "scoreDetail": "{\"\\u6e05\\u6d01\\u7a0b\\u5ea6\":\"9\",\"\\u8212\\u9002\\u7a0b\\u5ea6\":\"9.1\",\"\\u9152\\u5e97\\u5730\\u70b9\":\"7.5\",\"\\u8bbe\\u65bd\":\"8.9\",\"\\u5458\\u5de5\\u7d20\\u8d28\":\"9\",\"\\u6027\\u4ef7\\u6bd4\":\"8.2\",\"\\u514d\\u8d39WiFi\":\"5.7\"}",
+        "brand": null,
+        "location": "靠近海滩,普吉镇",
+        "cityId": "48206",
+        "countryId": "TH",
+        "postCode": null,
+        "address": "21/4 Moo 1,Rasada , Phuket Town, Phuket 83000,  Thailand  ",
+        "rooms": 257,
+        "facilities": null,
+        "roomFacilities": null,
+        "policies": null,
+        "description": null,
+        "taId": 0,
+        "email": "reservation.phuket@westin.com",
+        "fax": null,
+        "telephone": "011 66 76 335 600",
+        "source": null,
+        "status": null,
+        "remark": null,
+        "updateTime": "2016-06-21",
+        "pictures": null
+      },
+      "lowestRate": 10598.819328,
+      "availabilities": [
+        {
+          "supplierId": "restel",
+          "currency": "CNY",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 10598.9,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 10598.9,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 721.44,
+            "totalOriginalRate": 721.44,
+            "meal": {
+              "mealCode": "OB",
+              "mealDescription": "",
+              "breakfast": "false",
+              "breakfastCode": "OB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "false",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "2017-04-13T23:59:59",
+              "amendable": "false",
+              "changeName": "false",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "CNY",
+                "roomCode": "02",
+                "roomName": "Superior Sea View King",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|OB|1",
+                "roomRateCode": "[\"02#1#MK#90.18#0#OB#OK#20170421#20170422#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170422#20170423#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170423#20170424#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170424#20170425#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170425#20170426#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170426#20170427#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170427#20170428#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170428#20170429#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 10598.9,
+                "totalOriginalRate": 10598.9,
+                "meal": {
+                  "mealCode": "OB",
+                  "mealDescription": "",
+                  "breakfast": "false",
+                  "breakfastCode": "OB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "false",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170421#20170422#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1324.9,
+                    "originalRate": 1324.9,
+                    "adultRate": 1324.9,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170422#20170423#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1324.9,
+                    "originalRate": 1324.9,
+                    "adultRate": 1324.9,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170423#20170424#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1324.9,
+                    "originalRate": 1324.9,
+                    "adultRate": 1324.9,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170424#20170425#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1324.9,
+                    "originalRate": 1324.9,
+                    "adultRate": 1324.9,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170425#20170426#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1324.9,
+                    "originalRate": 1324.9,
+                    "adultRate": 1324.9,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170426#20170427#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1324.9,
+                    "originalRate": 1324.9,
+                    "adultRate": 1324.9,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170427#20170428#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1324.9,
+                    "originalRate": 1324.9,
+                    "adultRate": 1324.9,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170428#20170429#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1324.9,
+                    "originalRate": 1324.9,
+                    "adultRate": 1324.9,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#90.18#0#OB#OK#20170421#20170422#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170422#20170423#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170423#20170424#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170424#20170425#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170425#20170426#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170426#20170427#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170427#20170428#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170428#20170429#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "CNY",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 11734.2,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 11734.2,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 798.72,
+            "totalOriginalRate": 798.72,
+            "meal": {
+              "mealCode": "OB",
+              "mealDescription": "",
+              "breakfast": "false",
+              "breakfastCode": "OB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "false",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "2017-04-13T23:59:59",
+              "amendable": "false",
+              "changeName": "false",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "CNY",
+                "roomCode": "02",
+                "roomName": "Deluxe King Sea View",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|OB|1",
+                "roomRateCode": "[\"02#1#MK#99.84#0#OB#OK#20170421#20170422#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170422#20170423#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170423#20170424#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170424#20170425#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170425#20170426#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170426#20170427#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170427#20170428#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170428#20170429#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 11734.2,
+                "totalOriginalRate": 11734.2,
+                "meal": {
+                  "mealCode": "OB",
+                  "mealDescription": "",
+                  "breakfast": "false",
+                  "breakfastCode": "OB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "false",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170421#20170422#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1466.8,
+                    "originalRate": 1466.8,
+                    "adultRate": 1466.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170422#20170423#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1466.8,
+                    "originalRate": 1466.8,
+                    "adultRate": 1466.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170423#20170424#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1466.8,
+                    "originalRate": 1466.8,
+                    "adultRate": 1466.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170424#20170425#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1466.8,
+                    "originalRate": 1466.8,
+                    "adultRate": 1466.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170425#20170426#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1466.8,
+                    "originalRate": 1466.8,
+                    "adultRate": 1466.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170426#20170427#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1466.8,
+                    "originalRate": 1466.8,
+                    "adultRate": 1466.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170427#20170428#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1466.8,
+                    "originalRate": 1466.8,
+                    "adultRate": 1466.8,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170428#20170429#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1466.8,
+                    "originalRate": 1466.8,
+                    "adultRate": 1466.8,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#99.84#0#OB#OK#20170421#20170422#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170422#20170423#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170423#20170424#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170424#20170425#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170425#20170426#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170426#20170427#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170427#20170428#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170428#20170429#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "CNY",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 12113.8,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 12113.8,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 824.56,
+            "totalOriginalRate": 824.56,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "false",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "2017-04-13T23:59:59",
+              "amendable": "false",
+              "changeName": "false",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "CNY",
+                "roomCode": "02",
+                "roomName": "Superior Sea View King",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|1",
+                "roomRateCode": "[\"02#1#MK#103.07#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 12113.8,
+                "totalOriginalRate": 12113.8,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "false",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1514.3,
+                    "originalRate": 1514.3,
+                    "adultRate": 1514.3,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1514.3,
+                    "originalRate": 1514.3,
+                    "adultRate": 1514.3,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1514.3,
+                    "originalRate": 1514.3,
+                    "adultRate": 1514.3,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1514.3,
+                    "originalRate": 1514.3,
+                    "adultRate": 1514.3,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1514.3,
+                    "originalRate": 1514.3,
+                    "adultRate": 1514.3,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1514.3,
+                    "originalRate": 1514.3,
+                    "adultRate": 1514.3,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1514.3,
+                    "originalRate": 1514.3,
+                    "adultRate": 1514.3,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1514.3,
+                    "originalRate": 1514.3,
+                    "adultRate": 1514.3,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#103.07#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "CNY",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 13249.2,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 13249.2,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 901.84,
+            "totalOriginalRate": 901.84,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "false",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "2017-04-13T23:59:59",
+              "amendable": "false",
+              "changeName": "false",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "CNY",
+                "roomCode": "02",
+                "roomName": "Deluxe King Sea View",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|1",
+                "roomRateCode": "[\"02#1#MK#112.73#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 13249.2,
+                "totalOriginalRate": 13249.2,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "false",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1656.2,
+                    "originalRate": 1656.2,
+                    "adultRate": 1656.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1656.2,
+                    "originalRate": 1656.2,
+                    "adultRate": 1656.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1656.2,
+                    "originalRate": 1656.2,
+                    "adultRate": 1656.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1656.2,
+                    "originalRate": 1656.2,
+                    "adultRate": 1656.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1656.2,
+                    "originalRate": 1656.2,
+                    "adultRate": 1656.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1656.2,
+                    "originalRate": 1656.2,
+                    "adultRate": 1656.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1656.2,
+                    "originalRate": 1656.2,
+                    "adultRate": 1656.2,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1656.2,
+                    "originalRate": 1656.2,
+                    "adultRate": 1656.2,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#112.73#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "CNY",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 13627.6,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 13627.6,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 927.6,
+            "totalOriginalRate": 927.6,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "true",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "CNY",
+                "roomCode": "02",
+                "roomName": "Superior Sea View King",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|0",
+                "roomRateCode": "[\"02#1#MK#115.95#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 13627.6,
+                "totalOriginalRate": 13627.6,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "true",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1703.5,
+                    "originalRate": 1703.5,
+                    "adultRate": 1703.5,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1703.5,
+                    "originalRate": 1703.5,
+                    "adultRate": 1703.5,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1703.5,
+                    "originalRate": 1703.5,
+                    "adultRate": 1703.5,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1703.5,
+                    "originalRate": 1703.5,
+                    "adultRate": 1703.5,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1703.5,
+                    "originalRate": 1703.5,
+                    "adultRate": 1703.5,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1703.5,
+                    "originalRate": 1703.5,
+                    "adultRate": 1703.5,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1703.5,
+                    "originalRate": 1703.5,
+                    "adultRate": 1703.5,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 1703.5,
+                    "originalRate": 1703.5,
+                    "adultRate": 1703.5,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#115.95#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "CNY",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 14762.9,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 14762.9,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 1004.88,
+            "totalOriginalRate": 1004.88,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "true",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "CNY",
+                "roomCode": "02",
+                "roomName": "Deluxe King Sea View",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|0",
+                "roomRateCode": "[\"02#1#MK#125.61#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 14762.9,
+                "totalOriginalRate": 14762.9,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "true",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1845.4,
+                    "originalRate": 1845.4,
+                    "adultRate": 1845.4,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1845.4,
+                    "originalRate": 1845.4,
+                    "adultRate": 1845.4,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1845.4,
+                    "originalRate": 1845.4,
+                    "adultRate": 1845.4,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1845.4,
+                    "originalRate": 1845.4,
+                    "adultRate": 1845.4,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1845.4,
+                    "originalRate": 1845.4,
+                    "adultRate": 1845.4,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1845.4,
+                    "originalRate": 1845.4,
+                    "adultRate": 1845.4,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1845.4,
+                    "originalRate": 1845.4,
+                    "adultRate": 1845.4,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 1845.4,
+                    "originalRate": 1845.4,
+                    "adultRate": 1845.4,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#125.61#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "CNY",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 18548.6,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 18548.6,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 1262.56,
+            "totalOriginalRate": 1262.56,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "false",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "2017-04-13T23:59:59",
+              "amendable": "false",
+              "changeName": "false",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "CNY",
+                "roomCode": "02",
+                "roomName": "Superior Sea View King (with extra bed)",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|1",
+                "roomRateCode": "[\"02#1#MK#157.82#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 18548.6,
+                "totalOriginalRate": 18548.6,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "false",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2318.6,
+                    "originalRate": 2318.6,
+                    "adultRate": 2318.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2318.6,
+                    "originalRate": 2318.6,
+                    "adultRate": 2318.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2318.6,
+                    "originalRate": 2318.6,
+                    "adultRate": 2318.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2318.6,
+                    "originalRate": 2318.6,
+                    "adultRate": 2318.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2318.6,
+                    "originalRate": 2318.6,
+                    "adultRate": 2318.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2318.6,
+                    "originalRate": 2318.6,
+                    "adultRate": 2318.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2318.6,
+                    "originalRate": 2318.6,
+                    "adultRate": 2318.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2318.6,
+                    "originalRate": 2318.6,
+                    "adultRate": 2318.6,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#157.82#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "CNY",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 20820.4,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 20820.4,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 1417.2,
+            "totalOriginalRate": 1417.2,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "true",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "CNY",
+                "roomCode": "02",
+                "roomName": "Superior Sea View King (with extra bed)",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|0",
+                "roomRateCode": "[\"02#1#MK#177.15#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 20820.4,
+                "totalOriginalRate": 20820.4,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "true",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2602.6,
+                    "originalRate": 2602.6,
+                    "adultRate": 2602.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2602.6,
+                    "originalRate": 2602.6,
+                    "adultRate": 2602.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2602.6,
+                    "originalRate": 2602.6,
+                    "adultRate": 2602.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2602.6,
+                    "originalRate": 2602.6,
+                    "adultRate": 2602.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2602.6,
+                    "originalRate": 2602.6,
+                    "adultRate": 2602.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2602.6,
+                    "originalRate": 2602.6,
+                    "adultRate": 2602.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2602.6,
+                    "originalRate": 2602.6,
+                    "adultRate": 2602.6,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "CNY",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 2602.6,
+                    "originalRate": 2602.6,
+                    "adultRate": 2602.6,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#177.15#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        }
+      ],
+      "supplierAvailabilities": [
+        {
+          "supplierId": "restel",
+          "currency": "EUR",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 721.44,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 721.44,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 721.44,
+            "totalOriginalRate": 721.44,
+            "meal": {
+              "mealCode": "OB",
+              "mealDescription": "",
+              "breakfast": "false",
+              "breakfastCode": "OB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "false",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "EUR",
+                "roomCode": "02",
+                "roomName": "Superior Sea View King",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|OB|1",
+                "roomRateCode": "[\"02#1#MK#90.18#0#OB#OK#20170421#20170422#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170422#20170423#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170423#20170424#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170424#20170425#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170425#20170426#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170426#20170427#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170427#20170428#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170428#20170429#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 721.44,
+                "totalOriginalRate": 721.44,
+                "meal": {
+                  "mealCode": "OB",
+                  "mealDescription": "",
+                  "breakfast": "false",
+                  "breakfastCode": "OB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "false",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170421#20170422#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 90.18,
+                    "originalRate": 90.18,
+                    "adultRate": 90.18,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170422#20170423#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 90.18,
+                    "originalRate": 90.18,
+                    "adultRate": 90.18,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170423#20170424#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 90.18,
+                    "originalRate": 90.18,
+                    "adultRate": 90.18,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170424#20170425#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 90.18,
+                    "originalRate": 90.18,
+                    "adultRate": 90.18,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170425#20170426#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 90.18,
+                    "originalRate": 90.18,
+                    "adultRate": 90.18,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170426#20170427#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 90.18,
+                    "originalRate": 90.18,
+                    "adultRate": 90.18,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170427#20170428#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 90.18,
+                    "originalRate": 90.18,
+                    "adultRate": 90.18,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#90.18#0#OB#OK#20170428#20170429#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 90.18,
+                    "originalRate": 90.18,
+                    "adultRate": 90.18,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#90.18#0#OB#OK#20170421#20170422#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170422#20170423#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170423#20170424#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170424#20170425#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170425#20170426#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170426#20170427#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170427#20170428#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#90.18#0#OB#OK#20170428#20170429#EU#2-0#01001|RO|0_PUB#Superior Sea View King#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "EUR",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 798.72,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 798.72,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 798.72,
+            "totalOriginalRate": 798.72,
+            "meal": {
+              "mealCode": "OB",
+              "mealDescription": "",
+              "breakfast": "false",
+              "breakfastCode": "OB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "false",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "EUR",
+                "roomCode": "02",
+                "roomName": "Deluxe King Sea View",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|OB|1",
+                "roomRateCode": "[\"02#1#MK#99.84#0#OB#OK#20170421#20170422#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170422#20170423#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170423#20170424#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170424#20170425#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170425#20170426#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170426#20170427#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170427#20170428#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170428#20170429#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 798.72,
+                "totalOriginalRate": 798.72,
+                "meal": {
+                  "mealCode": "OB",
+                  "mealDescription": "",
+                  "breakfast": "false",
+                  "breakfastCode": "OB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "false",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170421#20170422#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 99.84,
+                    "originalRate": 99.84,
+                    "adultRate": 99.84,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170422#20170423#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 99.84,
+                    "originalRate": 99.84,
+                    "adultRate": 99.84,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170423#20170424#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 99.84,
+                    "originalRate": 99.84,
+                    "adultRate": 99.84,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170424#20170425#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 99.84,
+                    "originalRate": 99.84,
+                    "adultRate": 99.84,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170425#20170426#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 99.84,
+                    "originalRate": 99.84,
+                    "adultRate": 99.84,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170426#20170427#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 99.84,
+                    "originalRate": 99.84,
+                    "adultRate": 99.84,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170427#20170428#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 99.84,
+                    "originalRate": 99.84,
+                    "adultRate": 99.84,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#99.84#0#OB#OK#20170428#20170429#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 99.84,
+                    "originalRate": 99.84,
+                    "adultRate": 99.84,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#99.84#0#OB#OK#20170421#20170422#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170422#20170423#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170423#20170424#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170424#20170425#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170425#20170426#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170426#20170427#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170427#20170428#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#99.84#0#OB#OK#20170428#20170429#EU#2-0#01001|RO|0_PUB#Deluxe King Sea View#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "EUR",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 824.56,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 824.56,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 824.56,
+            "totalOriginalRate": 824.56,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "false",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "EUR",
+                "roomCode": "02",
+                "roomName": "Superior Sea View King",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|1",
+                "roomRateCode": "[\"02#1#MK#103.07#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 824.56,
+                "totalOriginalRate": 824.56,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "false",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 103.07,
+                    "originalRate": 103.07,
+                    "adultRate": 103.07,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 103.07,
+                    "originalRate": 103.07,
+                    "adultRate": 103.07,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 103.07,
+                    "originalRate": 103.07,
+                    "adultRate": 103.07,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 103.07,
+                    "originalRate": 103.07,
+                    "adultRate": 103.07,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 103.07,
+                    "originalRate": 103.07,
+                    "adultRate": 103.07,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 103.07,
+                    "originalRate": 103.07,
+                    "adultRate": 103.07,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 103.07,
+                    "originalRate": 103.07,
+                    "adultRate": 103.07,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#103.07#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 103.07,
+                    "originalRate": 103.07,
+                    "adultRate": 103.07,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#103.07#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#103.07#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|0_PUB#Superior Sea View King#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "EUR",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 901.84,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 901.84,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 901.84,
+            "totalOriginalRate": 901.84,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "false",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "EUR",
+                "roomCode": "02",
+                "roomName": "Deluxe King Sea View",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|1",
+                "roomRateCode": "[\"02#1#MK#112.73#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 901.84,
+                "totalOriginalRate": 901.84,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "false",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 112.73,
+                    "originalRate": 112.73,
+                    "adultRate": 112.73,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 112.73,
+                    "originalRate": 112.73,
+                    "adultRate": 112.73,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 112.73,
+                    "originalRate": 112.73,
+                    "adultRate": 112.73,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 112.73,
+                    "originalRate": 112.73,
+                    "adultRate": 112.73,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 112.73,
+                    "originalRate": 112.73,
+                    "adultRate": 112.73,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 112.73,
+                    "originalRate": 112.73,
+                    "adultRate": 112.73,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 112.73,
+                    "originalRate": 112.73,
+                    "adultRate": 112.73,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#112.73#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 112.73,
+                    "originalRate": 112.73,
+                    "adultRate": 112.73,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#112.73#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#112.73#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|0_PUB#Deluxe King Sea View#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "EUR",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 927.6,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 927.6,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 927.6,
+            "totalOriginalRate": 927.6,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "true",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "EUR",
+                "roomCode": "02",
+                "roomName": "Superior Sea View King",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|0",
+                "roomRateCode": "[\"02#1#MK#115.95#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 927.6,
+                "totalOriginalRate": 927.6,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "true",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 115.95,
+                    "originalRate": 115.95,
+                    "adultRate": 115.95,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 115.95,
+                    "originalRate": 115.95,
+                    "adultRate": 115.95,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 115.95,
+                    "originalRate": 115.95,
+                    "adultRate": 115.95,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 115.95,
+                    "originalRate": 115.95,
+                    "adultRate": 115.95,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 115.95,
+                    "originalRate": 115.95,
+                    "adultRate": 115.95,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 115.95,
+                    "originalRate": 115.95,
+                    "adultRate": 115.95,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 115.95,
+                    "originalRate": 115.95,
+                    "adultRate": 115.95,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#115.95#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#",
+                    "rate": 115.95,
+                    "originalRate": 115.95,
+                    "adultRate": 115.95,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#115.95#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\",\"02#1#MK#115.95#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|2_PUB#Superior Sea View King#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "EUR",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 1004.88,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 1004.88,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 1004.88,
+            "totalOriginalRate": 1004.88,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "true",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "EUR",
+                "roomCode": "02",
+                "roomName": "Deluxe King Sea View",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|0",
+                "roomRateCode": "[\"02#1#MK#125.61#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 1004.88,
+                "totalOriginalRate": 1004.88,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "true",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 125.61,
+                    "originalRate": 125.61,
+                    "adultRate": 125.61,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 125.61,
+                    "originalRate": 125.61,
+                    "adultRate": 125.61,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 125.61,
+                    "originalRate": 125.61,
+                    "adultRate": 125.61,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 125.61,
+                    "originalRate": 125.61,
+                    "adultRate": 125.61,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 125.61,
+                    "originalRate": 125.61,
+                    "adultRate": 125.61,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 125.61,
+                    "originalRate": 125.61,
+                    "adultRate": 125.61,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 125.61,
+                    "originalRate": 125.61,
+                    "adultRate": 125.61,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#125.61#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#",
+                    "rate": 125.61,
+                    "originalRate": 125.61,
+                    "adultRate": 125.61,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#125.61#0#BB#OK#20170421#20170422#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170422#20170423#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170423#20170424#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170424#20170425#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170425#20170426#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170426#20170427#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170427#20170428#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\",\"02#1#MK#125.61#0#BB#OK#20170428#20170429#EU#2-0#01001|RB|2_PUB#Deluxe King Sea View#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "EUR",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 1262.56,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 1262.56,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 1262.56,
+            "totalOriginalRate": 1262.56,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "false",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "EUR",
+                "roomCode": "02",
+                "roomName": "Superior Sea View King (with extra bed)",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|1",
+                "roomRateCode": "[\"02#1#MK#157.82#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 1262.56,
+                "totalOriginalRate": 1262.56,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "false",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 157.82,
+                    "originalRate": 157.82,
+                    "adultRate": 157.82,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 157.82,
+                    "originalRate": 157.82,
+                    "adultRate": 157.82,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 157.82,
+                    "originalRate": 157.82,
+                    "adultRate": 157.82,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 157.82,
+                    "originalRate": 157.82,
+                    "adultRate": 157.82,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 157.82,
+                    "originalRate": 157.82,
+                    "adultRate": 157.82,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 157.82,
+                    "originalRate": 157.82,
+                    "adultRate": 157.82,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 157.82,
+                    "originalRate": 157.82,
+                    "adultRate": 157.82,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#157.82#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 157.82,
+                    "originalRate": 157.82,
+                    "adultRate": 157.82,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#157.82#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#157.82#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|0_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        },
+        {
+          "supplierId": "restel",
+          "currency": "EUR",
+          "checkIn": "2017-04-21",
+          "checkOut": "2017-04-29",
+          "countryId": "TH",
+          "countryCode": "TH",
+          "cityId": "48206",
+          "cityCode": "THHKT",
+          "hotelId": "837031",
+          "hotelCode": "962435",
+          "nationality": "CN",
+          "matched": "true",
+          "totalRate": 1417.2,
+          "request": "{\"cid0\":\"TH\",\"cid\":\"THHKT\",\"ci\":\"2017-04-21\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"USD\",\"l\":null,\"qid\":\"c6d8bddc664a37de83c173d75a73f412\",\"sid\":\"restel\",\"p\":null,\"rid\":\"\",\"m\":0}",
+          "totalOriginalRate": 1417.2,
+          "hotelRooms": {
+            "currency": null,
+            "totalRate": 1417.2,
+            "totalOriginalRate": 1417.2,
+            "meal": {
+              "mealCode": "BB",
+              "mealDescription": "",
+              "breakfast": "true",
+              "breakfastCode": "BB",
+              "breakfastDescription": ""
+            },
+            "thirdParty": "",
+            "policies": {
+              "refundable": "true",
+              "optionDate": "",
+              "safeDay": 0,
+              "safeOptionDate": "",
+              "amendable": "",
+              "changeName": "",
+              "policies": null
+            },
+            "messages": null,
+            "rooms": [
+              {
+                "referenceId": "",
+                "roomIndex": "1",
+                "roomCount": 1,
+                "currency": "EUR",
+                "roomCode": "02",
+                "roomName": "Superior Sea View King (with extra bed)",
+                "roomType": "DOUBLE",
+                "roomTypeCode": "02",
+                "roomRateId": "02|BB|0",
+                "roomRateCode": "[\"02#1#MK#177.15#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\"]",
+                "roomRateKey": null,
+                "sharingBedding": "",
+                "thirdParty": "",
+                "totalRate": 1417.2,
+                "totalOriginalRate": 1417.2,
+                "meal": {
+                  "mealCode": "BB",
+                  "mealDescription": "",
+                  "breakfast": "true",
+                  "breakfastCode": "BB",
+                  "breakfastDescription": ""
+                },
+                "policies": {
+                  "refundable": "true",
+                  "optionDate": "",
+                  "safeDay": 0,
+                  "safeOptionDate": "",
+                  "amendable": "",
+                  "changeName": "",
+                  "policies": null
+                },
+                "priceBreakdowns": [
+                  {
+                    "date": "2017-04-21",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 177.15,
+                    "originalRate": 177.15,
+                    "adultRate": 177.15,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-22",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 177.15,
+                    "originalRate": 177.15,
+                    "adultRate": 177.15,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-23",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 177.15,
+                    "originalRate": 177.15,
+                    "adultRate": 177.15,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-24",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 177.15,
+                    "originalRate": 177.15,
+                    "adultRate": 177.15,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-25",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 177.15,
+                    "originalRate": 177.15,
+                    "adultRate": 177.15,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-26",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 177.15,
+                    "originalRate": 177.15,
+                    "adultRate": 177.15,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-27",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 177.15,
+                    "originalRate": 177.15,
+                    "adultRate": 177.15,
+                    "childRates": null
+                  },
+                  {
+                    "date": "2017-04-28",
+                    "currency": "EUR",
+                    "rateCode": "02#1#MK#177.15#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#",
+                    "rate": 177.15,
+                    "originalRate": 177.15,
+                    "adultRate": 177.15,
+                    "childRates": null
+                  }
+                ],
+                "messages": null,
+                "cancellationPolicyCode": "[\"02#1#MK#177.15#0#BB#OK#20170421#20170422#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170422#20170423#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170423#20170424#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170424#20170425#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170425#20170426#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170426#20170427#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170427#20170428#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\",\"02#1#MK#177.15#0#BB#OK#20170428#20170429#EU#2-0#00003|RB|2_PUB#Superior Sea View King (with extra bed)#201704141840#962435#\"]",
+                "allotment": null,
+                "group": "",
+                "occupancy": null,
+                "status": null
+              }
+            ],
+            "group": "",
+            "matched": true,
+            "indexRoomType": null
+          },
+          "reminder": "",
+          "promoOriginalRate": null,
+          "updateTime": 1492188048798
+        }
+      ]
+    }
+  ]
+}

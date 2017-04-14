@@ -12,36 +12,14 @@
         <div class="widget-filter widget-filter-rating">
             <div class="widget-filter-title toggle-filter">Star Rating</div>
             <hgroup>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="rating" class="checkbox-filter">
-                        <div class="rate rate-sm"><span class="rate5"></span></div> 5 stars (28)
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="rating" class="checkbox-filter">
-                        <div class="rate rate-sm"><span class="rate4"></span></div> 4 stars (84)
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="rating" class="checkbox-filter">
-                        <div class="rate rate-sm"><span class="rate3"></span></div> 3 stars (117)
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="rating" class="checkbox-filter">
-                        <div class="rate rate-sm"><span class="rate2"></span></div> 2 stars (152)
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="rating" class="checkbox-filter">
-                        <div class="rate rate-sm"><span class="rate1"></span></div> 1 star (6)
-                    </label>
-                </div>
+                #foreach($starRating in $starRatings)
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="rating" class="checkbox-filter">
+                            <div class="rate rate-sm"><span class="rate5"></span></div> $starRating stars (28)
+                        </label>
+                    </div>
+                #end
             </hgroup>
         </div>
 ##        <div class="widget-filter widget-filter-price-range">
@@ -76,15 +54,15 @@
 ##                <a href="#" class="more">Show more (24)</a>
 ##            </hgroup>
 ##        </div>
-##        <div class="widget-filter widget-filter-listing">
-##            <div class="widget-filter-title toggle-filter">Review Score</div>
-##            <hgroup>
-##                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">210</span>Wonderful: 9+</label></div>
-##                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">112</span>Very good: 8+</label></div>
-##                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">365</span>Good: 7+</label></div>
-##                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">895</span>Pleasant: 6+</label></div>
-##                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">457</span>No rating</label></div>
-##            </hgroup>
-##        </div>
+        <div class="widget-filter widget-filter-listing">
+            <div class="widget-filter-title toggle-filter">Review Score</div>
+            <hgroup>
+                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">210</span>Wonderful: 9+</label></div>
+                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">112</span>Very good: 8+</label></div>
+                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">365</span>Good: 7+</label></div>
+                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">895</span>Pleasant: 6+</label></div>
+                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">457</span>No rating</label></div>
+            </hgroup>
+        </div>
     </div>
 </div>

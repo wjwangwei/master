@@ -55,6 +55,28 @@ public class HotelController extends BaseController {
         model.put("pictureUrl", CommonUtils.getPicBaseUrl());
         model.put("searchResponse", searchResponse);
 
+        boolean isResultAvail;
+        if (searchResponse != null && searchResponse.getHotelAvailabilities().length > 0) {
+            List<HotelAvailability> availabilities = Arrays.asList(searchResponse.getHotelAvailabilities());
+            Map<Integer, Integer> starRatingCount = new HashMap<>();
+            Set<Integer> rating = new HashSet<>();
+
+            Map<String, Integer> reviewScoreCount = new HashMap<>();
+            Set<String> review = new HashSet<>();
+
+
+            availabilities.stream().forEach(o -> rating.add(o.getHotel().getStarRatingSimple()));
+            rating.stream().forEach(a -> starRatingCount.put(a, availabilities.stream().filter(o -> o.getHotel().getStarRatingSimple() == a).toArray().length));
+
+
+            model.put("starRatings", starRatingCount);
+            model.put("reviewScores", reviewScoreCount);
+            isResultAvail = true;
+        } else {
+            isResultAvail = false;
+        }
+        model.put("isResult", isResultAvail);
+
         return "hotel/search-results";
     }
 
