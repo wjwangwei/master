@@ -61,18 +61,24 @@ public class HotelController extends BaseController {
             Map<Integer, Integer> starRatingCount = new HashMap<>();
             Set<Integer> rating = new TreeSet<>();
 
-//            Map<String, Integer> reviewScoreCount = new HashMap<>();
-//            Set<String> review = new HashSet<>();
+            Set<String> score = new HashSet<>();
+            Map<String, Integer> scoreRatingCount = new HashMap<>();
 
 
             availabilities.stream().forEach(o -> rating.add(o.getHotel().getStarRatingSimple()));
-
             rating.stream().forEach(a -> starRatingCount.put(a, availabilities.stream().filter(o -> o.getHotel().getStarRatingSimple() == a).toArray().length));
+
+            availabilities.stream().forEach(o -> score.add(getScoreDesc(o.getHotel().getScore())));
+            rating.stream().forEach(a -> scoreRatingCount.put(getScoreDesc(a), availabilities.stream().filter(o -> Objects.equals(getScoreDesc(o.getHotel().getScore()), getScoreDesc(a))).toArray().length));
 
 
             model.put("starRatings", rating);
             model.put("starRatingCounts", starRatingCount);
-//            model.put("reviewScores", reviewScoreCount);
+
+            model.put("scoreRatings", score);
+            model.put("scoreRatingCounts", scoreRatingCount);
+
+//            model.put("reviewScores", scoreRatingCount);
             isResultAvail = true;
         } else {
             isResultAvail = false;
@@ -80,6 +86,14 @@ public class HotelController extends BaseController {
         model.put("isResult", isResultAvail);
 
         return "hotel/search-results";
+    }
+
+    private String getScoreDesc(int score) {
+        if(score >= 90) return "Wonderful " + score;
+        else if(score >= 80)return "Very good " + score;
+        else if(score >= 70) return "Good " + score;
+        else if(score > 60) return "Pleasant " + score;
+        else return "";
     }
 
 }

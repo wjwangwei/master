@@ -57,12 +57,10 @@
         <div class="widget-filter widget-filter-listing">
             <div class="widget-filter-title toggle-filter">Review Score</div>
             <hgroup>
-                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">210</span>Wonderful: 9+</label></div>
-                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">112</span>Very good: 8+</label></div>
-                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">365</span>Good: 7+</label></div>
-                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">895</span>Pleasant: 6+</label></div>
-                <div class="checkbox"><label><input type="checkbox" name="review_score" class="checkbox-filter"><span class="checkbox-counter">457</span>No rating</label></div>
-            </hgroup>
+                #foreach($scoreRating in $scoreRatings)
+                    <div class="checkbox"><label><input type="checkbox" name="review_score" value="$scoreRating" class="checkbox-filter"><span class="checkbox-counter">$scoreRatingCounts.get($scoreRating)</span>$scoreRating</label></div>
+                #end
+           </hgroup>
         </div>
     </div>
 </div>
