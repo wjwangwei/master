@@ -14,6 +14,12 @@ public class BaseController implements ServletContextAware {
     // key for destination suggestion
     protected final String kDestination = "destination";
 
+    // key for hotel results
+    protected final String kHotel = "hotel";
+
+    protected final String kMarkup = "markup";
+    protected final String kExchange = "exchange";
+
     @Override
     public void setServletContext(ServletContext servletContext) {
         this.context = servletContext;

@@ -2,7 +2,7 @@
  * Created by Igbalajobi Jamiu on 4/11/17.
  */
 
-function displayCurrency(currencyCode) {
+function displayCurrency(currencyCode, dom) {
     console.log(currencyCode);
     var displayCode = currencyCode;
     switch (currencyCode) {
@@ -10,7 +10,5 @@ function displayCurrency(currencyCode) {
             displayCode = "$";
             break;
     }
-    
-    (function () {
-    })()
+    dom.style = 'content: ' + displayCode;
 }

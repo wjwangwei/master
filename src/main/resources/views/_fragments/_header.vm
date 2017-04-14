@@ -15,6 +15,7 @@
     <link href="/webjars/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/css/autocomplete.css" rel="stylesheet" type="text/css">
     <link href="/css/jquery.growl.css" rel="stylesheet" type="text/css">
+    <link href="/css/nprogress.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" type="text/css">
 
     <!--[if lt IE 9]>

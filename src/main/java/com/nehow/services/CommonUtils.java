@@ -24,4 +24,8 @@ public class CommonUtils implements ApplicationContextAware {
     public static String getPicBaseUrl() {
         return applicationContext.getEnvironment().getProperty("webservice.pictureurl");
     }
+
+    public static String getSuppliers() {
+        return applicationContext.getEnvironment().getProperty("webservice.suppliers");
+    }
 }

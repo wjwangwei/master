@@ -23,8 +23,11 @@
 <script src="/js/custom.js"></script>
 <script src="/js/jquery.mockjax.js"></script>
 <script src="/js/jquery.autocomplete.js"></script>
+<script src="/js/nprogress.js"></script>
+<script src="/js/jsConst.js"></script>
 <script src="/js/jsFunctions.js"></script>
 <script src="/js/jsSearch.js"></script>
+<script src="/js/jsSearchResult.js"></script>
 ##CSS on View Should be included at the bottom of the JS files.
 #macro(footerJs $jsIncludes)
     $jsIncludes

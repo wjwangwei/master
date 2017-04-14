@@ -9,9 +9,9 @@
         </ol>
     </div>
 </section>
-#if($hotelAvailabilities && $hotelAvailabilities.length != 0)
+#if($searchResponse.hotelAvailabilities.length != 0)
     #set($title = "Search Result")
-    <section class="space-xs pt0">
+    <div class="space-xs pt0">
         <div class="container">
             <div id="main-contents" class="sideleft">
                 #parse("pages/hotel/_filter.vm")
@@ -38,7 +38,7 @@
                     </ul>
 
                     <ul class="items">
-                        #foreach($availabilities in $hotelAvailabilities)
+                        #foreach($availabilities in $searchResponse.hotelAvailabilities)
                             #set($hotel = $availabilities.hotel)
                             <li class="item clearfix" data-hotelname="$hotel.hotelName">
                                 <figure>
@@ -59,7 +59,8 @@
                                                         Pleasant $hotel.score
                                                     #else
 
-                                                    #end</div>
+                                                    #end
+                                                </div>
                                                 <div class="item-header-reviews">$hotel.reviews review#if($hotel.reviews > 1)s#end</div>
                                             </div>
                                             $hotel.hotelName
@@ -68,7 +69,7 @@
                                         <div class="item-header-meta">$hotel.address</div>
                                     </div>
                                     <div class="item-options">
-                                        <div class="item-option item-option-heading">
+                                        <div class="item-option room-avail item-option-heading">
                                             <div class="item-option-roomtype">Room Type</div>
                                             <div class="item-option-breakfast">Breakfast</div>
                                             <div class="item-option-policy">Policy</div>
@@ -79,23 +80,42 @@
                                             <div class="item-option">
                                                 <div class="item-option-roomtype">
                                                     #foreach($room in $availability.hotelRooms.rooms)
-                                                        <div class="roomtype-name">$room.roomName $room.roomType Room x$room.roomCount</div>
+                                                        <div class="roomtype-name">$room.roomName $room.roomType</div>
                                                     #end
                                                 </div>
-                                                <div class="item-option-breakfast">Available</div>
-                                                <div class="item-option-policy"><a href="#">View Policy</a> <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                                <div class="item-option-breakfast">
+                                                    #if($availability.hotelRooms.meal.breakfastDescription != "")
+                                                        $availability.hotelRooms.meal.breakfastDescription
+                                                    #elseif($availability.hotelRooms.meal.mealDescription != "")
+                                                        $availability.hotelRooms.meal.mealDescription
+                                                    #elseif($availability.hotelRooms.meal.breakfast == "true")
+                                                        Available
+                                                    #else
+                                                        No Breakfast
+                                                    #end
+                                                </div>
+                                                <div class="item-option-policy">
+                                                    #if(!$availability.hotelRooms.policies && $availability.hotelRooms.policies.refundable == "true")
+                                                        <a href="#" class="get-policy" data-roomid="">Refundable</a>
+                                                    #else
+                                                        Non-Refundable
+                                                        <a href="#" class="get-policy" data-roomid="">View Policy</a>
+                                                    #end
+                                                    <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span>
+                                                </div>
                                                 <div class="item-option-price">
-##                                                    <div class="price-discount">
-##                                                        <div class="price-discount-percentage">46%</div>
-##                                                        <div class="price-discount-amount">$ava25,962</div>
-##                                                    </div>
+                                                    <div class="price-discount">
+                                                        <div class="price-discount-percentage">46%</div>
+                                                        <div class="price-discount-amount">$ava25,962</div>
+                                                    </div>
                                                     <div class="price-amount">
-                                                        <div class="price-amount-value"><span onload="javascript: displayCurrency($availability.currency)"></span> $availability.totalRate<span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                                        <div class="price-amount-value"><span onload="javascript: displayCurrency($availability.currency)"></span> $availability.totalRate
+                                                        <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
                                                         <div class="price-amount-notes">Rooms per night</div>
                                                     </div>
                                                 </div>
                                                 <div class="item-option-action">
-                                                    <a href="/hotel/book-room/hotelId/roomId" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                                    <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
                                                 </div>
                                             </div>
                                         #end
@@ -130,7 +150,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 #else
     #set($title = "No Result Found")
     <div class="tabled-heading">

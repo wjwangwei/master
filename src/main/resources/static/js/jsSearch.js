@@ -265,33 +265,50 @@
         return isValid;
     };
 
+    function queryHotelXhr(data, btn) {
+        $.ajax({
+            url: HOTEL_SEARCH_API + '?' + data,
+            dataType: 'JSON',
+            type: 'GET',
+            beforeSend: function () {
+                btn.addClass('disabled');
+            },
+            success: function (response) {
+                console.log(response);
+                if (response.rewriteKeyCount <= response.completeRewriteKeyCount) {
+                    btn.addClass('arrow-right');
+                    btn.html("FIND HOTELS");
+                    window.location.href = "/hotel/search-result?" + data;
+                } else
+                    return queryHotelXhr(data, btn);
+            },
+            complete: function () {
+                btn.addClass('disabled');
+            },
+            error: function () {
+                NProgress.done();
+            }
+        });
+    }
+
     $("form[name=hotelSearch]").on('submit', function (e) {
         //perform validation to ensure the user selected the right fields.
+        var data = $(this).serialize();
         if (searchEngineValidation($(this))) {
-            var serializeData = $(this).serialize();
             var btn = $(this).find('button[type=submit]');
-            btn.html('<i class="fa fa-spinner fa-spin"></i> Loading, please wait.');
+            btn.html('<i class="fa fa-spinner fa-spin"></i> Loading...');
             btn.removeClass('arrow-right');
-            // $.ajax({
-            //     url: '/hotel/search?' + serializeData,
-            //     dataType: 'JSON',
-            //     type: 'GET',
-            //     beforeSend: function () {
-            //
-            //     },
-            //     complete: function () {
-            //         btn.addClass('arrow-right');
-            //         btn.html("FIND HOTELS")
-            //     }
-            // })
-            return true;
+            //query the web-service API
+            NProgress.start(); 
+            queryHotelXhr(data, btn);
         } else {
             $.growl.error({
                 title: "Field Required",
                 message: msg
             });
-            return false;
         }
+        return false;
     });
+
 
 })();
