@@ -9,7 +9,12 @@
         </ol>
     </div>
 </section>
-#if($searchResponse && $searchResponse.hotelAvailabilities.length > 0)
+#if(!$searchResponse)
+    #set($title = "No Result Found")
+    <div class="tabled-heading">
+        <h2>Sorry, not result found for your request. Please try again</h2>
+    </div>
+#else
     #set($title = "Search Result")
     <div class="space-xs pt0">
     <div class="container">
@@ -153,9 +158,4 @@
         </div>
     </div>
 </div>
-#else
-    #set($title = "No Result Found")
-    <div class="tabled-heading">
-        <h2>Sorry, not result found for your request. Please try again</h2>
-    </div>
 #end
