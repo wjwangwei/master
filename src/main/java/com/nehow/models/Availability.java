@@ -1,5 +1,8 @@
 package com.nehow.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Availability {
     private String supplierId;
     private String currency;
@@ -29,6 +32,7 @@ public class Availability {
     private String reminder;
     private String promoOriginalRate;
     private String updateTime;
+    private String referenceCode;
 
     public String getSupplierId() {
         return supplierId;
@@ -180,5 +184,13 @@ public class Availability {
 
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getReferenceCode() {
+        return referenceCode;
+    }
+
+    public void setReferenceCode(String referenceCode) {
+        this.referenceCode = referenceCode;
     }
 }

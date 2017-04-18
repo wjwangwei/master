@@ -131,7 +131,6 @@
             qtys = parseInt(qty) + 1;
             if (qtys <= MAX_NUM_ROOM) {
                 _this.find('input').attr('value', qtys);
-                console.info(qty);
                 addRoomDOM(qtys);
             } else $.growl.error({
                 title: "Limit Exceeded",
@@ -205,7 +204,6 @@
     }
 
     function removeRoomDOM(roomIndex) {
-        console.log(roomIndex);
         $("#roomDIV" + roomIndex).remove();
     }
 
@@ -242,53 +240,67 @@
 
     function searchEngineValidation($this) {
         var isValid = false;
-        var cityId = $this.find('input[name=cityId]').val();
-        var nationalityId = $this.find('input[name=nationalityId]').val();
-        var checkIn = $this.find('input[name=checkIn]').val();
-        var checkOut = $this.find('input[name=checkOut]').val();
-        if (cityId === 'undefined' || cityId === '') {
+        var cityId = $this.find('input[name=cityId]');
+        var cityTitle = $this.find('input[name=cityTitle]');
+        var nationalityId = $this.find('input[name=nationalityId]');
+        var checkIn = $this.find('input[name=checkIn]');
+        var checkOut = $this.find('input[name=checkOut]');
+        var errorColor = '#d9534f';
+        if (cityId.val() === 'undefined' || cityId.val() === '') {
             msg = "Please search and select a destination city";
+            cityTitle.css({'border-color': '1px solid ' + errorColor});
             isValid = false;
-        } else if (nationalityId === 'undefined' || nationalityId === '') {
+        } else if (nationalityId.val() === 'undefined' || nationalityId.val() === '') {
             msg = "Residual nationality country is required.";
+            nationalityId.css({'border-color': '1px solid ' + errorColor});
             isValid = false;
-        } else if (checkIn === 'undefined' || checkIn === '') {
+        } else if (checkIn.val() === 'undefined' || checkIn.val() === '') {
             msg = "Check-in date is required";
+            checkIn.css({'border-color': '1px solid ' + errorColor});
             isValid = false;
-        } else if (checkOut === 'undefined' || checkOut === '') {
+        } else if (checkOut.val() === 'undefined' || checkOut.val() === '') {
             msg = "Check-out date is required";
+            checkOut.css({'border-color': '1px solid ' + errorColor});
             isValid = false;
         } else {
             isValid = true;
+            cityId.removeAttr('style');
+            cityTitle.removeAttr('style');
+            checkIn.removeAttr('style');
+            checkOut.removeAttr('style');
             msg = "";
+
         }
         return isValid;
     };
 
-    function queryHotelXhr(data, btn) {
+    $.fn.queryHotelXhr = function (url, data, btn, isHotel, funcResponse) {
+        // (function () {
         $.ajax({
-            url: HOTEL_SEARCH_API + '?' + data,
+            url: url,
+            data: data,
             dataType: 'JSON',
             type: 'GET',
+            // async: false,
+            cache: false,
             beforeSend: function () {
                 btn.addClass('disabled');
             },
             success: function (response) {
-                console.log(response);
                 if (response.rewriteKeyCount <= response.completeRewriteKeyCount) {
-                    btn.addClass('arrow-right');
-                    btn.html("FIND HOTELS");
-                    window.location.href = "/hotel/search-result?" + data;
+                    funcResponse(response)
                 } else
-                    return queryHotelXhr(data, btn);
+                    return $(this).queryHotelXhr(url, data, btn, isHotel, funcResponse);
             },
             complete: function () {
-                btn.addClass('disabled');
+                btn.removeClass('disabled');
             },
             error: function () {
                 NProgress.done();
+                return false;
             }
         });
+        // })()
     }
 
     $("form[name=hotelSearch]").on('submit', function (e) {
@@ -300,8 +312,16 @@
             btn.removeClass('arrow-right');
             $('body').focus();
             //query the web-service API
-            NProgress.start(); 
-            queryHotelXhr(data, btn);
+            NProgress.start();
+            $(this).queryHotelXhr(HOTEL_SEARCH_API, data, btn, false, function (response) {
+                btn.addClass('arrow-right');
+                btn.html("FIND HOTELS");
+                console.log(response);
+                window.location.href = "/hotel/search-result?" + data;
+            });
+            btn.removeClass('disabled');
+            btn.html('FIND HOTELS');
+            btn.addClass('arrow-right');
         } else {
             $.growl.error({
                 title: "Field Required",

@@ -31,17 +31,19 @@ public class WebserviceManager {
 
     /**
      * fetch supplier markup
+     *
      * @return
      */
     @Cacheable("supplierMarkup")
     public Map<String, Double> getSupplierMarkup() {
         Object markup = restTemplate.getForObject(svcProperty.getRootUrl() + "/customer/supplier-markup/0", Map.class);
 
-        return (Map<String, Double>)markup;
+        return (Map<String, Double>) markup;
     }
 
     /**
      * fetch exchange rates
+     *
      * @return array
      */
     @Cacheable("exchangeRate")
@@ -52,6 +54,7 @@ public class WebserviceManager {
 
     /**
      * fetch nationality suggestions
+     *
      * @param key keyword
      * @return array
      */
@@ -63,6 +66,7 @@ public class WebserviceManager {
 
     /**
      * fetch destination suggestions
+     *
      * @param key keyword
      * @return array
      */
@@ -74,7 +78,8 @@ public class WebserviceManager {
 
     /**
      * fetch hotel availabilities
-     * @param param json
+     *
+     * @param param   json
      * @param isHotel true if destination is hotel
      * @return
      */
@@ -86,9 +91,9 @@ public class WebserviceManager {
 
         // determine url
         String strUrl = "/hotel/availability/city";
-//        if (isHotel) {
-//            strUrl = "/hotel/availability/hotel";
-//        }
+        if (isHotel) {
+            strUrl = "/hotel/availability/hotel";
+        }
 
         // call available web service
         System.out.println(svcProperty.getRootUrl() + strUrl);

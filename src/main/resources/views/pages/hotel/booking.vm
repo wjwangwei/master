@@ -1,0 +1,335 @@
+#set($title = "Booking")
+<section class="space-xs">
+    <div class="container">
+
+        <div class="stepper stepper-booking">
+            <ul class="clearfix">
+                <li>1. Select your room</li>
+                <li class="active">2. Enter booking and your details</li>
+                <li>3. Confirm your reservation</li>
+            </ul>
+        </div>
+
+        <div id="main-contents">
+            <div id="main">
+                <div class="booking-detail booking-detail-overview">
+                    <div class="booking-detail-titles">
+                        <div class="booking-detail-title">Valarmathi Kongunaatu Samayal
+                            <div class="booking-detail-meta inline">
+                                <div class="rate"><span class="rate5"></span></div>
+                                <span class="review-total">2,339 reviews</span>
+                                <a href="#" class="booking-detail-showmap">Show on Map</a>
+                            </div>
+                        </div>
+                        <div class="booking-detail-address">171, Soi 11, Sukhumvit, BangkokSukhumvit , Thailand 10110.171, mvit , Thailand 10110.</div>
+                    </div>
+                    <div class="booking-detail-body clearfix">
+                        <figure>
+                            <img src="images/temp/temp_hotel001_150x95.jpg" alt="">
+                        </figure>
+                        <hgroup>
+                            <ul>
+                                <li><label>Check-in :</label>Thursday, Oct 20, 2016</li>
+                                <li><label>Check-out :</label>Saturday, Oct 22, 2016</li>
+                                <li><label>Total length of stay :</label>2 nights, 2 Rooms, 4 Adults</li>
+                                <li><label>Rooms :</label>2 x Standard Main Wing</li>
+                            </ul>
+                        </hgroup>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-default change-dates">Change Dates</a>
+                </div>
+                <div class="booking-detail">
+                    <div class="booking-detail-heading grayed">
+                        <h3 class="has-icon icon-building">Room Information</h3>
+                    </div>
+                    <div class="booking-detail-body">
+                        <hgroup>
+                            <div class="booking-room-info">
+                                <ul>
+                                    <li><label>Room Type :</label>
+                                        <p><i class="ico ico-circle-building"></i>2 x Standard Main Wing (25 sq.m.)</p>
+                                    </li>
+                                    <li><label>Policies :</label>
+                                        <p class="text-blue"><i class="ico ico-circle-thumbsup"></i>FREE cancellation before Oct 11, 2016</p>
+                                        <p class="text-blue"><i class="ico ico-circle-hanger"></i>Included: Breakfast</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="booking-room-promo">
+                                <p class="text-yellow">Flash Deal! - Limited Time Offer. Rate includes 65% discount!</p>
+                                <p>This room has limited availability for your dates at this price.</p>
+                            </div>
+                            <div class="booking-room-includes">
+                                <div class="booking-room-include">
+                                    <h4>Breakfast during your stay is INCLUDED!</h4>
+                                    <p>Confirm this booking and enjoy breakfast at no extra cost during your stay.</p>
+                                </div>
+                                <div class="booking-room-include">
+                                    <h4>Access your booking online for FREE!</h4>
+                                    <p>You can always amend your guest details, add special requests, print your voucher, or even change your check-in/check-out dates online.</p>
+                                </div>
+                            </div>
+                            <hr class="break break10">
+                            <div class="booking-room-includes">
+                                <label>Your room stay includes:</label>
+                                <ul class="list-includes clearfix">
+                                    <li class="inc-dimension">301 ft² (28 m²)</li>
+                                    <li class="inc-guests">3 guests (up to 2 child)</li>
+                                    <li class="inc-air-conditioning">Air Conditioning</li>
+                                    <li class="inc-extra-bed">Extra Bed available</li>
+                                    <li class="inc-hotspot">Free Wi-Fi in all rooms</li>
+                                    <li class="inc-services">Room Services</li>
+                                    <li class="inc-television">Television</li>
+                                    <li class="inc-minibar">Mini Bar</li>
+                                </ul>
+                            </div>
+                        </hgroup>
+                    </div>
+                </div>
+
+                <div class="alert alert-attention alert-icon">
+                    You are not yet signed-in. Please <a href="#" class="text-white"><b>signin</b></a> to your HOTELEVERLINK.COM and save these Property.
+                </div>
+                <div class="booking-detail">
+                    <div class="booking-detail-heading grayed">
+                        <h3 class="has-icon icon-guests">Hotel Guest Details</h3>
+                    </div>
+                    <div class="booking-detail-body">
+                        <div class="booking-room-form inputs-default">
+                            <div class="row gutter10">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-9">
+                                    <div class="row gutter5">
+                                        <div class="col-md-3">
+                                            <label>Nationality</label>
+                                            <select class="form-control">
+                                                <option value="">Australia</option>
+                                                <option value="" selected>China</option>
+                                                <option value="">United States</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="room-form-divider">
+                            <div class="row gutter10">
+                                <div class="col-md-3">
+                                    <label>Room Type</label>
+                                    <label class="text-purple">Superior Queen - sharing bedding</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="row gutter5">
+                                        <div class="col-md-2">
+                                            <label>Title</label>
+                                            <select class="form-control">
+                                                <option value="">Mr</option>
+                                                <option value="" selected>Ms</option>
+                                                <option value="">Child</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <label>First Name</label>
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <label>Last Name</label>
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <hr class="break break10">
+                                    <div class="row gutter5">
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                                <option value="" selected>Mr</option>
+                                                <option value="">Ms</option>
+                                                <option value="">Child</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <hr class="break break10">
+                                    <div class="row gutter5">
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                                <option value="">Mr</option>
+                                                <option value="">Ms</option>
+                                                <option value="" selected>Child</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="room-form-divider">
+                            <div class="row gutter10">
+                                <div class="col-md-3">
+                                    <label>Room Type</label>
+                                    <label class="text-purple">Superior Queen</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="row gutter5">
+                                        <div class="col-md-2">
+                                            <label>Title</label>
+                                            <select class="form-control">
+                                                <option value="">Mr</option>
+                                                <option value="" selected>Ms</option>
+                                                <option value="">Child</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <label>First Name</label>
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <label>Last Name</label>
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <hr class="break break10">
+                                    <div class="row gutter5">
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                                <option value="" selected>Mr</option>
+                                                <option value="">Ms</option>
+                                                <option value="">Child</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <hr class="break break10">
+                                    <div class="row gutter5">
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                                <option value="">Mr</option>
+                                                <option value="">Ms</option>
+                                                <option value="" selected>Child</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="booking-detail">
+                    <div class="booking-detail-heading grayed">
+                        <h3 class="has-icon icon-checkmark-circle">Special Request</h3>
+                    </div>
+                    <div class="booking-detail-body">
+                        <div class="booking-room-form inputs-default">
+                            <h5>Special Options</h5>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control"></textarea>
+                            </div>
+                            <a href="#" class="btn btn-yellow">Booking Now<i class="ico ico-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="side" class="side-sm">
+                <div class="widget widget_booking_confirmed">
+                    <div class="booking-payhead">
+                        <label>Payment Details</label>
+                    </div>
+                    <div class="booking-conf-payment">
+                        <div class="conf-payment-amount">
+                            <span class="payment-amount-off">$250</span>$ 3546.56
+                        </div>
+                        <div class="conf-payment-notes">
+                            <div>Private Sale : <span class="text-red">save 50%<span></div>
+                            <div>Total Charges Inclusive Taxes and Fees</div>
+                        </div>
+                    </div>
+                    <div class="booking-conf-prices">
+                        <ul>
+                            <li>
+                                <div class="conf-price-label">Nightly price /room :</div>
+                                <div class="conf-price-amount">$124.47</div>
+                            </li>
+                            <li>
+                                <div class="conf-price-label">1 Room x 1 Night :</div>
+                                <div class="conf-price-amount">$124.47 <span class="ico ico-question-circle"><span></div>
+                            </li>
+                            <li>
+                                <div class="conf-price-label">Taxes and fees :</div>
+                                <div class="conf-price-amount">$23.70</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="booking-conf-prices">
+                        <ul>
+                            <li>
+                                <div class="conf-price-label">Total charges :</div>
+                                <div class="conf-price-amount">$148.17</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="booking-conf-payment-proceed">
+                        <a href="#" class="btn btn-block">Proceed to Paynow<i class="ico ico-arrow-circle-right"></i></a>
+                        <div class="conf-payment-proceed-notes">
+                            <div><i class="ico ico-question-circle"></i> FREE cancellation before Oct 11, 2016 <i class="ico ico-circle-thumbsup"></i></div>
+                            <div><i class="ico ico-question-circle"></i> Breakfast included <i class="ico ico-circle-hanger"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

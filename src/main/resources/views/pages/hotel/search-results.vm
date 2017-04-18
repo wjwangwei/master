@@ -28,11 +28,17 @@
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Star<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" class="xhr-sort-pricerate"><div data-rating="5" class="rate rate-sm"><span class="rate5"></span></div> 5 stars</a></li>
-                            <li><a href="#" class="xhr-sort-pricerate"><div data-rating="4" class="rate rate-sm"><span class="rate4"></span></div> 4 stars</a></li>
-                            <li><a href="#" class="xhr-sort-pricerate"><div data-rating="3" class="rate rate-sm"><span class="rate3"></span></div> 3 stars</a></li>
-                            <li><a href="#" class="xhr-sort-pricerate"><div data-rating="2" class="rate rate-sm"><span class="rate2"></span></div> 2 stars</a></li>
-                            <li><a href="#" class="xhr-sort-pricerate"><div data-rating="1" class="rate rate-sm"><span class="rate1"></span></div> 1 star</a></li>
+                            #foreach($starRating in $starRatings)
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="rating" value="$starRating" class="ckbox" /> <!--checkbox-filter-->
+                                        <div class="rate rate-sm"><span class="rate$starRating"></span></div> stars ($starRatingCounts.get($starRating))
+                                    </label>
+                                </li>
+                            #end
+##                            #foreach($starRating in $starRatings)
+##                                <li><a href="#" class="xhr-sort-pricerate"><div data-rating="$starRating" class="rate rate-sm"><span class="rate$starRating"></span></div> $starRating star#if($starRating > 1)s#end</a></li>
+##                            #end
                         </ul>
                     </li>
                 </ul>
@@ -40,7 +46,7 @@
                 <ul class="items">
                     #foreach($availabilities in $searchResponse.hotelAvailabilities)
                         #set($hotel = $availabilities.hotel)
-                        <li class="item clearfix" data-hotelname="$hotel.hotelName" data-starrating="$hotel.getStarRatingSimple()" data-reviewscore="$hotel.score">
+                        <li class="item clearfix" data-hotelname="$hotel.hotelName" data-starrating="$hotel.getStarRatingSimple()" data-lowestrate="$availabilities.lowestRate" data-reviewscore="$hotel.score">
                             <figure>
                                 <a href="#"><img src="${pictureUrl}$hotel.pictureId"  style="min-height: 231px;" alt=""></a>
                             </figure>
@@ -105,10 +111,10 @@
                                                     <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span>
                                                 </div>
                                                 <div class="item-option-price">
-                                                ##                                                    <div class="price-discount">
-                                                ##                                                        <div class="price-discount-percentage">46%</div>
-                                                ##                                                        <div class="price-discount-amount">$ava25,962</div>
-                                                ##                                                    </div>
+                                                    <div class="price-discount">
+                                                        <div class="price-discount-percentage">46%</div>
+                                                        <div class="price-discount-amount">$ava25,962</div>
+                                                    </div>
                                                     <div class="price-amount">
                                                         <div class="price-amount-value"><span onload="javascript: displayCurrency($availability.currency)"></span> $availability.totalRate
                                                             <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
@@ -116,7 +122,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="item-option-action">
-                                                    <a href="#" class="booknow">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                                    <a href="#" class="booknow" data-hotelid="$availability.hotelId">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
                                                 </div>
                                             </div>
                                         #end

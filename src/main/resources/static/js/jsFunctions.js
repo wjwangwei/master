@@ -12,3 +12,4 @@ function displayCurrency(currencyCode, dom) {
     }
     dom.style = 'content: ' + displayCode;
 }
+

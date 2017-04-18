@@ -44,13 +44,13 @@ public class ApiController extends BaseController {
     }
 
 
-    @RequestMapping("/hotel/search")
+    @RequestMapping(path = {"/hotel/search", "/hotel/availability"})
     public HotelSearchResponse getHotels(@RequestParam("cityId") int cityId,
-                                             @RequestParam("nationalityId") int nationalityId,
-                                             @RequestParam("checkIn") String checkIn,
-                                             @RequestParam("checkOut") String checkOut,
-                                             @RequestParam("noOfRooms") int noOfRooms,
-                                             HttpServletRequest request) {
+                                         @RequestParam("nationalityId") int nationalityId,
+                                         @RequestParam("checkIn") String checkIn,
+                                         @RequestParam("checkOut") String checkOut,
+                                         @RequestParam("noOfRooms") int noOfRooms,
+                                         HttpServletRequest request) {
         Destination destination = null;
         Nationality nationality = null;
 
@@ -93,19 +93,26 @@ public class ApiController extends BaseController {
         if (destination != null) {
             jsonRequest.put("countryId", destination.getCountryId());
             jsonRequest.put("cityId", Objects.toString(destination.getCityId()));
-
-            // if hotel, add hotel parameter
-            if (destination.isHotel()) {
-                jsonRequest.put("hotelId", destination.getHotelId());
-            }
         } else {
-            jsonRequest.put("cityId", request.getParameter("cityId"));
-            //TODO //change the countryId hard-coded into the request
-            jsonRequest.put("countryId", "TH");
+            destination = new Destination();
+            destination.setCityId(Integer.parseInt(request.getParameter("cityId")));
+            //TODO change the countryId hard-coded into the request
+            destination.setCountryId("TH");
+            jsonRequest.put("cityId", destination.getCityId());
+            jsonRequest.put("countryId", destination.getCountryId());
+        }
+        destination.setType("");
+
+
+        // if hotel, add hotel parameter
+        if (request.getParameter("hotelId") != null) {
+            destination.setType("hotel");
+            destination.setHotelId(Integer.parseInt(request.getParameter("hotelId")));
+            jsonRequest.put("hotelId", destination.getHotelId());
         }
 
         //TEST
-//        jsonRequest.put("cityId", "48201");
+        jsonRequest.put("cityId", "48201");
         jsonRequest.put("countryId", "TH");
         jsonRequest.put("nationality", "CN");
 
@@ -210,19 +217,14 @@ public class ApiController extends BaseController {
 
 
 //        System.out.println(jsonParam.toString());
+        System.out.println(jsonParam.toString());
 
-        HotelSearchResponse hotelSearchResponse = apiManager.getCityAvailability(jsonParam, (destination != null && destination.isHotel()));
-        HotelAvailability[] hotelAvailabilities = hotelSearchResponse.getHotelAvailabilities();
+        HotelSearchResponse hotelSearchResponse = apiManager.getCityAvailability(jsonParam, destination.isHotel());
 
         //Add the hotel result to context.
-        context.setAttribute(kHotel, hotelSearchResponse);
+        if (!destination.isHotel())
+            context.setAttribute(kHotel, hotelSearchResponse);
 
         return hotelSearchResponse;
-    }
-
-    @RequestMapping("/hotel/verify-availability")
-    public String verifyHotelRoom() {
-
-        return "";
     }
 }

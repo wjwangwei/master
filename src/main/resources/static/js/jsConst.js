@@ -3,4 +3,4 @@
  */
 NProgress.configure({ minimum: 0.1 });
 var HOTEL_SEARCH_API = "/api/hotel/search";
-var HOTEL_ROOM_VERIFICATION_API = "/api/hotel/verify-availability";
+var HOTEL_ROOM_VERIFICATION_API = "/api/hotel/availability";

@@ -69,7 +69,7 @@ public class HotelController extends BaseController {
             rating.stream().forEach(a -> starRatingCount.put(a, availabilities.stream().filter(o -> o.getHotel().getStarRatingSimple() == a).toArray().length));
 
             availabilities.stream().forEach(o -> score.add(getScoreDesc(o.getHotel().getScore())));
-            rating.stream().forEach(a -> scoreRatingCount.put(getScoreDesc(a), availabilities.stream().filter(o -> Objects.equals(getScoreDesc(o.getHotel().getScore()), getScoreDesc(a))).toArray().length));
+            score.stream().forEach(a -> scoreRatingCount.put(a, availabilities.stream().filter(o -> Objects.equals(getScoreDesc(o.getHotel().getScore()), a)).toArray().length));
 
 
             model.put("starRatings", rating);
@@ -89,11 +89,18 @@ public class HotelController extends BaseController {
     }
 
     private String getScoreDesc(int score) {
-        if(score >= 90) return "Wonderful " + score;
-        else if(score >= 80)return "Very good " + score;
-        else if(score >= 70) return "Good " + score;
-        else if(score > 60) return "Pleasant " + score;
+        if (score >= 90) return "Wonderful " + score;
+        else if (score >= 80) return "Very Good " + score;
+        else if (score >= 70) return "Good " + score;
+        else if (score > 60) return "Pleasant " + score;
         else return "";
+
+    }
+
+    @RequestMapping("/booking/{hotelId}")
+    public String booking(String hotelId) {
+
+        return "hotel/booking";
     }
 
 }

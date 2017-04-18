@@ -63,7 +63,7 @@ $(document).ready(function(){
 
 	// Checkbox
 	$('input.checkbox-square').iCheck({ checkboxClass: 'icheckbox_square', radioClass: 'iradio_square' });
-	$('input.checkbox-filter').iCheck({ checkboxClass: 'icheckbox_filter', radioClass: 'iradio_filter' });
+	$('input.checkbox-filter').iCheck({ checkboxClass: 'icheckbox_filter' });
 	$("select.selector").select2({
 		minimumResultsForSearch: Infinity
 	});
