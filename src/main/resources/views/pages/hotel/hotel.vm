@@ -292,7 +292,7 @@
                                 <div class="room-price">
                                     <div class="price-discount">
                                         <div class="price-discount-percentage">$formatter.getPercentage($availability.hotelRooms.rooms[0].totalRate, $availability.hotelRooms.rooms[0].totalOriginalRate)%</div>
-                                        <div class="price-discount-amount">$formatter.subtractDiscount($availability.hotelRooms.rooms[0].totalRate, $availability.hotelRooms.rooms[0].totalOriginalRate)</div>
+                                        <div class="price-discount-amount">$formatter.getCurrency($availability.hotelRooms.rooms[0].currency) $formatter.subtractDiscount($availability.hotelRooms.rooms[0].totalRate, $availability.hotelRooms.rooms[0].totalOriginalRate)</div>
                                     </div>
                                     <div class="price-amount">
                                         <div class="price-amount-value">$formatter.getCurrency($availability.hotelRooms.rooms[0].currency) $availability.hotelRooms.rooms[0].totalRate <span class="ico ico-question-circle-purple" data-toggle="tooltip" title="Price information goes here..."></span></div>

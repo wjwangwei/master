@@ -137,8 +137,8 @@
                 </ul>
 
                 <hr class="break break10">
-
-                <div class="pagination-wrapper">
+                #if($searchResponse.hotelCount > 15)
+                    <div class="pagination-wrapper">
                     <ul class="pagination">
                         <li><a href="#" aria-label="Previous"><span aria-hidden="true">Prevous</span></a></li>
                     ##                            <li><a href="#">1</a></li>
@@ -155,6 +155,7 @@
                         <li><a href="#" aria-label="Next"><span aria-hidden="true">Next</span></a></li>
                     </ul>
                 </div>
+                #end
             </div>
         </div>
     </div>
