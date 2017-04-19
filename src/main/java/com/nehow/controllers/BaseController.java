@@ -14,8 +14,13 @@ public class BaseController implements ServletContextAware {
     // key for destination suggestion
     protected final String kDestination = "destination";
 
+    //key for search request
+    protected final String kRequest = "request";
+
     // key for hotel results
-    protected final String kHotel = "hotel";
+    protected final String kHotels = "hotels";
+
+    protected final String kHotelAvailability = "hotels";
 
     protected final String kMarkup = "markup";
     protected final String kExchange = "exchange";

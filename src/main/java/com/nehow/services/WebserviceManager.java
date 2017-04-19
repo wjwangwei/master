@@ -79,11 +79,10 @@ public class WebserviceManager {
     /**
      * fetch hotel availabilities
      *
-     * @param param   json
-     * @param isHotel true if destination is hotel
+     * @param param json
      * @return
      */
-    public HotelSearchResponse getCityAvailability(JSONObject param, boolean isHotel) {
+    public HotelSearchResponse getCityAvailability(JSONObject param) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
@@ -91,9 +90,52 @@ public class WebserviceManager {
 
         // determine url
         String strUrl = "/hotel/availability/city";
-        if (isHotel) {
-            strUrl = "/hotel/availability/hotel";
+
+        // call available web service
+        System.out.println(svcProperty.getRootUrl() + strUrl);
+        ResponseEntity<JSONObject> response = restTemplate.exchange(svcProperty.getRootUrl() + strUrl, HttpMethod.POST, entity, JSONObject.class);
+        JSONObject jsonResponse = response.getBody();
+        JSONArray jsonArray = jsonResponse.getJSONArray("hotelAvailabilities");
+
+        //
+        // transfer json to object
+        //
+        HotelSearchResponse hotelReachResp = null;
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            hotelReachResp = mapper.readValue(jsonResponse.toString(), HotelSearchResponse.class);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        System.out.println("RESPONSE: " + response.getBody().toString());
+        return hotelReachResp;
+    }
+
+    /**
+     * Fetch single hotel based on hotel ID
+     *
+     * @param param
+     * @return
+     */
+    public HotelSearchResponse getHotelAvailability(JSONObject param, String hotelId) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+
+        JSONObject req = (JSONObject) param.get("request");
+        req.put("hotelId", hotelId);
+        param.put("request", req);
+
+        /**
+         * Mandatory to set the hotelId
+         */
+
+        HttpEntity<String> entity = new HttpEntity<String>(param.toString(), headers);
+
+        System.out.println(param);
+        // determine url
+        String strUrl = "/hotel/availability/hotel";
 
         // call available web service
         System.out.println(svcProperty.getRootUrl() + strUrl);

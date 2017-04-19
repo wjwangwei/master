@@ -1,0 +1,593 @@
+#set($title = $hotel.hotelName)
+<section class="hotel-heading">
+    <div class="container">
+        <div class="hotel-heading-rates">
+            <div class="heading-rates-score">
+                #if($hotel.score >= 90)
+                    Wonderful $hotel.score
+                #elseif($hotel.score >= 80)
+                    Very good $hotel.score
+                #elseif($hotel.score >= 70)
+                    Good $hotel.score
+                #elseif($hotel.score > 60)
+                    Pleasant $hotel.score
+                #else
+
+                #end
+            </div>
+            <div class="heading-rates-reviews">$hotel.reviews review#if($hotel.reviews > 1)s#end</div>
+            <!--<div class="heading-rates-source">booking.com</div>-->
+        </div>
+        <div class="hotel-heading-title">$hotel.hotelName</div>
+        <div class="hotel-heading-meta">
+            <div class="rate"><span class="rate5"></span></div>
+            <!--<span class="review-total"> (5/5 by China National Tourism Administration)</span>-->
+        </div>
+        <div class="hotel-heading-address">$hotel.address<a href="#" data-toggle="modal" data-target="#hotelMap">Show Map</a></div>
+    </div>
+</section>
+
+<section class="space-xs">
+    <div class="container">
+
+        <div id="main-contents">
+            <div id="main">
+                <div class="row gutter0 hotel-images">
+                    #if($hotel.pictures)
+                        <div class="col-md-9 hotel-images-slide">
+                            <ul id="imagesSlide">
+                                #foreach($image in $hotel.pictures)
+                                    <li><img src="$pictureUrl$image" alt=""></li>
+                                #end
+                            </ul>
+                        </div>
+                        <div class="col-md-3 hotel-images-thumb">
+                            <ul id="thumbsSlide" class="clearfix">
+                                <li>
+                                    #foreach($image in $hotel.pictures)
+                                        <li><img src="$pictureUrl$hotel.pictureId" alt=""></li>
+                                    #end
+                                </li>
+                            </ul>
+                        </div>
+                    #else
+                    ##Display thumnail
+                    <div class="col-md-9 hotel-images-slide">
+                        <ul id="imagesSlide">
+                            <li><img src="$pictureUrl$hotel.pictureId" alt=""></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 hotel-images-thumb">
+                        <ul id="thumbsSlide" class="clearfix">
+##                            <li><img src="$pictureUrl$hotel.pictureId" alt=""></li>
+                        </ul>
+                    </div>
+                    #end
+                </div>
+
+                <div class="booking-detail">
+                    <div class="booking-detail-heading">
+                        <h3 class="has-icon icon-calendar text-purple-dark">AVAILABILITY AT MARINA MANDARIN HOTEL IN SINGAPORE</h3>
+                    </div>
+                    <div class="booking-detail-body">
+                        <div class="hotel-form-checkin inputs-default">
+                            <div class="row gutter7">
+                                <div class="col-md-2">
+                                    <label>Checkin</label>
+                                    <div class="has-icon">
+                                        <span class="icon-calendar"></span>
+                                        <input type="text" class="form-control" id="dateCheckin" name="checkIn" value="$request.request.checkIn" placeholder="Checkin" />
+                                        <div class="calendardaten"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Checkout</label>
+                                    <div class="has-icon">
+                                        <span class="icon-calendar"></span>
+                                        <input type="text" class="form-control" id="dateCheckout" name="checkOut" placeholder="Checkout" value="$request.request.checkOut" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Rooms Adults (+18), Children (0-17)</label>
+                                    <div class="dropdown dropdown-room has-selector">
+                                        <span class="lang-en lang-active"></span>
+                                        <a href="#" class="form-control dropdown-toggle">2 Rooms, 2 Adults, 2 Children</a>
+                                        <div class="dropdown-menu">
+                                            <div class="form-group-qty clearfix">
+                                                <label>Room</label>
+                                                <div id="controlQty" class="input-group">
+                                                    <div class="input-group-btn">
+                                                        <button type="button" class="btn btn-min"></button>
+                                                    </div>
+                                                    <input type="text" class="form-control" value="2">
+                                                    <div class="input-group-btn">
+                                                        <button type="button" class="btn btn-plus"></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ul class="form-group-room">
+                                                <li>
+                                                    <div class="form-group-room-title">ROOM 1</div>
+                                                    <div class="form-group">
+                                                        <label>Room Type</label>
+                                                        <select class="selector" style="width:100%;">
+                                                            <option value="">Single</option>
+                                                            <option value="">Double</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="row gutter5">
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Adults (+18)</label>
+                                                                <select class="selector" style="width:100%;">
+                                                                    <option value="">1</option>
+                                                                    <option value="" selected>2</option>
+                                                                    <option value="">3</option>
+                                                                    <option value="">...</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Children (0-17)</label>
+                                                                <select class="selector" style="width:100%;">
+                                                                    <option value="" selected>1</option>
+                                                                    <option value="">2</option>
+                                                                    <option value="">3</option>
+                                                                    <option value="">...</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row gutter5">
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Child 1 Age</label>
+                                                                <select class="selector" style="width:100%;">
+                                                                    <option value="">1</option>
+                                                                    <option value="">2</option>
+                                                                    <option value="">3</option>
+                                                                    <option value="">4</option>
+                                                                    <option value="">5</option>
+                                                                    <option value="" selected>6</option>
+                                                                    <option value="">...</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Child 1 Age</label>
+                                                                <select class="selector" style="width:100%;">
+                                                                    <option value="">1</option>
+                                                                    <option value="">2</option>
+                                                                    <option value="">3</option>
+                                                                    <option value="">4</option>
+                                                                    <option value="">5</option>
+                                                                    <option value="" selected>6</option>
+                                                                    <option value="">...</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Child 1 Age</label>
+                                                                <select class="selector" style="width:100%;">
+                                                                    <option value="">1</option>
+                                                                    <option value="">2</option>
+                                                                    <option value="">3</option>
+                                                                    <option value="">4</option>
+                                                                    <option value="">5</option>
+                                                                    <option value="" selected>6</option>
+                                                                    <option value="">...</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group-room-title">ROOM 2</div>
+                                                    <div class="form-group">
+                                                        <label>Room Type</label>
+                                                        <select class="selector" style="width:100%;">
+                                                            <option value="">Single</option>
+                                                            <option value="">Double</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="row gutter5">
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Adults (+18)</label>
+                                                                <select class="selector" style="width:100%;">
+                                                                    <option value="">1</option>
+                                                                    <option value="" selected>2</option>
+                                                                    <option value="">3</option>
+                                                                    <option value="">...</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Children (0-17)</label>
+                                                                <select class="selector" style="width:100%;">
+                                                                    <option value="" selected>1</option>
+                                                                    <option value="">2</option>
+                                                                    <option value="">3</option>
+                                                                    <option value="">...</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row gutter5">
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Child 1 Age</label>
+                                                                <select class="selector" style="width:100%;">
+                                                                    <option value="">1</option>
+                                                                    <option value="">2</option>
+                                                                    <option value="">3</option>
+                                                                    <option value="">4</option>
+                                                                    <option value="">5</option>
+                                                                    <option value="" selected>6</option>
+                                                                    <option value="">...</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Child 1 Age</label>
+                                                                <select class="selector" style="width:100%;">
+                                                                    <option value="">1</option>
+                                                                    <option value="">2</option>
+                                                                    <option value="">3</option>
+                                                                    <option value="">4</option>
+                                                                    <option value="">5</option>
+                                                                    <option value="" selected>6</option>
+                                                                    <option value="">...</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Child 1 Age</label>
+                                                                <select class="selector" style="width:100%;">
+                                                                    <option value="">1</option>
+                                                                    <option value="">2</option>
+                                                                    <option value="">3</option>
+                                                                    <option value="">4</option>
+                                                                    <option value="">5</option>
+                                                                    <option value="" selected>6</option>
+                                                                    <option value="">...</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>&nbsp;</label>
+                                    <button type="submit" class="btn btn-md btn-block btn-flat-purple arrow-right">BOOK NOW</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rooms">
+                    <div class="rooms-head">
+                        <div class="room-type">Room Type</div>
+                        <div class="room-breakfast">Breakfast</div>
+                        <div class="room-policy">Policy</div>
+                        <div class="room-price">Price</div>
+                        <div class="room-action"></div>
+                    </div>
+                    <div class="rooms-body">
+                        #foreach($availability in $availabilities)
+                            <div class="room-item">
+                                <div class="room-type">$availability.hotelRooms.rooms[0].roomName</div>
+                                <div class="room-breakfast">Available</div>
+                                <div class="room-policy"><a href="#" class="text-blue">View Policy</a> <span class="ico ico-question-circle-purple" data-toggle="tooltip" title="Policy information goes here..."></span></div>
+                                <div class="room-price">
+                                    <div class="price-discount">
+                                        <div class="price-discount-percentage">$formatter.getPercentage($availability.hotelRooms.rooms[0].totalRate, $availability.hotelRooms.rooms[0].totalOriginalRate)%</div>
+                                        <div class="price-discount-amount">$formatter.subtractDiscount($availability.hotelRooms.rooms[0].totalRate, $availability.hotelRooms.rooms[0].totalOriginalRate)</div>
+                                    </div>
+                                    <div class="price-amount">
+                                        <div class="price-amount-value">$formatter.getCurrency($availability.hotelRooms.rooms[0].currency) $availability.hotelRooms.rooms[0].totalRate <span class="ico ico-question-circle-purple" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                        <div class="price-amount-notes">Rooms per night</div>
+                                    </div>
+                                </div>
+                                <div class="room-action">
+                                    <a href="#" class="btn btn-block btn-flat-purple">BOOK NOW<span class="ico ico-arrow-right"></span></a>
+                                </div>
+                            </div>
+                        #end
+                    </div>
+                </div>
+
+                <div class="booking-detail">
+                    <div class="booking-detail-heading">
+                        <h3 class="has-icon icon-statistic text-purple-dark">WHAT’S IN THE HOTEL</h3>
+                    </div>
+                    <div class="booking-detail-body">
+                        <ul class="facilities">
+                            <li>
+                                <label>Internet</label>
+                                <div class="facility-list">
+                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
+                                    <ul class="clearfix">
+                                        <li><i class="fac-wifi"></i>Free Wi-Fi in all rooms</li>
+                                        <li><i class="fac-wifi"></i>Wi-Fi in public area</li>
+                                    </ul>
+                                    <div class="facility-list-more">
+                                        <ul class="clearfix">
+                                            <li><i class="fac-wifi"></i>Free Wi-Fi in all rooms</li>
+                                            <li><i class="fac-wifi"></i>Wi-Fi in public area</li>
+                                            <li><i class="fac-wifi"></i>Free Wi-Fi in all rooms</li>
+                                            <li><i class="fac-wifi"></i>Wi-Fi in public area</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <label>General</label>
+                                <div class="facility-list">
+                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
+                                    <ul class="clearfix">
+                                        <li><i class="fac-shoppingcart"></i>Shopping on Site</li>
+                                        <li><i class="fac-giftshop"></i>Gift Shop</li>
+                                    </ul>
+                                    <div class="facility-list-more">
+                                        <ul class="clearfix">
+                                            <li><i class="fac-shoppingcart"></i>Shopping on Site</li>
+                                            <li><i class="fac-giftshop"></i>Gift Shop</li>
+                                            <li><i class="fac-shoppingcart"></i>Shopping on Site</li>
+                                            <li><i class="fac-giftshop"></i>Gift Shop</li>
+                                            <li><i class="fac-shoppingcart"></i>Shopping on Site</li>
+                                            <li><i class="fac-giftshop"></i>Gift Shop</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Services</label>
+                                <div class="facility-list">
+                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
+                                    <ul class="clearfix">
+                                        <li><i class="fac-flight"></i>Airpot Transportation</li>
+                                        <li><i class="fac-atm"></i>ATM/Banking</li>
+                                    </ul>
+                                    <div class="facility-list-more">
+                                        <ul class="clearfix">
+                                            <li><i class="fac-flight"></i>Airpot Transportation</li>
+                                            <li><i class="fac-atm"></i>ATM/Banking</li>
+                                            <li><i class="fac-flight"></i>Airpot Transportation</li>
+                                            <li><i class="fac-atm"></i>ATM/Banking</li>
+                                            <li><i class="fac-flight"></i>Airpot Transportation</li>
+                                            <li><i class="fac-atm"></i>ATM/Banking</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Activities</label>
+                                <div class="facility-list">
+                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
+                                    <ul class="clearfix">
+                                        <li><i class="fac-barbel"></i>Fitness Facilities</li>
+                                        <li><i class="fac-swimming"></i>Indoor Pool</li>
+                                    </ul>
+                                    <div class="facility-list-more">
+                                        <ul class="clearfix">
+                                            <li><i class="fac-barbel"></i>Fitness Facilities</li>
+                                            <li><i class="fac-swimming"></i>Indoor Pool</li>
+                                            <li><i class="fac-barbel"></i>Fitness Facilities</li>
+                                            <li><i class="fac-swimming"></i>Indoor Pool</li>
+                                            <li><i class="fac-barbel"></i>Fitness Facilities</li>
+                                            <li><i class="fac-swimming"></i>Indoor Pool</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Food & Drink</label>
+                                <div class="facility-list">
+                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
+                                    <ul class="clearfix">
+                                        <li><i class="fac-restaurant"></i>Breakfast (Surcharge)</li>
+                                        <li><i class="fac-coffee"></i>Coffee Shop</li>
+                                    </ul>
+                                    <div class="facility-list-more">
+                                        <ul class="clearfix">
+                                            <li><i class="fac-restaurant"></i>Breakfast (Surcharge)</li>
+                                            <li><i class="fac-coffee"></i>Coffee Shop</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Outdoors</label>
+                                <div class="facility-list">
+                                    <ul class="clearfix">
+                                        <li><i class="fac-swimming"></i>Beach/Pool Umbrellas</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Language Spoken</label>
+                                <div class="facility-list">
+                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
+                                    <ul class="clearfix">
+                                        <li><i class="fac-lang-ch"></i>Chinese</li>
+                                        <li><i class="fac-lang-en"></i>English</li>
+                                    </ul>
+                                    <div class="facility-list-more">
+                                        <ul class="clearfix">
+                                            <li><i class="fac-lang-ch"></i>Chinese</li>
+                                            <li><i class="fac-lang-en"></i>English</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="booking-detail">
+                    <div class="booking-detail-heading">
+                        <h3 class="has-icon icon-thumbsup text-purple-dark">ENJOY YOUR ROOM</h3>
+                    </div>
+                    <div class="booking-detail-body">
+                        <ul class="facilities">
+                            <li>
+                                <label>Internet</label>
+                                <div class="facility-list">
+                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
+                                    <ul class="clearfix">
+                                        <li><i class="fac-wifi"></i>Free Wi-Fi in all rooms</li>
+                                        <li><i class="fac-wifi"></i>Wi-Fi in public area</li>
+                                    </ul>
+                                    <div class="facility-list-more">
+                                        <ul class="clearfix">
+                                            <li><i class="fac-wifi"></i>Free Wi-Fi in all rooms</li>
+                                            <li><i class="fac-wifi"></i>Wi-Fi in public area</li>
+                                            <li><i class="fac-wifi"></i>Free Wi-Fi in all rooms</li>
+                                            <li><i class="fac-wifi"></i>Wi-Fi in public area</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <label>General</label>
+                                <div class="facility-list">
+                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
+                                    <ul class="clearfix">
+                                        <li><i class="fac-aircondition"></i>Air Conditioning</li>
+                                        <li><i class="fac-beds"></i>Extra Bed Available</li>
+                                    </ul>
+                                    <div class="facility-list-more">
+                                        <ul class="clearfix">
+                                            <li><i class="fac-aircondition"></i>Air Conditioning</li>
+                                            <li><i class="fac-beds"></i>Extra Bed Available</li>
+                                            <li><i class="fac-aircondition"></i>Air Conditioning</li>
+                                            <li><i class="fac-beds"></i>Extra Bed Available</li>
+                                            <li><i class="fac-aircondition"></i>Air Conditioning</li>
+                                            <li><i class="fac-beds"></i>Extra Bed Available</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Services</label>
+                                <div class="facility-list">
+                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
+                                    <ul class="clearfix">
+                                        <li><i class="fac-roomservice"></i>Room Services</li>
+                                        <li><i class="fac-roommassage"></i>Room Massage Services</li>
+                                    </ul>
+                                    <div class="facility-list-more">
+                                        <ul class="clearfix">
+                                            <li><i class="fac-roomservice"></i>Room Services</li>
+                                            <li><i class="fac-roommassage"></i>Room Massage Services</li>
+                                            <li><i class="fac-roomservice"></i>Room Services</li>
+                                            <li><i class="fac-roommassage"></i>Room Massage Services</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Bathroom</label>
+                                <div class="facility-list">
+                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
+                                    <ul class="clearfix">
+                                        <li><i class="fac-hairdryer"></i>Hair Dryer</li>
+                                        <li><i class="fac-bathrobes"></i>Bathrobes</li>
+                                    </ul>
+                                    <div class="facility-list-more">
+                                        <ul class="clearfix">
+                                            <li><i class="fac-hairdryer"></i>Hair Dryer</li>
+                                            <li><i class="fac-bathrobes"></i>Bathrobes</li>
+                                            <li><i class="fac-hairdryer"></i>Hair Dryer</li>
+                                            <li><i class="fac-bathrobes"></i>Bathrobes</li>
+                                            <li><i class="fac-hairdryer"></i>Hair Dryer</li>
+                                            <li><i class="fac-bathrobes"></i>Bathrobes</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Media & Technology</label>
+                                <div class="facility-list">
+                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
+                                    <ul class="clearfix">
+                                        <li><i class="fac-television"></i>Television</li>
+                                        <li><i class="fac-smartphone"></i>Phone</li>
+                                    </ul>
+                                    <div class="facility-list-more">
+                                        <ul class="clearfix">
+                                            <li><i class="fac-television"></i>Television</li>
+                                            <li><i class="fac-smartphone"></i>Phone</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <label>Kitchen</label>
+                                <div class="facility-list">
+                                    <ul class="clearfix">
+                                        <li><i class="fac-coffee"></i>Coffee/Tea Maker</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <hr class="break break20">
+            </div>
+
+            <div id="side" class="side-sm">
+                <!--
+                    <div class="widget widget_ad">
+                        <a href="#"><img src="images/temp/temp_ad_300x250.jpg" alt=""></a>
+                    </div>
+                -->
+            </div>
+        </div>
+
+    </div>
+</section>
+<style>
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+</style>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIDc54HZ6VYORNKbMdbE3OJzXZp0dppn4&callback=initMap"></script>
+<script>
+    function initMap() {
+        var location = {lat: $hotel.latitude, lng: $hotel.longitude};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: location
+        });
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
+</script>
+<div class="modal fade" tabindex="-1" id="hotelMap" role="dialog"  aria-labelledby="hotelMapLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1></h1>
+            </div>
+            <div class="modal-body">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</div>

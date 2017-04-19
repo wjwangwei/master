@@ -75,7 +75,24 @@ $(document).ready(function(){
 	$('[data-toggle="popover"]').popover({
 		container: 'body'
 	});
+
+	$('#imagesSlide').bxSlider({
+		auto: false,
+		mode: 'fade',
+		controls: true,
+		pagerCustom: '#thumbsSlide'
+	});
+	$('#thumbsSlide').bxSlider({
+		auto: false,
+		controls: true,
+		mode: 'vertical',
+		pager: false,
+		infiniteLoop: false,
+		hideControlOnEnd: true
+	});
+	
 });
+
 
 
 (function ($) {

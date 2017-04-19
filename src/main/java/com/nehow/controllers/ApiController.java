@@ -44,7 +44,7 @@ public class ApiController extends BaseController {
     }
 
 
-    @RequestMapping(path = {"/hotel/search", "/hotel/availability"})
+    @RequestMapping("/hotel/search")
     public HotelSearchResponse getHotels(@RequestParam("cityId") int cityId,
                                          @RequestParam("nationalityId") int nationalityId,
                                          @RequestParam("checkIn") String checkIn,
@@ -100,15 +100,6 @@ public class ApiController extends BaseController {
             destination.setCountryId("TH");
             jsonRequest.put("cityId", destination.getCityId());
             jsonRequest.put("countryId", destination.getCountryId());
-        }
-        destination.setType("");
-
-
-        // if hotel, add hotel parameter
-        if (request.getParameter("hotelId") != null) {
-            destination.setType("hotel");
-            destination.setHotelId(Integer.parseInt(request.getParameter("hotelId")));
-            jsonRequest.put("hotelId", destination.getHotelId());
         }
 
         //TEST
@@ -216,15 +207,23 @@ public class ApiController extends BaseController {
         jsonParam.put("limit", jsonLimit);
 
 
-//        System.out.println(jsonParam.toString());
         System.out.println(jsonParam.toString());
 
-        HotelSearchResponse hotelSearchResponse = apiManager.getCityAvailability(jsonParam, destination.isHotel());
+        context.setAttribute(kRequest, jsonParam);
+        HotelSearchResponse hotelSearchResponse = apiManager.getCityAvailability((JSONObject) context.getAttribute(kRequest));
 
-        //Add the hotel result to context.
-        if (!destination.isHotel())
-            context.setAttribute(kHotel, hotelSearchResponse);
+        context.setAttribute(kHotels, hotelSearchResponse);
 
         return hotelSearchResponse;
+    }
+
+
+    @RequestMapping(path = {"/hotel/availability/{hotelId}"})
+    public HotelSearchResponse getHotel(String hotelId) {
+        JSONObject request = (JSONObject) context.getAttribute(kRequest);
+        hotelId = "837075";
+        HotelSearchResponse hotelAvailability = apiManager.getHotelAvailability(request, hotelId);
+        context.setAttribute(kHotelAvailability, hotelAvailability);
+        return hotelAvailability;
     }
 }

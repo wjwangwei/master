@@ -2,9 +2,8 @@ package com.nehow.controllers;
 
 import com.nehow.models.*;
 import com.nehow.services.CommonUtils;
+import com.nehow.services.CurrencyUtils;
 import com.nehow.services.WebserviceManager;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONNull;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,15 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.lang.System;
 
 /**
  * Created by Igbalajobi Jamiu Okunade on 4/12/17.
@@ -50,7 +42,7 @@ public class HotelController extends BaseController {
         model.put("childcount", 1);
         model.put("childage", null);
 
-        HotelSearchResponse searchResponse = (HotelSearchResponse) context.getAttribute(kHotel);
+        HotelSearchResponse searchResponse = (HotelSearchResponse) context.getAttribute(kHotels);
         model.put("requestParam", request);
         model.put("pictureUrl", CommonUtils.getPicBaseUrl());
         model.put("searchResponse", searchResponse);
@@ -78,6 +70,8 @@ public class HotelController extends BaseController {
             model.put("scoreRatings", score);
             model.put("scoreRatingCounts", scoreRatingCount);
 
+            model.put("formatter", new CurrencyUtils());
+
 //            model.put("reviewScores", scoreRatingCount);
             isResultAvail = true;
         } else {
@@ -85,7 +79,7 @@ public class HotelController extends BaseController {
         }
         model.put("isResult", isResultAvail);
 
-        return "hotel/search-results";
+        return "hotel/search";
     }
 
     private String getScoreDesc(int score) {
@@ -97,10 +91,50 @@ public class HotelController extends BaseController {
 
     }
 
-    @RequestMapping("/booking/{hotelId}")
-    public String booking(String hotelId) {
-
+    @RequestMapping("/booking/{hotelId}/{roomCode}")
+    public String booking(String hotelId, String roomCode, Map<String, Object> model) {
+        JSONObject request = (JSONObject) context.getAttribute(kRequest);
+        HotelSearchResponse searchResponse = apiManager.getHotelAvailability(request, "837075");
+        if (searchResponse.getHotelCount() > 0) {
+            model.put("hotel", searchResponse.getHotelAvailabilities()[0].getHotel());
+            model.put("availability", searchResponse.getHotelAvailabilities()[0].getAvailabilities()[0]);
+            model.put("supplierAvailability", searchResponse.getHotelAvailabilities()[0].getSupplierAvailabilities()[0]);
+            model.put("request", request);
+            model.put("dateFormatter", new SimpleDateFormat("DDD, MM dd yyyy"));
+            model.put("duration", 1);
+            model.put("noOfRooms", 1);
+            model.put("noOfAdults", 1);
+            model.put("noOfChild", 1);
+        }
         return "hotel/booking";
     }
+
+    @RequestMapping("/{hotelId}")
+    public String hotel(String hotelId, Map<String, Object> model) {
+        hotelId = "837075";
+        JSONObject request = (JSONObject) context.getAttribute(kRequest);
+        HotelSearchResponse searchResponse = (HotelSearchResponse) context.getAttribute(kHotelAvailability);
+        if (searchResponse == null) {
+            searchResponse = apiManager.getHotelAvailability(request, hotelId);
+            if (searchResponse.getRewriteKeyCount() <= searchResponse.getCompleteRewriteKeyCount()) {
+                searchResponse = apiManager.getHotelAvailability(request, hotelId);
+            }
+        }
+        if (searchResponse.getHotelCount() > 0) {
+            model.put("hotel", searchResponse.getHotelAvailabilities()[0].getHotel());
+            model.put("availabilities", searchResponse.getHotelAvailabilities()[0].getAvailabilities());
+            model.put("supplierAvailability", searchResponse.getHotelAvailabilities()[0].getSupplierAvailabilities());
+            model.put("request", request);
+            model.put("pictureUrl", CommonUtils.getPicBaseUrl());
+            model.put("formatter", new CurrencyUtils());
+            model.put("math", Math.class);
+            model.put("duration", 1);
+            model.put("noOfRooms", 1);
+            model.put("noOfAdults", 1);
+            model.put("noOfChild", 1);
+        }
+        return "hotel/hotel";
+    }
+
 
 }

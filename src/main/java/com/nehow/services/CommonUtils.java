@@ -19,6 +19,7 @@ public class CommonUtils implements ApplicationContextAware {
 
     /**
      * get Picture base url from application.properties
+     *
      * @return String
      */
     public static String getPicBaseUrl() {
@@ -28,4 +29,8 @@ public class CommonUtils implements ApplicationContextAware {
     public static String getSuppliers() {
         return applicationContext.getEnvironment().getProperty("webservice.suppliers");
     }
+
+
+
+
 }

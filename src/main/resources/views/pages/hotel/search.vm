@@ -102,34 +102,34 @@
                                                     #end
                                                 </div>
                                                 <div class="item-option-policy">
-                                                    #if(!$availability.hotelRooms.policies && $availability.hotelRooms.policies.refundable == "true")
-                                                        <a href="#" class="get-policy" data-roomid="">Refundable</a>
-                                                    #else
-                                                        Non-Refundable
+                                                    ##if(!$availability.hotelRooms.policies && $availability.hotelRooms.policies.refundable == "true")
+                                                        ##<a href="#" class="get-policy" data-roomid="">Refundable</a>
+                                                    ##else
+                                                        ##Non-Refundable
                                                         <a href="#" class="get-policy" data-roomid="">View Policy</a>
-                                                    #end
+                                                    ##end
                                                     <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span>
                                                 </div>
                                                 <div class="item-option-price">
                                                     <div class="price-discount">
-                                                        <div class="price-discount-percentage">46%</div>
-                                                        <div class="price-discount-amount">$ava25,962</div>
+                                                        <div class="price-discount-percentage">$formatter.getPercentage($availability.totalRate, $availability.totalOriginalRate)%</div>
+                                                        <div class="price-discount-amount">$formatter.subtractDiscount($availability.totalRate, $availability.totalOriginalRate)</div>
                                                     </div>
                                                     <div class="price-amount">
-                                                        <div class="price-amount-value"><span onload="javascript: displayCurrency($availability.currency)"></span> $availability.totalRate
-                                                            <span class="ico ico-question-circle" data-toggle="tooltip" title="Price information goes here..."></span></div>
+                                                        <div class="price-amount-value">$formatter.getCurrency($availability.currency) $availability.totalRate
+                                                        <span class="ico ico-question-circle" data-toggle="tooltip" title="Get Price Break Down"></span></div>
                                                         <div class="price-amount-notes">Rooms per night</div>
                                                     </div>
                                                 </div>
                                                 <div class="item-option-action">
-                                                    <a href="#" class="booknow" data-hotelid="$availability.hotelId">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                                    <a href="#" class="booknow" data-hotelid="$availability.hotelId" data-roomcode="todo">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
                                                 </div>
                                             </div>
                                         #end
                                     </div>
                                 </div>
                                 <div class="item-footer">
-                                    <a href="#" class="seeall">SEE ALL ROOM OPTIONS</a>
+                                    <a href="#" onclick="javascript: xhrRoomVerifyURL($hotel.hotelId, '/hotel/' + $hotel.hotelId); return false;" class="seeall">SEE ALL ROOM OPTIONS</a>
                                 </div>
                             </hgroup>
                         </li>

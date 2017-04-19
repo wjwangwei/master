@@ -272,35 +272,6 @@
 
         }
         return isValid;
-    };
-
-    $.fn.queryHotelXhr = function (url, data, btn, isHotel, funcResponse) {
-        // (function () {
-        $.ajax({
-            url: url,
-            data: data,
-            dataType: 'JSON',
-            type: 'GET',
-            // async: false,
-            cache: false,
-            beforeSend: function () {
-                btn.addClass('disabled');
-            },
-            success: function (response) {
-                if (response.rewriteKeyCount <= response.completeRewriteKeyCount) {
-                    funcResponse(response)
-                } else
-                    return $(this).queryHotelXhr(url, data, btn, isHotel, funcResponse);
-            },
-            complete: function () {
-                btn.removeClass('disabled');
-            },
-            error: function () {
-                NProgress.done();
-                return false;
-            }
-        });
-        // })()
     }
 
     $("form[name=hotelSearch]").on('submit', function (e) {

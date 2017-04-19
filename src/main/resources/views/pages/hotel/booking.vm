@@ -14,14 +14,14 @@
             <div id="main">
                 <div class="booking-detail booking-detail-overview">
                     <div class="booking-detail-titles">
-                        <div class="booking-detail-title">Valarmathi Kongunaatu Samayal
+                        <div class="booking-detail-title">$hotel.hotelName
                             <div class="booking-detail-meta inline">
                                 <div class="rate"><span class="rate5"></span></div>
-                                <span class="review-total">2,339 reviews</span>
+                                <span class="review-total">$hotel.reviews review#if($hotel.reviews > 1)s#end</span>
                                 <a href="#" class="booking-detail-showmap">Show on Map</a>
                             </div>
                         </div>
-                        <div class="booking-detail-address">171, Soi 11, Sukhumvit, BangkokSukhumvit , Thailand 10110.171, mvit , Thailand 10110.</div>
+                        <div class="booking-detail-address">$hotel.address</div>
                     </div>
                     <div class="booking-detail-body clearfix">
                         <figure>
@@ -29,9 +29,9 @@
                         </figure>
                         <hgroup>
                             <ul>
-                                <li><label>Check-in :</label>Thursday, Oct 20, 2016</li>
-                                <li><label>Check-out :</label>Saturday, Oct 22, 2016</li>
-                                <li><label>Total length of stay :</label>2 nights, 2 Rooms, 4 Adults</li>
+                                <li><label>Check-in :</label>$request.request.checkIn</li> ##Thursday, Oct 20, 2016
+                                <li><label>Check-out :</label>$request.request.checkOut</li> ##Saturday, Oct 22, 2016
+                                <li><label>Total length of stay :</label>$duration night#if($duration > 1)s#end, $noOfRooms Room#if($noOfRooms > 1)s#end, $noOfAdults Adults, $noOfChild Child#if($noOfChild > 1)s#end</li>
                                 <li><label>Rooms :</label>2 x Standard Main Wing</li>
                             </ul>
                         </hgroup>
