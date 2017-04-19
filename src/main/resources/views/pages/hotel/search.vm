@@ -113,7 +113,7 @@
                                                 <div class="item-option-price">
                                                     <div class="price-discount">
                                                         <div class="price-discount-percentage">$formatter.getPercentage($availability.totalRate, $availability.totalOriginalRate)%</div>
-                                                        <div class="price-discount-amount">$formatter.subtractDiscount($availability.totalRate, $availability.totalOriginalRate)</div>
+                                                        <div class="price-discount-amount">$formatter.getCurrency($availability.currency)$formatter.subtractDiscount($availability.totalRate, $availability.totalOriginalRate)</div>
                                                     </div>
                                                     <div class="price-amount">
                                                         <div class="price-amount-value">$formatter.getCurrency($availability.currency) $availability.totalRate
