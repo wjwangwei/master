@@ -1,4 +1,18 @@
 #set($title = $hotel.hotelName)
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIDc54HZ6VYORNKbMdbE3OJzXZp0dppn4&callback=initMap"></script>
+<script>
+    function initMap() {
+        var location = {lat: $hotel.latitude, lng: $hotel.longitude};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 18,
+            center: location
+        });
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
+</script>
 <section class="hotel-heading">
     <div class="container">
         <div class="hotel-heading-rates">
@@ -20,7 +34,7 @@
         </div>
         <div class="hotel-heading-title">$hotel.hotelName</div>
         <div class="hotel-heading-meta">
-            <div class="rate"><span class="rate5"></span></div>
+            <div class="rate"><span class="rate$hotel.getStarRatingSimple()"></span></div>
             <!--<span class="review-total"> (5/5 by China National Tourism Administration)</span>-->
         </div>
         <div class="hotel-heading-address">$hotel.address<a href="#" data-toggle="modal" data-target="#hotelMap">Show Map</a></div>
@@ -300,7 +314,7 @@
                                     </div>
                                 </div>
                                 <div class="room-action">
-                                    <a href="#" class="btn btn-block btn-flat-purple">BOOK NOW<span class="ico ico-arrow-right"></span></a>
+                                    <a href="#" data-hotelid="$availability.hotelId" data-roomcode="todo" class="btn btn-block btn-flat-purple booknow">BOOK NOW<span class="ico ico-arrow-right"></span></a>
                                 </div>
                             </div>
                         #end
@@ -560,34 +574,18 @@
 </section>
 <style>
     #map {
-        height: 400px;
+        height: 450px;
         width: 100%;
     }
 </style>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIDc54HZ6VYORNKbMdbE3OJzXZp0dppn4&callback=initMap"></script>
-<script>
-    function initMap() {
-        var location = {lat: $hotel.latitude, lng: $hotel.longitude};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 16,
-            center: location
-        });
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map
-        });
-    }
-</script>
 <div class="modal fade" tabindex="-1" id="hotelMap" role="dialog"  aria-labelledby="hotelMapLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h1></h1>
             </div>
-            <div class="modal-body">
-                <div id="map"></div>
-            </div>
+            <div id="map"></div>
         </div>
     </div>
 </div>

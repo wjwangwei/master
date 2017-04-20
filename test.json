@@ -40,12 +40,12 @@
         "updateTime": "2016-06-21",
         "pictures": null
       },
-      "lowestRate": 2022.4558305,
+      "lowestRate": 1573.0212015,
       "availabilities": [
         {
           "supplierId": "ivector",
           "currency": "CNY",
-          "checkIn": "2017-04-20",
+          "checkIn": "2017-04-22",
           "checkOut": "2017-04-29",
           "countryId": "TH",
           "countryCode": "",
@@ -53,15 +53,15 @@
           "cityCode": "622",
           "hotelId": "837075",
           "hotelCode": "23226",
-          "nationality": "NG",
+          "nationality": "CN",
           "matched": "true",
-          "totalRate": 2022.5,
-          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-20\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"23226\",\"hc\":\"\",\"n\":\"NG\",\"c\":\"2\",\"l\":null,\"qid\":\"ac1dd8a6b91e48e2548e3497d90c3050\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":0}",
-          "totalOriginalRate": 2022.5,
+          "totalRate": 1573.1,
+          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-22\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"2\",\"l\":null,\"qid\":\"1610497d8e39549f5dbd32efdf113b89\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":1}",
+          "totalOriginalRate": 1573.1,
           "hotelRooms": {
             "currency": null,
-            "totalRate": 194.67,
-            "totalOriginalRate": 194.67,
+            "totalRate": 151.41,
+            "totalOriginalRate": 151.41,
             "meal": {
               "mealCode": "1",
               "mealDescription": "Room only",
@@ -87,8 +87,8 @@
                 "roomRateKey": null,
                 "sharingBedding": "",
                 "thirdParty": "false",
-                "totalRate": 2022.5,
-                "totalOriginalRate": 2022.5,
+                "totalRate": 1573.1,
+                "totalOriginalRate": 1573.1,
                 "meal": {
                   "mealCode": "1",
                   "mealDescription": "Room only",
@@ -113,12 +113,12 @@
           "reminder": null,
           "promoOriginalRate": null,
           "referenceCode": null,
-          "updateTime": 1492594060112
+          "updateTime": 1492703961651
         },
         {
           "supplierId": "ivector",
           "currency": "CNY",
-          "checkIn": "2017-04-20",
+          "checkIn": "2017-04-22",
           "checkOut": "2017-04-29",
           "countryId": "TH",
           "countryCode": "",
@@ -126,15 +126,15 @@
           "cityCode": "622",
           "hotelId": "837075",
           "hotelCode": "23226",
-          "nationality": "NG",
+          "nationality": "CN",
           "matched": "true",
-          "totalRate": 2022.5,
-          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-20\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"23226\",\"hc\":\"\",\"n\":\"NG\",\"c\":\"2\",\"l\":null,\"qid\":\"ac1dd8a6b91e48e2548e3497d90c3050\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":0}",
-          "totalOriginalRate": 2022.5,
+          "totalRate": 1573.1,
+          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-22\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"2\",\"l\":null,\"qid\":\"1610497d8e39549f5dbd32efdf113b89\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":1}",
+          "totalOriginalRate": 1573.1,
           "hotelRooms": {
             "currency": null,
-            "totalRate": 194.67,
-            "totalOriginalRate": 194.67,
+            "totalRate": 151.41,
+            "totalOriginalRate": 151.41,
             "meal": {
               "mealCode": "1",
               "mealDescription": "Room only",
@@ -160,8 +160,8 @@
                 "roomRateKey": null,
                 "sharingBedding": "",
                 "thirdParty": "false",
-                "totalRate": 2022.5,
-                "totalOriginalRate": 2022.5,
+                "totalRate": 1573.1,
+                "totalOriginalRate": 1573.1,
                 "meal": {
                   "mealCode": "1",
                   "mealDescription": "Room only",
@@ -186,12 +186,12 @@
           "reminder": null,
           "promoOriginalRate": null,
           "referenceCode": null,
-          "updateTime": 1492594060112
+          "updateTime": 1492703961651
         },
         {
           "supplierId": "ivector",
           "currency": "CNY",
-          "checkIn": "2017-04-20",
+          "checkIn": "2017-04-22",
           "checkOut": "2017-04-29",
           "countryId": "TH",
           "countryCode": "",
@@ -199,15 +199,15 @@
           "cityCode": "622",
           "hotelId": "837075",
           "hotelCode": "23226",
-          "nationality": "NG",
+          "nationality": "CN",
           "matched": "true",
-          "totalRate": 2985.6,
-          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-20\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"23226\",\"hc\":\"\",\"n\":\"NG\",\"c\":\"2\",\"l\":null,\"qid\":\"ac1dd8a6b91e48e2548e3497d90c3050\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":0}",
-          "totalOriginalRate": 2985.6,
+          "totalRate": 2322,
+          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-22\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"2\",\"l\":null,\"qid\":\"1610497d8e39549f5dbd32efdf113b89\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":1}",
+          "totalOriginalRate": 2322,
           "hotelRooms": {
             "currency": null,
-            "totalRate": 287.37,
-            "totalOriginalRate": 287.37,
+            "totalRate": 223.5,
+            "totalOriginalRate": 223.5,
             "meal": {
               "mealCode": "9",
               "mealDescription": "Hot buffet breakfast",
@@ -233,8 +233,8 @@
                 "roomRateKey": null,
                 "sharingBedding": "",
                 "thirdParty": "false",
-                "totalRate": 2985.6,
-                "totalOriginalRate": 2985.6,
+                "totalRate": 2322,
+                "totalOriginalRate": 2322,
                 "meal": {
                   "mealCode": "9",
                   "mealDescription": "Hot buffet breakfast",
@@ -259,12 +259,12 @@
           "reminder": null,
           "promoOriginalRate": null,
           "referenceCode": null,
-          "updateTime": 1492594060112
+          "updateTime": 1492703961651
         },
         {
           "supplierId": "ivector",
           "currency": "CNY",
-          "checkIn": "2017-04-20",
+          "checkIn": "2017-04-22",
           "checkOut": "2017-04-29",
           "countryId": "TH",
           "countryCode": "",
@@ -272,15 +272,15 @@
           "cityCode": "622",
           "hotelId": "837075",
           "hotelCode": "23226",
-          "nationality": "NG",
+          "nationality": "CN",
           "matched": "true",
-          "totalRate": 2985.6,
-          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-20\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"23226\",\"hc\":\"\",\"n\":\"NG\",\"c\":\"2\",\"l\":null,\"qid\":\"ac1dd8a6b91e48e2548e3497d90c3050\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":0}",
-          "totalOriginalRate": 2985.6,
+          "totalRate": 2322,
+          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-22\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"2\",\"l\":null,\"qid\":\"1610497d8e39549f5dbd32efdf113b89\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":1}",
+          "totalOriginalRate": 2322,
           "hotelRooms": {
             "currency": null,
-            "totalRate": 287.37,
-            "totalOriginalRate": 287.37,
+            "totalRate": 223.5,
+            "totalOriginalRate": 223.5,
             "meal": {
               "mealCode": "9",
               "mealDescription": "Hot buffet breakfast",
@@ -306,8 +306,8 @@
                 "roomRateKey": null,
                 "sharingBedding": "",
                 "thirdParty": "false",
-                "totalRate": 2985.6,
-                "totalOriginalRate": 2985.6,
+                "totalRate": 2322,
+                "totalOriginalRate": 2322,
                 "meal": {
                   "mealCode": "9",
                   "mealDescription": "Hot buffet breakfast",
@@ -332,14 +332,14 @@
           "reminder": null,
           "promoOriginalRate": null,
           "referenceCode": null,
-          "updateTime": 1492594060112
+          "updateTime": 1492703961651
         }
       ],
       "supplierAvailabilities": [
         {
           "supplierId": "ivector",
           "currency": "USD",
-          "checkIn": "2017-04-20",
+          "checkIn": "2017-04-22",
           "checkOut": "2017-04-29",
           "countryId": "TH",
           "countryCode": "",
@@ -347,15 +347,15 @@
           "cityCode": "622",
           "hotelId": "837075",
           "hotelCode": "23226",
-          "nationality": "NG",
+          "nationality": "CN",
           "matched": "true",
-          "totalRate": 194.67,
-          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-20\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"23226\",\"hc\":\"\",\"n\":\"NG\",\"c\":\"2\",\"l\":null,\"qid\":\"ac1dd8a6b91e48e2548e3497d90c3050\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":0}",
-          "totalOriginalRate": 194.67,
+          "totalRate": 151.41,
+          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-22\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"2\",\"l\":null,\"qid\":\"1610497d8e39549f5dbd32efdf113b89\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":1}",
+          "totalOriginalRate": 151.41,
           "hotelRooms": {
             "currency": null,
-            "totalRate": 194.67,
-            "totalOriginalRate": 194.67,
+            "totalRate": 151.41,
+            "totalOriginalRate": 151.41,
             "meal": {
               "mealCode": "1",
               "mealDescription": "Room only",
@@ -381,8 +381,8 @@
                 "roomRateKey": null,
                 "sharingBedding": "",
                 "thirdParty": "false",
-                "totalRate": 194.67,
-                "totalOriginalRate": 194.67,
+                "totalRate": 151.41,
+                "totalOriginalRate": 151.41,
                 "meal": {
                   "mealCode": "1",
                   "mealDescription": "Room only",
@@ -407,12 +407,12 @@
           "reminder": null,
           "promoOriginalRate": null,
           "referenceCode": null,
-          "updateTime": 1492594060112
+          "updateTime": 1492703961651
         },
         {
           "supplierId": "ivector",
           "currency": "USD",
-          "checkIn": "2017-04-20",
+          "checkIn": "2017-04-22",
           "checkOut": "2017-04-29",
           "countryId": "TH",
           "countryCode": "",
@@ -420,15 +420,15 @@
           "cityCode": "622",
           "hotelId": "837075",
           "hotelCode": "23226",
-          "nationality": "NG",
+          "nationality": "CN",
           "matched": "true",
-          "totalRate": 194.67,
-          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-20\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"23226\",\"hc\":\"\",\"n\":\"NG\",\"c\":\"2\",\"l\":null,\"qid\":\"ac1dd8a6b91e48e2548e3497d90c3050\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":0}",
-          "totalOriginalRate": 194.67,
+          "totalRate": 151.41,
+          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-22\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"2\",\"l\":null,\"qid\":\"1610497d8e39549f5dbd32efdf113b89\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":1}",
+          "totalOriginalRate": 151.41,
           "hotelRooms": {
             "currency": null,
-            "totalRate": 194.67,
-            "totalOriginalRate": 194.67,
+            "totalRate": 151.41,
+            "totalOriginalRate": 151.41,
             "meal": {
               "mealCode": "1",
               "mealDescription": "Room only",
@@ -454,8 +454,8 @@
                 "roomRateKey": null,
                 "sharingBedding": "",
                 "thirdParty": "false",
-                "totalRate": 194.67,
-                "totalOriginalRate": 194.67,
+                "totalRate": 151.41,
+                "totalOriginalRate": 151.41,
                 "meal": {
                   "mealCode": "1",
                   "mealDescription": "Room only",
@@ -480,12 +480,12 @@
           "reminder": null,
           "promoOriginalRate": null,
           "referenceCode": null,
-          "updateTime": 1492594060112
+          "updateTime": 1492703961651
         },
         {
           "supplierId": "ivector",
           "currency": "USD",
-          "checkIn": "2017-04-20",
+          "checkIn": "2017-04-22",
           "checkOut": "2017-04-29",
           "countryId": "TH",
           "countryCode": "",
@@ -493,15 +493,15 @@
           "cityCode": "622",
           "hotelId": "837075",
           "hotelCode": "23226",
-          "nationality": "NG",
+          "nationality": "CN",
           "matched": "true",
-          "totalRate": 287.37,
-          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-20\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"23226\",\"hc\":\"\",\"n\":\"NG\",\"c\":\"2\",\"l\":null,\"qid\":\"ac1dd8a6b91e48e2548e3497d90c3050\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":0}",
-          "totalOriginalRate": 287.37,
+          "totalRate": 223.5,
+          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-22\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"2\",\"l\":null,\"qid\":\"1610497d8e39549f5dbd32efdf113b89\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":1}",
+          "totalOriginalRate": 223.5,
           "hotelRooms": {
             "currency": null,
-            "totalRate": 287.37,
-            "totalOriginalRate": 287.37,
+            "totalRate": 223.5,
+            "totalOriginalRate": 223.5,
             "meal": {
               "mealCode": "9",
               "mealDescription": "Hot buffet breakfast",
@@ -527,8 +527,8 @@
                 "roomRateKey": null,
                 "sharingBedding": "",
                 "thirdParty": "false",
-                "totalRate": 287.37,
-                "totalOriginalRate": 287.37,
+                "totalRate": 223.5,
+                "totalOriginalRate": 223.5,
                 "meal": {
                   "mealCode": "9",
                   "mealDescription": "Hot buffet breakfast",
@@ -553,12 +553,12 @@
           "reminder": null,
           "promoOriginalRate": null,
           "referenceCode": null,
-          "updateTime": 1492594060112
+          "updateTime": 1492703961651
         },
         {
           "supplierId": "ivector",
           "currency": "USD",
-          "checkIn": "2017-04-20",
+          "checkIn": "2017-04-22",
           "checkOut": "2017-04-29",
           "countryId": "TH",
           "countryCode": "",
@@ -566,15 +566,15 @@
           "cityCode": "622",
           "hotelId": "837075",
           "hotelCode": "23226",
-          "nationality": "NG",
+          "nationality": "CN",
           "matched": "true",
-          "totalRate": 287.37,
-          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-20\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"23226\",\"hc\":\"\",\"n\":\"NG\",\"c\":\"2\",\"l\":null,\"qid\":\"ac1dd8a6b91e48e2548e3497d90c3050\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":0}",
-          "totalOriginalRate": 287.37,
+          "totalRate": 223.5,
+          "request": "{\"cid0\":\"\",\"cid\":\"622\",\"ci\":\"2017-04-22\",\"co\":\"2017-04-29\",\"rs\":[{\"ri\":\"1\",\"r\":1,\"rt\":\"\",\"rrc\":null,\"a\":2,\"c\":0,\"as\":null,\"i\":0}],\"hid\":\"\",\"hc\":\"\",\"n\":\"CN\",\"c\":\"2\",\"l\":null,\"qid\":\"1610497d8e39549f5dbd32efdf113b89\",\"sid\":\"ivector\",\"p\":null,\"rid\":\"\",\"m\":1}",
+          "totalOriginalRate": 223.5,
           "hotelRooms": {
             "currency": null,
-            "totalRate": 287.37,
-            "totalOriginalRate": 287.37,
+            "totalRate": 223.5,
+            "totalOriginalRate": 223.5,
             "meal": {
               "mealCode": "9",
               "mealDescription": "Hot buffet breakfast",
@@ -600,8 +600,8 @@
                 "roomRateKey": null,
                 "sharingBedding": "",
                 "thirdParty": "false",
-                "totalRate": 287.37,
-                "totalOriginalRate": 287.37,
+                "totalRate": 223.5,
+                "totalOriginalRate": 223.5,
                 "meal": {
                   "mealCode": "9",
                   "mealDescription": "Hot buffet breakfast",
@@ -626,7 +626,7 @@
           "reminder": null,
           "promoOriginalRate": null,
           "referenceCode": null,
-          "updateTime": 1492594060112
+          "updateTime": 1492703961651
         }
       ]
     }

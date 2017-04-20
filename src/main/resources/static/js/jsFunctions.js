@@ -13,6 +13,7 @@ function displayCurrency(currencyCode, dom) {
     dom.style = 'content: ' + displayCode;
 }
 
+var xhrCount = 1;
 (function () {
     $.fn.queryHotelXhr = function (url, data, btn, isHotel, funcResponse) {
         // (function () {
@@ -25,10 +26,14 @@ function displayCurrency(currencyCode, dom) {
                 btn.addClass('disabled');
             },
             success: function (response) {
-                if (response.rewriteKeyCount <= response.completeRewriteKeyCount) {
-                    funcResponse(response)
-                } else
-                    return $(this).queryHotelXhr(url, data, btn, isHotel, funcResponse);
+                console.log(xhrCount);
+                if (response.rewriteKeyCount <= response.completeRewriteKeyCount || xhrCount >= MAX_XHR_RETRY) { //
+                    funcResponse(response);
+                } else {
+                    var xhr = $(this).queryHotelXhr(url, data, btn, isHotel, funcResponse);
+                    xhrCount += 1;
+                    return xhr;
+                }
             },
             complete: function () {
                 btn.removeClass('disabled');

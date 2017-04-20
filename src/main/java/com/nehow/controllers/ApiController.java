@@ -103,7 +103,7 @@ public class ApiController extends BaseController {
         }
 
         //TEST
-        jsonRequest.put("cityId", "48201");
+//        jsonRequest.put("cityId", "48201");
         jsonRequest.put("countryId", "TH");
         jsonRequest.put("nationality", "CN");
 
@@ -221,7 +221,7 @@ public class ApiController extends BaseController {
     @RequestMapping(path = {"/hotel/availability/{hotelId}"})
     public HotelSearchResponse getHotel(String hotelId) {
         JSONObject request = (JSONObject) context.getAttribute(kRequest);
-        hotelId = "837075";
+//        hotelId = "837075";
         HotelSearchResponse hotelAvailability = apiManager.getHotelAvailability(request, hotelId);
         context.setAttribute(kHotelAvailability, hotelAvailability);
         return hotelAvailability;

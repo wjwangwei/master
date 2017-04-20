@@ -111,7 +111,7 @@ public class HotelController extends BaseController {
 
     @RequestMapping("/{hotelId}")
     public String hotel(String hotelId, Map<String, Object> model) {
-        hotelId = "837075";
+//        hotelId = "837075";
         JSONObject request = (JSONObject) context.getAttribute(kRequest);
         HotelSearchResponse searchResponse = (HotelSearchResponse) context.getAttribute(kHotelAvailability);
         if (searchResponse == null) {

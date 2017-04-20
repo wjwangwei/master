@@ -1,9 +1,9 @@
 {
   "request": {
-    "cityId": "48201",
     "countryId": "TH",
-    "nationality": "NG",
-    "checkIn": "2017-04-20",
+    "cityId": "48201",
+    "nationality": "CN",
+    "checkIn": "2017-04-22",
     "checkOut": "2017-04-29",
     "rooms": [
       {
@@ -17,9 +17,8 @@
       }
     ],
     "currency": "USD",
-    "queryId": "50fda935fd8d9dfecee174a102797b3a",
-    "supplierId": "restel,ivector",
-    "hotelId": "837075"
+    "queryId": "5ebcdd08328e13ef886c223aa0148346",
+    "supplierId": "restel,ivector"
   },
   "exchangeRates": [
     {
