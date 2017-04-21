@@ -85,6 +85,7 @@ public class Hotel extends BaseModel {
     /**
      * Star Count
      * 1: 10, 5: 50
+     *
      * @return int 1~5
      */
     public int getStarRatingSimple() {
@@ -319,5 +320,9 @@ public class Hotel extends BaseModel {
 
     public void setScoreDescription(String scoreDescription) {
         this.scoreDescription = scoreDescription;
+    }
+
+    public int getScoreInt() {
+        return this.score / 10;
     }
 }

@@ -10,7 +10,7 @@
         </div>
         <div class="form-signin">
             <div class="form-signin-heading">SIGNIN NOW!!!</div>
-            <form method="post" action="">
+            <form method="post" action="/home">
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" class="form-control" name="" placeholder="">

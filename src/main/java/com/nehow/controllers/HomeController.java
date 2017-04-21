@@ -11,6 +11,11 @@ public class HomeController {
 
     @RequestMapping("/")
     public String index() {
+        return "index-guest";
+    }
+
+    @RequestMapping("/home")
+    public String home() {
         return "index";
     }
 

@@ -73,6 +73,14 @@ public class HotelController extends BaseController {
             model.put("formatter", new CurrencyUtils());
 
 //            model.put("reviewScores", scoreRatingCount);
+
+            try {
+                int currentPage = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
+                model.put("currentPage", currentPage);
+                model.put("nextPage", currentPage + 1);
+                model.put("paginateElipse", currentPage + 5);
+            } catch (Exception e) {
+            }
             isResultAvail = true;
         } else {
             isResultAvail = false;
@@ -120,8 +128,10 @@ public class HotelController extends BaseController {
                 searchResponse = apiManager.getHotelAvailability(request, hotelId);
             }
         }
+        Hotel hotel = apiManager.getHotel(hotelId);
         if (searchResponse.getHotelCount() > 0) {
-            model.put("hotel", searchResponse.getHotelAvailabilities()[0].getHotel());
+            model.put("hotel", hotel);
+            model.put("requestHotel", searchResponse.getHotelAvailabilities()[0].getHotel());
             model.put("availabilities", searchResponse.getHotelAvailabilities()[0].getAvailabilities());
             model.put("supplierAvailability", searchResponse.getHotelAvailabilities()[0].getSupplierAvailabilities());
             model.put("request", request);

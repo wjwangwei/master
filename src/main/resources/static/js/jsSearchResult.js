@@ -37,7 +37,7 @@ $(function () {
             message: "We're verifying the availability of this room...please wait",
             duration: 15000
         });
-        $(this).queryHotelXhr(HOTEL_ROOM_VERIFICATION_API + "/" + $(this).attr('data-hotelid'), null, $this, true, function (response) {
+        $(this).queryHotelXhr   (HOTEL_ROOM_VERIFICATION_API + "/" + $(this).attr('data-hotelid'), null, $this, true, function (response) {
             if (response.hotelCount <= 0) {
                 $this.html("Sold Out");
                 $this.addClass('disabled');

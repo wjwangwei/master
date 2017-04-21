@@ -2,6 +2,7 @@ package com.nehow.controllers;
 
 import com.nehow.models.*;
 import com.nehow.services.CommonUtils;
+import com.nehow.services.Pagination;
 import com.nehow.services.WebserviceManager;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONNull;
@@ -201,10 +202,11 @@ public class ApiController extends BaseController {
         jsonParam.put("sort", jsonSort);
 
         // limit
-        JSONObject jsonLimit = new JSONObject();
-        jsonLimit.put("start", 0);
-        jsonLimit.put("length", 15);
-        jsonParam.put("limit", jsonLimit);
+        Pagination pagination = new Pagination();
+        pagination.setCurrentPageNo(request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page")));
+        pagination.setElementsPerPage(2);
+
+        jsonParam.put("limit", pagination.getPaginateObject());
 
 
         System.out.println(jsonParam.toString());
@@ -212,7 +214,9 @@ public class ApiController extends BaseController {
         context.setAttribute(kRequest, jsonParam);
         HotelSearchResponse hotelSearchResponse = apiManager.getCityAvailability((JSONObject) context.getAttribute(kRequest));
 
-        context.setAttribute(kHotels, hotelSearchResponse);
+
+        if (hotelSearchResponse.getHotelCount() > 0)
+            context.setAttribute(kHotels, hotelSearchResponse);
 
         return hotelSearchResponse;
     }

@@ -17,6 +17,9 @@ public class BaseController implements ServletContextAware {
     //key for search request
     protected final String kRequest = "request";
 
+    //key for hotel availability request
+    protected final String kAvailabilityRequest = "request";
+
     // key for hotel results
     protected final String kHotels = "hotels";
 

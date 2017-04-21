@@ -3,8 +3,8 @@
     "countryId": "TH",
     "cityId": "48201",
     "nationality": "CN",
-    "checkIn": "2017-04-22",
-    "checkOut": "2017-04-29",
+    "checkIn": "2017-05-26",
+    "checkOut": "2017-05-31",
     "rooms": [
       {
         "roomIndex": "1",
@@ -17,35 +17,10 @@
       }
     ],
     "currency": "USD",
-    "queryId": "5ebcdd08328e13ef886c223aa0148346",
-    "supplierId": "restel,ivector"
+    "queryId": "e83dd6a9b5330f881d4e662d78334561",
+    "supplierId": "expedia,gta,veturis,restel,ivector"
   },
-  "exchangeRates": [
-    {
-      "id": 1448,
-      "currency0": "HKD",
-      "currency1": "CNY",
-      "rate": 0.8915
-    },
-    {
-      "id": 1451,
-      "currency0": "USD",
-      "currency1": "CNY",
-      "rate": 6.9261
-    },
-    {
-      "id": 1452,
-      "currency0": "GBP",
-      "currency1": "CNY",
-      "rate": 8.4341
-    },
-    {
-      "id": 1458,
-      "currency0": "EUR",
-      "currency1": "CNY",
-      "rate": 7.3456
-    }
-  ],
+  "exchangeRates": [],
   "markups": {
     "dotw": 3,
     "ivector": 1.5,
@@ -77,6 +52,6 @@
   },
   "limit": {
     "start": 0,
-    "length": 15
+    "length": 2
   }
 }

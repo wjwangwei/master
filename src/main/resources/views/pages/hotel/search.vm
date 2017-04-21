@@ -56,13 +56,13 @@
                                         <div class="item-header-rates">
                                             <div class="item-header-score">
                                                 #if($hotel.score >= 90)
-                                                    Wonderful $hotel.score
+                                                    Wonderful $hotel.getScoreInt()
                                                 #elseif($hotel.score >= 80)
-                                                    Very good $hotel.score
+                                                    Very good $hotel.score.getScoreInt()
                                                 #elseif($hotel.score >= 70)
-                                                    Good $hotel.score
+                                                    Good $hotel.score.getScoreInt()
                                                 #elseif($hotel.score > 60)
-                                                    Pleasant $hotel.score
+                                                    Pleasant $hotel.score.getScoreInt()
                                                 #else
 
                                                 #end
@@ -129,7 +129,7 @@
                                     </div>
                                 </div>
                                 <div class="item-footer">
-                                    <a href="#" onclick="javascript: xhrRoomVerifyURL($hotel.hotelId, '/hotel/' + $hotel.hotelId); return false;" class="seeall">SEE ALL ROOM OPTIONS</a>
+                                    <a href="#" onclick="javascript: xhrRoomVerifyHref($hotel.hotelId, '/hotel/' + $hotel.hotelId); return false;" class="seeall">SEE ALL ROOM OPTIONS</a>
                                 </div>
                             </hgroup>
                         </li>
@@ -137,24 +137,18 @@
                 </ul>
 
                 <hr class="break break10">
-                #if($searchResponse.hotelCount > 15)
+                #if($searchResponse.hotelCount > 0)
                     <div class="pagination-wrapper">
-                    <ul class="pagination">
-                        <li><a href="#" aria-label="Previous"><span aria-hidden="true">Prevous</span></a></li>
-                    ##                            <li><a href="#">1</a></li>
-                    ##                            <li><span>...</span></li>
-                    ##                            <li><a href="#">2</a></li>
-                    ##                            <li class="active"><a href="#">3</a></li>
-                    ##                            <li><a href="#">4</a></li>
-                    ##                            <li><a href="#">5</a></li>
-                    ##                            <li><a href="#">6</a></li>
-                    ##                            <li><a href="#">7</a></li>
-                    ##                            <li><a href="#">8</a></li>
-                    ##                            <li><span>...</span></li>
-                    ##                            <li><a href="#">112</a></li>
-                        <li><a href="#" aria-label="Next"><span aria-hidden="true">Next</span></a></li>
-                    </ul>
-                </div>
+                        <ul class="pagination">
+                            #if($currentPage > 1)
+                                <li><a href="#" onclick="javascript: paginationHref($currentPage, window.location.hash); return false;" aria-label="Previous"><span aria-hidden="true">Prevous</span></a></li>
+                            #end
+                            #foreach($i in [$currentPage..$paginateElipse])
+                                <li class="active"><a onclick="javascript: paginationHref($i); return false;" href="#">$i</a></li>
+                            #end
+                            <li><a onclick="javascript: paginationHref($nextPage, window.location.hash); return false;" href="#" aria-label="Next"><span aria-hidden="true">Next</span></a></li>
+                        </ul>
+                    </div>
                 #end
             </div>
         </div>

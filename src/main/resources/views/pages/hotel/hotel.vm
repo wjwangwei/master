@@ -18,13 +18,13 @@
         <div class="hotel-heading-rates">
             <div class="heading-rates-score">
                 #if($hotel.score >= 90)
-                    Wonderful $hotel.score
+                    Wonderful $hotel.getScoreInt
                 #elseif($hotel.score >= 80)
-                    Very good $hotel.score
+                    Very good $hotel.getScoreInt
                 #elseif($hotel.score >= 70)
-                    Good $hotel.score
+                    Good $hotel.getScoreInt
                 #elseif($hotel.score > 60)
-                    Pleasant $hotel.score
+                    Pleasant $hotel.getScoreInt
                 #else
 
                 #end

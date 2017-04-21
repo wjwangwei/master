@@ -40,6 +40,10 @@ var xhrCount = 1;
             },
             error: function () {
                 NProgress.done();
+                $.growl.error({
+                    title: "Request failed",
+                    message: 'Sorry, your request failed. Please try again later.'
+                });
                 return false;
             }
         });
@@ -47,12 +51,24 @@ var xhrCount = 1;
     };
 })();
 
-function xhrRoomVerifyURL(hotelId, url) {
+function xhrRoomVerifyHref(hotelId, url) {
     NProgress.start();
     (function () {
         $(this).queryHotelXhr(HOTEL_ROOM_VERIFICATION_API + "/" + hotelId, null, $(this), true, function (response) {
             if (response.hotelCount > 0) {
                 window.location.href = url;
+            }
+        });
+        return false;
+    })(jQuery);
+}
+
+function paginationHref(pageId, hashUrl) {
+    NProgress.start();
+    (function () {
+        $(this).queryHotelXhr(HOTEL_SEARCH_API, hashUrl + "&page=" + pageId, $(this), false, function (response) {
+            if (response.hotelCount > 0) {
+                window.location.href = 'hotel/search-result' + hashUrl + '&page=' + pageId;
             }
         });
         return false;
