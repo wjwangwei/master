@@ -104,7 +104,7 @@ public class ApiController extends BaseController {
         }
 
         //TEST
-//        jsonRequest.put("cityId", "48201");
+        jsonRequest.put("cityId", "47521");
         jsonRequest.put("countryId", "TH");
         jsonRequest.put("nationality", "CN");
 
@@ -204,7 +204,7 @@ public class ApiController extends BaseController {
         // limit
         Pagination pagination = new Pagination();
         pagination.setCurrentPageNo(request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page")));
-        pagination.setElementsPerPage(2);
+        pagination.setElementsPerPage(20);
 
         jsonParam.put("limit", pagination.getPaginateObject());
 

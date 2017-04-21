@@ -1,10 +1,10 @@
 {
   "request": {
+    "cityId": "47521",
     "countryId": "TH",
-    "cityId": "48201",
     "nationality": "CN",
-    "checkIn": "2017-05-26",
-    "checkOut": "2017-05-31",
+    "checkIn": "2017-05-22",
+    "checkOut": "2017-05-27",
     "rooms": [
       {
         "roomIndex": "1",
@@ -17,7 +17,7 @@
       }
     ],
     "currency": "USD",
-    "queryId": "e83dd6a9b5330f881d4e662d78334561",
+    "queryId": "5124ddd6062493d524f7895fbe9c6ff4",
     "supplierId": "expedia,gta,veturis,restel,ivector"
   },
   "exchangeRates": [],
@@ -52,6 +52,6 @@
   },
   "limit": {
     "start": 0,
-    "length": 2
+    "length": 20
   }
 }
