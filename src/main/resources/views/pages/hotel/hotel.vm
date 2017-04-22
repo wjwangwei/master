@@ -315,10 +315,8 @@
                                 <div class="room-policy">
                                     <a href="#" class="text-blue view-policy">View Policy</a>
                                     <span class="ico ico-question-circle-purple" data-toggle="tooltip" title="Policy information goes here..."></span>
-                                    <div class="policy-html panel panel-body hide" style="position: absolute;">
-                                        <div class="">
-                                            <button type="button" class="close"><span>×</span></button>
-                                        </div>
+                                    <div class="policy-html panel panel-body hide" style="position: absolute; z-index: 2000; border: 1px solid #CCC;">
+                                        <button type="button" class="close view-policy"><span>×</span></button>
                                         <div>
                                             Policy content shows here
                                         </div>
@@ -332,6 +330,8 @@
                                     <div class="price-amount">
                                         <div class="price-amount-value">$formatter.getCurrency($availability.hotelRooms.rooms[0].currency) $availability.hotelRooms.rooms[0].totalRate <span class="ico ico-question-circle-purple" data-toggle="tooltip" title="Price information goes here..."></span></div>
                                         <div class="price-amount-notes">Rooms per night</div>
+
+
                                     </div>
                                 </div>
                                 <div class="room-action">
@@ -355,7 +355,7 @@
                                         <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
                                         <ul class="clearfix">
                                             #foreach($fac in $facility)
-                                                #if($foreach.index <= 2)
+                                                #if($foreach.index <= 3)
                                                     <li><!--<i class="fac-wifi"></i>-->$fac</li>
                                                 #end
                                             #end
@@ -373,8 +373,8 @@
                         </ul>
                     </div>
                 </div>
-
-                <div class="booking-detail">
+                #if(false)
+                    <!--<div class="booking-detail">
                     <div class="booking-detail-heading">
                         <h3 class="has-icon icon-thumbsup text-purple-dark">ENJOY YOUR ROOM</h3>
                     </div>
@@ -483,7 +483,8 @@
                         </ul>
                     </div>
                 </div>
-                <hr class="break break20">
+                    <hr class="break break20"> -->
+                #end
             </div>
 
             <div id="side" class="side-sm">
