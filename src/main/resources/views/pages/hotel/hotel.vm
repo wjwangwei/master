@@ -303,14 +303,14 @@
                                 <div class="room-type">$availability.hotelRooms.rooms[0].roomName</div>
                                 <div class="room-breakfast">Available</div>
                                 <div class="room-policy">
-                                    <a href="#" class="text-blue view policy">View Policy</a>
+                                    <a href="#" class="text-blue view-policy">View Policy</a>
                                     <span class="ico ico-question-circle-purple" data-toggle="tooltip" title="Policy information goes here..."></span>
-                                    <div class="policy-html panel panel-body" style="position: absolute; display: none">
+                                    <div class="policy-html panel panel-body hide" style="position: absolute; display: none">
                                         <div class="">
                                             <button type="button" class="close"><span>×</span></button>
                                         </div>
                                         <div>
-
+                                            Policy content shows here
                                         </div>
                                     </div>
                                 </div>
@@ -338,8 +338,7 @@
                     </div>
                     <div class="booking-detail-body">
                         <ul class="facilities">
-                            $net.sf.json.JSONObject.fromObject($hotel.facilities)
-                            #foreach($facility in $net.sf.json.JSONObject.fromObject($hotel.facilities))
+                            #foreach($facility in $roomFacilities)
                                 <li>
                                     <label>$facility</label>
                                     <div class="facility-list">

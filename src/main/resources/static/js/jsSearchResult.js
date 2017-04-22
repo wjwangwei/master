@@ -109,5 +109,14 @@ $(function () {
         return false;
     });
 
+
+    $('.view-policy').click(function () {
+        var policyDom = $(this).next('.policy-html');
+        if(policyDom.hasClass('hide'))
+            policyDom.removeClass('hide');
+        else
+            policyDom.addClass('hide');
+       return false;
+    });
 });
 

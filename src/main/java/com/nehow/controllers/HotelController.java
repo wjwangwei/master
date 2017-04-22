@@ -135,7 +135,8 @@ public class HotelController extends BaseController {
             hotel = (hotel == null) ? hotelAvailability.getHotel() : hotel;
             model.put("hotel", hotel);
             model.put("availabilities", hotelAvailability.getAvailabilities());
-//            JSONObject.fromObject(hotel.getFacilities())
+            model.put("roomFacilities", JSONObject.fromObject(hotel.getFacilities()));
+            model.put("hotelPolicies", JSONObject.fromObject(hotel.getPolicies()));
 
             model.put("request", request);
             String imgUrl = hotel.getPictureId().split(".jpg")[0];
