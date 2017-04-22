@@ -81,7 +81,7 @@
 
                 <div class="booking-detail">
                     <div class="booking-detail-heading">
-                        <h3 class="has-icon icon-calendar text-purple-dark">AVAILABILITY AT $hote.hotelName</h3>
+                        <h3 class="has-icon icon-calendar text-purple-dark">AVAILABILITY AT $hotel.hotelName</h3>
                     </div>
                     <div class="booking-detail-body">
                         <div class="hotel-form-checkin inputs-default">
@@ -301,11 +301,21 @@
                         #foreach($availability in $availabilities)
                             <div class="room-item">
                                 <div class="room-type">$availability.hotelRooms.rooms[0].roomName</div>
-                                <div class="room-breakfast">Available</div>
+                                <div class="room-breakfast">
+                                    #if($availability.hotelRooms.meal.breakfastDescription != "")
+                                        $availability.hotelRooms.meal.breakfastDescription
+                                    #elseif($availability.hotelRooms.meal.mealDescription != "")
+                                        $availability.hotelRooms.meal.mealDescription
+                                    #elseif($availability.hotelRooms.meal.breakfast == "true")
+                                        Available
+                                    #else
+                                        No Breakfast
+                                    #end
+                                </div>
                                 <div class="room-policy">
                                     <a href="#" class="text-blue view-policy">View Policy</a>
                                     <span class="ico ico-question-circle-purple" data-toggle="tooltip" title="Policy information goes here..."></span>
-                                    <div class="policy-html panel panel-body hide" style="position: absolute; display: none">
+                                    <div class="policy-html panel panel-body hide" style="position: absolute;">
                                         <div class="">
                                             <button type="button" class="close"><span>×</span></button>
                                         </div>
@@ -340,20 +350,20 @@
                         <ul class="facilities">
                             #foreach($facility in $roomFacilities)
                                 <li>
-                                    <label>$facility</label>
+                                    <label></label>##$facility
                                     <div class="facility-list">
                                         <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
                                         <ul class="clearfix">
                                             #foreach($fac in $facility)
                                                 #if($foreach.index <= 2)
-                                                    <li><i class="fac-wifi"></i>$fac</li>
+                                                    <li><!--<i class="fac-wifi"></i>-->$fac</li>
                                                 #end
                                             #end
                                         </ul>
                                         <div class="facility-list-more">
                                             <ul class="clearfix">
                                                 #foreach($fac in $facility)
-                                                    <li><i class="fac-wifi"></i>$fac</li>
+                                                    <li><!--<i class="fac-wifi"></i>-->$fac</li>
                                                 #end
                                             </ul>
                                         </div>
