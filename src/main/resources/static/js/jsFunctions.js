@@ -51,12 +51,14 @@ var xhrCount = 1;
     };
 })();
 
-function xhrRoomVerifyHref(hotelId, url) {
+function xhrRoomVerifyHref(hotelId) {
     NProgress.start();
     (function () {
-        $(this).queryHotelXhr(HOTEL_ROOM_VERIFICATION_API + "/" + hotelId, null, $(this), true, function (response) {
+        hotelId = (hotelId === 'undefined' || hotelId === '') ? $(this).attr('data-hotelid') : hotelId;
+        $(this).queryHotelXhr(HOTEL_ROOM_VERIFICATION_API + "/" + hotelId, {hotelId: hotelId}, $(this), true, function (response) {
+            console.log(hotelId);
             if (response.hotelCount > 0) {
-                window.location.href = url;
+                window.location.href = '/hotel/' + hotelId;
             }
         });
         return false;

@@ -18,13 +18,13 @@
         <div class="hotel-heading-rates">
             <div class="heading-rates-score">
                 #if($hotel.score >= 90)
-                    Wonderful $hotel.getScoreInt
+                    Wonderful $hotel.getScoreInt()
                 #elseif($hotel.score >= 80)
-                    Very good $hotel.getScoreInt
+                    Very good $hotel.getScoreInt()
                 #elseif($hotel.score >= 70)
-                    Good $hotel.getScoreInt
+                    Good $hotel.getScoreInt()
                 #elseif($hotel.score > 60)
-                    Pleasant $hotel.getScoreInt
+                    Pleasant $hotel.getScoreInt()
                 #else
 
                 #end
@@ -51,7 +51,7 @@
                         <div class="col-md-9 hotel-images-slide">
                             <ul id="imagesSlide">
                                 #foreach($image in $hotel.pictures)
-                                    <li><img src="$pictureUrl$image" alt=""></li>
+                                    <li><img src="$imgBaseUrl$image" alt=""></li>
                                 #end
                             </ul>
                         </div>
@@ -59,7 +59,7 @@
                             <ul id="thumbsSlide" class="clearfix">
                                 <li>
                                     #foreach($image in $hotel.pictures)
-                                        <li><img src="$pictureUrl$hotel.pictureId" alt=""></li>
+                                        <a data-slide-index="$foreach.count" href="#"><img src="$imgBaseUrl$hotel.pictureId!small" alt=""></a>
                                     #end
                                 </li>
                             </ul>
@@ -68,12 +68,12 @@
                     ##Display thumnail
                     <div class="col-md-9 hotel-images-slide">
                         <ul id="imagesSlide">
-                            <li><img src="$pictureUrl$hotel.pictureId" alt=""></li>
+                            <li><img src="$imgBaseUrl$hotel.pictureId" alt=""></li>
                         </ul>
                     </div>
                     <div class="col-md-3 hotel-images-thumb">
                         <ul id="thumbsSlide" class="clearfix">
-##                            <li><img src="$pictureUrl$hotel.pictureId" alt=""></li>
+                            <li><img src="$imgBaseUrl$pictureId" alt=""></li>
                         </ul>
                     </div>
                     #end
@@ -81,7 +81,7 @@
 
                 <div class="booking-detail">
                     <div class="booking-detail-heading">
-                        <h3 class="has-icon icon-calendar text-purple-dark">AVAILABILITY AT MARINA MANDARIN HOTEL IN SINGAPORE</h3>
+                        <h3 class="has-icon icon-calendar text-purple-dark">AVAILABILITY AT $hote.hotelName</h3>
                     </div>
                     <div class="booking-detail-body">
                         <div class="hotel-form-checkin inputs-default">
@@ -282,7 +282,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <label>&nbsp;</label>
-                                    <button type="submit" class="btn btn-md btn-block btn-flat-purple arrow-right">BOOK NOW</button>
+                                    <button type="submit" class="btn btn-md btn-block btn-flat-purple arrow-right booknow" data-hotelid="$hotel.hotelId" data-roomcode="todo">BOOK NOW</button>
                                 </div>
                             </div>
                         </div>
@@ -327,124 +327,28 @@
                     </div>
                     <div class="booking-detail-body">
                         <ul class="facilities">
-                            <li>
-                                <label>Internet</label>
-                                <div class="facility-list">
-                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
-                                    <ul class="clearfix">
-                                        <li><i class="fac-wifi"></i>Free Wi-Fi in all rooms</li>
-                                        <li><i class="fac-wifi"></i>Wi-Fi in public area</li>
-                                    </ul>
-                                    <div class="facility-list-more">
+                            #foreach($facility in $net.sf.json.JSONObject.fromObject($hotel.facilities))
+                                <li>
+                                    <label>$facility</label>
+                                    <div class="facility-list">
+                                        <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
                                         <ul class="clearfix">
-                                            <li><i class="fac-wifi"></i>Free Wi-Fi in all rooms</li>
-                                            <li><i class="fac-wifi"></i>Wi-Fi in public area</li>
-                                            <li><i class="fac-wifi"></i>Free Wi-Fi in all rooms</li>
-                                            <li><i class="fac-wifi"></i>Wi-Fi in public area</li>
+                                            #foreach($fac in $facility)
+                                                #if($foreach.index <= 2)
+                                                    <li><i class="fac-wifi"></i>$fac</li>
+                                                #end
+                                            #end
                                         </ul>
+                                        <div class="facility-list-more">
+                                            <ul class="clearfix">
+                                                #foreach($fac in $facility)
+                                                    <li><i class="fac-wifi"></i>$fac</li>
+                                                #end
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li>
-                                <label>General</label>
-                                <div class="facility-list">
-                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
-                                    <ul class="clearfix">
-                                        <li><i class="fac-shoppingcart"></i>Shopping on Site</li>
-                                        <li><i class="fac-giftshop"></i>Gift Shop</li>
-                                    </ul>
-                                    <div class="facility-list-more">
-                                        <ul class="clearfix">
-                                            <li><i class="fac-shoppingcart"></i>Shopping on Site</li>
-                                            <li><i class="fac-giftshop"></i>Gift Shop</li>
-                                            <li><i class="fac-shoppingcart"></i>Shopping on Site</li>
-                                            <li><i class="fac-giftshop"></i>Gift Shop</li>
-                                            <li><i class="fac-shoppingcart"></i>Shopping on Site</li>
-                                            <li><i class="fac-giftshop"></i>Gift Shop</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <label>Services</label>
-                                <div class="facility-list">
-                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
-                                    <ul class="clearfix">
-                                        <li><i class="fac-flight"></i>Airpot Transportation</li>
-                                        <li><i class="fac-atm"></i>ATM/Banking</li>
-                                    </ul>
-                                    <div class="facility-list-more">
-                                        <ul class="clearfix">
-                                            <li><i class="fac-flight"></i>Airpot Transportation</li>
-                                            <li><i class="fac-atm"></i>ATM/Banking</li>
-                                            <li><i class="fac-flight"></i>Airpot Transportation</li>
-                                            <li><i class="fac-atm"></i>ATM/Banking</li>
-                                            <li><i class="fac-flight"></i>Airpot Transportation</li>
-                                            <li><i class="fac-atm"></i>ATM/Banking</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <label>Activities</label>
-                                <div class="facility-list">
-                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
-                                    <ul class="clearfix">
-                                        <li><i class="fac-barbel"></i>Fitness Facilities</li>
-                                        <li><i class="fac-swimming"></i>Indoor Pool</li>
-                                    </ul>
-                                    <div class="facility-list-more">
-                                        <ul class="clearfix">
-                                            <li><i class="fac-barbel"></i>Fitness Facilities</li>
-                                            <li><i class="fac-swimming"></i>Indoor Pool</li>
-                                            <li><i class="fac-barbel"></i>Fitness Facilities</li>
-                                            <li><i class="fac-swimming"></i>Indoor Pool</li>
-                                            <li><i class="fac-barbel"></i>Fitness Facilities</li>
-                                            <li><i class="fac-swimming"></i>Indoor Pool</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <label>Food & Drink</label>
-                                <div class="facility-list">
-                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
-                                    <ul class="clearfix">
-                                        <li><i class="fac-restaurant"></i>Breakfast (Surcharge)</li>
-                                        <li><i class="fac-coffee"></i>Coffee Shop</li>
-                                    </ul>
-                                    <div class="facility-list-more">
-                                        <ul class="clearfix">
-                                            <li><i class="fac-restaurant"></i>Breakfast (Surcharge)</li>
-                                            <li><i class="fac-coffee"></i>Coffee Shop</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <label>Outdoors</label>
-                                <div class="facility-list">
-                                    <ul class="clearfix">
-                                        <li><i class="fac-swimming"></i>Beach/Pool Umbrellas</li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <label>Language Spoken</label>
-                                <div class="facility-list">
-                                    <a href="#" class="toggle-facilities">Show more <span class="ico ico-arrow-bottom"></span></a>
-                                    <ul class="clearfix">
-                                        <li><i class="fac-lang-ch"></i>Chinese</li>
-                                        <li><i class="fac-lang-en"></i>English</li>
-                                    </ul>
-                                    <div class="facility-list-more">
-                                        <ul class="clearfix">
-                                            <li><i class="fac-lang-ch"></i>Chinese</li>
-                                            <li><i class="fac-lang-en"></i>English</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            #end
                         </ul>
                     </div>
                 </div>

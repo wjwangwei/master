@@ -58,11 +58,11 @@
                                                 #if($hotel.score >= 90)
                                                     Wonderful $hotel.getScoreInt()
                                                 #elseif($hotel.score >= 80)
-                                                    Very good $hotel.score.getScoreInt()
+                                                    Very good $hotel.getScoreInt()
                                                 #elseif($hotel.score >= 70)
-                                                    Good $hotel.score.getScoreInt()
+                                                    Good $hotel.getScoreInt()
                                                 #elseif($hotel.score > 60)
-                                                    Pleasant $hotel.score.getScoreInt()
+                                                    Pleasant $hotel.getScoreInt()
                                                 #else
 
                                                 #end
@@ -129,7 +129,7 @@
                                     </div>
                                 </div>
                                 <div class="item-footer">
-                                    <a href="#" onclick="javascript: xhrRoomVerifyHref($hotel.hotelId, '/hotel/' + $hotel.hotelId); return false;" class="seeall">SEE ALL ROOM OPTIONS</a>
+                                    <a href="/hotel/detail?hotelId=$hotel.hotelId" class="seeall">SEE ALL ROOM OPTIONS</a> <!-- data-hotelid="$hotel.hotelId" onclick="javascript: xhrRoomVerifyHref($hotel.hotelId); return false;" -->
                                 </div>
                             </hgroup>
                         </li>

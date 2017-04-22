@@ -1,10 +1,10 @@
 {
   "request": {
-    "cityId": "47521",
+    "cityId": 48201,
     "countryId": "TH",
     "nationality": "CN",
-    "checkIn": "2017-05-22",
-    "checkOut": "2017-05-27",
+    "checkIn": "2017-05-10",
+    "checkOut": "2017-05-13",
     "rooms": [
       {
         "roomIndex": "1",
@@ -16,11 +16,61 @@
         "ages": null
       }
     ],
-    "currency": "USD",
-    "queryId": "5124ddd6062493d524f7895fbe9c6ff4",
-    "supplierId": "expedia,gta,veturis,restel,ivector"
+    "currency": "CNY",
+    "queryId": "49dd31490d650589ab603459ff4fea46",
+    "supplierId": "expedia,gta,veturis,restel,ivector",
+    "hotelId": "837576"
   },
-  "exchangeRates": [],
+  "exchangeRates": [
+    {
+      "id": 0,
+      "date": null,
+      "currency0": "HKD",
+      "currency1": "CNY",
+      "rate": 0.8869,
+      "rateTime": null
+    },
+    {
+      "id": 0,
+      "date": null,
+      "currency0": "EUR",
+      "currency1": "CNY",
+      "rate": 7.3278,
+      "rateTime": null
+    },
+    {
+      "id": 0,
+      "date": null,
+      "currency0": "GBP",
+      "currency1": "CNY",
+      "rate": 8.4528,
+      "rateTime": null
+    },
+    {
+      "id": 0,
+      "date": null,
+      "currency0": "USD",
+      "currency1": "CNY",
+      "rate": 6.882,
+      "rateTime": null
+    },
+    {
+      "id": 0,
+      "date": null,
+      "currency0": "CNY",
+      "currency1": "CNY",
+      "rate": 1,
+      "rateTime": null
+    },
+    {
+      "id": 0,
+      "date": null,
+      "currency0": "CNY",
+      "currency1": "CNY",
+      "rate": 1,
+      "rateTime": null
+    }
+  ],
   "markups": {
     "dotw": 3,
     "ivector": 1.5,
@@ -52,6 +102,6 @@
   },
   "limit": {
     "start": 0,
-    "length": 20
+    "length": 2
   }
 }

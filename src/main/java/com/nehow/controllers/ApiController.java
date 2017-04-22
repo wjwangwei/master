@@ -3,6 +3,7 @@ package com.nehow.controllers;
 import com.nehow.models.*;
 import com.nehow.services.CommonUtils;
 import com.nehow.services.Pagination;
+import com.nehow.services.TestRequests;
 import com.nehow.services.WebserviceManager;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONNull;
@@ -104,7 +105,7 @@ public class ApiController extends BaseController {
         }
 
         //TEST
-        jsonRequest.put("cityId", "47521");
+//        jsonRequest.put("cityId", "48201");
         jsonRequest.put("countryId", "TH");
         jsonRequest.put("nationality", "CN");
 
@@ -150,7 +151,7 @@ public class ApiController extends BaseController {
             jsonRequest.put("nationality", request.getParameter("nationality").split(",")[0]);
         }
 
-        jsonRequest.put("currency", "USD");
+        jsonRequest.put("currency", "CNY");
 
         String strQueryId = "";
         try {
@@ -180,6 +181,8 @@ public class ApiController extends BaseController {
 
             jsonExchanges.add(jsonExchange);
         }
+        //TODO remove test exhange rate
+        jsonExchanges = JSONArray.fromObject(TestRequests.exchangeRates);
         jsonParam.put("exchangeRates", jsonExchanges);
 
         // markup
@@ -204,10 +207,9 @@ public class ApiController extends BaseController {
         // limit
         Pagination pagination = new Pagination();
         pagination.setCurrentPageNo(request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page")));
-        pagination.setElementsPerPage(20);
+        pagination.setElementsPerPage(5);
 
         jsonParam.put("limit", pagination.getPaginateObject());
-
 
         System.out.println(jsonParam.toString());
 
@@ -225,7 +227,6 @@ public class ApiController extends BaseController {
     @RequestMapping(path = {"/hotel/availability/{hotelId}"})
     public HotelSearchResponse getHotel(String hotelId) {
         JSONObject request = (JSONObject) context.getAttribute(kRequest);
-//        hotelId = "837075";
         HotelSearchResponse hotelAvailability = apiManager.getHotelAvailability(request, hotelId);
         context.setAttribute(kHotelAvailability, hotelAvailability);
         return hotelAvailability;

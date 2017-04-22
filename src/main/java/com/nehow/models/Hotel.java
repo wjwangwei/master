@@ -323,6 +323,6 @@ public class Hotel extends BaseModel {
     }
 
     public int getScoreInt() {
-        return this.score / 10;
+        return Math.floorDiv(this.score, 10);
     }
 }

@@ -4,6 +4,7 @@ import com.nehow.models.*;
 import com.nehow.services.CommonUtils;
 import com.nehow.services.CurrencyUtils;
 import com.nehow.services.WebserviceManager;
+import jdk.nashorn.internal.objects.Global;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -117,9 +118,8 @@ public class HotelController extends BaseController {
         return "hotel/booking";
     }
 
-    @RequestMapping("/{hotelId}")
-    public String hotel(String hotelId, Map<String, Object> model) {
-//        hotelId = "837075";
+    @RequestMapping("/detail")
+    public String hotel(@RequestParam("hotelId") String hotelId, Map<String, Object> model) {
         JSONObject request = (JSONObject) context.getAttribute(kRequest);
         HotelSearchResponse searchResponse = (HotelSearchResponse) context.getAttribute(kHotelAvailability);
         if (searchResponse == null) {
@@ -130,14 +130,15 @@ public class HotelController extends BaseController {
         }
         Hotel hotel = apiManager.getHotel(hotelId);
         if (searchResponse.getHotelCount() > 0) {
+            HotelAvailability hotelAvailability = searchResponse.getHotelAvailabilities()[0];
+//            System.out.println("Hotel:" + JSONObject.fromObject(hotel));
+            hotel = (hotel == null) ? hotelAvailability.getHotel() : hotel;
             model.put("hotel", hotel);
-            model.put("requestHotel", searchResponse.getHotelAvailabilities()[0].getHotel());
-            model.put("availabilities", searchResponse.getHotelAvailabilities()[0].getAvailabilities());
-            model.put("supplierAvailability", searchResponse.getHotelAvailabilities()[0].getSupplierAvailabilities());
+            model.put("availabilities", hotelAvailability.getAvailabilities());
             model.put("request", request);
-            model.put("pictureUrl", CommonUtils.getPicBaseUrl());
+            String imgUrl = hotel.getPictureId().split(".jpg")[0];
+            model.put("imgBaseUrl", CommonUtils.getPicBaseUrl() + imgUrl.substring(0, imgUrl.length() - 1));
             model.put("formatter", new CurrencyUtils());
-            model.put("math", Math.class);
             model.put("duration", 1);
             model.put("noOfRooms", 1);
             model.put("noOfAdults", 1);

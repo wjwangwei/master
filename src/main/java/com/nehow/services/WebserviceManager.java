@@ -86,6 +86,7 @@ public class WebserviceManager {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
+
         HttpEntity<String> entity = new HttpEntity<String>(param.toString(), headers);
 
         // determine url
@@ -131,7 +132,6 @@ public class WebserviceManager {
         JSONObject req = (JSONObject) param.get("request");
         req.put("hotelId", hotelId);
         param.put("request", req);
-
         /**
          * Mandatory to set the hotelId
          */
@@ -164,31 +164,8 @@ public class WebserviceManager {
     }
 
     public Hotel getHotel(String hotelId) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        // determine url
-        String strUrl = "/hotel/supplier/" + hotelId;
-
-        // call available web service
-        System.out.println(svcProperty.getRootUrl() + strUrl);
-        ResponseEntity<JSONObject> response = restTemplate.exchange(svcProperty.getRootUrl() + strUrl, HttpMethod.GET, null, JSONObject.class);
-        JSONObject jsonResponse = response.getBody();
-//        JSONArray jsonArray = jsonResponse.getJSONArray("hotelAvailabilities");
-
-        System.out.println("RESPONSE: " + response.getBody().toString());
-
-        // transfer json to object
-        //
-        Hotel hotelReachResp = null;
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-            hotelReachResp = mapper.readValue(jsonResponse.toString(), Hotel.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return hotelReachResp;
+        ResponseEntity<Hotel> resp = restTemplate.getForEntity(svcProperty.getRootUrl() + "/hotel/supplier/" + hotelId, Hotel.class);
+        return resp.getBody();
     }
 
 }
