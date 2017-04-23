@@ -65,7 +65,7 @@ $(function () {
         });
     });
 
-    $("input[name=rating]").click(function () {
+    $("input[name=rating], .rate-filter").click(function () {
         var checkRatings = [];
         var cItem = $(this).attr('data-starrating');
         $.each($("input[name=rating]"), function (i, obj) {

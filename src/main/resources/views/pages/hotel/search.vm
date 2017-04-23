@@ -30,9 +30,7 @@
                         <ul class="dropdown-menu">
                             #foreach($starRating in $starRatings)
                                 <li>
-                                    <label>
-                                        <div class="rate rate-sm"><span class="rate$starRating"></span></div> stars ($starRatingCounts.get($starRating))
-                                    </label>
+                                    <label><div class="rate rate-sm rate-filter" data-starrating="$starRating"><span class="rate$starRating"></span></div> stars ($starRatingCounts.get($starRating))</label>
                                 </li>
                             #end
 ##                            #foreach($starRating in $starRatings)
