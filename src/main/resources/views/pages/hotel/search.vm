@@ -45,7 +45,7 @@
                         #set($hotel = $availabilities.hotel)
                         <li class="item clearfix" data-hotelname="$hotel.hotelName" data-starrating="$hotel.getStarRatingSimple()" data-lowestrate="$availabilities.lowestRate" data-reviewscore="$hotel.score">
                             <figure>
-                                <a href="#"><img src="${pictureUrl}$hotel.pictureId"  style="min-height: 231px;" alt=""></a>
+                                <a href="/hotel/detail?hotelId=$hotel.hotelId"><img src="${pictureUrl}$hotel.pictureId"  style="min-height: 231px;" alt="$hotel.hotelName"></a>
                             </figure>
                             <hgroup>
                                 <div class="item-header">

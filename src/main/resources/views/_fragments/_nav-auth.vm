@@ -1,7 +1,7 @@
 <div class="header">
     <div class="header-top header-top-short has-shadow">
         <div class="container">
-            <a class="navbar-brand" href="#" title="HotelEverlink"><img src="/images/logo.png" alt=""></a>
+            <a class="navbar-brand" href="/" title="HotelEverlink"><img src="/images/logo.png" alt=""></a>
             <div class="header-nav">
                 <nav class="navbar navbar-default">
                     <div class="navbar-header"> <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -19,14 +19,6 @@
                                 </ul>
                             </li>
                             <li><a href="#"><span class="navi-account"></span>Account Information</a></li>
-                            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="navi-lang lang-en"></span>Eng<span class="caret"></span></a>
-                                <ul class="dropdown-menu dropdown-menu-lang">
-                                    <li class="active"><a href="#"><span class="navi-lang lang-en"></span>English</a></li>
-                                    <li><a href="#"><span class="navi-lang lang-gr"></span>Germany</a></li>
-                                    <li><a href="#"><span class="navi-lang lang-fr"></span>French</a></li>
-                                    <li><a href="#"><span class="navi-lang lang-sp"></span>Spanich</a></li>
-                                </ul>
-                            </li>
                             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">
                                 <span id="active-currency-code"></span><span id="active-currency-name"></span><span class="caret"></span></a>
                                 <ul class="dropdown-menu dropdown-menu-currency">
