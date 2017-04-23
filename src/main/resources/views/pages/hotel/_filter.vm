@@ -58,8 +58,8 @@
             <div class="widget-filter-title toggle-filter">Review Score</div>
             <hgroup>
                 #foreach($scoreRating in $scoreRatings)
-                   #if(!$scoreRating.isEmpty)
-                        <div class="checkbox"><label><input type="checkbox" name="review_score" value="$scoreRating" class="checkbox-filter"><span class="checkbox-counter">$scoreRatingCounts.get($scoreRating)</span>$scoreRating</label></div>
+                    #if(!$scoreRating.isEmpty)
+                        <div class="checkbox" style="margin-left: 10px;"><label><input type="checkbox" name="review_score" value="$scoreRating" class=""><span class="checkbox-counter">$scoreRatingCounts.get($scoreRating)</span>$scoreRating</label></div> <!--checkbox-filter-->
                     #end
                #end
            </hgroup>

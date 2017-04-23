@@ -92,10 +92,10 @@ public class HotelController extends BaseController {
     }
 
     private String getScoreDesc(int score) {
-        if (score >= 90) return "Wonderful " + score;
-        else if (score >= 80) return "Very Good " + score;
-        else if (score >= 70) return "Good " + score;
-        else if (score > 60) return "Pleasant " + score;
+        if (score >= 90) return "Wonderful " + score / 10.0;
+        else if (score >= 80) return "Very Good " + score / 10.0;
+        else if (score >= 70) return "Good " + score / 10.0;
+        else if (score > 60) return "Pleasant " + score / 10.0;
         else return "";
 
     }

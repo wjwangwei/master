@@ -69,7 +69,7 @@ function paginationHref(pageId) {
     NProgress.start();
     (function () {
         var param = window.location.search;
-        if (param.indexOf('page=') === -1) {
+        if (param.indexOf('page=') !== -1) {
             param = param.split('&page=')[0] + "&page=" + pageId;
         }
         console.log(param);
