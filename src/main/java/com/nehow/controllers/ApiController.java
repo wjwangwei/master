@@ -56,10 +56,12 @@ public class ApiController extends BaseController {
                                          HttpServletRequest request) {
         Destination destination = null;
         Nationality nationality = null;
-        String currency = "CNY";
-        for (Cookie cookie : request.getCookies()) {
-            if (cookie.getName().equals("c_currency") && cookie.getValue() != null) {
-                currency = cookie.getValue().toUpperCase();
+        String currency = CommonUtils.getProperty("application.defaultCurrency");
+        if (request.getCookies() != null) {
+            for (Cookie cookie : request.getCookies()) {
+                if (cookie.getName().equals("c_currency") && cookie.getValue() != null) {
+                    currency = cookie.getValue().toUpperCase();
+                }
             }
         }
 
