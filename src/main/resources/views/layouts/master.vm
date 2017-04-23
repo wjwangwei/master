@@ -2,7 +2,11 @@
 <html lang="en-gb">
     #parse("_fragments/_header.vm")
 <body>
-    #parse("_fragments/_nav.vm")
+    #if(true)
+        #parse("_fragments/_nav-auth.vm")
+    #else
+        #parse("_fragments/_nav.vm")
+    #end
     <!-- Contents -->
     <div class="content">
         $screen_content

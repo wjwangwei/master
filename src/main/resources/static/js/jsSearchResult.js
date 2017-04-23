@@ -37,7 +37,7 @@ $(function () {
             message: "We're verifying the availability of this room...please wait",
             duration: 15000
         });
-        $(this).queryHotelXhr   (HOTEL_ROOM_VERIFICATION_API + "/" + $(this).attr('data-hotelid'), null, $this, true, function (response) {
+        $(this).queryHotelXhr(HOTEL_ROOM_VERIFICATION_API + "/" + $(this).attr('data-hotelid'), null, $this, true, function (response) {
             if (response.hotelCount <= 0) {
                 $this.html("Sold Out");
                 $this.addClass('disabled');
@@ -92,20 +92,13 @@ $(function () {
     });
 
 
-    $(".xhr-sort-pricerate").click(function () {
+    $(".sortprice").click(function () {
         NProgress.start();
         var order = $(this).attr('data-sortprice');
-        var itemWrapper = $("#main").find(".items");
-        itemWrapper.find('li,.item').sort(function (a, b) {
-            console.log(a, b);
-            if (order === 'decend') {
-                return a.getAttribute("data-lowestrate") - b.getAttribute("data-lowestrate");
-            } else {
-                return a.getAttribute("data-lowestrate") - b.getAttribute("data-lowestrate");
-            }
-        }).appendTo(itemWrapper);
-        NProgress.done();
-        $('.items').click();
+        $(this).queryHotelXhr(HOTEL_SEARCH_API, window.location.search + "&sort_order="+ order, $(this), false, function () {
+            NProgress.done();
+            window.location.reload();
+        });
         return false;
     });
 

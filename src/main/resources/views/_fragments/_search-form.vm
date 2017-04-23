@@ -17,6 +17,8 @@
 ##                    <span class="icon-flag"></span><!--lang-en -->
                     <input type="text" class="form-control dropdown-toggle" id="nationalitySearch" name="nationality" placeholder="Nationality" data-toggle="dropdown">
                     <input type="hidden" name="nationalityId">
+                    <input type="hidden" name="nationalityCode">
+                    <input type="hidden" name="countryCode">
                     <div class="dropdown-menu hide" id="nationality-dropdown">
                         <ul id="ul-nationality"></ul>
                     </div>

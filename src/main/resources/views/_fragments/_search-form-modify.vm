@@ -21,6 +21,8 @@
                                 <span class=" lang-active"></span><!--lang-en -->
                                 <input type="text" class="form-control dropdown-toggle" id="nationalitySearch" value="${requestParam.getParameter("nationality")}" name="nationality" placeholder="Nationality" data-toggle="dropdown">
                                 <input type="hidden" name="nationalityId" value="${requestParam.getParameter("nationalityId")}">
+                                <input type="hidden" name="nationalityCode" value="${requestParam.getParameter("nationalityCode")}">
+                                <input type="hidden" name="countryCode" value="${requestParam.getParameter("countryCode")}">
                                 <div class="dropdown-menu hide" id="nationality-dropdown">
                                     <ul id="ul-nationality"></ul>
                                 </div>

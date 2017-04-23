@@ -12,113 +12,67 @@
     var adultCount = 2;
     var childCount = 0;
 
-
-    var typingTimer, doneTypingInterval = 500, nationalitySearchDOM = $("#nationalitySearch");
-    // nationalitySearchDOM.on('keyup keyenter paste', function () {
-    //     typingTimer = setTimeout(searchNationality, doneTypingInterval);
-    // });
-
-    // nationalitySearchDOM.on('keydown', function () {
-    //     clearTimeout(typingTimer);
-    // });
-
-    function searchNationality() {
-        var $this = nationalitySearchDOM;
-        if ($this.val().length >= 2) {
-            $.ajax({
-                url: '/api/suggest/nationality',
-                method: 'GET',
-                data: {
-                    search: $this.val()
-                },
-                beforeSend: function () {
-                    $(".fa-spinner").remove();
-                    // $('<span class="fa fa-spinner fa-spin"></span>').appendTo($this);
-                    $("#ul-nationality").html('');
-                },
-                success: function (resp, status, xhr) {
-                    var dpDown = $('#nationality-dropdown');
-                    dpDown.removeClass('hide');
-                    $("#ul-nationality").html('');
-                    if (xhr.status === 200 && resp.length > 0) {
-                        var active = "";
-                        $.each(resp, function (i, obj) {
-                            // active = i === 0 ? "active" : "";
-                            var dpListHtml = "<li data-nationalityId=\"" + obj.id + "\" class=\"selectNationality\">" + obj.nationality + "</li>";
-                            $(dpListHtml).appendTo($("#ul-nationality"));
-                        });
-                        selectNationalityXhr();
-                    } else {
-                        $("<li>No nationality found for " + $this.val() + "</li>").appendTo($("#ul-nationality"));
-                    }
-                }
-            })
-        }
-    }
-
-    function selectNationalityXhr() {
-        $(".selectNationality").on('click', function () {
-            var nationalityId = $(this).attr('data-nationalityId');
-            $('input[name=nationalityId]').attr('value', nationalityId);
-            var selectedName = $(this).html();
-            $("#nationalitySearch").attr('value', selectedName);
-        });
-    }
-
     /*
-     * JQuery AutoComplete for Destination Search
+     * JQuery AutoComplete for Destination and Nationality Search
      */
-    var destinationAutoSuggDOM = $('input[name=cityTitle]');
-    var destinationAutoSuggDOM = $('input[name=cityTitle]');
-    destinationAutoSuggDOM.on('keyup keyenter paste', function () {
-        var $this = $(this);
-        // setTimeout(function () {
-        $this.autocomplete({
-            serviceUrl: '/api/suggest/destination',
-            paramName: 'search',
-            type: 'GET',
-            minChar: 3,
-            preventBadQueries: true,
-            noSuggestionNotice: "<strong>Sorry, not result found for" + $this.val() + "</strong>",
-            transformResult: function (response) {
-                return {
-                    suggestions: $.map(JSON.parse(response), function (dataItem) {
-                        return {value: dataItem.cityName + ", " + dataItem.countryName, data: dataItem.id};
-                    })
-                };
-            },
-            onSelect: function (suggestion) {
-                $('input[name=cityId]').attr('value', suggestion.data);
-            }
-        });
-        // }, 500);
-        $this.focus();
-    });
-
+    var typingTimer, doneTypingInterval = 1500, nationalitySearchDOM = $("#nationalitySearch"), destinationAutoSuggDOM = $('input[name=cityTitle]');
     nationalitySearchDOM.on('keyup keyenter paste', function () {
         var $this = $(this);
-        $this.autocomplete({
-            serviceUrl: '/api/suggest/nationality',
-            paramName: 'search',
-            type: 'GET',
-            minChar: 3,
-            preventBadQueries: true,
-            noSuggestionNotice: "<strong>Sorry, not result found for" + $this.val() + "</strong>",
-            transformResult: function (response) {
-                return {
-                    suggestions: $.map(JSON.parse(response), function (dataItem) {
-                        return {value: dataItem.countryId + ", " + dataItem.countryName, data: dataItem.id};
-                    })
-                };
-            },
-            onSelect: function (suggestion) {
-                $('input[name=nationalityId]').attr('value', suggestion.data);
-            }
-        });
-        $this.focus();
+        typingTimer = setTimeout(function () {
+            $this.autocomplete({
+                serviceUrl: '/api/suggest/nationality',
+                paramName: 'search',
+                type: 'GET',
+                minChar: 3,
+                preventBadQueries: true,
+                noSuggestionNotice: "<strong>Sorry, not result found for" + $this.val() + "</strong>",
+                transformResult: function (response) {
+                    return {
+                        suggestions: $.map(JSON.parse(response), function (dataItem) {
+                            return {value: dataItem.countryId + ", " + dataItem.countryName, nationalityId: dataItem.id, countryCode: dataItem.id};
+                        })
+                    };
+                },
+                onSelect: function (suggestion) {
+                    $('input[name=nationalityId]').attr('value', suggestion.nationalityId);
+                    $('input[name=countryCode]').attr('value', suggestion.countryCode);
+                    $('input[name=nationalityCode]').attr('value', suggestion.countryCode);
+                }
+            });
+            $this.focus();
+        }, doneTypingInterval);
+    });
+    nationalitySearchDOM.on('keydown', function () {
+        clearTimeout(typingTimer);
     });
 
-
+    destinationAutoSuggDOM.on('keyup keyenter paste', function () {
+        var $this = $(this);
+        typingTimer = setTimeout(function () {
+            $this.autocomplete({
+                serviceUrl: '/api/suggest/destination',
+                paramName: 'search',
+                type: 'GET',
+                minChar: 3,
+                preventBadQueries: true,
+                noSuggestionNotice: "<strong>Sorry, not result found for" + $this.val() + "</strong>",
+                transformResult: function (response) {
+                    return {
+                        suggestions: $.map(JSON.parse(response), function (dataItem) {
+                            return {value: dataItem.cityName + ", " + dataItem.countryName, data: dataItem.id};
+                        })
+                    };
+                },
+                onSelect: function (suggestion) {
+                    $('input[name=cityId]').attr('value', suggestion.data);
+                }
+            });
+            $this.focus();
+        }, doneTypingInterval);
+    });
+    destinationAutoSuggDOM.on('keydown', function () {
+        clearTimeout(typingTimer);
+    });
     /*
      * End of AutoComplete for Destination Search
      */

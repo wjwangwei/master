@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
@@ -55,6 +56,12 @@ public class ApiController extends BaseController {
                                          HttpServletRequest request) {
         Destination destination = null;
         Nationality nationality = null;
+        String currency = "CNY";
+        for (Cookie cookie : request.getCookies()) {
+            if (cookie.getName().equals("c_currency") && cookie.getValue() != null) {
+                currency = cookie.getValue().toUpperCase();
+            }
+        }
 
         Destination[] destinations = (Destination[]) context.getAttribute(kDestination);
         if (destinations != null) {
@@ -97,17 +104,14 @@ public class ApiController extends BaseController {
             jsonRequest.put("cityId", Objects.toString(destination.getCityId()));
         } else {
             destination = new Destination();
+
             destination.setCityId(Integer.parseInt(request.getParameter("cityId")));
-            //TODO change the countryId hard-coded into the request
-            destination.setCountryId("TH");
+            destination.setCountryId(request.getParameter("countryCode"));
+            destination.setCountryId(request.getParameter("nationalityCode"));
+
             jsonRequest.put("cityId", destination.getCityId());
             jsonRequest.put("countryId", destination.getCountryId());
         }
-
-        //TEST
-//        jsonRequest.put("cityId", "48201");
-        jsonRequest.put("countryId", "TH");
-        jsonRequest.put("nationality", "CN");
 
         // date convert
         try {
@@ -151,7 +155,7 @@ public class ApiController extends BaseController {
             jsonRequest.put("nationality", request.getParameter("nationality").split(",")[0]);
         }
 
-        jsonRequest.put("currency", "CNY");
+        jsonRequest.put("currency", currency);
 
         String strQueryId = "";
         try {
@@ -201,13 +205,14 @@ public class ApiController extends BaseController {
         // sort
         JSONObject jsonSort = new JSONObject();
         jsonSort.put("field", "rate");
-        jsonSort.put("mode", "ascend");
+        String order = request.getParameter("sort_order") != null ? request.getParameter("sort_order") : "ascend";
+        jsonSort.put("mode", order);
         jsonParam.put("sort", jsonSort);
 
         // limit
         Pagination pagination = new Pagination();
         pagination.setCurrentPageNo(request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page")));
-        pagination.setElementsPerPage(5);
+        pagination.setElementsPerPage(CommonUtils.getProperty("pagination.perpage", Integer.class));
 
         jsonParam.put("limit", pagination.getPaginateObject());
 

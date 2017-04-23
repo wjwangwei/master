@@ -30,7 +30,12 @@ public class CommonUtils implements ApplicationContextAware {
         return applicationContext.getEnvironment().getProperty("webservice.suppliers");
     }
 
+    public static <T> T getProperty(String name, Class<T> tClass) {
+        return applicationContext.getEnvironment().getProperty(name, tClass);
+    }
 
-
+    public static String getProperty(String name) {
+        return applicationContext.getEnvironment().getProperty(name);
+    }
 
 }
