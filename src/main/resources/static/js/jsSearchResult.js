@@ -84,7 +84,7 @@ $(function () {
                     $(obj).show();
                 else {
                     $(obj).hide();
-                }
+                } 
             } else {
                 $(obj).show();
             }
