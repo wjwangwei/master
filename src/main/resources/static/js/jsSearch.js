@@ -165,6 +165,7 @@
     function customRange(dates) {
         if (this.id == 'dateCheckin') {
             $('#dateCheckout').datepick('option', 'minDate', dates[0] || null);
+            $('#dateCheckout').focus();
         } else {
             $('#dateCheckin').datepick('option', 'maxDate', dates[0] || null);
         }

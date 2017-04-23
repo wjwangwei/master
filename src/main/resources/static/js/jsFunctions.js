@@ -65,12 +65,17 @@ function xhrRoomVerifyHref(hotelId) {
     })(jQuery);
 }
 
-function paginationHref(pageId, hashUrl) {
+function paginationHref(pageId) {
     NProgress.start();
     (function () {
-        $(this).queryHotelXhr(HOTEL_SEARCH_API, hashUrl + "&page=" + pageId, $(this), false, function (response) {
+        var param = window.location.search;
+        if (param.indexOf('page=') === -1) {
+            param = param.split('&page=')[0] + "&page=" + pageId;
+        }
+        console.log(param);
+        $(this).queryHotelXhr(HOTEL_SEARCH_API, param, $(this), false, function (response) {
             if (response.hotelCount > 0) {
-                window.location.href = 'hotel/search-result' + hashUrl + '&page=' + pageId;
+                window.location.href = '/hotel/search-result' + param;
             }
         });
         return false;

@@ -12,15 +12,10 @@
         <div class="widget-filter widget-filter-rating">
             <div class="widget-filter-title toggle-filter">Star Rating</div>
             <hgroup>
-                <style>
-                    .ckbox {
-
-                    }
-                </style>
                 #foreach($starRating in $starRatings)
                     <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="rating" value="$starRating" class="checkbox-filter" /> <!---->
+                        <label style="margin-left: 10px;">
+                            <input type="checkbox" name="rating" value="$starRating" class="" /> <!--checkbox-filter-->
                             <div class="rate rate-sm"><span class="rate$starRating"></span></div> stars ($starRatingCounts.get($starRating))
                         </label>
                     </div>

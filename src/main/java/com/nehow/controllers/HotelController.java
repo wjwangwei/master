@@ -79,7 +79,7 @@ public class HotelController extends BaseController {
                 int currentPage = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
                 model.put("currentPage", currentPage);
                 model.put("nextPage", currentPage + 1);
-                model.put("paginateElipse", currentPage + 5);
+                model.put("paginateElipse", currentPage + 2);
             } catch (Exception e) {
             }
             isResultAvail = true;
