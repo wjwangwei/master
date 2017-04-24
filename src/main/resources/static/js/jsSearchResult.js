@@ -111,5 +111,14 @@ $(function () {
             policyDom.addClass('hide');
        return false;
     });
+
+    $('.xhrGetPolicy').click(function () {
+        var policyCode = $(this).attr('data-policycode');
+        var hotelId = $(this).attr('data-hotelid');
+        $(this).queryHotelXhr(HOTEL_ROOM_POLICY_API, {policyCode: policyCode, hotelId: hotelId}, $(this), false, function (response) {
+           // display the policy code to customer
+            console.log(response);
+        });
+    });
 });
 

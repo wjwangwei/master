@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigInteger;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.text.ParseException;
@@ -226,7 +228,6 @@ public class ApiController extends BaseController {
 
         if (hotelSearchResponse.getHotelCount() > 0)
             context.setAttribute(kHotels, hotelSearchResponse);
-
         return hotelSearchResponse;
     }
 
@@ -238,4 +239,17 @@ public class ApiController extends BaseController {
         context.setAttribute(kHotelAvailability, hotelAvailability);
         return hotelAvailability;
     }
+
+    @RequestMapping(path = {"/hotel/room-policy"})
+    public HotelSearchResponse getRoomPolicy(@RequestParam("hotelId") String hotelId, @RequestParam("policyCode") String policyCode) {
+        JSONObject request = (JSONObject) context.getAttribute(kRequest);
+        try {
+            policyCode = URLDecoder.decode(policyCode, "UTF-8");
+        } catch (Exception ignored){}
+        HotelSearchResponse hotelAvailability = apiManager.getRoomPolicy(request, policyCode, hotelId);
+        context.setAttribute(kHotelAvailability, hotelAvailability);
+        return hotelAvailability;
+    }
+
+
 }

@@ -13,7 +13,9 @@ function displayCurrency(currencyCode, dom) {
     dom.style = 'content: ' + displayCode;
 }
 
-var xhrCount = 1;
+var xhrCount = 0;
+var xhrProcessArray = [0, 1, 1, 1, 2, 2, 2, 4, 4, 4, 8, 8, 8, 8, 8];
+var lastHotelCount = 0;
 (function () {
     $.fn.queryHotelXhr = function (url, data, btn, isHotel, funcResponse) {
         // (function () {
@@ -21,19 +23,21 @@ var xhrCount = 1;
             url: url,
             data: data,
             dataType: 'JSON',
+            timeout: xhrProcessArray[xhrCount] * 1000,
             type: 'GET',
             beforeSend: function () {
                 btn.addClass('disabled');
             },
             success: function (response) {
-                console.log(xhrCount);
-                if (response.rewriteKeyCount <= response.completeRewriteKeyCount || xhrCount >= MAX_XHR_RETRY) { //
+                console.log(xhrCount, (response.rewriteKeyCount <= response.completeRewriteKeyCount || xhrCount >= MAX_XHR_RETRY), (lastHotelCount !== response.hotelCount));
+                if (response.rewriteKeyCount <= response.completeRewriteKeyCount || xhrCount >= MAX_XHR_RETRY) {
                     funcResponse(response);
-                } else {
+                } else if (lastHotelCount !== response.hotelCount) {
                     var xhr = $(this).queryHotelXhr(url, data, btn, isHotel, funcResponse);
+                    lastHotelCount = response.hotelCount;
                     xhrCount += 1;
                     return xhr;
-                }
+                } else funcResponse(response)
             },
             complete: function () {
                 btn.removeClass('disabled');
@@ -72,7 +76,6 @@ function paginationHref(pageId) {
         if (param.indexOf('page=') !== -1) {
             param = param.split('&page=')[0] + "&page=" + pageId;
         }
-        console.log(param);
         $(this).queryHotelXhr(HOTEL_SEARCH_API, param, $(this), false, function (response) {
             if (response.hotelCount > 0) {
                 window.location.href = '/hotel/search-result' + param;

@@ -99,13 +99,15 @@
                                                     #end
                                                 </div>
                                                 <div class="item-option-policy">
-                                                    ##if(!$availability.hotelRooms.policies && $availability.hotelRooms.policies.refundable == "true")
-                                                        ##<a href="#" class="get-policy" data-roomid="">Refundable</a>
-                                                    ##else
-                                                        ##Non-Refundable
-                                                        <a href="#" class="get-policy" data-roomid="">View Policy</a>
-                                                    ##end
-                                                    <span class="ico ico-question-circle" data-toggle="tooltip" title="Policy information goes here..."></span>
+                                                    #set($policies = $availability.hotelRooms.policies)
+                                                    #if(!$policies && $policies.isEmpty())
+                                                        <a href="#" class="xhrGetPolicy" data-hotelid="$availability.hotelId" data-policycode="$availability.hotelRooms.rooms[0].cancellationPolicyCode">Refundable
+                                                            <span class="ico ico-question-circle" data-toggle="tooltip" title="Check Policy"></span>
+                                                        </a>
+                                                    #elseif(!$policies && !$policies.isEmpty())
+                                                        Non-Refundable
+                                                    #end
+                                                    <a href="#" class="xhrGetPolicy" data-hotelid="$availability.hotelId" data-policycode="$java.net.URLEncoder.encode($availability.hotelRooms.rooms[0].cancellationPolicyCode)">Test Policy</a>
                                                 </div>
                                                 <div class="item-option-price">
                                                     <div class="price-discount">

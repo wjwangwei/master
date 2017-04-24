@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Map;
 
 /**
@@ -141,6 +142,50 @@ public class WebserviceManager {
         System.out.println(param);
         // determine url
         String strUrl = "/hotel/availability/hotel";
+
+        // call available web service
+        System.out.println(svcProperty.getRootUrl() + strUrl);
+        ResponseEntity<JSONObject> response = restTemplate.exchange(svcProperty.getRootUrl() + strUrl, HttpMethod.POST, entity, JSONObject.class);
+        JSONObject jsonResponse = response.getBody();
+        JSONArray jsonArray = jsonResponse.getJSONArray("hotelAvailabilities");
+
+        //
+        // transfer json to object
+        //
+        HotelSearchResponse hotelReachResp = null;
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            hotelReachResp = mapper.readValue(jsonResponse.toString(), HotelSearchResponse.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("RESPONSE: " + response.getBody().toString());
+        return hotelReachResp;
+    }
+
+    public HotelSearchResponse getRoomPolicy(JSONObject param, String policyCode, String hotelId) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        JSONObject req = (JSONObject) param.get("request");
+        req.put("hotelId", hotelId);
+        param.put("request", req);
+        /**
+         * Mandatory to set the hotelId
+         */
+
+        JSONArray policyCodesJSON = new JSONArray();
+        policyCodesJSON.add(policyCode);
+        param.put("policyCodes", policyCodesJSON);
+        HttpEntity<String> entity = new HttpEntity<String>(param.toString(), headers);
+        //TODO safeDay = todayDate - checkInDate
+        int safeDays = 3; //LocalDate.now().;
+        param.put("safeDay", safeDays);
+
+        System.out.println(param);
+        // determine url
+        String strUrl = "/hotel/availability/cancellation-policy";
 
         // call available web service
         System.out.println(svcProperty.getRootUrl() + strUrl);
