@@ -95,7 +95,7 @@ $(function () {
     $(".sortprice").click(function () {
         NProgress.start();
         var order = $(this).attr('data-sortprice');
-        $(this).queryHotelXhr(HOTEL_SEARCH_API, window.location.search + "&sort_order="+ order, $(this), false, function () {
+        $(this).queryHotelXhr(HOTEL_SEARCH_API, window.location.search + "&sort_order=" + order, $(this), false, function () {
             NProgress.done();
             window.location.reload();
         });
@@ -105,19 +105,27 @@ $(function () {
 
     $('.view-policy').click(function () {
         var policyDom = $(this).next('.policy-html');
-        if(policyDom.hasClass('hide'))
+        if (policyDom.hasClass('hide'))
             policyDom.removeClass('hide');
         else
             policyDom.addClass('hide');
-       return false;
+        return false;
     });
 
     $('.xhrGetPolicy').click(function () {
+        var $this = $(this);
         var policyCode = $(this).attr('data-policycode');
         var hotelId = $(this).attr('data-hotelid');
-        $(this).queryHotelXhr(HOTEL_ROOM_POLICY_API, {policyCode: policyCode, hotelId: hotelId}, $(this), false, function (response) {
-           // display the policy code to customer
-            console.log(response);
+
+        $(this).queryHotelXhr(HOTEL_ROOM_POLICY_API, {
+            policyCode: policyCode,
+            hotelId: hotelId
+        }, $(this), false, function (response) {
+            // display the policy code to customer
+            var policyHtml = "Displaying policu";
+
+            $this.next('.policy-html').removeClass('hide');
+            $this.next('.policy-content').html(policyHtml);
         });
     });
 });

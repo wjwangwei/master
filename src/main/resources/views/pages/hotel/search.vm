@@ -66,7 +66,7 @@
                                             </div>
                                             <div class="item-header-reviews">$hotel.reviews review#if($hotel.reviews > 1)s#end</div>
                                         </div>
-                                        $hotel.hotelName
+                                        <a href="/hotel/detail?hotelId=$hotel.hotelId">$hotel.hotelName</a>
                                         <div class="rate"><span class="rate$hotel.getStarRatingSimple()"></span></div>
                                     </div>
                                     <div class="item-header-meta">$hotel.address</div>
@@ -107,7 +107,11 @@
                                                     #elseif(!$policies && !$policies.isEmpty())
                                                         Non-Refundable
                                                     #end
-                                                    <a href="#" class="xhrGetPolicy" data-hotelid="$availability.hotelId" data-policycode="$java.net.URLEncoder.encode($availability.hotelRooms.rooms[0].cancellationPolicyCode)">Test Policy</a>
+                                                    <a href="#" class="xhrGetPolicy" data-hotelid="$availability.hotelId" data-policycode="$encoder.encode($availability.hotelRooms.rooms[0].cancellationPolicyCode)">Test Policy</a>
+                                                    <div class="policy-html panel panel-body hide" style="position: absolute; z-index: 2000; border: 1px solid #CCC;">
+                                                        <button type="button" class="close view-policy"><span>×</span></button>
+                                                        <div class="policy-content"></div>
+                                                    </div>
                                                 </div>
                                                 <div class="item-option-price">
                                                     <div class="price-discount">

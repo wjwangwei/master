@@ -268,4 +268,70 @@ public class TestRequests {
             "      \"rateTime\": null\n" +
             "    }\n" +
             "  ]";
+
+    public static final String policyRequest = "{\n" +
+            "    \"queryId\": \"183493fc7c8e683877bfc45b8b6d2859\",\n" +
+            "    \"supplierId\": \"ivector\",\n" +
+            "    \"hotelId\": \"837576\",\n" +
+            "    \"hotelCode\": \"136097\",\n" +
+            "    \"checkIn\": \"2017-05-09\",\n" +
+            "    \"checkOut\": \"2017-05-11\",\n" +
+            "    \"policyCodes\": [\n" +
+            "        \"[\\\"1370193\\\",\\\"0\\\",\\\"S+42cRV+i/UVc8bv/4m/ZJVz+29bFRgm0EbB46pDZy01RhgkOkflyymvkkeUaMxCkRKAjAa4wkd0FBGKZpVzgt6sRoptW12lPSOZ6D8bBCA=\\\",\\\"1\\\",\\\"3\\\",\\\"1,,1,1,0:8\\\"]\"\n" +
+            "    ],\n" +
+            "    \"exchangeRates\": [\n" +
+            "        {\n" +
+            "            \"id\": 0,\n" +
+            "            \"date\": null,\n" +
+            "            \"currency0\": \"HKD\",\n" +
+            "            \"currency1\": \"CNY\",\n" +
+            "            \"rate\": 0.8869,\n" +
+            "            \"rateTime\": null\n" +
+            "        },\n" +
+            "        {\n" +
+            "            \"id\": 0,\n" +
+            "            \"date\": null,\n" +
+            "            \"currency0\": \"EUR\",\n" +
+            "            \"currency1\": \"CNY\",\n" +
+            "            \"rate\": 7.3278,\n" +
+            "            \"rateTime\": null\n" +
+            "        },\n" +
+            "        {\n" +
+            "            \"id\": 0,\n" +
+            "            \"date\": null,\n" +
+            "            \"currency0\": \"GBP\",\n" +
+            "            \"currency1\": \"CNY\",\n" +
+            "            \"rate\": 8.4528,\n" +
+            "            \"rateTime\": null\n" +
+            "        },\n" +
+            "        {\n" +
+            "            \"id\": 0,\n" +
+            "            \"date\": null,\n" +
+            "            \"currency0\": \"USD\",\n" +
+            "            \"currency1\": \"CNY\",\n" +
+            "            \"rate\": 6.882,\n" +
+            "            \"rateTime\": null\n" +
+            "        },\n" +
+            "        {\n" +
+            "            \"id\": 0,\n" +
+            "            \"date\": null,\n" +
+            "            \"currency0\": \"CNY\",\n" +
+            "            \"currency1\": \"CNY\",\n" +
+            "            \"rate\": 1,\n" +
+            "            \"rateTime\": null\n" +
+            "        },\n" +
+            "        {\n" +
+            "            \"id\": 0,\n" +
+            "            \"date\": null,\n" +
+            "            \"currency0\": \"CNY\",\n" +
+            "            \"currency1\": \"CNY\",\n" +
+            "            \"rate\": 1,\n" +
+            "            \"rateTime\": null\n" +
+            "        }\n" +
+            "    ],\n" +
+            "    \"markups\": {\n" +
+            "        \"ivector\": 1\n" +
+            "    },\n" +
+            "    \"safeDay\": 3\n" +
+            "}\n";
 }

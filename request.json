@@ -1,7 +1,7 @@
 {
   "request": {
-    "countryId": "TH",
-    "cityId": "48201",
+    "cityId": 48201,
+    "countryId": "45",
     "checkIn": "2017-04-27",
     "checkOut": "2017-04-29",
     "rooms": [
@@ -17,9 +17,9 @@
     ],
     "nationality": "CN",
     "currency": "CNY",
-    "queryId": "fe6b28013864d9bf7dc55ad580cace45",
+    "queryId": "fcfbf4fc8ed8534a1a503201a17b06ce",
     "supplierId": "expedia,gta,veturis,restel,ivector",
-    "hotelId": "837576"
+    "hotelId": "837075"
   },
   "exchangeRates": [
     {
@@ -102,10 +102,17 @@
   },
   "limit": {
     "start": 0,
-    "length": 1
+    "length": 2
   },
   "policyCodes": [
-    "1370193","0","pbbqha0qzvjjfashpldouwaa0xndl3xrmpqohbuqaghmt+zopzsgoeni5gnl3migunjociswgkcvz00s7vlm4ovuokahcajbwnlpp1qy7phxv+mfyhmru7utrsmmoc"
+    [
+      "2337",
+      "15639",
+      null,
+      "1",
+      "3",
+      "1,,2,0,0"
+    ]
   ],
   "safeDay": 3
 }

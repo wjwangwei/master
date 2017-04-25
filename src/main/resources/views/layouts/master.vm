@@ -2,7 +2,7 @@
 <html lang="en-gb">
     #parse("_fragments/_header.vm")
 <body>
-    #if(true)
+    #if(false)
         #parse("_fragments/_nav-auth.vm")
     #else
         #parse("_fragments/_nav.vm")

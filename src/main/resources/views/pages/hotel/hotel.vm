@@ -59,7 +59,8 @@
                             <ul id="thumbsSlide" class="clearfix">
                                 <li>
                                     #foreach($image in $hotel.pictures)
-                                        <a data-slide-index="$foreach.count" href="#"><img src="$imgBaseUrl$image!small" alt=""></a>
+                                        #set($i = $foreach.count - 1)
+                                        <a data-slide-index="$i" href="#"><img src="$imgBaseUrl$image!small" alt=""></a>
                                     #end
                                 </li>
                             </ul>

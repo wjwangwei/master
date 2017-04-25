@@ -1,6 +1,6 @@
 package com.nehow.models;
 
-public class Policies {
+public class Policies extends BaseModel {
     private String refundable;
     private String optionDate;
     private int safeDay;

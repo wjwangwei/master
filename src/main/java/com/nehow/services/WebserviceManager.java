@@ -178,7 +178,8 @@ public class WebserviceManager {
         JSONArray policyCodesJSON = new JSONArray();
         policyCodesJSON.add(policyCode);
         param.put("policyCodes", policyCodesJSON);
-        HttpEntity<String> entity = new HttpEntity<String>(param.toString(), headers);
+//        HttpEntity<String> entity = new HttpEntity<String>(param.toString(), headers);
+        HttpEntity<String> entity = new HttpEntity<String>(TestRequests.policyRequest, headers);
         //TODO safeDay = todayDate - checkInDate
         int safeDays = 3; //LocalDate.now().;
         param.put("safeDay", safeDays);
@@ -191,7 +192,7 @@ public class WebserviceManager {
         System.out.println(svcProperty.getRootUrl() + strUrl);
         ResponseEntity<JSONObject> response = restTemplate.exchange(svcProperty.getRootUrl() + strUrl, HttpMethod.POST, entity, JSONObject.class);
         JSONObject jsonResponse = response.getBody();
-        JSONArray jsonArray = jsonResponse.getJSONArray("hotelAvailabilities");
+        JSONObject jsonArray = jsonResponse.getJSONObject("policies");
 
         //
         // transfer json to object

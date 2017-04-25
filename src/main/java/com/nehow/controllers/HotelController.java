@@ -87,6 +87,7 @@ public class HotelController extends BaseController {
             isResultAvail = false;
         }
         model.put("isResult", isResultAvail);
+        model.put("encoder", java.net.URLEncoder.class);
 
         return "hotel/search";
     }
