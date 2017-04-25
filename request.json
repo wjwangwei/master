@@ -17,9 +17,8 @@
     ],
     "nationality": "CN",
     "currency": "CNY",
-    "queryId": "fcfbf4fc8ed8534a1a503201a17b06ce",
-    "supplierId": "expedia,gta,veturis,restel,ivector",
-    "hotelId": "837075"
+    "queryId": "c75f8deaf3494ea225c3e0c4a27456d0",
+    "supplierId": "expedia,gta,veturis,restel,ivector"
   },
   "exchangeRates": [
     {
@@ -102,17 +101,6 @@
   },
   "limit": {
     "start": 0,
-    "length": 2
-  },
-  "policyCodes": [
-    [
-      "2337",
-      "15639",
-      null,
-      "1",
-      "3",
-      "1,,2,0,0"
-    ]
-  ],
-  "safeDay": 3
+    "length": 1
+  }
 }

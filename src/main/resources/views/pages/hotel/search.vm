@@ -144,7 +144,8 @@
                     <div class="pagination-wrapper">
                         <ul class="pagination">
                             #if($currentPage > 1)
-                                <li><a href="#" onclick="javascript: paginationHref($currentPage); return false;" aria-label="Previous"><span aria-hidden="true">Prevous</span></a></li>
+                                #set($prevPage = $currentPage - 1)
+                                <li><a href="#" onclick="javascript: paginationHref($prevPage); return false;" aria-label="Previous"><span aria-hidden="true">Prevous</span></a></li>
                             #end
                             #foreach($i in [$currentPage..$paginateElipse])
                                 <li #if($i == $currentPage) class="active" #end><a onclick="javascript: paginationHref($i); return false;" href="#">$i</a></li>

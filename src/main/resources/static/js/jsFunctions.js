@@ -75,7 +75,10 @@ function paginationHref(pageId) {
         var param = window.location.search;
         if (param.indexOf('page=') !== -1) {
             param = param.split('&page=')[0] + "&page=" + pageId;
+        } else {
+            param = param + "&page=" + pageId;
         }
+        console.log(param, param.indexOf('page='));
         $(this).queryHotelXhr(HOTEL_SEARCH_API, param, $(this), false, function (response) {
             if (response.hotelCount > 0) {
                 window.location.href = '/hotel/search-result' + param;
@@ -84,6 +87,7 @@ function paginationHref(pageId) {
         return false;
     })(jQuery);
 }
+
 
 function urlRedirect(url, urlParams) {
     return window.location.href = url + urlParams;

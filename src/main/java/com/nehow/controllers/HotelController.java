@@ -39,9 +39,9 @@ public class HotelController extends BaseController {
         model.put("checkout", checkOut);
         model.put("roomcount", noOfRooms);
 
-        model.put("adultcount", 1);
-        model.put("childcount", 1);
-        model.put("childage", null);
+        model.put("adultcount", request.getParameter("adultCount"));
+        model.put("childcount", request.getParameter("childCount"));
+        model.put("childage", request.getParameter("infantCount"));
 
         HotelSearchResponse searchResponse = (HotelSearchResponse) context.getAttribute(kHotels);
         model.put("requestParam", request);
