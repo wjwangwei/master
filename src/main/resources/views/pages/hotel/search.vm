@@ -84,8 +84,7 @@
                                             <div class="item-option">
                                                 <div class="item-option-roomtype">
                                                     #foreach($room in $availability.hotelRooms.rooms)
-                                                        <div class="roomtype-name">$room.roomName $room.roomType </div>
-                                                        <div class=clearfix"></div>
+                                                        <div class="roomtype-name">$room.roomName<!--$room.roomType--></div>
                                                     #end
                                                 </div>
                                                 <div class="item-option-breakfast">
@@ -121,12 +120,16 @@
                                                     </div>
                                                     <div class="price-amount">
                                                         <div class="price-amount-value">$formatter.getCurrency($availability.currency) $availability.totalRate
-                                                            <span class="ico ico-question-circle" data-toggle="tooltip" title="Get Price Break Down"></span></div>
+                                                        <span class="ico ico-question-circle" data-toggle="tooltip" title="Get Price Break Down"></span></div>
                                                         <div class="price-amount-notes">Rooms per night</div>
                                                     </div>
                                                 </div>
                                                 <div class="item-option-action">
-                                                    <a href="#" class="booknow" data-hotelid="$availability.hotelId" data-roomcode="todo">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
+                                                    #set($rateIds = "")
+                                                    #foreach($room in $availability.hotelRooms.rooms)
+                                                        #set($rateIds = $rateIds + " " + $room.roomRateId)
+                                                    #end
+                                                    <a href="#" class="booknow" data-hotelid="$availability.hotelId" data-step="FirstVerify" data-request="$availability.request" data-currency="$availability.currency" data-totalrate="$availability.totalRate" data-rateids="$rateIds">BOOK NOW<span class="ico ico-arrow-right-sm"></span></a>
                                                 </div>
                                             </div>
                                         #end

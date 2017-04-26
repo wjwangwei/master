@@ -8,6 +8,7 @@ import com.nehow.services.WebserviceManager;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONNull;
 import net.sf.json.JSONObject;
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -223,7 +224,45 @@ public class ApiController extends BaseController {
         System.out.println(jsonParam.toString());
 
         context.setAttribute(kRequest, jsonParam);
-        HotelSearchResponse hotelSearchResponse = apiManager.getCityAvailability((JSONObject) context.getAttribute(kRequest));
+        HotelSearchResponse hotelSearchResponse = new HotelSearchResponse();
+        hotelSearchResponse.setHotelCount(0);
+        int callTimes = 0;
+        Map<Integer, Integer> waitTime = new HashedMap();
+        waitTime.put(0, 0);
+        waitTime.put(1, 1000);
+        waitTime.put(2, 1000);
+        waitTime.put(3, 1000);
+        waitTime.put(4, 1000);
+        waitTime.put(5, 1000);
+        waitTime.put(6, 2000);
+        waitTime.put(7, 2000);
+        waitTime.put(8, 2000);
+        waitTime.put(9, 2000);
+        waitTime.put(10, 2000);
+        waitTime.put(11, 4000);
+        waitTime.put(12, 4000);
+        waitTime.put(13, 4000);
+        waitTime.put(14, 4000);
+        waitTime.put(15, 4000);
+
+        do {
+            hotelSearchResponse = apiManager.getCityAvailability((JSONObject) context.getAttribute(kRequest));
+            int rewriteKeyCnt = hotelSearchResponse.getRewriteKeyCount();
+            int completeKeyCnt = hotelSearchResponse.getCompleteRewriteKeyCount();
+            try {
+                Thread.sleep(waitTime.get(callTimes));
+                System.out.print("    线程睡眠1秒！\n");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            callTimes++;
+            if(rewriteKeyCnt <= completeKeyCnt){
+                break;
+            }
+            if(callTimes >= 15){
+                break;
+            }
+        }while(true);
 
 
         if (hotelSearchResponse.getHotelCount() > 0)

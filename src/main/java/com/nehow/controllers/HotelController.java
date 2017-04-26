@@ -1,5 +1,7 @@
 package com.nehow.controllers;
 
+import cn.mogutrip.hotel.common.entity.SupplierHotelAvailabilities;
+import cn.mogutrip.hotel.common.entity.VerifyAvailabilityRequest;
 import com.nehow.models.*;
 import com.nehow.services.CommonUtils;
 import com.nehow.services.CurrencyUtils;
@@ -54,9 +56,12 @@ public class HotelController extends BaseController {
         model.put("pictureUrl", CommonUtils.getPicBaseUrl());
         model.put("searchResponse", searchResponse);
 
+
+        Map<String, List<VerifyAvailabilityRequest>> hotelVerifyRequests = new HashMap<>();
         boolean isResultAvail;
         if (searchResponse != null && searchResponse.getHotelAvailabilities().length > 0) {
             List<HotelAvailability> availabilities = Arrays.asList(searchResponse.getHotelAvailabilities());
+
             Map<Integer, Integer> starRatingCount = new HashMap<>();
             Set<Integer> rating = new TreeSet<>();
 
@@ -70,14 +75,33 @@ public class HotelController extends BaseController {
             availabilities.stream().forEach(o -> score.add(getScoreDesc(o.getHotel().getScore())));
             score.stream().forEach(a -> scoreRatingCount.put(a, availabilities.stream().filter(o -> Objects.equals(getScoreDesc(o.getHotel().getScore()), a)).toArray().length));
 
+            List<VerifyAvailabilityRequest> verifyRequests = new ArrayList<>();
+
+            for(HotelAvailability hotelAv : availabilities){
+                Availability[] avs = hotelAv.getAvailabilities();
+                Availability[] supplierAvs = hotelAv.getSupplierAvailabilities();
+                VerifyAvailabilityRequest verifyRequest = new VerifyAvailabilityRequest();
+                verifyRequest.setSource("city");
+                verifyRequest.setType(0);
+                int i = 0;
+                for(Availability av : avs){
+
+                    i++;
+                }
+
+
+
+
+
+
+            }
 
             model.put("starRatings", rating);
             model.put("starRatingCounts", starRatingCount);
-
             model.put("scoreRatings", score);
             model.put("scoreRatingCounts", scoreRatingCount);
-
             model.put("formatter", new CurrencyUtils());
+
 
 //            model.put("reviewScores", scoreRatingCount);
 
