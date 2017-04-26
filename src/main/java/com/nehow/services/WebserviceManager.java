@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.time.LocalDate;
 import java.util.Map;
 
@@ -164,7 +165,7 @@ public class WebserviceManager {
         return hotelReachResp;
     }
 
-    public HotelSearchResponse getRoomPolicy(JSONObject param, String policyCode, String hotelId) {
+    public HotelPolicyResponse getRoomPolicy(JSONObject param, String policyCode, String hotelId) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
@@ -175,9 +176,7 @@ public class WebserviceManager {
          * Mandatory to set the hotelId
          */
 
-        JSONArray policyCodesJSON = new JSONArray();
-        policyCodesJSON.add(policyCode);
-        param.put("policyCodes", policyCodesJSON);
+        param.put("policyCodes", "[" + policyCode + "]");
 //        HttpEntity<String> entity = new HttpEntity<String>(param.toString(), headers);
         HttpEntity<String> entity = new HttpEntity<String>(TestRequests.policyRequest, headers);
         //TODO safeDay = todayDate - checkInDate
@@ -197,11 +196,11 @@ public class WebserviceManager {
         //
         // transfer json to object
         //
-        HotelSearchResponse hotelReachResp = null;
+        HotelPolicyResponse hotelReachResp = null;
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            hotelReachResp = mapper.readValue(jsonResponse.toString(), HotelSearchResponse.class);
+            hotelReachResp = mapper.readValue(jsonResponse.toString(), HotelPolicyResponse.class);
         } catch (IOException e) {
             e.printStackTrace();
         }

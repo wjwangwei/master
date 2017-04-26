@@ -84,7 +84,8 @@
                                             <div class="item-option">
                                                 <div class="item-option-roomtype">
                                                     #foreach($room in $availability.hotelRooms.rooms)
-                                                        <div class="roomtype-name">$room.roomName $room.roomType</div>
+                                                        <div class="roomtype-name">$room.roomName $room.roomType </div>
+                                                        <div class=clearfix"></div>
                                                     #end
                                                 </div>
                                                 <div class="item-option-breakfast">
@@ -120,7 +121,7 @@
                                                     </div>
                                                     <div class="price-amount">
                                                         <div class="price-amount-value">$formatter.getCurrency($availability.currency) $availability.totalRate
-                                                        <span class="ico ico-question-circle" data-toggle="tooltip" title="Get Price Break Down"></span></div>
+                                                            <span class="ico ico-question-circle" data-toggle="tooltip" title="Get Price Break Down"></span></div>
                                                         <div class="price-amount-notes">Rooms per night</div>
                                                     </div>
                                                 </div>

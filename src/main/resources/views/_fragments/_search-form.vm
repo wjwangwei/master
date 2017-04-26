@@ -51,7 +51,7 @@
                 <label>Room, Adults (18+), Children (0-17)</label>
                 <div class="dropdown dropdown-room has-selector">
                     <span class="lang-en lang-active"></span>
-                    <a href="#" class="form-control dropdown-toggle"><span class="roomCount">1</span> Rooms, <span class="adultCounts">2</span> Adults, <span class="childCount">2</span> Children</a>
+                    <a href="#" class="form-control dropdown-toggle"><span class="roomCount">1</span> Rooms, <span class="adultCount">2</span> Adults, <span class="childCount">0</span> Child(ren)</a>
                     <div class="dropdown-menu">
                         <div class="form-group-qty clearfix">
                             <label>Room</label>

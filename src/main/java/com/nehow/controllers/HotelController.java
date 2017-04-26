@@ -44,6 +44,12 @@ public class HotelController extends BaseController {
         model.put("childage", request.getParameter("infantCount"));
 
         HotelSearchResponse searchResponse = (HotelSearchResponse) context.getAttribute(kHotels);
+        Arrays.asList(searchResponse.getHotelAvailabilities()).stream().map(item -> {
+            final String[] prevHotelName = {""};
+
+//            Arrays.asList(item.getAvailabilities()).stream().filter(availability -> availability.getHotelRooms().getRooms()[0].getRoomName());
+            return item;
+        });
         model.put("requestParam", request);
         model.put("pictureUrl", CommonUtils.getPicBaseUrl());
         model.put("searchResponse", searchResponse);

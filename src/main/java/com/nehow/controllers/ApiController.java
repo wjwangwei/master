@@ -241,12 +241,12 @@ public class ApiController extends BaseController {
     }
 
     @RequestMapping(path = {"/hotel/room-policy"})
-    public HotelSearchResponse getRoomPolicy(@RequestParam("hotelId") String hotelId, @RequestParam("policyCode") String policyCode) {
+    public HotelPolicyResponse getRoomPolicy(@RequestParam("hotelId") String hotelId, @RequestParam("policyCode") String policyCode) {
         JSONObject request = (JSONObject) context.getAttribute(kRequest);
         try {
             policyCode = URLDecoder.decode(policyCode, "UTF-8");
         } catch (Exception ignored){}
-        HotelSearchResponse hotelAvailability = apiManager.getRoomPolicy(request, policyCode, hotelId);
+        HotelPolicyResponse hotelAvailability = apiManager.getRoomPolicy(request, policyCode, hotelId);
         context.setAttribute(kHotelAvailability, hotelAvailability);
         return hotelAvailability;
     }

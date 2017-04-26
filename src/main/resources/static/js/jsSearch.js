@@ -8,9 +8,9 @@
     var MAX_CHILD_AGE = 17;
 
 
-    var roomCount = 1;
-    var adultCount = 2;
-    var childCount = 0;
+    var adultCountArr = [];
+    var childCountArr = [];
+    var childrenCount = 0, adultsCount = 0;
 
     /*
      * JQuery AutoComplete for Destination and Nationality Search
@@ -29,7 +29,11 @@
                 transformResult: function (response) {
                     return {
                         suggestions: $.map(JSON.parse(response), function (dataItem) {
-                            return {value: dataItem.countryId + ", " + dataItem.countryName, nationalityId: dataItem.id, countryCode: dataItem.id};
+                            return {
+                                value: dataItem.countryId + ", " + dataItem.countryName,
+                                nationalityId: dataItem.id,
+                                countryCode: dataItem.id
+                            };
                         })
                     };
                 },
@@ -96,15 +100,42 @@
             _this.find('input').attr('value', qtys);
             removeRoomDOM(qtys + 1);
         }
+        if (qtys <= 5) {
+            $('.roomCount').html(qtys);
+            modifyAdtChdCount(qtys);
+        }
         return false;
     });
     childAgeModifyDOM($("select[name=room1NoOfChild]"), 1);
+
+    function modifyAdtChdCount(roomIndex) {
+        var oAdt = $("select[name=room" + roomIndex + "NoOfAdult]"), oChd = $("select[name=room" + roomIndex + "NoOfChild]");
+        oAdt.on('change', function () {
+            adultCountArr[roomIndex] = $(this).val();
+        });
+        oChd.on('change', function () {
+            childCountArr[roomIndex] = $(this).val();
+        });
+
+        var a = parseInt($('.adultCount').html());
+        var c = parseInt($('.childCount').html());
+        oAdt.on('change', function () {
+            adultsCount = parseInt(adultCountArr[roomIndex]);
+            // $('.adultCount').html(adultsCount + a);
+        });
+        oChd.on('change', function () {
+            childrenCount = parseInt(childCountArr[roomIndex]);
+            // $('.childCount').html(childrenCount + c);
+        });
+    }
+
+    modifyAdtChdCount(1);
 
     function childAgeModifyDOM($this, roomIndex) {
         $this.on('change', function () {
             var noOfChild = parseInt($this.val());
             var html = '';
-            if (noOfChild <= 0) $('.chdAgeDIV').html(''); else {
+            if (noOfChild <= 0) $('.chdAgeDIV' + roomIndex).html(''); else {
                 for (var i = 1; i <= noOfChild; i++) {
                     html += '<div class="col-sm-6">';
                     html += '<div class="form-group">';
@@ -155,6 +186,8 @@
         //Re-apply the JQuery Select2 Plugin
         $("select.selector").select2();
         childAgeModifyDOM($("select[name=room" + roomIndex + "NoOfChild]"), roomIndex);
+
+        modifyAdtChdCount(roomIndex);
     }
 
     function removeRoomDOM(roomIndex) {
@@ -231,7 +264,7 @@
 
     $("form[name=hotelSearch]").on('submit', function (e) {
         //perform validation to ensure the user selected the right fields.
-        var data = $(this).serialize();
+        var data = $(this).serialize() + "&noOfAdult=" + adultsCount + "&noChild=" + childrenCount;
         if (searchEngineValidation($(this))) {
             var btn = $(this).find('button[type=submit]');
             btn.html('<i class="fa fa-spinner fa-spin"></i> Loading...');

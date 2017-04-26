@@ -13,12 +13,13 @@ function displayCurrency(currencyCode, dom) {
     dom.style = 'content: ' + displayCode;
 }
 
-var xhrCount = 0;
+var xhrCount = 1;
 var xhrProcessArray = [0, 1, 1, 1, 2, 2, 2, 4, 4, 4, 8, 8, 8, 8, 8];
-var lastHotelCount = 0;
+var lastHotelCount;
 (function () {
     $.fn.queryHotelXhr = function (url, data, btn, isHotel, funcResponse) {
         // (function () {
+        console.log("timeout: " + xhrProcessArray[xhrCount] * 1000);
         $.ajax({
             url: url,
             data: data,
@@ -29,26 +30,34 @@ var lastHotelCount = 0;
                 btn.addClass('disabled');
             },
             success: function (response) {
-                console.log(xhrCount, (response.rewriteKeyCount <= response.completeRewriteKeyCount || xhrCount >= MAX_XHR_RETRY), (lastHotelCount !== response.hotelCount));
+                console.log(xhrCount >= MAX_XHR_RETRY);
                 if (response.rewriteKeyCount <= response.completeRewriteKeyCount || xhrCount >= MAX_XHR_RETRY) {
-                    funcResponse(response);
-                } else if (lastHotelCount !== response.hotelCount) {
-                    var xhr = $(this).queryHotelXhr(url, data, btn, isHotel, funcResponse);
-                    lastHotelCount = response.hotelCount;
-                    xhrCount += 1;
-                    return xhr;
-                } else funcResponse(response)
+                    return funcResponse(response);
+                } else {
+                    return $(this).queryHotelXhr(url, data, btn, isHotel, funcResponse);
+                }
+                // else if (lastHotelCount !== response.hotelCount) {
+                //     lastHotelCount = response.hotelCount;
+                //     return $(this).queryHotelXhr(url, data, btn, isHotel, funcResponse);
+                // }
+                // funcResponse(response)
             },
             complete: function () {
+                xhrCount = xhrCount + 1;
                 btn.removeClass('disabled');
             },
-            error: function () {
-                NProgress.done();
-                $.growl.error({
-                    title: "Request failed",
-                    message: 'Sorry, your request failed. Please try again later.'
-                });
-                return false;
+            error: function (error) {
+                if (xhrCount < MAX_XHR_RETRY) {
+                    return $(this).queryHotelXhr(url, data, btn, isHotel, funcResponse);
+                } else {
+                    xhrCount = 1;
+                    NProgress.done();
+                    $.growl.error({
+                        title: "Request failed",
+                        message: 'Sorry, your request failed. Please try again later.'
+                    });
+                    return false;
+                }
             }
         });
         // })()
