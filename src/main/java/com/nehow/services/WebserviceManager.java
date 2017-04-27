@@ -1,6 +1,15 @@
 package com.nehow.services;
 
+
+import cn.mogutrip.hotel.business.entity.ExchangeRate;
+import cn.mogutrip.hotel.common.entity.Hotel;
+import cn.mogutrip.hotel.common.entity.HotelAvailabilityResponse;
+import cn.mogutrip.hotel.common.entity.SearchAvailabilityResponse;
 import cn.mogutrip.hotel.common.entity.VerifyAvailabilityResponse;
+import cn.mogutrip.hotel.common.utils.JsonUtil;
+import com.fasterxml.jackson.databind.DeserializationConfig;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nehow.models.*;
 import net.sf.json.JSONArray;
@@ -12,8 +21,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -50,9 +61,9 @@ public class WebserviceManager {
      * @return array
      */
     @Cacheable("exchangeRate")
-    public ExchangeRate[] getExchangeRate() {
+    public List<ExchangeRate> getExchangeRate() {
         ResponseEntity<ExchangeRate[]> resp = restTemplate.getForEntity(svcProperty.getRootUrl() + "/customer/exchange-rate", ExchangeRate[].class);
-        return resp.getBody();
+        return Arrays.asList(resp.getBody());
     }
 
     /**
@@ -85,7 +96,7 @@ public class WebserviceManager {
      * @param param json
      * @return
      */
-    public HotelSearchResponse getCityAvailability(JSONObject param) {
+    public SearchAvailabilityResponse getCityAvailability(JSONObject param) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
@@ -109,14 +120,9 @@ public class WebserviceManager {
         //
         // transfer json to object
         //
-        HotelSearchResponse hotelReachResp = null;
-        ObjectMapper mapper = new ObjectMapper();
+        SearchAvailabilityResponse hotelReachResp = null;
+        hotelReachResp = JsonUtil.fromJsonIgnoreAnnotations(jsonResponse.toString(),SearchAvailabilityResponse.class);
 
-        try {
-            hotelReachResp = mapper.readValue(jsonResponse.toString(), HotelSearchResponse.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         System.out.println("RESPONSE: " + response.getBody().toString());
         return hotelReachResp;
     }
@@ -127,7 +133,7 @@ public class WebserviceManager {
      * @param param
      * @return
      */
-    public HotelSearchResponse getHotelAvailability(JSONObject param, String hotelId) {
+    public SearchAvailabilityResponse getHotelAvailability(JSONObject param, String hotelId) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
@@ -154,11 +160,11 @@ public class WebserviceManager {
         //
         // transfer json to object
         //
-        HotelSearchResponse hotelReachResp = null;
+        SearchAvailabilityResponse hotelReachResp = null;
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            hotelReachResp = mapper.readValue(jsonResponse.toString(), HotelSearchResponse.class);
+            hotelReachResp = mapper.readValue(jsonResponse.toString(), SearchAvailabilityResponse.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -166,25 +172,12 @@ public class WebserviceManager {
         return hotelReachResp;
     }
 
-    public HotelPolicyResponse getRoomPolicy(JSONObject param, String policyCode, String hotelId) {
+    public Policies getRoomPolicy(String request) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        JSONObject req = (JSONObject) param.get("request");
-        req.put("hotelId", hotelId);
-        param.put("request", req);
-        /**
-         * Mandatory to set the hotelId
-         */
+        HttpEntity<String> entity = new HttpEntity<String>(request, headers);
 
-        param.put("policyCodes", "[" + policyCode + "]");
-//        HttpEntity<String> entity = new HttpEntity<String>(param.toString(), headers);
-        HttpEntity<String> entity = new HttpEntity<String>(TestRequests.policyRequest, headers);
-        //TODO safeDay = todayDate - checkInDate
-        int safeDays = 3; //LocalDate.now().;
-        param.put("safeDay", safeDays);
-
-        System.out.println(param);
         // determine url
         String strUrl = "/hotel/availability/cancellation-policy";
 
@@ -194,19 +187,32 @@ public class WebserviceManager {
         JSONObject jsonResponse = response.getBody();
         JSONObject jsonArray = jsonResponse.getJSONObject("policies");
 
-        //
-        // transfer json to object
-        //
-        HotelPolicyResponse hotelReachResp = null;
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-            hotelReachResp = mapper.readValue(jsonResponse.toString(), HotelPolicyResponse.class);
-        } catch (IOException e) {
-            e.printStackTrace();
+        String policyText = jsonArray.toString();
+        String refundable = jsonArray.getString("refundable");
+        String safeOptionDay = jsonArray.getString("safeOptionDate");
+        if(refundable.equals("true")){
+            policyText = "Free cancellation can be made before " + safeOptionDay;
         }
+        else{
+            policyText = "This rate is non-refundable and cannot be changed or cancelled - if you do choose to change or cancel this booking you will not be refunded any of the payment.";
+        }
+
+
         System.out.println("RESPONSE: " + response.getBody().toString());
-        return hotelReachResp;
+        System.out.println("POLICY TEXT:" + policyText);
+        Policies policy = new Policies();
+        policy.setRefundable(refundable);
+        String optionDate = jsonArray.getString("optionDate");
+        policy.setOptionDate(optionDate);
+        int safeDay = jsonArray.getInt("safeDay");
+        policy.setSafeDay(safeDay);
+        policy.setSafeOptionDate(safeOptionDay);
+        String amendable = jsonArray.getString("amendable");
+        policy.setAmendable(amendable);
+        String changeName = jsonArray.getString("changeName");
+        policy.setChangeName(changeName);
+        policy.setPolicies(policyText);
+        return policy;
     }
 
     public Hotel getHotel(String hotelId) {
@@ -245,4 +251,7 @@ public class WebserviceManager {
         System.out.println("RESPONSE: " + response.getBody().toString());
         return verifyResp;
     }
+
+
+
 }

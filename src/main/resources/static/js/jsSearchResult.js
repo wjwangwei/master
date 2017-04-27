@@ -115,15 +115,16 @@ $(function () {
 
     $('.xhrGetPolicy').click(function () {
         var $this = $(this);
-        var policyCode = $(this).attr('data-policycode');
-        var hotelId = $(this).attr('data-hotelid');
+        var policyRequest = $(this).attr('data-request');
+        console.log(policyRequest);
 
-        $(this).queryHotelXhr(HOTEL_ROOM_POLICY_API, {
-            policyCode: policyCode,
-            hotelId: hotelId
-        }, $(this), false, function (response) {
-            // display the policy code to customer
-            var policyHtml = "Displaying policu";
+        $(this).queryHotelXhrPost(HOTEL_ROOM_POLICY_API,
+            policyRequest,
+            $(this), function (response) {
+            console.log(response);
+            var policyHtml = response.policies;
+            $this.removeClass('xhrGetPolicy');
+            $this.addClass('view-policy')
 
             $this.next('.policy-html').removeClass('hide');
             $this.next('.policy-content').html(policyHtml);

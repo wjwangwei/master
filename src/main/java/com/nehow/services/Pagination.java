@@ -1,7 +1,7 @@
 package com.nehow.services;
 
-import com.nehow.models.HotelAvailability;
-import com.nehow.models.HotelSearchResponse;
+//import com.nehow.models.HotelAvailability;
+import cn.mogutrip.hotel.common.entity.SearchAvailabilityResponse;
 import net.sf.json.JSONObject;
 
 import java.util.Arrays;
@@ -26,12 +26,12 @@ public class Pagination {
 
     public JSONObject query;
 
-    private HotelSearchResponse hotelSearchResponse;
+    private SearchAvailabilityResponse hotelSearchResponse;
 
     public Pagination() {
     }
 
-    public Pagination(HotelSearchResponse hotelSearchResponse) {
+    public Pagination(SearchAvailabilityResponse hotelSearchResponse) {
         this.hotelSearchResponse = hotelSearchResponse;
     }
 

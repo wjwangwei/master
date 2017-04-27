@@ -1,6 +1,8 @@
 package com.nehow.controllers;
 
+import cn.mogutrip.hotel.business.entity.ExchangeRate;
 import cn.mogutrip.hotel.common.entity.SearchAvailabilityRequest;
+import cn.mogutrip.hotel.common.entity.SearchAvailabilityResponse;
 import cn.mogutrip.hotel.common.entity.VerifyAvailabilityResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nehow.models.*;
@@ -53,7 +55,7 @@ public class ApiController extends BaseController {
 
 
     @RequestMapping("/hotel/search")
-    public HotelSearchResponse getHotels(@RequestParam("cityId") int cityId,
+    public SearchAvailabilityResponse getHotels(@RequestParam("cityId") int cityId,
                                          @RequestParam("nationalityId") int nationalityId,
                                          @RequestParam("checkIn") String checkIn,
                                          @RequestParam("checkOut") String checkOut,
@@ -96,7 +98,7 @@ public class ApiController extends BaseController {
             mapMarkup = apiManager.getSupplierMarkup();
             context.setAttribute(kMarkup, mapMarkup);
         }
-        ExchangeRate[] exchangeRates = (ExchangeRate[]) context.getAttribute(kExchange);
+        List<ExchangeRate> exchangeRates = (List<ExchangeRate>) context.getAttribute(kExchange);
         if (exchangeRates == null) {
             // call rest api for fetching exchange rate
             exchangeRates = apiManager.getExchangeRate();
@@ -229,7 +231,7 @@ public class ApiController extends BaseController {
         ObjectMapper mapper = new ObjectMapper();
 
 
-        HotelSearchResponse hotelSearchResponse = new HotelSearchResponse();
+        SearchAvailabilityResponse hotelSearchResponse = new SearchAvailabilityResponse();
         hotelSearchResponse.setHotelCount(0);
         int callTimes = 0;
         Map<Integer, Integer> waitTime = new HashedMap();
@@ -277,9 +279,9 @@ public class ApiController extends BaseController {
 
 
     @RequestMapping(path = {"/hotel/availability/{hotelId}"})
-    public HotelSearchResponse getHotel(String hotelId) {
+    public SearchAvailabilityResponse getHotel(String hotelId) {
         JSONObject request = (JSONObject) context.getAttribute(kRequest);
-        HotelSearchResponse hotelAvailability = apiManager.getHotelAvailability(request, hotelId);
+        SearchAvailabilityResponse hotelAvailability = apiManager.getHotelAvailability(request, hotelId);
         context.setAttribute(kHotelAvailability, hotelAvailability);
         return hotelAvailability;
     }
@@ -290,15 +292,17 @@ public class ApiController extends BaseController {
         return verifyResponse;
     }
 
-    @RequestMapping(path = {"/hotel/room-policy"})
-    public HotelPolicyResponse getRoomPolicy(@RequestParam("hotelId") String hotelId, @RequestParam("policyCode") String policyCode) {
+    @RequestMapping(path = {"/hotel/room-policy"}, method = RequestMethod.POST)
+    public Policies getRoomPolicy(@RequestBody String request) {
+        /*
         JSONObject request = (JSONObject) context.getAttribute(kRequest);
         try {
             policyCode = URLDecoder.decode(policyCode, "UTF-8");
         } catch (Exception ignored){}
-        HotelPolicyResponse hotelAvailability = apiManager.getRoomPolicy(request, policyCode, hotelId);
-        context.setAttribute(kHotelAvailability, hotelAvailability);
-        return hotelAvailability;
+        */
+        Policies policy = apiManager.getRoomPolicy(request);
+        //context.setAttribute(kHotelAvailability, hotelAvailability);
+        return policy;
     }
 
 

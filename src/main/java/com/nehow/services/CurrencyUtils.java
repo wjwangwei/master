@@ -1,5 +1,7 @@
 package com.nehow.services;
 
+import java.math.BigDecimal;
+
 /**
  * Created by Igbalajobi Jamiu Okunade on 4/19/17.
  */
@@ -20,12 +22,12 @@ public class CurrencyUtils {
         return currencyCode;
     }
 
-    public long getPercentage(double totalRate, double rateDiscont) {
-        return Math.round((totalRate - rateDiscont) * 100 / (totalRate - rateDiscont));
+    public long getPercentage(BigDecimal totalRate, BigDecimal rateDiscont) {
+        return Math.round( (totalRate.subtract(rateDiscont).doubleValue()) * 100 / (totalRate.subtract(rateDiscont).doubleValue()) );
     }
 
-    public long subtractDiscount(double totalRate, double rateDiscont) {
-        return Math.round(totalRate - rateDiscont);
+    public long subtractDiscount(BigDecimal totalRate, BigDecimal rateDiscont) {
+        return Math.round(totalRate.subtract(rateDiscont).doubleValue());
     }
 
 }

@@ -43,7 +43,9 @@
                 <ul class="items">
                     #foreach($availabilities in $searchResponse.hotelAvailabilities)
                         #set($hotel = $availabilities.hotel)
-                        <li class="item clearfix" data-hotelname="$hotel.hotelName" data-starrating="$hotel.getStarRatingSimple()" data-lowestrate="$availabilities.lowestRate" data-reviewscore="$hotel.score">
+                        #set($rating = $hotel.starRating/10.0)
+                        #set($starrating=$math.round($rating))
+                        <li class="item clearfix" data-hotelname="$hotel.hotelName" data-starrating="$starrating" data-lowestrate="$availabilities.lowestRate" data-reviewscore="$hotel.score">
                             <figure>
                                 <a href="/hotel/detail?hotelId=$hotel.hotelId"><img src="${pictureUrl}$hotel.pictureId"  style="min-height: 231px;" alt="$hotel.hotelName"></a>
                             </figure>
@@ -52,14 +54,15 @@
                                     <div class="item-header-title">
                                         <div class="item-header-rates">
                                             <div class="item-header-score">
+                                                #set($scoreInt=$hotel.score/10.0)
                                                 #if($hotel.score >= 90)
-                                                    Wonderful $hotel.getScoreInt()
+                                                    Wonderful $scoreInt
                                                 #elseif($hotel.score >= 80)
-                                                    Very good $hotel.getScoreInt()
+                                                    Very good $scoreInt
                                                 #elseif($hotel.score >= 70)
-                                                    Good $hotel.getScoreInt()
+                                                    Good $scoreInt
                                                 #elseif($hotel.score > 60)
-                                                    Pleasant $hotel.getScoreInt()
+                                                    Pleasant $scoreInt
                                                 #else
 
                                                 #end
@@ -67,7 +70,7 @@
                                             <div class="item-header-reviews">$hotel.reviews review#if($hotel.reviews > 1)s#end</div>
                                         </div>
                                         <a href="/hotel/detail?hotelId=$hotel.hotelId">$hotel.hotelName</a>
-                                        <div class="rate"><span class="rate$hotel.getStarRatingSimple()"></span></div>
+                                        <div class="rate"><span class="rate$starrating"></span></div>
                                     </div>
                                     <div class="item-header-meta">$hotel.address</div>
                                 </div>
@@ -116,13 +119,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="item-option-price">
+                                                    #if($formatter.getPercentage($availability.totalRate, $availability.totalOriginalRate) > 0)
                                                     <div class="price-discount">
                                                         <div class="price-discount-percentage">$formatter.getPercentage($availability.totalRate, $availability.totalOriginalRate)%</div>
                                                         <div class="price-discount-amount">$formatter.getCurrency($availability.currency) $formatter.subtractDiscount($availability.totalRate, $availability.totalOriginalRate)</div>
                                                     </div>
+                                                    #end
                                                     <div class="price-amount">
                                                         <div class="price-amount-value">$formatter.getCurrency($availability.currency) $availability.totalRate
-                                                        <!--<span class="ico ico-question-circle" data-toggle="tooltip" title="Get Price Break Down"></span></div>-->
+                                                        <!--<span class="ico ico-question-circle" data-toggle="tooltip" title="Get Price Break Down"></span>--></div>
                                                         <div class="price-amount-notes">Rooms per night</div>
                                                     </div>
                                                 </div>

@@ -70,7 +70,7 @@ var lastHotelCount;
             data: data,
             dataType: 'JSON',
             contentType: 'application/json',
-            timeout: 2000,
+            timeout: 5000,
             type: 'POST',
             beforeSend: function () {
                 btn.addClass('disabled');
