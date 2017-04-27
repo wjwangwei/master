@@ -2,6 +2,8 @@ package com.nehow.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.math.BigDecimal;
+
 //@JsonIgnoreProperties(ignoreUnknown = true)
 public class Availability {
     private String supplierId;
@@ -22,8 +24,8 @@ public class Availability {
     private String nationality;
     private String matched;
 
-    private double totalRate;
-    private double totalOriginalRate;
+    private BigDecimal totalRate;
+    private BigDecimal totalOriginalRate;
 
     private String request;
 
@@ -130,19 +132,19 @@ public class Availability {
         this.matched = matched;
     }
 
-    public double getTotalRate() {
+    public BigDecimal getTotalRate() {
         return totalRate;
     }
 
-    public void setTotalRate(double totalRate) {
+    public void setTotalRate(BigDecimal totalRate) {
         this.totalRate = totalRate;
     }
 
-    public double getTotalOriginalRate() {
+    public BigDecimal getTotalOriginalRate() {
         return totalOriginalRate;
     }
 
-    public void setTotalOriginalRate(double totalOriginalRate) {
+    public void setTotalOriginalRate(BigDecimal totalOriginalRate) {
         this.totalOriginalRate = totalOriginalRate;
     }
 

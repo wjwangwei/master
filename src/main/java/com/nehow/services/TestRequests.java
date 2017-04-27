@@ -334,4 +334,23 @@ public class TestRequests {
             "    },\n" +
             "    \"safeDay\": 3\n" +
             "}\n";
+    public static final String request = "{\"cityId\": 48201,\n" +
+            "    \"countryId\": \"45\",\n" +
+            "    \"checkIn\": \"2017-04-27\",\n" +
+            "    \"checkOut\": \"2017-04-29\",\n" +
+            "    \"rooms\": [\n" +
+            "      {\n" +
+            "        \"roomIndex\": \"1\",\n" +
+            "        \"rooms\": 1,\n" +
+            "        \"adults\": 2,\n" +
+            "        \"children\": 0,\n" +
+            "        \"roomType\": \"\",\n" +
+            "        \"roomRateCode\": null,\n" +
+            "        \"ages\": null\n" +
+            "      }\n" +
+            "    ],\n" +
+            "    \"nationality\": \"CN\",\n" +
+            "    \"currency\": \"CNY\",\n" +
+            "    \"queryId\": \"c75f8deaf3494ea225c3e0c4a27456d0\",\n" +
+            "    \"supplierId\": \"expedia,gta,veturis,restel,ivector\"}";
 }

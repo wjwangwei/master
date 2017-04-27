@@ -37,8 +37,9 @@ $(function () {
             message: "We're verifying the availability of this room...please wait",
             duration: 15000
         });
-        $(this).queryHotelXhr(HOTEL_ROOM_VERIFICATION_API + "/" + $(this).attr('data-hotelid'), null, $this, true, function (response) {
-            if (response.hotelCount <= 0) {
+        console.log($(this).attr('data-request'));
+        $(this).queryHotelXhrPost(HOTEL_ROOM_VERIFICATION_API, $(this).attr('data-request'), $this, function (response) {
+            if (response.target == -1) {
                 $this.html("Sold Out");
                 $this.addClass('disabled');
                 $("#no-room-modal").modal('show');

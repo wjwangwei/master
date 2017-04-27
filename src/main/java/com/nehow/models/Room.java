@@ -1,6 +1,6 @@
 package com.nehow.models;
 
-public class Room extends BaseModel {
+public class Room {
     private String referenceId;
     private String roomIndex;
     private int roomCount;

@@ -1,12 +1,12 @@
 package com.nehow.controllers;
 
-import cn.mogutrip.hotel.common.entity.SupplierHotelAvailabilities;
-import cn.mogutrip.hotel.common.entity.VerifyAvailabilityRequest;
+import cn.mogutrip.hotel.common.utils.JsonUtil;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nehow.models.*;
 import com.nehow.services.CommonUtils;
 import com.nehow.services.CurrencyUtils;
 import com.nehow.services.WebserviceManager;
-import jdk.nashorn.internal.objects.Global;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -57,7 +59,7 @@ public class HotelController extends BaseController {
         model.put("searchResponse", searchResponse);
 
 
-        Map<String, List<VerifyAvailabilityRequest>> hotelVerifyRequests = new HashMap<>();
+
         boolean isResultAvail;
         if (searchResponse != null && searchResponse.getHotelAvailabilities().length > 0) {
             List<HotelAvailability> availabilities = Arrays.asList(searchResponse.getHotelAvailabilities());
@@ -75,25 +77,54 @@ public class HotelController extends BaseController {
             availabilities.stream().forEach(o -> score.add(getScoreDesc(o.getHotel().getScore())));
             score.stream().forEach(a -> scoreRatingCount.put(a, availabilities.stream().filter(o -> Objects.equals(getScoreDesc(o.getHotel().getScore()), a)).toArray().length));
 
-            List<VerifyAvailabilityRequest> verifyRequests = new ArrayList<>();
+            JSONObject jsonParams = (JSONObject) context.getAttribute(kRequest);
 
-            for(HotelAvailability hotelAv : availabilities){
-                Availability[] avs = hotelAv.getAvailabilities();
-                Availability[] supplierAvs = hotelAv.getSupplierAvailabilities();
-                VerifyAvailabilityRequest verifyRequest = new VerifyAvailabilityRequest();
-                verifyRequest.setSource("city");
-                verifyRequest.setType(0);
-                int i = 0;
-                for(Availability av : avs){
+            ObjectMapper mapper = new ObjectMapper();
 
-                    i++;
+            try {
+                String json = jsonParams.get("request").toString();
+                //HotelAvailabilityRequest apiRequest = JsonUtil.fromJson(jsonParams.get("request").toString(), HotelAvailabilityRequest.class);
+                HotelAvailabilityRequest apiRequest = mapper.readValue(json, HotelAvailabilityRequest.class);
+                json = jsonParams.get("exchangeRates").toString();
+                TypeReference<List<ExchangeRate>> tRef = new TypeReference<List<ExchangeRate>>() {};
+                List<ExchangeRate> exchangeRates = mapper.readValue(json, tRef);
+                json = jsonParams.get("markups").toString();
+                TypeReference<Map<String, BigDecimal>> tRef1 = new TypeReference<Map<String, BigDecimal>>() {};
+                Map<String, BigDecimal> markups = mapper.readValue(json, tRef1);
+
+                Map<String, List<String>> hotelVerifyRequest = new HashMap<>();
+
+                for(HotelAvailability hotelAv : availabilities){
+                    Availability[] avs = hotelAv.getAvailabilities();
+                    Availability[] supplierAvs = hotelAv.getAvailabilities();
+                    List<String> verifyRequests = new ArrayList<>();
+                    int i = 0;
+                    String hotelId = hotelAv.getHotel().getHotelId();
+                    for(Availability av : avs){
+                        VerifyAvailabilityRequest verifyRequest = new VerifyAvailabilityRequest();
+                        verifyRequest.setSource(VerifyAvailabilityRequest.REQUEST_SOURCE_CITY_PAGE);
+                        verifyRequest.setType(VerifyAvailabilityRequest.REQUEST_TYPE_FIRST_VERIFY);
+                        verifyRequest.setAvailability(av);
+                        verifyRequest.setSupplierAvailability(supplierAvs[i]);
+                        verifyRequest.setRequest(apiRequest);
+                        verifyRequest.setExchangeRates(exchangeRates);
+                        verifyRequest.setMarkups(markups);
+                        Room[] rooms = av.getHotelRooms().getRooms();
+                        List<String> rateIds = new ArrayList<>();
+                        for(Room room : rooms){
+                            String rateId = room.getRoomRateId();
+                            rateIds.add(rateId);
+                        }
+                        verifyRequest.setRoomRateIds(rateIds);
+                        verifyRequest.setCurrency(av.getCurrency());
+                        verifyRequest.setTotalRate(av.getTotalRate());
+                        verifyRequests.add(JsonUtil.toJson(verifyRequest));
+                    }
+                    hotelVerifyRequest.put(hotelId, verifyRequests);
                 }
-
-
-
-
-
-
+                model.put("hotelVerifyRequests", hotelVerifyRequest);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
             model.put("starRatings", rating);

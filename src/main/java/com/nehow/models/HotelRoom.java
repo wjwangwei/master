@@ -1,6 +1,8 @@
 package com.nehow.models;
 
-public class HotelRoom extends BaseModel {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+public class HotelRoom {
     private String currency;
 
     private double totalRate;
@@ -39,6 +41,7 @@ public class HotelRoom extends BaseModel {
      * Calculate Discount Percentage
      * @return int
      */
+    @JsonIgnore
     public int getDiscountPercent() {
         int nRes = 0;
         nRes = (int) Math.round((totalOriginalRate - totalRate) / totalOriginalRate * 100);

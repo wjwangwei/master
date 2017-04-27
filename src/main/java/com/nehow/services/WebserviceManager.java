@@ -1,5 +1,6 @@
 package com.nehow.services;
 
+import cn.mogutrip.hotel.common.entity.VerifyAvailabilityResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nehow.models.*;
 import net.sf.json.JSONArray;
@@ -213,4 +214,35 @@ public class WebserviceManager {
         return resp.getBody();
     }
 
+    public VerifyAvailabilityResponse verifyHotel(String req)
+    {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+
+        HttpEntity<String> entity = new HttpEntity<String>(req, headers);
+
+        System.out.println(req.toString());
+        // determine url
+        String strUrl = "/hotel/availability/verify";
+
+        // call available web service
+        System.out.println(svcProperty.getRootUrl() + strUrl);
+        ResponseEntity<JSONObject> response = restTemplate.exchange(svcProperty.getRootUrl() + strUrl, HttpMethod.POST, entity, JSONObject.class);
+        JSONObject jsonResponse = response.getBody();
+
+        //
+        // transfer json to object
+        //
+        VerifyAvailabilityResponse verifyResp = null;
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            verifyResp = mapper.readValue(jsonResponse.toString(), VerifyAvailabilityResponse.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("RESPONSE: " + response.getBody().toString());
+        return verifyResp;
+    }
 }

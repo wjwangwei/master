@@ -1,5 +1,7 @@
 package com.nehow.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Meal {
     private String mealCode;
     private String mealDescription;
@@ -40,7 +42,7 @@ public class Meal {
     }
 
     public String getBreakfastDescription() {
-        return breakfastDescription;
+        return getBreakfastDesc();
     }
 
     public void setBreakfastDescription(String breakfastDescription) {
@@ -51,6 +53,7 @@ public class Meal {
      * get breakfast description
      * @return String
      */
+    @JsonIgnore
     public String getBreakfastDesc() {
         String strResult = breakfastDescription;
 

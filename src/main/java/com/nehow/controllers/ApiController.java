@@ -1,5 +1,8 @@
 package com.nehow.controllers;
 
+import cn.mogutrip.hotel.common.entity.SearchAvailabilityRequest;
+import cn.mogutrip.hotel.common.entity.VerifyAvailabilityResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nehow.models.*;
 import com.nehow.services.CommonUtils;
 import com.nehow.services.Pagination;
@@ -10,12 +13,11 @@ import net.sf.json.JSONNull;
 import net.sf.json.JSONObject;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -224,6 +226,9 @@ public class ApiController extends BaseController {
         System.out.println(jsonParam.toString());
 
         context.setAttribute(kRequest, jsonParam);
+        ObjectMapper mapper = new ObjectMapper();
+
+
         HotelSearchResponse hotelSearchResponse = new HotelSearchResponse();
         hotelSearchResponse.setHotelCount(0);
         int callTimes = 0;
@@ -277,6 +282,12 @@ public class ApiController extends BaseController {
         HotelSearchResponse hotelAvailability = apiManager.getHotelAvailability(request, hotelId);
         context.setAttribute(kHotelAvailability, hotelAvailability);
         return hotelAvailability;
+    }
+
+    @RequestMapping(path = {"/hotel/availability/verify"}, method = RequestMethod.POST)
+    public VerifyAvailabilityResponse verifyHotel(@RequestBody String request) {
+        VerifyAvailabilityResponse verifyResponse = apiManager.verifyHotel(request);
+        return verifyResponse;
     }
 
     @RequestMapping(path = {"/hotel/room-policy"})

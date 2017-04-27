@@ -62,6 +62,38 @@ var lastHotelCount;
         });
         // })()
     };
+
+    $.fn.queryHotelXhrPost = function (url, data, btn, funcResponse) {
+        // (function () {
+        $.ajax({
+            url: url,
+            data: data,
+            dataType: 'JSON',
+            contentType: 'application/json',
+            timeout: 2000,
+            type: 'POST',
+            beforeSend: function () {
+                btn.addClass('disabled');
+            },
+            success: function (response) {
+                console.log(response);
+                funcResponse(response);
+
+            },
+            complete: function () {
+                btn.removeClass('disabled');
+            },
+            error: function () {
+                NProgress.done();
+                $.growl.error({
+                    title: "Request failed",
+                    message: 'Sorry, your request failed. Please try again later.'
+                });
+                return false;
+            }
+        });
+        // })()
+    };
 })();
 
 function xhrRoomVerifyHref(hotelId) {
