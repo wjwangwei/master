@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="en-gb">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Confirmation - HotelEverlink</title>
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
-    <meta content="Jim Fernando" name="author">
-
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/touch-icon-iphone.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="images/touch-icon-ipad.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="images/touch-icon-iphone-retina.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="images/touch-icon-ipad-retina.png">
-
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body>
-
+#set($title = "$order.hotelName")
 <!-- Contents -->
-<div class="content">
-
+<!--<div class="content">-->
     <section class="space-xs">
         <div class="container">
 
@@ -59,22 +32,28 @@
                     <hr class="break break20">
                     <div class="booking-detail booking-detail-overview">
                         <div class="booking-detail-titles">
-                            <div class="booking-detail-title">Valarmathi Kongunaatu Samayal</div>
+                            <div class="booking-detail-title">$order.hotelName</div>
                             <div class="booking-detail-meta">
-                                <div class="rate"><span class="rate4"></span></div>
-                                <span class="review-total">2,339 reviews</span>
-                                <a href="#" class="booking-detail-showmap">Show on Map</a>
+                                #set($rating = $order.hotel.starRating/10.0)
+                                #set($starrating=$math.round($rating))
+                                <div class="rate"><span class="rate$starrating"></span></div>
+                                <span class="review-total">$order.hotel.reviews reviews</span>
+                                <span>$order.hotel.address</span>
+                                <!--<a href="#" class="booking-detail-showmap">Show on Map</a>-->
                             </div>
                         </div>
                         <div class="booking-detail-body">
+                            <!--
                             <figure>
                                 <img src="images/temp/temp_hotel001_150x95.jpg" alt="">
                             </figure>
+                            -->
                             <hgroup>
-                                <label>Address</label>
-                                <p>171, Soi 11, Sukhumvit, BangkokSukhumvit, <br>hailand 10110.171, mvit , Thailand 10110.</p>
-                                <label>Phone Number</label>
-                                <p>+1 123 456 7896, +1 123 456 7896, +1 123 456 7896.</p>
+                                #if($order.hotel.telephone)
+                                    <label>Phone Number</label>
+                                    <p>$order.hotel.telephone</p>
+                                #end
+
                             </hgroup>
                         </div>
                     </div>
@@ -216,31 +195,4 @@
 
         </div>
     </section>
-
-</div>
-
-<!-- Footer -->
-<footer id="footer">
-    <div class="container">
-        <div class="footer-menu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Terms and Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </div>
-        <div class="footer-rights">
-            Copyright &copy; 2016 <a href="#">www.hoteleverlink.com</a>. All rights reserved.
-        </div>
-    </div>
-</footer>
-
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.plugins.js"></script>
-<script src="js/custom.js"></script>
-
-</body>
-</html>
+<!--</div>-->

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Booking Details - HotelEverlink</title>
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="Jim Fernando" name="author">
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/touch-icon-ipad-retina.png">
+
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="header">
+    <div class="header-top header-top-short">
+        <div class="container">
+            <a class="navbar-brand" href="#" title="HotelEverlink"><img src="images/logo.png" alt=""></a>
+            <div class="header-nav">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header"> <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul id="nav" class="nav navbar-nav">
+                            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="navi-lugage"></span>Manage Booking<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Booking History</a></li>
+                                    <li><a href="#">Booking Plans</a></li>
+                                    <li><a href="#">Saved Booking</a></li>
+                                    <li><a href="#">Retrieve Booking</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><span class="navi-account"></span>Account Information</a></li>
+                            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="navi-lang lang-en"></span>Eng<span class="caret"></span></a>
+                                <ul class="dropdown-menu dropdown-menu-lang">
+                                    <li class="active"><a href="#"><span class="navi-lang lang-en"></span>English</a></li>
+                                    <li><a href="#"><span class="navi-lang lang-gr"></span>Germany</a></li>
+                                    <li><a href="#"><span class="navi-lang lang-fr"></span>French</a></li>
+                                    <li><a href="#"><span class="navi-lang lang-sp"></span>Spanich</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="navi-currency"></span>USD<span class="caret"></span></a>
+                                <ul class="dropdown-menu dropdown-menu-currency">
+                                    <li class="active"><a href="#"><span>$</span>U.S. Dollar</a></li>
+                                    <li><a href="#"><span>&euro;</span>Euros</a></li>
+                                    <li><a href="#"><span>&pound;</span>British Pound</a></li>
+                                    <li><a href="#"><span>&yen;</span>Japenese Yen</a></li>
+                                    <li><a href="#"><span>HK$</span>Hong Kong Dollar</a></li>
+                                    <li><a href="#"><span>CN&yen;</span>Chinese Yuan</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="user-profile"><img src="images/anonymous.png" alt=""></span>Andrew David<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">My Account</a></li>
+                                    <li><a href="#">Messages <span class="badge">2</span></a></li>
+                                    <li><a href="#">Settings</a></li>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Sign Out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="header-nav">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header"> <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul id="nav" class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- Contents -->
+<div class="content">
+
+    <section class="page-heading">
+        <div class="container">
+            <h1>BOOKING DETAILS</h1>
+        </div>
+    </section>
+
+    <section class="space-sm">
+        <div class="container">
+
+            <div class="tabled">
+                <div class="tabled-heading">
+                    <h3>Hotel Booking Details</h3>
+                </div>
+                <div class="tabled-body">
+                    <div class="row mb10">
+                        <div class="col-md-2"><div class="mb-label">Booking Reference</div></div>
+                        <div class="col-md-10"><div class="mb-texts">TL464649995325645464877733</div></div>
+                    </div>
+                    <div class="row mb10">
+                        <div class="col-md-2"><div class="mb-label">Booking Status</div></div>
+                        <div class="col-md-10"><div class="mb-texts">Cancelled</div></div>
+                    </div>
+                    <div class="row mb10">
+                        <div class="col-md-2"><div class="mb-label">Booking Time</div></div>
+                        <div class="col-md-10"><div class="mb-texts">08-12-16 10:45</div></div>
+                    </div>
+                    <div class="row mb10">
+                        <div class="col-md-2"><div class="mb-label">User </div></div>
+                        <div class="col-md-10"><div class="mb-texts">XML API [ Travellanda ]</div></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><div class="mb-label">Your Referance</div></div>
+                        <div class="col-md-10"><div class="mb-texts">131454644464464446466464 [ Edit ]</div></div>
+                    </div>
+                </div>
+                <div class="tabled-heading">
+                    <h3>Reservation Informations</h3>
+                </div>
+                <div class="tabled-body">
+                    <div class="row mb10">
+                        <div class="col-md-2"><div class="mb-label">Hotel</div></div>
+                        <div class="col-md-10"><div class="mb-texts">Mirandare HotelCancelled</div></div>
+                    </div>
+                    <div class="row mb10">
+                        <div class="col-md-2"><div class="mb-label">City</div></div>
+                        <div class="col-md-10"><div class="mb-texts">Thailand</div></div>
+                    </div>
+                    <div class="row mb10">
+                        <div class="col-md-2"><div class="mb-label">Check-in Date</div></div>
+                        <div class="col-md-10"><div class="mb-texts">08-12-16 [ 44 days Left ]</div></div>
+                    </div>
+                    <div class="row mb10">
+                        <div class="col-md-2"><div class="mb-label">Check-out Date</div></div>
+                        <div class="col-md-10"><div class="mb-texts">08-12-16</div></div>
+                    </div>
+                    <div class="row mb10">
+                        <div class="col-md-2"><div class="mb-label">Leader Name</div></div>
+                        <div class="col-md-10"><div class="mb-texts">Andrew Xu</div></div>
+                    </div>
+                    <div class="row mb10">
+                        <div class="col-md-2"><div class="mb-label">Rooms and Passengers</div></div>
+                        <div class="col-md-10"><div class="mb-texts">
+                            Delux Garden View + Breakfast [ Mr.Yang Yang/ Mr. Andrew ]<br>
+                            Delux Garden View + Breakfast [ Mr.Yang Yang/ Mr. Andrew ]
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row mb10">
+                        <div class="col-md-2"><div class="mb-label">Nationality</div></div>
+                        <div class="col-md-10"><div class="mb-texts">China</div></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"><div class="mb-label">Board Type</div></div>
+                        <div class="col-md-10"><div class="mb-texts">Breakfast Buffet</div></div>
+                    </div>
+                </div>
+                <div class="tabled-footer">
+                    <a href="#" class="btn btn-purple btn-purple-dark-border arrow-circle-right">EXPORT VOUCHER</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="container">
+        <div class="footer-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-rights">
+            Copyright &copy; 2016 <a href="#">www.hoteleverlink.com</a>. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.plugins.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>

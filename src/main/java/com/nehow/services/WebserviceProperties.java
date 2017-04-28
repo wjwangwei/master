@@ -7,6 +7,8 @@ public class WebserviceProperties {
     // root url of web service
     private String rooturl;
 
+    private String bookingrooturl;
+
     private String suppliers;
 
     public String getRootUrl() {
@@ -15,6 +17,14 @@ public class WebserviceProperties {
 
     public void setRooturl(String rooturl) {
         this.rooturl = rooturl;
+    }
+
+    public String getBookingRootUrl() {
+        return bookingrooturl;
+    }
+
+    public void setBookingrooturl(String bookingrooturl) {
+        this.bookingrooturl = bookingrooturl;
     }
 
     public String getSuppliers() {

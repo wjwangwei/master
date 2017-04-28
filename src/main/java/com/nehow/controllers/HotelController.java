@@ -5,6 +5,7 @@ import cn.mogutrip.hotel.common.entity.HotelAvailabilityResponse;
 import cn.mogutrip.hotel.common.entity.SearchAvailabilityResponse;
 import cn.mogutrip.hotel.common.entity.SearchHotelAvailabilities;
 import cn.mogutrip.hotel.common.utils.JsonUtil;
+import cn.mogutrip.hotel.order.entity.Order;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nehow.models.*;
@@ -15,6 +16,7 @@ import net.sf.json.JSONObject;
 import org.apache.velocity.tools.generic.MathTool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -127,7 +129,7 @@ public class HotelController extends BaseController {
     }
 
     @RequestMapping("/booking/{hotelId}/{roomCode}")
-    public String booking(String hotelId, String roomCode, Map<String, Object> model) {
+    public String booking(@PathVariable("hotelId")String hotelId, @PathVariable("roomCode")String roomCode, Map<String, Object> model) {
         JSONObject request = (JSONObject) context.getAttribute(kRequest);
         SearchAvailabilityResponse searchResponse = apiManager.getHotelAvailability(request, hotelId);
         if (searchResponse.getHotelCount() > 0) {
@@ -185,12 +187,18 @@ public class HotelController extends BaseController {
             model.put("noOfRooms", 1);
             model.put("noOfAdults", 1);
             model.put("noOfChild", 1);
+            model.put("math", new MathTool());
         }
         return "hotel/hotel";
     }
 
     @RequestMapping("/bookingconfirm/{hotelId}/{orderId}")
-    public String bookingConfirm(String hotelId, String orderId, Map<String, Object> model) {
+    public String bookingConfirm(@PathVariable("hotelId")String hotelId, @PathVariable("orderId")String orderId, Map<String, Object> model) {
+        Order order = apiManager.getHotelOrderDetail(orderId);
+        String orderStatus = order.getOrderStatus().getDescription();
+        model.put("order", order);
+        model.put("math", new MathTool());
+
         return "hotel/bookingconfirm";
     }
 }

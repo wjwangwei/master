@@ -35,7 +35,9 @@
         </div>
         <div class="hotel-heading-title">$hotel.hotelName</div>
         <div class="hotel-heading-meta">
-            <div class="rate"><span class="rate$hotel.getStarRatingSimple()"></span></div>
+            #set($rating = $hotel.starRating/10.0)
+            #set($starrating=$math.round($rating))
+            <div class="rate"><span class="rate$starrating"></span></div>
             <!--<span class="review-total"> (5/5 by China National Tourism Administration)</span>-->
         </div>
         <div class="hotel-heading-address">$hotel.address<a href="#" data-toggle="modal" data-target="#hotelMap">Show Map</a></div>

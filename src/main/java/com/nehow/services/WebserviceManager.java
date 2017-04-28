@@ -7,6 +7,7 @@ import cn.mogutrip.hotel.common.entity.HotelAvailabilityResponse;
 import cn.mogutrip.hotel.common.entity.SearchAvailabilityResponse;
 import cn.mogutrip.hotel.common.entity.VerifyAvailabilityResponse;
 import cn.mogutrip.hotel.common.utils.JsonUtil;
+import cn.mogutrip.hotel.order.entity.Order;
 import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -252,6 +253,12 @@ public class WebserviceManager {
         return verifyResp;
     }
 
+    public Order getHotelOrderDetail(String orderId)
+    {
+        String requestUrl = svcProperty.getBookingRootUrl() + "/hotel/order/" + orderId;
+        ResponseEntity<Order> resp = restTemplate.getForEntity(requestUrl, Order.class);
+        return resp.getBody();
+    }
 
 
 }
