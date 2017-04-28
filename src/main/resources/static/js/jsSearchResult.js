@@ -40,20 +40,16 @@ $(function () {
         console.log("verify price request:", $(this).attr('data-request'));
         $(this).queryHotelXhrPost(HOTEL_ROOM_VERIFICATION_API, $(this).attr('data-request'), $this, function (response) {
             console.log("response:", response);
-            //for test
-            var bookingPage = '/hotel/booking/' + $this.attr('data-hotelid') + "/12345";
-            alert("Goes to " + bookingPage + " for testing purpose");
-            window.location.href = bookingPage;
-            /*
             if (response.target == -1) {
                 $this.html("Sold Out");
                 $this.addClass('disabled');
                 $("#no-room-modal").modal('show');
             } else {
-                //Proceed
-                window.location.href = '/hotel/booking/' + $this.attr('data-hotelid') + "/" + $this.attr('data-roomcode');
+                //for test
+                var bookingPage = '/hotel/booking/' + $this.attr('data-hotelid') + "/12345";
+                window.location.href = bookingPage;
             }
-            */
+
         });
     });
 

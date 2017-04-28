@@ -241,6 +241,7 @@ public class WebserviceManager {
         //
         // transfer json to object
         //
+        /*
         VerifyAvailabilityResponse verifyResp = null;
         ObjectMapper mapper = new ObjectMapper();
 
@@ -249,6 +250,8 @@ public class WebserviceManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
+        VerifyAvailabilityResponse verifyResp = JsonUtil.fromJsonIgnoreAnnotations(jsonResponse.toString(), VerifyAvailabilityResponse.class);
         System.out.println("RESPONSE: " + response.getBody().toString());
         return verifyResp;
     }

@@ -6,6 +6,7 @@ import cn.mogutrip.hotel.common.entity.SearchAvailabilityResponse;
 import cn.mogutrip.hotel.common.entity.SearchHotelAvailabilities;
 import cn.mogutrip.hotel.common.utils.JsonUtil;
 import cn.mogutrip.hotel.order.entity.Order;
+import cn.mogutrip.hotel.order.entity.OrderRoom;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nehow.models.*;
@@ -196,6 +197,12 @@ public class HotelController extends BaseController {
     public String bookingConfirm(@PathVariable("hotelId")String hotelId, @PathVariable("orderId")String orderId, Map<String, Object> model) {
         Order order = apiManager.getHotelOrderDetail(orderId);
         String orderStatus = order.getOrderStatus().getDescription();
+        List<OrderRoom> rooms = order.getRooms();
+        Map<String, String> roomWithGuests = new HashMap<>();
+        for(OrderRoom room : rooms){
+            String roomIndex = room.getRoomIndex();
+
+        }
         model.put("order", order);
         model.put("math", new MathTool());
 

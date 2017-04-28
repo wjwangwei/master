@@ -102,17 +102,18 @@ public class BaseController implements ServletContextAware {
         Map<String, BigDecimal> markups = mapper.readValue(json, tRef1);
         int i = 0;
         for(HotelAvailability av : avs){
+            HotelAvailability supplierAv = supplierAvs.get(i);
             VerifyAvailabilityRequest verifyRequest = new VerifyAvailabilityRequest();
             verifyRequest.setSource(VerifyAvailabilityRequest.REQUEST_SOURCE_CITY_PAGE);
             verifyRequest.setType(VerifyAvailabilityRequest.REQUEST_TYPE_FIRST_VERIFY);
             verifyRequest.setAvailability(av);
-            verifyRequest.setSupplierAvailability(supplierAvs.get(i));
+            verifyRequest.setSupplierAvailability(supplierAv);
             HotelAvailabilityRequest request = JsonUtil.fromJson(av.getRequest(), HotelAvailabilityRequest.class);
-            request.setHotelId(av.getHotelId());
-            request.setHotelCode(av.getHotelCode());
-            request.setReferenceId(av.getHotelRooms().getRooms().get(0).getReferenceId());
+            request.setHotelId(supplierAv.getHotelId());
+            request.setHotelCode(supplierAv.getHotelCode());
+            request.setReferenceId(supplierAv.getHotelRooms().getRooms().get(0).getReferenceId());
             List<Room> requestRooms = request.getRooms();
-            List<HotelRoom> avRooms = av.getHotelRooms().getRooms();
+            List<HotelRoom> avRooms = supplierAv.getHotelRooms().getRooms();
             for(int j = 0; j < requestRooms.size(); j++){
                 String roomRateCode = avRooms.get(j).getRoomRateCode();
                 request.getRooms().get(j).setRoomRateCode(roomRateCode);
@@ -128,8 +129,8 @@ public class BaseController implements ServletContextAware {
                 rateIds.add(rateId);
             }
             verifyRequest.setRoomRateIds(rateIds);
-            verifyRequest.setCurrency(av.getCurrency());
-            verifyRequest.setTotalRate(av.getTotalRate());
+            verifyRequest.setCurrency(supplierAv.getCurrency());
+            verifyRequest.setTotalRate(supplierAv.getTotalRate());
 
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
