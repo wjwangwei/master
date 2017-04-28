@@ -321,7 +321,7 @@
                         </ul>
                     </div>
                     <div class="booking-conf-payment-proceed">
-                        <a href="#" class="btn btn-block">Proceed to Paynow<i class="ico ico-arrow-circle-right"></i></a>
+                        <a href="/hotel/bookingconfirm/9098/100023" class="btn btn-block">TEST TO BOOKING CONFIRM PAGE<i class="ico ico-arrow-circle-right"></i></a>
                         <div class="conf-payment-proceed-notes">
                             <div><i class="ico ico-question-circle"></i> FREE cancellation before Oct 11, 2016 <i class="ico ico-circle-thumbsup"></i></div>
                             <div><i class="ico ico-question-circle"></i> Breakfast included <i class="ico ico-circle-hanger"></i></div>

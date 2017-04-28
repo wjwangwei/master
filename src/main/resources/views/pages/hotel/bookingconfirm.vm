@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - HotelEverlink</title>
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="Jim Fernando" name="author">
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/touch-icon-ipad-retina.png">
+
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<!-- Contents -->
+<div class="content">
+
+    <section class="space-xs">
+        <div class="container">
+
+            <div class="stepper stepper-booking">
+                <ul class="clearfix">
+                    <li>1. Select your room</li>
+                    <li>2. Enter booking and your details</li>
+                    <li class="active">3. Confirm your reservation</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-success alert-icon">
+                <span class="text-green">Your booking Confirmed.</span> Your credit card has beed charged the full amount of this Booking. Thank you.
+            </div>
+
+            <div id="main-contents">
+                <div id="main">
+                    <div class="row gutter10">
+                        <div class="col-sm-4">
+                            <a href="#" class="btn btn-block btn-flat"><i class="ico ico-booking-print"></i>VIEW AND PRINT VOUCHER</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="btn btn-block btn-flat"><i class="ico ico-booking-email"></i>SEND VOUCHER AS EMAIL</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="btn btn-block btn-flat"><i class="ico ico-booking-cancel"></i>CANCEL BOOKING</a>
+                        </div>
+                    </div>
+                    <hr class="break break20">
+                    <div class="booking-detail booking-detail-overview">
+                        <div class="booking-detail-titles">
+                            <div class="booking-detail-title">Valarmathi Kongunaatu Samayal</div>
+                            <div class="booking-detail-meta">
+                                <div class="rate"><span class="rate4"></span></div>
+                                <span class="review-total">2,339 reviews</span>
+                                <a href="#" class="booking-detail-showmap">Show on Map</a>
+                            </div>
+                        </div>
+                        <div class="booking-detail-body">
+                            <figure>
+                                <img src="images/temp/temp_hotel001_150x95.jpg" alt="">
+                            </figure>
+                            <hgroup>
+                                <label>Address</label>
+                                <p>171, Soi 11, Sukhumvit, BangkokSukhumvit, <br>hailand 10110.171, mvit , Thailand 10110.</p>
+                                <label>Phone Number</label>
+                                <p>+1 123 456 7896, +1 123 456 7896, +1 123 456 7896.</p>
+                            </hgroup>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-heading">
+                            <h3 class="has-icon icon-room">Your Room Information</h3>
+                        </div>
+                        <div class="booking-detail-body">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Room Name</th>
+                                    <th>Guest Name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Superior Room, 1</td>
+                                    <td>Andrew Xu</td>
+                                </tr>
+                                <tr>
+                                    <td>Superior Room, 1</td>
+                                    <td>Andrew Xu</td>
+                                </tr>
+                                <tr>
+                                    <td>Superior Room, 1</td>
+                                    <td>Andrew Xu</td>
+                                </tr>
+                                <tr>
+                                    <td>Superior Room, 1</td>
+                                    <td>Andrew Xu</td>
+                                </tr>
+                                <tr>
+                                    <td>Superior Room, 1</td>
+                                    <td>Andrew Xu</td>
+                                </tr>
+                                <tr>
+                                    <td>Superior Room, 1</td>
+                                    <td>Andrew Xu</td>
+                                </tr>
+                                <tr>
+                                    <td>Superior Room, 1</td>
+                                    <td>Andrew Xu</td>
+                                </tr>
+                                <tr>
+                                    <td>Superior Room, 1</td>
+                                    <td>Andrew Xu</td>
+                                </tr>
+                                <tr>
+                                    <td>Superior Room, 1</td>
+                                    <td>Andrew Xu</td>
+                                </tr>
+                                <tr>
+                                    <td>Superior Room, 1</td>
+                                    <td>Andrew Xu</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-heading">
+                            <h3 class="has-icon icon-checkmark-square">Checkin Informations</h3>
+                        </div>
+                        <div class="booking-detail-body">
+                            <hgroup>
+                                <ul class="checkmark-circle">
+                                    <li>Extra person charges may apply and vary depending on holel policy.</li>
+                                    <li>Government - issues photo identifications and a credit card or cash deposit are required at checkin for incidental charges.</li>
+                                    <li>Special requests are subject to availabilty upon check-in and may incur additional charges.</li>
+                                    <li>Specal request cannot be Guarandeed.</li>
+                                </ul>
+                            </hgroup>
+                        </div>
+                    </div>
+                    <div class="booking-detail">
+                        <div class="booking-detail-heading">
+                            <h3 class="has-icon icon-checkmark-square">Important Notes</h3>
+                        </div>
+                        <div class="booking-detail-body">
+                            <hgroup>
+                                <ul class="checkmark-circle">
+                                    <li>Extra person charges may apply and vary depending on holel policy.</li>
+                                    <li>Government - issues photo identifications and a credit card or cash deposit are required at checkin for incidental charges.</li>
+                                    <li>Special requests are subject to availabilty upon check-in and may incur additional charges.</li>
+                                    <li>Specal request cannot be Guarandeed.</li>
+                                </ul>
+                            </hgroup>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="side">
+                    <div class="widget widget_booking_confirmed">
+                        <div class="booking-ref">
+                            <label>Booking Reference</label>
+                            <div class="booking-ref-num"># 23456780234</div>
+                        </div>
+                        <div class="booking-conf-dates">
+                            <label>Booking Confirmed</label>
+                            <ul>
+                                <li>
+                                    <div class="conf-dates-label">Check - in</div>
+                                    <div class="conf-dates-date">October 25, 2016</div>
+                                </li>
+                                <li>
+                                    <div class="conf-dates-label">Check - out</div>
+                                    <div class="conf-dates-date">November 1, 2016</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="booking-conf-prices">
+                            <ul>
+                                <li>
+                                    <div class="conf-price-label">Nightly price /room :</div>
+                                    <div class="conf-price-amount">$124.47</div>
+                                </li>
+                                <li>
+                                    <div class="conf-price-label">1 Room x 1 Night :</div>
+                                    <div class="conf-price-amount">$124.47 <span class="ico ico-question-circle"><span></div>
+                                </li>
+                                <li>
+                                    <div class="conf-price-label">Taxes and fees :</div>
+                                    <div class="conf-price-amount">$23.70</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="booking-conf-prices">
+                            <ul>
+                                <li>
+                                    <div class="conf-price-label">Total charges :</div>
+                                    <div class="conf-price-amount">$148.17</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="container">
+        <div class="footer-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-rights">
+            Copyright &copy; 2016 <a href="#">www.hoteleverlink.com</a>. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.plugins.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>
