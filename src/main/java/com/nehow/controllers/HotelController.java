@@ -129,7 +129,7 @@ public class HotelController extends BaseController {
     @RequestMapping("/booking/{hotelId}/{roomCode}")
     public String booking(String hotelId, String roomCode, Map<String, Object> model) {
         JSONObject request = (JSONObject) context.getAttribute(kRequest);
-        SearchAvailabilityResponse searchResponse = apiManager.getHotelAvailability(request, "837075");
+        SearchAvailabilityResponse searchResponse = apiManager.getHotelAvailability(request, hotelId);
         if (searchResponse.getHotelCount() > 0) {
             model.put("hotel", searchResponse.getHotelAvailabilities().get(0).getHotel());
             model.put("availability", searchResponse.getHotelAvailabilities().get(0).getAvailabilities().get(0));
@@ -189,5 +189,8 @@ public class HotelController extends BaseController {
         return "hotel/hotel";
     }
 
-
+    @RequestMapping("/bookingconfirm/{hotelId}/{orderId}")
+    public String bookingConfirm(String hotelId, String orderId, Map<String, Object> model) {
+        return "hotel/bookingconfirm";
+    }
 }
