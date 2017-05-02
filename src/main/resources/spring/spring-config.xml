@@ -13,18 +13,20 @@
         <property name="arguments" ref="securityManager"/>
     </bean>
 
-    <!--<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">-->
-        <!--<property name="securityManager" ref="securityManager"/>-->
-        <!--<property name="loginUrl" value="/"/>-->
-        <!--<property name="successUrl" value="/home"/>-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/"/>
+        <property name="successUrl" value="/home"/>
 
-        <!--<property name="filterChainDefinitions">-->
-            <!--<value>-->
-                <!--# /admin/** = authc, roles[admin]-->
-                <!--/** = authc-->
-            <!--</value>-->
-        <!--</property>-->
-    <!--</bean>-->
+        <property name="filterChainDefinitions">
+            <value>
+                /                             = authc
+                /home                         = anon
+                <!--/loginout                     = logout-->
+                <!--/**					           = authc-->
+            </value>
+        </property>
+    </bean>
 
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="myRealm"/>
@@ -33,5 +35,10 @@
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 
     <bean id="myRealm" class="com.nehow.MyRealm"/>
+    <!--
+    <bean id="logout" class="org.apache.shiro.web.filter.authc.LogoutFilter">
+        <property name="redirectUrl" value="/" />
+    </bean>
+    -->
 
 </beans>
