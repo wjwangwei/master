@@ -1,9 +1,7 @@
 package com.nehow.controllers;
 
-import cn.mogutrip.hotel.common.entity.Hotel;
-import cn.mogutrip.hotel.common.entity.SearchAvailabilityRequest;
-import cn.mogutrip.hotel.common.entity.SearchAvailabilityResponse;
-import cn.mogutrip.hotel.common.entity.SearchHotelAvailabilities;
+import cn.mogutrip.core.common.utils.DateUtil;
+import cn.mogutrip.hotel.common.entity.*;
 import cn.mogutrip.hotel.common.utils.JsonUtil;
 import cn.mogutrip.hotel.order.entity.*;
 import com.nehow.models.*;
@@ -161,21 +159,78 @@ public class HotelController extends BaseController {
 
     }
 
-    @RequestMapping("/booking/{hotelId}/{queryId}")
-    public String booking(@PathVariable("hotelId")String hotelId, @PathVariable("queryId")String queryId, Map<String, Object> model) {
+    @RequestMapping("/booking/{hotelId}/{queryId}/{targetIndex}")
+    public String booking(@PathVariable("hotelId")String hotelId,
+                          @PathVariable("queryId")String queryId,
+                          @PathVariable("targetIndex")String targetIndex,
+                          Map<String, Object> model
+    ) {
         SearchAvailabilityRequest request = Context.getSearchRequest(queryId);
-        SearchAvailabilityResponse searchResponse = apiManager.getHotelAvailability(request, hotelId);
-        if (searchResponse.getHotelCount() > 0) {
-            model.put("hotel", searchResponse.getHotelAvailabilities().get(0).getHotel());
-            model.put("availability", searchResponse.getHotelAvailabilities().get(0).getAvailabilities().get(0));
-            model.put("supplierAvailability", searchResponse.getHotelAvailabilities().get(0).getSupplierAvailabilities().get(0));
-            model.put("request", request);
-            model.put("dateFormatter", new SimpleDateFormat("DDD, MM dd yyyy"));
-            model.put("duration", 1);
-            model.put("noOfRooms", 1);
-            model.put("noOfAdults", 1);
-            model.put("noOfChild", 1);
+        Hotel hotel = apiManager.getHotel(hotelId);
+        model.put("hotel", hotel);
+        VerifyAvailabilityResponse verifyResponse = Context.getVerifyResponse(queryId, hotelId);
+        HotelAvailability hotelAv = verifyResponse.getAvailabilities().get(Integer.parseInt(targetIndex));
+        model.put("availability", hotelAv);
+        int noOfRooms = 0;
+        int noOfAdults = 0;
+        int noOfChild = 0;
+        long duration = 0;
+        List<Room> requestRooms = request.getRequest().getRooms();
+        model.put("requestrooms", requestRooms);
+        List<HotelRoom> roomrates = hotelAv.getHotelRooms().getRooms();
+        model.put("roomrates", roomrates);
+        for(Room room : requestRooms)
+        {
+            noOfRooms = noOfRooms + room.getRooms();
+            noOfAdults = noOfAdults + room.getAdults();
+            noOfChild = noOfChild + room.getChildren();
         }
+
+        String checkIn = request.getRequest().getCheckIn();
+        String checkOut = request.getRequest().getCheckOut();
+        model.put("checkIn", checkIn);
+        model.put("checkOut", checkOut);
+        String format = "yyyy-MM-dd";
+        try{
+            duration = DateUtil.dateDiff(checkIn, checkOut, format);
+        }
+        catch(Exception e){
+        }
+        model.put("duration", duration);
+        model.put("noOfRooms", noOfRooms);
+        model.put("noOfAdults", noOfAdults);
+        model.put("noOfChild", noOfChild);
+        Map<String, List<HotelRoomPolicy>> policies = hotelAv.getHotelRooms().getPolicies().getPolicies();
+        String cancellationPolicyText = "This rate is non-refundable and cannot be changed or cancelled - if you do choose to change or cancel this booking you will not be refunded any of the payment.";
+        if(policies != null){
+            List<HotelRoomPolicy> cancellationPolicy = policies.get("cancellation");
+            cancellationPolicyText = getCancellationPolicyText(cancellationPolicy);
+        }
+
+        String changeNamePolicyText = "Not allowed";
+        String amendmentPolicyText = "Not allowed";
+        if(hotelAv.getHotelRooms().getPolicies().getAmendable().equals("true")){
+            changeNamePolicyText = "Allowed";
+        }
+        if(hotelAv.getHotelRooms().getPolicies().getAmendable().equals("true")){
+            amendmentPolicyText = "Allowed";
+        }
+        model.put("cancellationpolicy", cancellationPolicyText);
+        model.put("changenamepolicy", changeNamePolicyText);
+        model.put("amendmentpolicy", amendmentPolicyText);
+
+        String roomText = "";
+        for(HotelRoom hotelRoom : hotelAv.getHotelRooms().getRooms()){
+            if(roomText.equals("")){
+                roomText = hotelRoom.getRoomName() + " x " + String.valueOf(hotelRoom.getRoomCount());
+            }
+            else{
+                roomText = roomText + ", " + hotelRoom.getRoomName() + " x " + String.valueOf(hotelRoom.getRoomCount());
+            }
+        }
+        model.put("roomtext", roomText);
+        model.put("totalrate", hotelAv.getTotalRate());
+
         return "hotel/booking";
     }
 

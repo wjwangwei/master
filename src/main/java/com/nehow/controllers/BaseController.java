@@ -61,6 +61,18 @@ public class BaseController implements ServletContextAware {
 
     }
 
+    public String getCancellationPolicyText(List<HotelRoomPolicy> policies)
+    {
+        String cancellationPolicy = "This rate is non-refundable and cannot be changed or cancelled - if you do choose to change or cancel this booking you will not be refunded any of the payment.";
+        for(HotelRoomPolicy policy : policies){
+            if(policy.getChargeable().equals("false")){
+                cancellationPolicy = "Free cancellation can be made before " + policy.getStartDate();
+                break;
+            }
+        }
+        return cancellationPolicy;
+    }
+
     public List<String> buildVerifyRequestForHotel(String queryId, SearchHotelAvailabilities hotelAv) throws IOException
     {
         List<String> verifyRequests = new ArrayList<>();
@@ -102,10 +114,6 @@ public class BaseController implements ServletContextAware {
             verifyRequest.setCurrency(supplierAv.getCurrency());
             verifyRequest.setTotalRate(supplierAv.getTotalRate());
 
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            objectMapper.configure(MapperFeature.USE_ANNOTATIONS, false);
-            String result = objectMapper.writeValueAsString(verifyRequest);
             verifyRequests.add(JsonUtil.toJsonIgnoreAnnotations(verifyRequest));
             i++;
         }

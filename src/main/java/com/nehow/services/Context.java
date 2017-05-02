@@ -3,6 +3,7 @@ package com.nehow.services;
 import cn.mogutrip.hotel.common.entity.ExchangeRate;
 import cn.mogutrip.hotel.common.entity.SearchAvailabilityRequest;
 import cn.mogutrip.hotel.common.entity.SearchAvailabilityResponse;
+import cn.mogutrip.hotel.common.entity.VerifyAvailabilityResponse;
 import com.nehow.models.UserInfo;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.BeansException;
@@ -194,6 +195,19 @@ public class Context implements ApplicationContextAware {
         Context.setObjectToSession(key, userInfo);
     }
 
+    public static void setVerifyResponse(String queryId, String hotelId, VerifyAvailabilityResponse verifyResponse)
+    {
+        String key = "VERIFYRESPONSE" + queryId + hotelId;
+        Context.setObjectToSession(key, verifyResponse);
+    }
+
+    public static VerifyAvailabilityResponse getVerifyResponse(String queryId, String hotelId)
+    {
+        String key = "VERIFYRESPONSE" + queryId + hotelId;
+        VerifyAvailabilityResponse verifyResponse = (VerifyAvailabilityResponse) Context.getObjectFromSession(key);
+        return verifyResponse;
+
+    }
 
     public static Object getObjectFromSession(String key){
         return SecurityUtils.getSubject().getSession().getAttribute(key);

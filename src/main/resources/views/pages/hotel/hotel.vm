@@ -40,7 +40,9 @@
             <div class="rate"><span class="rate$starrating"></span></div>
             <!--<span class="review-total"> (5/5 by China National Tourism Administration)</span>-->
         </div>
+        #if($hotel.address)
         <div class="hotel-heading-address">$hotel.address<a href="#" data-toggle="modal" data-target="#hotelMap">Show Map</a></div>
+        #end
     </div>
 </section>
 

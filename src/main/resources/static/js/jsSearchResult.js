@@ -46,7 +46,8 @@ $(function () {
                 $("#no-room-modal").modal('show');
             } else {
                 //for test
-                var bookingPage = '/hotel/booking/' + $this.attr('data-hotelid') + "/" + $this.attr('data-queryid');
+                var bookingPage = '/hotel/booking/' + $this.attr('data-hotelid') + "/" + $this.attr('data-queryid') + "/" + response.target;
+                console.log("booking page url:" + bookingPage);
                 window.location.href = bookingPage;
             }
 

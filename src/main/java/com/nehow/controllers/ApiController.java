@@ -261,6 +261,13 @@ public class ApiController extends BaseController {
     @RequestMapping(path = {"/hotel/availability/verify"}, method = RequestMethod.POST)
     public VerifyAvailabilityResponse verifyHotel(@RequestBody String request) {
         VerifyAvailabilityResponse verifyResponse = apiManager.verifyHotel(request);
+        VerifyAvailabilityRequest verifyRequest = JsonUtil.fromJsonIgnoreAnnotations(request, VerifyAvailabilityRequest.class);
+        String queryId = verifyRequest.getQueryId();
+        String hotelId = verifyRequest.getAvailability().getHotelId();
+        Context.setVerifyResponse(queryId, hotelId, verifyResponse);
+        System.out.println("verify request:" + request);
+        System.out.println("verify response:" + JsonUtil.toJsonIgnoreAnnotations(verifyResponse).toString());
+
         return verifyResponse;
     }
 
