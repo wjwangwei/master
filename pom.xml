@@ -85,11 +85,7 @@
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.nehow.hotel</groupId>
-            <artifactId>x-common</artifactId>
-            <version>1.4.4-SNAPSHOT</version>
-        </dependency>
+
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -102,6 +98,19 @@
             <artifactId>velocity-tools</artifactId>
             <version>2.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.nehow.hotel</groupId>
+            <artifactId>xbdto</artifactId>
+            <version>1.7-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.nehow.hotel</groupId>
+            <artifactId>x-common</artifactId>
+            <version>1.4.4-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
     <build>

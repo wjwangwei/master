@@ -230,6 +230,8 @@ public class HotelController extends BaseController {
         }
         model.put("roomtext", roomText);
         model.put("totalrate", hotelAv.getTotalRate());
+        model.put("queryid", queryId);
+        model.put("targetindex", targetIndex);
 
         return "hotel/booking";
     }

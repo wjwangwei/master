@@ -1,5 +1,6 @@
 package com.nehow.controllers;
 
+import cn.mogutrip.core.common.utils.DateUtil;
 import cn.mogutrip.hotel.business.entity.*;
 import cn.mogutrip.hotel.common.entity.*;
 import cn.mogutrip.hotel.common.entity.ExchangeRate;
@@ -298,5 +299,47 @@ public class ApiController extends BaseController {
         Policies policy = apiManager.cancelHotel(request);
         //context.setAttribute(kHotelAvailability, hotelAvailability);
         return policy;
+    }
+
+    @RequestMapping("/hotel/book")
+    public String bookHotel(
+            @RequestParam("firstname") String firstNames,
+            @RequestParam("lastname") String lastNames,
+            @RequestParam("queryid") String queryId,
+            @RequestParam("hotelid") String hotelId,
+            @RequestParam("targetindex") String targetIndex,
+            HttpServletRequest request) {
+
+        SearchAvailabilityRequest searchRequest = Context.getSearchRequest(queryId);
+        Hotel hotel = apiManager.getHotel(hotelId);
+        VerifyAvailabilityResponse verifyResponse = Context.getVerifyResponse(queryId, hotelId);
+        HotelAvailability hotelAv = verifyResponse.getAvailabilities().get(Integer.parseInt(targetIndex));
+        int noOfRooms = 0;
+        int noOfAdults = 0;
+        int noOfChild = 0;
+        long duration = 0;
+        List<Room> requestRooms = searchRequest.getRequest().getRooms();
+        List<HotelRoom> roomrates = hotelAv.getHotelRooms().getRooms();
+        for(Room room : requestRooms)
+        {
+            noOfRooms = noOfRooms + room.getRooms();
+            noOfAdults = noOfAdults + room.getAdults();
+            noOfChild = noOfChild + room.getChildren();
+        }
+
+        String checkIn = searchRequest.getRequest().getCheckIn();
+        String checkOut = searchRequest.getRequest().getCheckOut();
+        String format = "yyyy-MM-dd";
+        try{
+            duration = DateUtil.dateDiff(checkIn, checkOut, format);
+        }
+        catch(Exception e){
+        }
+
+
+
+        String ret = "{\"status\":\"success\"}";
+        return ret;
+
     }
 }

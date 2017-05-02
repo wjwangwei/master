@@ -94,11 +94,11 @@
                                         </div>
                                         <div class="col-md-5">
                                             <label>First Name</label>
-                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
+                                            <input type="text" name="firstname" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                         <div class="col-md-5">
                                             <label>Last Name</label>
-                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
+                                            <input type="text" name="lastname" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                     </div>
                                     <hr class="break break10">
@@ -113,10 +113,10 @@
                                             </select>
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
+                                            <input type="text" name="firstname" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
+                                            <input type="text" name="lastname" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                     </div>
                                     <hr class="break break10">
@@ -138,30 +138,35 @@
                             <h5>Special Options</h5>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Except Ground Floor</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Ground Floor</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Honeymoon</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="Except Ground Floor"> Except Ground Floor</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="Ground Floor"> Ground Floor</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="Honeymoon"> Honeymoon</label></div></div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Adjacent Rooms</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Connecting Rooms</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Non-smoking Room</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="Adjacent Rooms"> Adjacent Rooms</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="Connecting Rooms"> Connecting Rooms</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="Non-smoking Room"> Non-smoking Room</label></div></div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Early Arrival</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Late Arrival</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Early Check Out</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="Early Arrival"> Early Arrival</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="Late Arrival"> Late Arrival</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="Early Check Out"> Early Check Out</label></div></div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Late Check Out</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Cot</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Smoking Room</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="Late Check Out"> Late Check Out</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="Cot"> Cot</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="Smoking Room"> Smoking Room</label></div></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" id="optionTEXT"></textarea>
                             </div>
-                            <a href class="btn btn-yellow" id="bookNowBTN">Booking Now<i class="ico ico-arrow-circle-right"></i></a>
+                            <input type="hidden" name="queryId" id="queryId" value="$queryid">
+                            <input type="hidden" name="targetIndex" id="targetIndex" value="$targetindex">
+                            <input type="hidden" name="hotelId" id="hotelId" value="$hotel.hotelId">
+
+                            <!--<a href="javascript:void;" class="btn btn-yellow" id="bookNowBTN">Booking Now<i class="ico ico-arrow-circle-right"></i></a>-->
+                            <button type="submit" class="btn btn-yellow" id="bookNowBTN">BOOK NOW</button>
                         </div>
                     </div>
                 </div>

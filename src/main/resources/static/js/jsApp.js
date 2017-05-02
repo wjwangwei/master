@@ -4,7 +4,7 @@
 NProgress.configure({minimum: 0.1});
 var MAX_XHR_RETRY = 15;
 var HOTEL_SEARCH_API = "/api/hotel/search";
-var HOTEL_AVAILABILITY_API = "/api/hotel/availability";
+var HOTEL_BOOKING_API = "/api/hotel/book";
 var HOTEL_ROOM_VERIFICATION_API = "/api/hotel/availability/verify";
 var HOTEL_ROOM_POLICY_API = "/api/hotel/room-policy";
 var HOTEL_HOTELVOUCHER_API = "/api/hotel/hotelvoucher";
