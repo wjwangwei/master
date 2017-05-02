@@ -10,7 +10,8 @@
 
     var adultCountArr = [];
     var childCountArr = [];
-    var childrenCount = 0, adultsCount = 0;
+
+    //var childrenCount = 0, adultsCount = 0;
 
     /*
      * JQuery AutoComplete for Destination and Nationality Search
@@ -29,11 +30,7 @@
                 transformResult: function (response) {
                     return {
                         suggestions: $.map(JSON.parse(response), function (dataItem) {
-                            return {
-                                value: dataItem.countryId + ", " + dataItem.countryName,
-                                nationalityId: dataItem.id,
-                                countryCode: dataItem.id
-                            };
+                            return {value: dataItem.countryId + ", " + dataItem.countryName, nationalityId: dataItem.countryId, countryCode: dataItem.id};
                         })
                     };
                 },
@@ -61,14 +58,23 @@
                 preventBadQueries: true,
                 noSuggestionNotice: "<strong>Sorry, not result found for" + $this.val() + "</strong>",
                 transformResult: function (response) {
+                    console.log(response);
                     return {
                         suggestions: $.map(JSON.parse(response), function (dataItem) {
-                            return {value: dataItem.cityName + ", " + dataItem.countryName, data: dataItem.id};
+                            if(dataItem.hotelId != 0){
+                                return {value: dataItem.hotelName + "," + dataItem.cityName + ", " + dataItem.countryName, countryid: dataItem.countryId, cityid:dataItem.cityId, hotelid:dataItem.hotelId};
+                            }
+                            else{
+                                return {value: dataItem.cityName + ", " + dataItem.countryName, countryid: dataItem.countryId, cityid:dataItem.cityId, hotelid:0};
+                            }
+
                         })
                     };
                 },
                 onSelect: function (suggestion) {
-                    $('input[name=cityId]').attr('value', suggestion.data);
+                    $('input[name=countryId]').attr('value', suggestion.countryid);
+                    $('input[name=cityId]').attr('value', suggestion.cityid);
+                    $('input[name=hotelId]').attr('value', suggestion.hotelid);
                 }
             });
             $this.focus();
@@ -104,29 +110,60 @@
             $('.roomCount').html(qtys);
             modifyAdtChdCount(qtys);
         }
+				
         return false;
     });
     childAgeModifyDOM($("select[name=room1NoOfChild]"), 1);
 
+    function calcTotalByArray(array) {
+        var total = 0;
+        for (var i in array) {
+            total += parseInt(array[i]);
+        }
+
+        return total;
+    };
+
+    function modifyAdtCount() {
+        var total = calcTotalByArray(adultCountArr);
+        $('.adultCount').html(total);
+    };
+
+    function modifyChdCount() {
+        var total = calcTotalByArray(childCountArr);
+        $('.childCount').html(total);
+    }
+
+
     function modifyAdtChdCount(roomIndex) {
         var oAdt = $("select[name=room" + roomIndex + "NoOfAdult]"), oChd = $("select[name=room" + roomIndex + "NoOfChild]");
         oAdt.on('change', function () {
-            adultCountArr[roomIndex] = $(this).val();
+            adultCountArr[roomIndex - 1] = $(this).val();
+
+            modifyAdtCount();
         });
         oChd.on('change', function () {
-            childCountArr[roomIndex] = $(this).val();
+            childCountArr[roomIndex - 1] = $(this).val();
+
+            modifyChdCount();
         });
 
+        adultCountArr[roomIndex - 1] = oAdt.val();
+        childCountArr[roomIndex - 1] = oChd.val();
+        modifyAdtCount();
+        modifyChdCount();
+        /*
         var a = parseInt($('.adultCount').html());
         var c = parseInt($('.childCount').html());
         oAdt.on('change', function () {
             adultsCount = parseInt(adultCountArr[roomIndex]);
-            // $('.adultCount').html(adultsCount + a);
+            $('.adultCount').html(adultsCount + a);
         });
         oChd.on('change', function () {
             childrenCount = parseInt(childCountArr[roomIndex]);
-            // $('.childCount').html(childrenCount + c);
+            $('.childCount').html(childrenCount + c);
         });
+        */
     }
 
     modifyAdtChdCount(1);
@@ -140,7 +177,7 @@
                     html += '<div class="col-sm-6">';
                     html += '<div class="form-group">';
                     html += '<label>Child ' + i + ' Age</label>';
-                    html += '<select class="selector" name="room' + roomIndex + 'child' + i + 'age" style="width:100%;">';
+                    html += '<select class="selector" name="room' + roomIndex + 'child' + i + 'age" id="room' + roomIndex + 'child' + i + 'age" style="width:100%;">';
                     for (var age = 0; age <= MAX_CHILD_AGE; age++) {
                         html += '<option' + ' value="' + age + '">' + age + '</option>';
                     }
@@ -192,6 +229,10 @@
 
     function removeRoomDOM(roomIndex) {
         $("#roomDIV" + roomIndex).remove();
+        adultCountArr.splice(roomIndex - 1, 1);
+        childCountArr.splice(roomIndex - 1, 1);
+        modifyAdtCount();
+        modifyChdCount();
     }
 
 
@@ -209,7 +250,7 @@
         $('.dropdown-room').removeClass('open');
     });
 
-    $('#dateCheckin,#dateCheckout').datepick({
+    $('#dateCheckin').datepick({
         alignment: 'top',
         onSelect: customRange,
         minDate: $.datepick.today(),
@@ -219,6 +260,23 @@
         nextText: '',
         prevText: '',
         showAnim: '',
+        isStart: true,
+        onClose: function () {
+            $('.has-icon').removeClass('dropdown-open');
+        }
+    });
+
+    $('#dateCheckout').datepick({
+        alignment: 'top',
+        onSelect: customRange,
+        minDate: $.datepick.today(),
+        monthsToShow: 2,
+        changeMonth: false,
+        popupContainer: '.calendardaten',
+        nextText: '',
+        prevText: '',
+        showAnim: '',
+        isStart: false,
         onClose: function () {
             $('.has-icon').removeClass('dropdown-open');
         }
@@ -264,7 +322,31 @@
 
     $("form[name=hotelSearch]").on('submit', function (e) {
         //perform validation to ensure the user selected the right fields.
-        var data = $(this).serialize() + "&noOfAdult=" + adultsCount + "&noChild=" + childrenCount;
+        var data = $(this).serialize() + "&adultCount=" + calcTotalByArray(adultCountArr) + "&childCount=" + calcTotalByArray(childCountArr);
+
+        data += '&cityTitle=' +  $('#cityTitle').val();
+        data += '&cityId=' + $('#cityId').val();
+        data += '&nationality=' + $('#nationalitySearch').val();
+        data += '&nationalityId=' + $('#nationalityId').val();
+        data += '&nationalityCode=' + $('#nationalityCode').val();
+        data += '&countryCode=' + $('#countryCode').val();
+        data += "&checkIn=" + $('#dateCheckin').val();
+        data += "&checkOut=" + $('#dateCheckout').val();
+        data += "&noOfRooms=" + $('#noOfRooms').val();
+        data += "&adults=" + adultCountArr;
+        data += "&children=" + childCountArr;
+
+        var childAgeArr = [];
+        for(var i = 0; i <= $('#noOfRooms').val(); i++) {
+            for (var j = 0; j < childCountArr[i]; j++) {
+                childAgeArr.push($('#room' + (parseInt(i) + 1)  + 'child' + (parseInt(j) + 1) + 'age').val());
+            }
+        }
+
+        if (childAgeArr.length > 0) {
+            data += "&childrenAge=" + childAgeArr;
+        }
+
         if (searchEngineValidation($(this))) {
             var btn = $(this).find('button[type=submit]');
             btn.html('<i class="fa fa-spinner fa-spin"></i> Loading...');
@@ -276,7 +358,8 @@
                 btn.addClass('arrow-right');
                 btn.html("FIND HOTELS");
                 console.log(response);
-                window.location.href = "/hotel/search-result?" + data;
+                var queryId = response.queryId;
+                window.location.href = "/hotel/search-result?queryId=" + queryId + "&" + data;
             });
             btn.removeClass('disabled');
             btn.html('FIND HOTELS');

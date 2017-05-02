@@ -1,11 +1,21 @@
 package com.nehow;
 
+import cn.mogutrip.hotel.common.utils.JsonUtil;
+import com.nehow.controllers.BaseController;
+import com.nehow.models.LoginStatus;
+import com.nehow.models.UserInfo;
+import com.nehow.services.Context;
+import com.nehow.services.WebserviceManager;
+import org.apache.http.auth.AUTH;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 import java.util.Set;
 
@@ -13,6 +23,8 @@ import java.util.Set;
  * Created by Igbalajobi Jamiu Okunade on 4/12/17.
  */
 public class MyRealm extends AuthorizingRealm {
+    @Autowired
+    private WebserviceManager apiManager;
 
 //    UsersHome usersHome = new UsersHome();
 
@@ -29,15 +41,17 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
         UsernamePasswordToken upToken = (UsernamePasswordToken) token;
-        String username = upToken.getUsername();
-
+        String userName = upToken.getUsername();
+        String password = new String((char[])upToken.getPassword());
+        LoginStatus loginStatus = apiManager.getUserInfo(userName, password);
+        String status = loginStatus.getStatus();
         AuthenticationInfo info = null;
-//        Users user = null;// usersHome.getByUserName(username);
-
-//        if(user == null || user.getUserPass() == null){
-//            throw new UnknownAccountException("No account found for user [" + username + "]");
-//        }
-//        info = new SimpleAuthenticationInfo(username, user.getUserPass().toCharArray(), getName());
+        if(status.equals("success")){
+            String message = loginStatus.getMessage();
+            UserInfo userInfo = JsonUtil.fromJson(message, UserInfo.class);
+            Context.setUserInfo(userInfo);
+            info = new SimpleAuthenticationInfo(userName, password, getName());
+        }
 
         return info;
     }
@@ -57,6 +71,11 @@ public class MyRealm extends AuthorizingRealm {
 
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo(roleNames);
         return info;
+    }
+
+    @Override
+    public String getName() {
+        return getClass().getName();
     }
 
 }

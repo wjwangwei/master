@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nehow.services.Context;
 import net.sf.json.JSONObject;
 import org.springframework.web.context.ServletContextAware;
 
@@ -20,43 +21,16 @@ public class BaseController implements ServletContextAware {
     // servlet context to store global data
     ServletContext context;
 
-    // key for nationality suggestion
-    protected final String kNationality = "nationality";
-
-    // key for destination suggestion
-    protected final String kDestination = "destination";
-
-    //key for search request
-    protected final String kRequest = "request";
-
-    //key for hotel availability request
-    protected final String kAvailabilityRequest = "request";
-
-    // key for hotel results
-    protected final String kHotels = "hotels";
-
-    protected final String kHotelAvailability = "hotels";
-
-    protected final String kMarkup = "markup";
-    protected final String kExchange = "exchange";
-
     @Override
     public void setServletContext(ServletContext servletContext) {
         this.context = servletContext;
     }
 
-    public List<String> buildPolicyRequestForHotel(SearchHotelAvailabilities hotelAv)  throws IOException
+    public List<String> buildPolicyRequestForHotel(String queryId, SearchHotelAvailabilities hotelAv)  throws IOException
     {
         List<String> policyRequests = new ArrayList<>();
-        JSONObject jsonParams = (JSONObject) context.getAttribute(kRequest);
-        String json = jsonParams.get("request").toString();
-        ObjectMapper mapper = new ObjectMapper();
-        json = jsonParams.get("exchangeRates").toString();
-        TypeReference<List<ExchangeRate>> tRef = new TypeReference<List<ExchangeRate>>() {};
-        List<ExchangeRate> exchangeRates = mapper.readValue(json, tRef);
-        json = jsonParams.get("markups").toString();
-        TypeReference<Map<String, BigDecimal>> tRef1 = new TypeReference<Map<String, BigDecimal>>() {};
-        Map<String, BigDecimal> markups = mapper.readValue(json, tRef1);
+        List<ExchangeRate> exchangeRates = Context.getExchangeRate();
+        Map<String, BigDecimal> markups = Context.getMarkup();
         List<HotelAvailability> avs = hotelAv.getAvailabilities();
 
         for(HotelAvailability av : avs) {
@@ -66,6 +40,7 @@ public class BaseController implements ServletContextAware {
             String checkIn = av.getCheckIn();
             String checkOut = av.getCheckOut();
             QueryCancellationPolicyRequest policyRequest = new QueryCancellationPolicyRequest();
+            policyRequest.setQueryId(queryId);
             policyRequest.setSupplierId(supplierId);
             policyRequest.setHotelId(hotelId);
             policyRequest.setHotelCode(hotelCode);
@@ -86,24 +61,19 @@ public class BaseController implements ServletContextAware {
 
     }
 
-    public List<String> buildVerifyRequestForHotel(SearchHotelAvailabilities hotelAv) throws IOException
+    public List<String> buildVerifyRequestForHotel(String queryId, SearchHotelAvailabilities hotelAv) throws IOException
     {
         List<String> verifyRequests = new ArrayList<>();
+
         List<HotelAvailability> avs = hotelAv.getAvailabilities();
         List<HotelAvailability> supplierAvs = hotelAv.getSupplierAvailabilities();
-        JSONObject jsonParams = (JSONObject) context.getAttribute(kRequest);
-        String json = jsonParams.get("request").toString();
-        ObjectMapper mapper = new ObjectMapper();
-        json = jsonParams.get("exchangeRates").toString();
-        TypeReference<List<ExchangeRate>> tRef = new TypeReference<List<ExchangeRate>>() {};
-        List<ExchangeRate> exchangeRates = mapper.readValue(json, tRef);
-        json = jsonParams.get("markups").toString();
-        TypeReference<Map<String, BigDecimal>> tRef1 = new TypeReference<Map<String, BigDecimal>>() {};
-        Map<String, BigDecimal> markups = mapper.readValue(json, tRef1);
+        List<ExchangeRate> exchangeRates = Context.getExchangeRate();
+        Map<String, BigDecimal> markups = Context.getMarkup();
         int i = 0;
         for(HotelAvailability av : avs){
             HotelAvailability supplierAv = supplierAvs.get(i);
             VerifyAvailabilityRequest verifyRequest = new VerifyAvailabilityRequest();
+            verifyRequest.setQueryId(queryId);
             verifyRequest.setSource(VerifyAvailabilityRequest.REQUEST_SOURCE_CITY_PAGE);
             verifyRequest.setType(VerifyAvailabilityRequest.REQUEST_TYPE_FIRST_VERIFY);
             verifyRequest.setAvailability(av);

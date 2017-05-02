@@ -1,17 +1,18 @@
 package com.nehow.controllers;
 
-import cn.mogutrip.hotel.business.entity.ExchangeRate;
-import cn.mogutrip.hotel.common.entity.SearchAvailabilityRequest;
-import cn.mogutrip.hotel.common.entity.SearchAvailabilityResponse;
-import cn.mogutrip.hotel.common.entity.VerifyAvailabilityResponse;
+import cn.mogutrip.hotel.business.entity.*;
+import cn.mogutrip.hotel.common.entity.*;
+import cn.mogutrip.hotel.common.entity.ExchangeRate;
+import cn.mogutrip.hotel.common.generator.supplier.sunhotel.ws.Search;
+import cn.mogutrip.hotel.common.utils.JsonUtil;
+import cn.mogutrip.hotel.suggestion.entity.Destination;
+import cn.mogutrip.hotel.suggestion.entity.Nationality;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nehow.models.*;
-import com.nehow.services.CommonUtils;
+import com.nehow.services.Context;
 import com.nehow.services.Pagination;
-import com.nehow.services.TestRequests;
 import com.nehow.services.WebserviceManager;
 import net.sf.json.JSONArray;
-import net.sf.json.JSONNull;
 import net.sf.json.JSONObject;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
+import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.text.ParseException;
@@ -42,28 +41,57 @@ public class ApiController extends BaseController {
     @RequestMapping("/suggest/nationality")
     public List<Nationality> getNationality(@RequestParam("search") String search) {
         Nationality[] nationalities = apiManager.getNationality(search);
-        context.setAttribute(kNationality, nationalities);
+        for(Nationality nationality : nationalities){
+            System.out.println(nationality.getCountryName());
+        }
         return Arrays.asList(nationalities);
     }
 
     @RequestMapping("/suggest/destination")
     public List<Destination> getDestinations(@RequestParam("search") String search) {
         Destination[] destinations = apiManager.getDestination(search);
-        context.setAttribute(kDestination, destinations);
         return Arrays.asList(destinations);
     }
 
 
     @RequestMapping("/hotel/search")
-    public SearchAvailabilityResponse getHotels(@RequestParam("cityId") int cityId,
-                                         @RequestParam("nationalityId") int nationalityId,
+    public String searchHotels(@RequestParam("cityId") String cityId,
+                                         @RequestParam("nationalityId") String nationalityId,
                                          @RequestParam("checkIn") String checkIn,
                                          @RequestParam("checkOut") String checkOut,
+                                         @RequestParam("sortOrder") String sortOrder,
+                                         @RequestParam("countryId") String countryId,
+                                         @RequestParam("hotelId") String hotelId,
                                          @RequestParam("noOfRooms") int noOfRooms,
+                                         @RequestParam("adults") String adults,
+                                         @RequestParam("children") String children,
+                                         @RequestParam(value="childrenAge", defaultValue="") String childrenAge,
                                          HttpServletRequest request) {
-        Destination destination = null;
-        Nationality nationality = null;
-        String currency = CommonUtils.getProperty("application.defaultCurrency");
+        SearchAvailabilityRequest searchRequest = new SearchAvailabilityRequest();
+
+        if(cityId.split(",").length > 1){
+            cityId = cityId.split(",")[0];
+        }
+        if(nationalityId.split(",").length > 1){
+            nationalityId = nationalityId.split(",")[0];
+        }
+        if(checkIn.split(",").length > 1){
+            checkIn = checkIn.split(",")[0];
+        }
+        if(checkOut.split(",").length > 1){
+            checkOut = checkOut.split(",")[0];
+        }
+        if(countryId.split(",").length > 1){
+            countryId = countryId.split(",")[0];
+        }
+
+        String[] adultsArray = adults.split(",");
+        String[] childrenArray = children.split(",");
+        String[] childAgeArray = null;
+        if(!childrenAge.equals("")){
+            childAgeArray = childrenAge.split(",");
+        }
+        String currency = Context.getCurrency();
         if (request.getCookies() != null) {
             for (Cookie cookie : request.getCookies()) {
                 if (cookie.getName().equals("c_currency") && cookie.getValue() != null) {
@@ -72,164 +100,110 @@ public class ApiController extends BaseController {
             }
         }
 
-        Destination[] destinations = (Destination[]) context.getAttribute(kDestination);
-        if (destinations != null) {
-            for (Destination dst : destinations) {
-                if (cityId == dst.getId()) {
-                    destination = dst;
-                    break;
-                }
-            }
-        }
 
-        Nationality[] nationalities = (Nationality[]) context.getAttribute(kNationality);
-        if (nationalities != null) {
-            for (Nationality nat : nationalities) {
-                if (nationalityId == nat.getId()) {
-                    nationality = nat;
-                    break;
-                }
-            }
-        }
-
-        Map<String, Double> mapMarkup = (Map<String, Double>) context.getAttribute(kMarkup);
-        if (mapMarkup == null) {
+        Map<String, BigDecimal> markups = Context.getMarkup();
+        if (markups == null) {
             // call rest api for fetching supplier markup
-            mapMarkup = apiManager.getSupplierMarkup();
-            context.setAttribute(kMarkup, mapMarkup);
+            markups = apiManager.getSupplierMarkup();
+            Context.setMarkup(markups);
         }
-        List<ExchangeRate> exchangeRates = (List<ExchangeRate>) context.getAttribute(kExchange);
+        searchRequest.setMarkups(markups);
+
+        List<ExchangeRate> exchangeRates = Context.getExchangeRate();
         if (exchangeRates == null) {
+            exchangeRates = new ArrayList<>();
             // call rest api for fetching exchange rate
-            exchangeRates = apiManager.getExchangeRate();
-            context.setAttribute(kExchange, exchangeRates);
+            List<cn.mogutrip.hotel.business.entity.ExchangeRate> rates = apiManager.getExchangeRate();
+            for(cn.mogutrip.hotel.business.entity.ExchangeRate rate : rates){
+                ExchangeRate exchangeRate = new ExchangeRate();
+                exchangeRate.setCurrency0(rate.getFromCurrency());
+                exchangeRate.setCurrency1(rate.getToCurrency());
+                exchangeRate.setRateTime(rate.getRateTime());
+                exchangeRate.setRate(rate.getRate());
+                //exchangeRate.setId(rate.getId());
+                exchangeRate.setDate(null);
+                exchangeRates.add(exchangeRate);
+            }
+            Context.setExchangeRate(exchangeRates);
         }
-        // request
-        JSONObject jsonParam = new JSONObject();
-        JSONObject jsonRequest = new JSONObject();
+        searchRequest.setExchangeRates(exchangeRates);
 
-        if (destination != null) {
-            jsonRequest.put("countryId", destination.getCountryId());
-            jsonRequest.put("cityId", Objects.toString(destination.getCityId()));
-        } else {
-            destination = new Destination();
+        Range<Integer> starRating = new Range<Integer>(0, 100);
+        searchRequest.setStarRating(starRating);
+        searchRequest.setScore(0);
 
-            destination.setCityId(Integer.parseInt(request.getParameter("cityId")));
-            destination.setCountryId(request.getParameter("countryCode"));
-            destination.setCountryId(request.getParameter("nationalityCode"));
-
-            jsonRequest.put("cityId", destination.getCityId());
-            jsonRequest.put("countryId", destination.getCountryId());
+        if(sortOrder == null){
+            sortOrder = "ascend";
         }
+        Sort sort = new Sort("rate", sortOrder);
+        searchRequest.setSort(sort);
 
-        // date convert
+        // limit
+        Pagination pagination = new Pagination();
+        pagination.setCurrentPageNo(request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page")));
+        pagination.setElementsPerPage(Context.getHotelCntPerPage());
+        Limit limit = pagination.getLimitObject();
+        searchRequest.setLimit(limit);
+
+        HotelAvailabilityRequest hotelAvailabilityRequest = new HotelAvailabilityRequest();
+        hotelAvailabilityRequest.setCountryId(countryId);
+        hotelAvailabilityRequest.setCityId(cityId);
         try {
             SimpleDateFormat sdfFrom = new SimpleDateFormat("MM/dd/yyyy");
             SimpleDateFormat sdfTo = new SimpleDateFormat("yyyy-MM-dd");
 
             Date date = sdfFrom.parse(checkIn);
-            jsonRequest.put("checkIn", sdfTo.format(date));
+            checkIn = sdfTo.format(date);
 
             date = sdfFrom.parse(checkOut);
-            jsonRequest.put("checkOut", sdfTo.format(date));
-        } catch (ParseException e) {
+            checkOut = sdfTo.format(date);
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        hotelAvailabilityRequest.setCheckIn(checkIn);
+        hotelAvailabilityRequest.setCheckOut(checkOut);
 
-        JSONArray jsonRooms = new JSONArray();
+        List<Room> rooms = new ArrayList<>();
+        int childAgeIndex = 0;
         for (int roomIndex = 1; roomIndex <= noOfRooms; roomIndex++) {
-            JSONObject jsonRoom = new JSONObject();
-            jsonRoom.put("roomIndex", Objects.toString(roomIndex));
+            Room room = new Room();
+            room.setRoomIndex(String.valueOf(roomIndex));
             int roomPerSearch = 1;
-            jsonRoom.put("rooms", roomPerSearch);
-            jsonRoom.put("adults", Integer.parseInt(request.getParameter("room" + roomIndex + "NoOfAdult")));
-            int childrenCount = Integer.parseInt(request.getParameter("room" + roomIndex + "NoOfChild"));
-            jsonRoom.put("children", childrenCount);
+            room.setRooms(roomPerSearch);
+            int noOfAdult = Integer.parseInt(adultsArray[roomIndex - 1]);
+            room.setAdults(noOfAdult);
+            int noOfChild = Integer.parseInt(childrenArray[roomIndex - 1]);
+            room.setChildren(noOfChild);
+
             List<Integer> ages = null;
-            if (childrenCount > 0) {
+            if (noOfChild > 0) {
                 ages = new ArrayList<>();
-                for (int childIndex = 1; childIndex <= childrenCount; childIndex++) {
-                    ages.add(Integer.parseInt(request.getParameter("room" + roomIndex + "child" + childIndex + "age")));
+                for (int i = 0; i < noOfChild; i++) {
+                    int age = Integer.parseInt(childAgeArray[childAgeIndex]);
+                    childAgeIndex++;
+                    ages.add(age);
                 }
             }
-            jsonRoom.put("roomType", "");
-            jsonRoom.put("roomRateCode", JSONNull.getInstance());
-            jsonRoom.put("ages", ages == null ? JSONNull.getInstance() : ages);
-            jsonRooms.add(jsonRoom);
+            if(ages != null){
+                room.setAges(ages);
+            }
+            room.setRoomType("");
+            rooms.add(room);
         }
-        jsonRequest.put("rooms", jsonRooms);
-        if (nationality != null) {
-            jsonRequest.put("nationality", nationality.getCountryId());
-        } else {
-            jsonRequest.put("nationality", request.getParameter("nationality").split(",")[0]);
+        hotelAvailabilityRequest.setRooms(rooms);
+        if(hotelId != null && !hotelId.equals("0")){
+            hotelAvailabilityRequest.setHotelId(hotelId);
         }
+        hotelAvailabilityRequest.setNationality(nationalityId);
+        hotelAvailabilityRequest.setCurrency(currency);
 
-        jsonRequest.put("currency", currency);
-
-        String strQueryId = "";
-        try {
-            System.currentTimeMillis();
-            strQueryId = "nehow" + "197.149.93.214" + System.currentTimeMillis() + Math.random();
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
-            md5.update(StandardCharsets.UTF_8.encode(strQueryId));
-            strQueryId = String.format("%032x", new BigInteger(1, md5.digest()));
-        } catch (Exception ignored) {
-        }
-
-        jsonRequest.put("queryId", strQueryId); //71701fb329892e076175ba56c0060d70
-        jsonRequest.put("supplierId", CommonUtils.getSuppliers());
-        jsonParam.put("request", jsonRequest);
-
-
-        // exchangeRates
-        JSONArray jsonExchanges = new JSONArray();
-        for (ExchangeRate er : exchangeRates) {
-            JSONObject jsonExchange = new JSONObject();
-            jsonExchange.put("id", er.getId());
-            jsonExchange.put("date", null);
-            jsonExchange.put("currency0", er.getFromCurrency());
-            jsonExchange.put("currency1", er.getToCurrency());
-            jsonExchange.put("rate", er.getRate());
-            jsonExchange.put("rateTime", null);
-
-            jsonExchanges.add(jsonExchange);
-        }
-        //TODO remove test exhange rate
-        jsonExchanges = JSONArray.fromObject(TestRequests.exchangeRates);
-        jsonParam.put("exchangeRates", jsonExchanges);
-
-        // markup
-        JSONObject jsonMarkup = JSONObject.fromObject(mapMarkup);
-        jsonParam.put("markups", jsonMarkup);
-
-        // starRating
-        JSONObject jsonStar = new JSONObject();
-        jsonStar.put("low", 0);
-        jsonStar.put("high", 100);
-        jsonParam.put("starRating", jsonStar);
-
-        // score
-        jsonParam.put("score", 0);
-
-        // sort
-        JSONObject jsonSort = new JSONObject();
-        jsonSort.put("field", "rate");
-        String order = request.getParameter("sort_order") != null ? request.getParameter("sort_order") : "ascend";
-        jsonSort.put("mode", order);
-        jsonParam.put("sort", jsonSort);
-
-        // limit
-        Pagination pagination = new Pagination();
-        pagination.setCurrentPageNo(request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page")));
-        pagination.setElementsPerPage(CommonUtils.getProperty("pagination.perpage", Integer.class));
-
-        jsonParam.put("limit", pagination.getPaginateObject());
-
-        System.out.println(jsonParam.toString());
-
-        context.setAttribute(kRequest, jsonParam);
-        ObjectMapper mapper = new ObjectMapper();
-
+        String ip = Context.getIpAddr(request);
+        String queryId = Context.getQueryId(ip);
+        hotelAvailabilityRequest.setQueryId(queryId);
+        String supplierId = Context.getSupplierIds();
+        hotelAvailabilityRequest.setSupplierId(supplierId);
+        searchRequest.setRequest(hotelAvailabilityRequest);
+        Context.setSearchRequest(queryId, searchRequest);
 
         SearchAvailabilityResponse hotelSearchResponse = new SearchAvailabilityResponse();
         hotelSearchResponse.setHotelCount(0);
@@ -251,9 +225,9 @@ public class ApiController extends BaseController {
         waitTime.put(13, 4000);
         waitTime.put(14, 4000);
         waitTime.put(15, 4000);
-
+        System.out.println(JsonUtil.toJsonIgnoreAnnotations(searchRequest).toString());
         do {
-            hotelSearchResponse = apiManager.getCityAvailability((JSONObject) context.getAttribute(kRequest));
+            hotelSearchResponse = apiManager.getCityAvailability(searchRequest);
             int rewriteKeyCnt = hotelSearchResponse.getRewriteKeyCount();
             int completeKeyCnt = hotelSearchResponse.getCompleteRewriteKeyCount();
             try {
@@ -270,19 +244,17 @@ public class ApiController extends BaseController {
                 break;
             }
         }while(true);
-
-
-        if (hotelSearchResponse.getHotelCount() > 0)
-            context.setAttribute(kHotels, hotelSearchResponse);
-        return hotelSearchResponse;
+        Context.setSearchResult(queryId, hotelSearchResponse);
+        String ret = "{\"queryId\":\"" + queryId + "\"}";
+        return ret;
     }
 
 
-    @RequestMapping(path = {"/hotel/availability/{hotelId}"})
-    public SearchAvailabilityResponse getHotel(String hotelId) {
-        JSONObject request = (JSONObject) context.getAttribute(kRequest);
-        SearchAvailabilityResponse hotelAvailability = apiManager.getHotelAvailability(request, hotelId);
-        context.setAttribute(kHotelAvailability, hotelAvailability);
+    @RequestMapping(path = {"/hotel/availability/{queryId}/{hotelId}"})
+    public SearchAvailabilityResponse getHotel(@PathVariable("queryId") String queryId, @PathVariable("hotelId") String hotelId) {
+        SearchAvailabilityRequest searchRequest = Context.getSearchRequest(queryId);
+        SearchAvailabilityResponse hotelAvailability = apiManager.getHotelAvailability(searchRequest, hotelId);
+        Context.setHotelAvailability(queryId, hotelId, hotelAvailability);
         return hotelAvailability;
     }
 
@@ -300,10 +272,24 @@ public class ApiController extends BaseController {
             policyCode = URLDecoder.decode(policyCode, "UTF-8");
         } catch (Exception ignored){}
         */
+        System.out.println("policy request:" + request);
         Policies policy = apiManager.getRoomPolicy(request);
         //context.setAttribute(kHotelAvailability, hotelAvailability);
         return policy;
     }
 
+    @RequestMapping("/hotel/hotelvoucher")
+    public Voucher getHotelVoucher(@RequestParam("orderId") String orderId) {
+        Voucher voucherUrl = apiManager.getHotelVoucher(orderId);
+        return voucherUrl;
+    }
 
+
+    @RequestMapping(path = {"/hotel/cancellation"}, method = RequestMethod.POST)
+    public Policies cancelHotel(@RequestBody String request) {
+        System.out.println("cancel request:" + request);
+        Policies policy = apiManager.cancelHotel(request);
+        //context.setAttribute(kHotelAvailability, hotelAvailability);
+        return policy;
+    }
 }

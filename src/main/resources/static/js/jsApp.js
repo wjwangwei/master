@@ -7,6 +7,8 @@ var HOTEL_SEARCH_API = "/api/hotel/search";
 var HOTEL_AVAILABILITY_API = "/api/hotel/availability";
 var HOTEL_ROOM_VERIFICATION_API = "/api/hotel/availability/verify";
 var HOTEL_ROOM_POLICY_API = "/api/hotel/room-policy";
+var HOTEL_HOTELVOUCHER_API = "/api/hotel/hotelvoucher";
+var HOTEL_CANCEL_API = "/api/hotel/cancellation";
 
 
 (function () {

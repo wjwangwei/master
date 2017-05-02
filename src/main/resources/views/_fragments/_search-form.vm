@@ -5,8 +5,11 @@
                 <label for="destination">Where do you want to go?</label>
                 <div class="has-icon">
                     <span class="icon-pushpin"></span>
-                    <input type="text" class="form-control" name="cityTitle" placeholder="City or Destinations">
-                    <input type="hidden" name="cityId" value="">
+                    <input type="text" class="form-control" name="cityTitle" placeholder="City, destinations or hotel name">
+                    <input type="hidden" name="countryId">
+                    <input type="hidden" name="cityId">
+                    <input type="hidden" name="hotelId">
+                    <input type="hidden" name="sortOrder" value="ascend">
                 </div>
             </div>
         </div>
@@ -16,9 +19,9 @@
                 <div class="dropdown dropdown-lang has-selector">
 ##                    <span class="icon-flag"></span><!--lang-en -->
                     <input type="text" class="form-control dropdown-toggle" id="nationalitySearch" name="nationality" placeholder="Nationality" data-toggle="dropdown">
-                    <input type="hidden" name="nationalityId">
-                    <input type="hidden" name="nationalityCode">
-                    <input type="hidden" name="countryCode">
+                    <input type="hidden" name="nationalityId" id="nationalityId">
+                    <input type="hidden" name="nationalityCode" id="nationalityCode">
+                    <input type="hidden" name="countryCode" id="countryCode">
                     <div class="dropdown-menu hide" id="nationality-dropdown">
                         <ul id="ul-nationality"></ul>
                     </div>
@@ -59,14 +62,14 @@
                                 <div class="input-group-btn">
                                     <button type="button" class="btn btn-min"></button>
                                 </div>
-                                <input type="text" class="form-control" name="noOfRooms"  value="1" readonly />
+                                <input type="text" class="form-control" name="noOfRooms" id="noOfRooms"  value="1" readonly />
                                 <div class="input-group-btn">
                                     <button type="button" class="btn btn-plus"></button>
                                 </div>
                             </div>
                         </div>
                         <ul class="form-group-room">
-                            <li>
+                            <li id="roomDIV1">
                                 <div class="form-group-room-title">ROOM 1</div>
                                 <div class="row gutter5">
                                     <div class="col-sm-6">

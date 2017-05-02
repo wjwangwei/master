@@ -63,7 +63,12 @@
                                 <li>
                                     #foreach($image in $hotel.pictures)
                                         #set($i = $foreach.count - 1)
-                                        <a data-slide-index="$i" href="#"><img src="$imgBaseUrl$image!small" alt=""></a>
+                                        #if($i>9)
+                                            <a style="display:none;" data-slide-index="$i" href="#"><img src="$imgBaseUrl$image!small" alt=""></a>
+                                        #else
+                                            <a data-slide-index="$i" href="#"><img src="$imgBaseUrl$image!small" alt=""></a>
+                                        #end
+
                                     #end
                                 </li>
                             </ul>
@@ -286,7 +291,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <label>&nbsp;</label>
-                                    <button type="submit" class="btn btn-md btn-block btn-flat-purple arrow-right booknow" data-hotelid="$hotel.hotelId" data-roomcode="todo">BOOK NOW</button>
+                                    <button type="submit" class="btn btn-md btn-block btn-flat-purple arrow-right booknow" data-hotelid="$hotel.hotelId">BOOK NOW</button>
                                 </div>
                             </div>
                         </div>
@@ -318,11 +323,13 @@
                                     #end
                                 </div>
                                 <div class="room-policy">
-                                    #if($availability.hotelRooms.policies)
-                                        <a href="#" class="text-blue view-policy" data-request='$policyRequests.get($i)'>View Policy</a>
+                                    #if($availability.hotelRooms.policies.policies)
+                                        <!--<a href="#" class="text-blue view-policy" data-request='$policyRequests.get($i)'>View Policy</a>-->
+                                        <div class="room-policy">Free Cancellation<span class="ico ico-question-circle-purple" data-toggle="tooltip" title="" data-original-title="Free cancellation can be made before 2017-05-04T23:59:59"></span></div>
                                     #else
-                                        <a href="#" class="text-blue xhrGetPolicy" data-request='$policyRequests.get($i)'>View Policy</a>
+                                        <a href="javascript:void(0);" class="text-blue xhrGetPolicy" data-request='$policyRequests.get($i)'>View Policy</a>
                                     #end
+                                    <!--
                                     <span class="ico ico-question-circle-purple" data-toggle="tooltip" title="Policy information goes here..."></span>
                                     <div class="policy-html panel panel-body hide" style="position: absolute; z-index: 2000; border: 1px solid #CCC;">
                                         <button type="button" class="close view-policy"><span>×</span></button>
@@ -330,6 +337,7 @@
                                             Policy content shows here
                                         </div>
                                     </div>
+                                    -->
                                 </div>
                                 <div class="room-price">
                                     #if($formatter.getPercentage($availability.totalRate, $availability.totalOriginalRate) > 0)
@@ -340,13 +348,14 @@
                                     #end
                                     <div class="price-amount">
                                         <div class="price-amount-value">$formatter.getCurrency($availability.currency) $availability.totalRate <!--<span class="ico ico-question-circle-purple" data-toggle="tooltip" title="Price information goes here..."></span>--></div>
-                                        <div class="price-amount-notes">Rooms per night</div>
+                                        <!--<div class="price-amount-notes">Rooms per night</div>-->
+                                        <div class="price-amount-notes">Total rate</div>
 
 
                                     </div>
                                 </div>
                                 <div class="room-action">
-                                    <a href="#" data-hotelid="$availability.hotelId" data-request='$verifyRequests.get($i)' class="btn btn-block btn-flat-purple booknow">BOOK NOW<span class="ico ico-arrow-right"></span></a>
+                                    <a href="#" data-hotelid="$availability.hotelId" data-request='$verifyRequests.get($i)' data-queryid="$queryId" class="btn btn-block btn-flat-purple booknow">BOOK NOW<span class="ico ico-arrow-right"></span></a>
                                 </div>
                             </div>
                             #set($i = $i + 1)

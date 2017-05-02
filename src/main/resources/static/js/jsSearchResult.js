@@ -46,7 +46,7 @@ $(function () {
                 $("#no-room-modal").modal('show');
             } else {
                 //for test
-                var bookingPage = '/hotel/booking/' + $this.attr('data-hotelid') + "/12345";
+                var bookingPage = '/hotel/booking/' + $this.attr('data-hotelid') + "/" + $this.attr('data-queryid');
                 window.location.href = bookingPage;
             }
 
@@ -99,7 +99,7 @@ $(function () {
     $(".sortprice").click(function () {
         NProgress.start();
         var order = $(this).attr('data-sortprice');
-        $(this).queryHotelXhr(HOTEL_SEARCH_API, window.location.search + "&sort_order=" + order, $(this), false, function () {
+        $(this).queryHotelXhr(HOTEL_SEARCH_API, window.location.search + "&sortOrder=" + order, $(this), false, function () {
             NProgress.done();
             window.location.reload();
         });
@@ -120,18 +120,63 @@ $(function () {
         var $this = $(this);
         var policyRequest = $(this).attr('data-request');
         console.log(policyRequest);
-
+        $.growl.notice({
+            // title: "checking availability",
+            message: "We're getting the cancellation policy, please wait...",
+            duration: 1000
+        });
         $(this).queryHotelXhrPost(HOTEL_ROOM_POLICY_API,
             policyRequest,
             $(this), function (response) {
             console.log(response);
-            var policyHtml = response.policies;
+            var policyText = "Non Refundable";
+            if(response.refundable == "true") {
+                policyText = "Free Cancellation";
+            }
+
+            console.log("policy text:", policyText);
+            var policyDetail = response.policies;
+            console.log("text in popup:", policyDetail);
+            var policyHtml = policyText + "<span class=\"ico ico-question-circle-purple\" data-toggle=\"tooltip\" title=\"\" data-original-title=\"" + policyDetail  + "\"></span>";
+            console.log("policy html:", policyHtml);
+
+            $this.parent().html(policyHtml);
+            $('[data-toggle="tooltip"]').tooltip({
+                container: 'body'
+            });
+            /*
             $this.removeClass('xhrGetPolicy');
             $this.addClass('view-policy')
 
             $this.next('.policy-html').removeClass('hide');
             $this.next('.policy-content').html(policyHtml);
+            */
         });
+    });
+
+    $('.downloadvoucher').click(function () {
+        var $this = $(this);
+        var orderId = $(this).attr('orderid');
+        console.log("download voucher:", orderId);
+
+        $(this).ajaxGet(HOTEL_HOTELVOUCHER_API,
+            "orderId=" + orderId,
+            $(this), function (response) {
+                console.log(response);
+                window.location=response.voucherUrl;
+            });
+    });
+
+    $('.cancelbooking').click(function () {
+        var request = $(this).attr('data-request');
+        console.log("cancel request:", request);
+
+        $(this).queryHotelXhrPost(HOTEL_CANCEL_API,
+            request,
+            $(this), function (response) {
+                console.log(response);
+                //window.location=response.voucherUrl;
+            });
     });
 });
 

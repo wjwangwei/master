@@ -1,16 +1,13 @@
 package com.nehow.controllers;
 
 import cn.mogutrip.hotel.common.entity.Hotel;
-import cn.mogutrip.hotel.common.entity.HotelAvailabilityResponse;
+import cn.mogutrip.hotel.common.entity.SearchAvailabilityRequest;
 import cn.mogutrip.hotel.common.entity.SearchAvailabilityResponse;
 import cn.mogutrip.hotel.common.entity.SearchHotelAvailabilities;
 import cn.mogutrip.hotel.common.utils.JsonUtil;
-import cn.mogutrip.hotel.order.entity.Order;
-import cn.mogutrip.hotel.order.entity.OrderRoom;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import cn.mogutrip.hotel.order.entity.*;
 import com.nehow.models.*;
-import com.nehow.services.CommonUtils;
+import com.nehow.services.Context;
 import com.nehow.services.CurrencyUtils;
 import com.nehow.services.WebserviceManager;
 import net.sf.json.JSONObject;
@@ -23,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -39,11 +35,12 @@ public class HotelController extends BaseController {
 
     @RequestMapping("/search-result")
     public String search(
-            @RequestParam("cityId") int cityId,
-            @RequestParam("nationalityId") int nationalityId,
+            @RequestParam("cityId") String cityId,
+            @RequestParam("nationalityId") String nationalityId,
             @RequestParam("checkIn") String checkIn,
             @RequestParam("checkOut") String checkOut,
             @RequestParam("noOfRooms") int noOfRooms,
+            @RequestParam("queryId") String queryId,
             HttpServletRequest request,
             Map<String, Object> model) {
 
@@ -51,15 +48,20 @@ public class HotelController extends BaseController {
         model.put("checkout", checkOut);
         model.put("roomcount", noOfRooms);
 
-        model.put("adultcount", request.getParameter("adultCount"));
-        model.put("childcount", request.getParameter("childCount"));
-        model.put("childage", request.getParameter("infantCount"));
+        String adultCount = request.getParameter("adultCount");
+        String childCount = request.getParameter("childCount");
+        String infantCount = request.getParameter("infantCount");
+        model.put("adultcount", adultCount);
+        model.put("childcount", childCount);
+        model.put("childage", infantCount);
 
-        SearchAvailabilityResponse searchResponse = (SearchAvailabilityResponse) context.getAttribute(kHotels);
+        SearchAvailabilityResponse searchResponse = Context.getSearchResult(queryId);
         model.put("requestParam", request);
-        model.put("pictureUrl", CommonUtils.getPicBaseUrl());
+
+        model.put("pictureUrl", Context.getPicBaseUrl());
         model.put("searchResponse", searchResponse);
         model.put("math", new MathTool());
+        model.put("queryId", queryId);
 
 
 
@@ -84,11 +86,16 @@ public class HotelController extends BaseController {
 
             try {
                 Map<String, List<String>> hotelVerifyRequest = new HashMap<>();
+                Map<String, List<String>> hotelPolicyRequest = new HashMap<>();
                 for(SearchHotelAvailabilities hotelAv : availabilities){
                     String hotelId = hotelAv.getHotel().getHotelId();
-                    List<String> verifyRequests = buildVerifyRequestForHotel(hotelAv);
+                    List<String> verifyRequests = buildVerifyRequestForHotel(queryId, hotelAv);
                     hotelVerifyRequest.put(hotelId, verifyRequests);
+                    List<String> policyRequests = buildPolicyRequestForHotel(queryId, hotelAv);
+                    hotelPolicyRequest.put(hotelId, policyRequests);
+
                 }
+                model.put("hotelPolicyRequests", hotelPolicyRequest);
                 model.put("hotelVerifyRequests", hotelVerifyRequest);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -105,9 +112,34 @@ public class HotelController extends BaseController {
 
             try {
                 int currentPage = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
+                int hotelCnt = searchResponse.getHotelCount();
+                int hotelCntPerPage = Context.getHotelCntPerPage();
+                if(hotelCnt < hotelCntPerPage){
+                    model.put("pagination", "false");
+                }
+                else{
+                    model.put("pagination", "true");
+                }
                 model.put("currentPage", currentPage);
-                model.put("nextPage", currentPage + 1);
-                model.put("paginateElipse", currentPage + 2);
+                if(currentPage + hotelCntPerPage < hotelCnt){
+                    model.put("nextPage", currentPage + 1);
+                }
+                else{
+                    model.put("nextPage", currentPage);
+                }
+                if(currentPage + hotelCntPerPage * 2 < hotelCnt){
+                    model.put("paginateElipse", currentPage + 2);
+                }
+                else if(currentPage + hotelCntPerPage * 1 <= hotelCnt){
+                    model.put("paginateElipse", currentPage + 1);
+                }
+                else{
+                    model.put("paginateElipse", currentPage);
+                }
+
+
+                //model.put("nextPage", currentPage + 1);
+                //model.put("paginateElipse", currentPage + 2);
             } catch (Exception e) {
             }
             isResultAvail = true;
@@ -129,9 +161,9 @@ public class HotelController extends BaseController {
 
     }
 
-    @RequestMapping("/booking/{hotelId}/{roomCode}")
-    public String booking(@PathVariable("hotelId")String hotelId, @PathVariable("roomCode")String roomCode, Map<String, Object> model) {
-        JSONObject request = (JSONObject) context.getAttribute(kRequest);
+    @RequestMapping("/booking/{hotelId}/{queryId}")
+    public String booking(@PathVariable("hotelId")String hotelId, @PathVariable("queryId")String queryId, Map<String, Object> model) {
+        SearchAvailabilityRequest request = Context.getSearchRequest(queryId);
         SearchAvailabilityResponse searchResponse = apiManager.getHotelAvailability(request, hotelId);
         if (searchResponse.getHotelCount() > 0) {
             model.put("hotel", searchResponse.getHotelAvailabilities().get(0).getHotel());
@@ -148,11 +180,13 @@ public class HotelController extends BaseController {
     }
 
     @RequestMapping("/detail")
-    public String hotel(@RequestParam("hotelId") String hotelId, Map<String, Object> model) {
-        JSONObject request = (JSONObject) context.getAttribute(kRequest);
-        SearchAvailabilityResponse searchResponse = (SearchAvailabilityResponse) context.getAttribute(kHotelAvailability);
+    public String hotel(@RequestParam("queryId") String queryId, @RequestParam("hotelId") String hotelId, Map<String, Object> model) {
+        SearchAvailabilityRequest searchRequest = Context.getSearchRequest(queryId);
+        //SearchAvailabilityResponse searchResponse = Context.getHotelAvailability(queryId, hotelId);
+        SearchAvailabilityResponse searchResponse = Context.getSearchResult(queryId);
+
         if (searchResponse == null) {
-            searchResponse = apiManager.getHotelAvailability(request, hotelId);
+            searchResponse = apiManager.getHotelAvailability(searchRequest, hotelId);
         }
         Hotel hotel = apiManager.getHotel(hotelId);
         if (searchResponse.getHotelCount() > 0) {
@@ -165,9 +199,9 @@ public class HotelController extends BaseController {
                 }
             }
             try {
-                List<String> verifyRequests = buildVerifyRequestForHotel(hotelAvailability);
+                List<String> verifyRequests = buildVerifyRequestForHotel(queryId, hotelAvailability);
                 model.put("verifyRequests", verifyRequests);
-                List<String> policyRequests = buildPolicyRequestForHotel(hotelAvailability);
+                List<String> policyRequests = buildPolicyRequestForHotel(queryId, hotelAvailability);
                 model.put("policyRequests", policyRequests);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -180,15 +214,17 @@ public class HotelController extends BaseController {
             model.put("hotelFacilities", JSONObject.fromObject(hotel.getFacilities()));
             model.put("hotelPolicies", JSONObject.fromObject(hotel.getPolicies()));
 
-            model.put("request", request);
+            model.put("request", searchRequest);
+            model.put("queryId", queryId);
             String imgUrl = hotel.getPictureId().split(".jpg")[0];
-            model.put("imgBaseUrl", CommonUtils.getPicBaseUrl() + imgUrl.substring(0, imgUrl.length() - 1));
+            model.put("imgBaseUrl", Context.getPicBaseUrl() + imgUrl.substring(0, imgUrl.length() - 1));
             model.put("formatter", new CurrencyUtils());
             model.put("duration", 1);
             model.put("noOfRooms", 1);
             model.put("noOfAdults", 1);
             model.put("noOfChild", 1);
             model.put("math", new MathTool());
+
         }
         return "hotel/hotel";
     }
@@ -196,15 +232,106 @@ public class HotelController extends BaseController {
     @RequestMapping("/bookingconfirm/{hotelId}/{orderId}")
     public String bookingConfirm(@PathVariable("hotelId")String hotelId, @PathVariable("orderId")String orderId, Map<String, Object> model) {
         Order order = apiManager.getHotelOrderDetail(orderId);
-        String orderStatus = order.getOrderStatus().getDescription();
         List<OrderRoom> rooms = order.getRooms();
-        Map<String, String> roomWithGuests = new HashMap<>();
+        Map<String, List<Guest>> orderRoomGuests = order.getRoomGuests();
+        Map<String, String> roomNameWithGuests = new HashMap<>();
         for(OrderRoom room : rooms){
             String roomIndex = room.getRoomIndex();
-
+            String roomName = room.getRoomName();
+            int roomCount = room.getRoomCount();
+            List<Guest> guests = orderRoomGuests.get(roomIndex);
+            String guestAdult = "";
+            String guestChild = "";
+            for(Guest guest : guests){
+                String guestName = guest.getFullName();
+                if(guest.getGuestType().equals(GuestType.ADULT)){
+                    if(guestAdult.equals("")){
+                        guestAdult = guestName;
+                    }
+                    else{
+                        guestAdult = guestAdult + "," + guestName;
+                    }
+                }
+                else{
+                    if(guestChild.equals("")){
+                        guestChild = guestName;
+                    }
+                    else{
+                        guestChild = guestChild + "," + guestName;
+                    }
+                }
+            }
+            String guestText = guestAdult;
+            if(!guestChild.equals("")){
+                guestText = guestText + " with kid(s):" + guestChild;
+            }
+            String roomNameText = roomName + " x " + String.valueOf(roomCount);
+            roomNameWithGuests.put(roomNameText, guestText);
         }
+        List<OrderPolicy> orderPolicies = order.getPolicies();
+        String cancellationPolicy = "This rate is non-refundable and cannot be changed or cancelled - if you do choose to change or cancel this booking you will not be refunded any of the payment.";
+        String refundable = "false";
+        String changeNamePolicy = "Not allowed";
+        String amdendmentPolicy = "Not allowed";
+
+        for(OrderPolicy policy : orderPolicies){
+            String policyType = policy.getPolicyType();
+            String chargeable = policy.getChargeable();
+            String allowable = policy.getAllowable();
+            if(policyType.equals("cancellation") && chargeable.equals("false")){
+                cancellationPolicy = "Free cancellation can be made before " + policy.getStartDate();
+                refundable = "true";
+            }
+            if(policyType.equals("changename")){
+                if(allowable.equals("true")){
+                    changeNamePolicy = "Change name is allowed";
+                }
+            }
+            if(policyType.equals("amendment")){
+                if(allowable.equals("true")){
+                    changeNamePolicy = "Order amendment is allowed";
+                }
+            }
+        }
+        String showToolbar = "true";
+        String orderStatus = order.getOrderStatus().getDescription();
+        System.out.println(orderStatus);
+        //for status BOOKING_CONFIRMED, CANCELLATION_FAILED, use default config:
+        //showToolbar = true
+        if(order.getOrderStatus().equals(OrderStatus.BOOKING_FAILED)){
+            showToolbar = "false";
+        }
+        else if(order.getOrderStatus().equals(OrderStatus.BOOKING_NO_ROOM)){
+            showToolbar = "false";
+        }
+        else if(order.getOrderStatus().equals(OrderStatus.CANCELLATION_CONFIRMED)){
+            showToolbar = "false";
+            refundable = "false";
+        }
+        else if(order.getOrderStatus().equals(OrderStatus.ORDER_CLOSED)){
+            refundable = "false";
+        }
+
+        String totalAmount = order.getOrderPrice().getTotalAmount().toString();
+        totalAmount = totalAmount.substring(0, totalAmount.indexOf(".") + 2);
+        //JSONObject hotelPolicies = JSONObject.fromObject(order.getHotel().getPolicies());
+        Map<String, String> hotelPolicies = new HashMap<>();
+        hotelPolicies.put("Cancellation Policy", cancellationPolicy);
+        hotelPolicies.put("Change Name Policy", changeNamePolicy);
+        hotelPolicies.put("Amendment Policy", amdendmentPolicy);
+        model.put("refundable", refundable);
+        model.put("showtoolbar", showToolbar);
+        model.put("orderstatus", orderStatus);
         model.put("order", order);
         model.put("math", new MathTool());
+        model.put("totalamount", totalAmount);
+        model.put("roomlist", roomNameWithGuests);
+        model.put("hotelpolicies", hotelPolicies);
+
+        CancellationRequest cancellationRequest = new CancellationRequest();
+        order.setOrderType(OrderType.CANCELLATION);
+        cancellationRequest.setOrder(order);
+        model.put("cancellationrequest", JsonUtil.toJson(cancellationRequest));
 
         return "hotel/bookingconfirm";
     }

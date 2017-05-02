@@ -1,6 +1,7 @@
 package com.nehow.services;
 
 //import com.nehow.models.HotelAvailability;
+import cn.mogutrip.hotel.common.entity.Limit;
 import cn.mogutrip.hotel.common.entity.SearchAvailabilityResponse;
 import net.sf.json.JSONObject;
 
@@ -24,7 +25,7 @@ public class Pagination {
     /** Member identifier for the number of pages you have in the navigation (i.e 2 to  11 or 3 to 12 etc.) */
     private int pageNumberInNavigation;
 
-    public JSONObject query;
+    public Limit query;
 
     private SearchAvailabilityResponse hotelSearchResponse;
 
@@ -35,11 +36,11 @@ public class Pagination {
         this.hotelSearchResponse = hotelSearchResponse;
     }
 
-    public JSONObject getPaginateObject(){
-        JSONObject query = new JSONObject();
+    public Limit getLimitObject(){
+        Limit query = new Limit();
         int from = ((currentPageNo - 1) * elementsPerPage);
-        query.put("start", from);
-        query.put("length", elementsPerPage);
+        query.setStart(from);
+        query.setLength(elementsPerPage);
         this.query = query;
         return this.query;
     }

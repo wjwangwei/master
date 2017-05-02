@@ -133,7 +133,7 @@
                                         </div>
                                         <div class="col-md-5">
                                             <label>Last Name</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                     </div>
                                     <hr class="break break10">
@@ -146,10 +146,10 @@
                                             </select>
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                     </div>
                                     <hr class="break break10">
@@ -162,10 +162,10 @@
                                             </select>
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                     </div>
                                 </div>
@@ -188,11 +188,11 @@
                                         </div>
                                         <div class="col-md-5">
                                             <label>First Name</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                         <div class="col-md-5">
                                             <label>Last Name</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                     </div>
                                     <hr class="break break10">
@@ -205,10 +205,10 @@
                                             </select>
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                     </div>
                                     <hr class="break break10">
@@ -221,10 +221,10 @@
                                             </select>
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" placeholder="" maxlength="31" oninput="inputValToUpperCase(this)" onpropertychange="inputValToUpperCase(this)">
                                         </div>
                                     </div>
                                 </div>
@@ -241,42 +241,42 @@
                             <h5>Special Options</h5>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
-                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
+                                    <div class="form-group"><div class="checkbox"><label><input type="checkbox" class="checkbox-square" name="specialOpt" value="1"> Special Option1</label></div></div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control"></textarea>
+                                <textarea class="form-control" id="optionTEXT"></textarea>
                             </div>
-                            <a href="#" class="btn btn-yellow">Booking Now<i class="ico ico-arrow-circle-right"></i></a>
+                            <a href class="btn btn-yellow" id="bookNowBTN">Booking Now<i class="ico ico-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>

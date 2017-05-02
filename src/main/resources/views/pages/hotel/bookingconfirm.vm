@@ -12,23 +12,25 @@
                 </ul>
             </div>
 
-            <div class="alert alert-success alert-icon">
-                <span class="text-green">Your booking Confirmed.</span> Your credit card has beed charged the full amount of this Booking. Thank you.
-            </div>
-
             <div id="main-contents">
                 <div id="main">
+                    #if($showtoolbar.equals("true"))
                     <div class="row gutter10">
                         <div class="col-sm-4">
-                            <a href="#" class="btn btn-block btn-flat"><i class="ico ico-booking-print"></i>VIEW AND PRINT VOUCHER</a>
+                            <a href="#" orderid="$order.orderId" class="btn btn-block btn-flat downloadvoucher"><i class="ico ico-booking-print"></i>VIEW AND DOWNLOAD VOUCHER</a>
                         </div>
+                        <!--
                         <div class="col-sm-4">
-                            <a href="#" class="btn btn-block btn-flat"><i class="ico ico-booking-email"></i>SEND VOUCHER AS EMAIL</a>
+                            <a href="#" orderid="$order.orderId" class="btn btn-block btn-flat emailvoucher"><i class="ico ico-booking-email"></i>SEND VOUCHER AS EMAIL</a>
                         </div>
+                        -->
+                        #if($refundable.equals("true"))
                         <div class="col-sm-4">
-                            <a href="#" class="btn btn-block btn-flat"><i class="ico ico-booking-cancel"></i>CANCEL BOOKING</a>
+                            <a href="#" data-request='$cancellationrequest' class="btn btn-block btn-flat cancelbooking"><i class="ico ico-booking-cancel"></i>CANCEL BOOKING</a>
                         </div>
+                        #end
                     </div>
+                    #end
                     <hr class="break break20">
                     <div class="booking-detail booking-detail-overview">
                         <div class="booking-detail-titles">
@@ -70,61 +72,26 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                #foreach($room in $roomlist.entrySet())
                                 <tr>
-                                    <td>Superior Room, 1</td>
-                                    <td>Andrew Xu</td>
+                                    <td>${room.key}</td>
+                                    <td>${room.value}</td>
                                 </tr>
-                                <tr>
-                                    <td>Superior Room, 1</td>
-                                    <td>Andrew Xu</td>
-                                </tr>
-                                <tr>
-                                    <td>Superior Room, 1</td>
-                                    <td>Andrew Xu</td>
-                                </tr>
-                                <tr>
-                                    <td>Superior Room, 1</td>
-                                    <td>Andrew Xu</td>
-                                </tr>
-                                <tr>
-                                    <td>Superior Room, 1</td>
-                                    <td>Andrew Xu</td>
-                                </tr>
-                                <tr>
-                                    <td>Superior Room, 1</td>
-                                    <td>Andrew Xu</td>
-                                </tr>
-                                <tr>
-                                    <td>Superior Room, 1</td>
-                                    <td>Andrew Xu</td>
-                                </tr>
-                                <tr>
-                                    <td>Superior Room, 1</td>
-                                    <td>Andrew Xu</td>
-                                </tr>
-                                <tr>
-                                    <td>Superior Room, 1</td>
-                                    <td>Andrew Xu</td>
-                                </tr>
-                                <tr>
-                                    <td>Superior Room, 1</td>
-                                    <td>Andrew Xu</td>
-                                </tr>
+                                #end
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div class="booking-detail">
                         <div class="booking-detail-heading">
-                            <h3 class="has-icon icon-checkmark-square">Checkin Informations</h3>
+                            <h3 class="has-icon icon-checkmark-square">Policies</h3>
                         </div>
                         <div class="booking-detail-body">
                             <hgroup>
                                 <ul class="checkmark-circle">
-                                    <li>Extra person charges may apply and vary depending on holel policy.</li>
-                                    <li>Government - issues photo identifications and a credit card or cash deposit are required at checkin for incidental charges.</li>
-                                    <li>Special requests are subject to availabilty upon check-in and may incur additional charges.</li>
-                                    <li>Specal request cannot be Guarandeed.</li>
+                                    #foreach($policy in $hotelpolicies.entrySet())
+                                    <li>$policy.key : $policy.value</li>
+                                    #end
                                 </ul>
                             </hgroup>
                         </div>
@@ -150,21 +117,22 @@
                     <div class="widget widget_booking_confirmed">
                         <div class="booking-ref">
                             <label>Booking Reference</label>
-                            <div class="booking-ref-num"># 23456780234</div>
+                            <div class="booking-ref-num"># $order.orderId</div>
                         </div>
                         <div class="booking-conf-dates">
-                            <label>Booking Confirmed</label>
+                            <label>$orderstatus</label>
                             <ul>
                                 <li>
                                     <div class="conf-dates-label">Check - in</div>
-                                    <div class="conf-dates-date">October 25, 2016</div>
+                                    <div class="conf-dates-date">$order.checkIn</div>
                                 </li>
                                 <li>
                                     <div class="conf-dates-label">Check - out</div>
-                                    <div class="conf-dates-date">November 1, 2016</div>
+                                    <div class="conf-dates-date">$order.checkOut</div>
                                 </li>
                             </ul>
                         </div>
+                        <!--
                         <div class="booking-conf-prices">
                             <ul>
                                 <li>
@@ -175,17 +143,19 @@
                                     <div class="conf-price-label">1 Room x 1 Night :</div>
                                     <div class="conf-price-amount">$124.47 <span class="ico ico-question-circle"><span></div>
                                 </li>
+
                                 <li>
                                     <div class="conf-price-label">Taxes and fees :</div>
                                     <div class="conf-price-amount">$23.70</div>
                                 </li>
                             </ul>
                         </div>
+                        -->
                         <div class="booking-conf-prices">
                             <ul>
                                 <li>
                                     <div class="conf-price-label">Total charges :</div>
-                                    <div class="conf-price-amount">$148.17</div>
+                                    <div class="conf-price-amount">$order.orderPrice.customerCurrency $totalamount</div>
                                 </li>
                             </ul>
                         </div>

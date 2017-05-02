@@ -11,6 +11,8 @@ public class WebserviceProperties {
 
     private String suppliers;
 
+    private String userandvoucherurl;
+
     public String getRootUrl() {
         return rooturl;
     }
@@ -23,10 +25,17 @@ public class WebserviceProperties {
         return bookingrooturl;
     }
 
+    public String getUserAndVoucherUrl() {
+        return userandvoucherurl;
+    }
+
     public void setBookingrooturl(String bookingrooturl) {
         this.bookingrooturl = bookingrooturl;
     }
 
+    public void setUserandvoucherurl(String userandvoucherurl) {
+        this.userandvoucherurl = userandvoucherurl;
+    }
     public String getSuppliers() {
         return suppliers;
     }

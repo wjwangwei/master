@@ -70,7 +70,7 @@ $(document).ready(function(){
 
 	// Bootstrap
 	$('[data-toggle="tooltip"]').tooltip({
-		container: 'hotelSearchody'
+		container: 'body'
 	});
 	$('[data-toggle="popover"]').popover({
 		container: 'body'

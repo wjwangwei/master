@@ -63,6 +63,35 @@ var lastHotelCount;
         // })()
     };
 
+    $.fn.ajaxGet = function (url, data, btn, funcResponse) {
+        // (function () {
+        $.ajax({
+            url: url,
+            data: data,
+            dataType: 'JSON',
+            timeout: 1000,
+            type: 'GET',
+            beforeSend: function () {
+                btn.addClass('disabled');
+            },
+            success: function (response) {
+                funcResponse(response)
+            },
+            complete: function () {
+                btn.removeClass('disabled');
+            },
+            error: function () {
+                NProgress.done();
+                $.growl.error({
+                    title: "Request failed",
+                    message: 'Sorry, your request failed. Please try again later.'
+                });
+                return false;
+            }
+        });
+        // })()
+    };
+
     $.fn.queryHotelXhrPost = function (url, data, btn, funcResponse) {
         // (function () {
         $.ajax({
