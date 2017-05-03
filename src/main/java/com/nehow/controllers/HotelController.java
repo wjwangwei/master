@@ -70,11 +70,11 @@ public class HotelController extends BaseController {
             //List<HotelAvailability> availabilities = Arrays.asList(searchResponse.getHotelAvailabilities());
             List<SearchHotelAvailabilities> availabilities = searchResponse.getHotelAvailabilities();
 
-            Map<Integer, Integer> starRatingCount = new HashMap<>();
-            Set<Integer> rating = new TreeSet<>();
+            Map<Integer, Integer> starRatingCount = new HashMap<Integer, Integer>();
+            Set<Integer> rating = new TreeSet<Integer>();
 
-            Set<String> score = new HashSet<>();
-            Map<String, Integer> scoreRatingCount = new HashMap<>();
+            Set<String> score = new HashSet<String>();
+            Map<String, Integer> scoreRatingCount = new HashMap<String, Integer>();
 
             availabilities.stream().forEach(o -> rating.add((int)Math.round(o.getHotel().getStarRating()/10.0)));
             rating.stream().forEach(a -> starRatingCount.put(a, availabilities.stream().filter(o -> (int)Math.round(o.getHotel().getStarRating()/10.0) == a).toArray().length));

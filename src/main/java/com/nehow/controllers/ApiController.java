@@ -1,20 +1,18 @@
 package com.nehow.controllers;
 
 import cn.mogutrip.core.common.utils.DateUtil;
-import cn.mogutrip.hotel.business.entity.*;
 import cn.mogutrip.hotel.common.entity.*;
-import cn.mogutrip.hotel.common.entity.ExchangeRate;
-import cn.mogutrip.hotel.common.generator.supplier.sunhotel.ws.Search;
 import cn.mogutrip.hotel.common.utils.JsonUtil;
+import cn.mogutrip.hotel.order.CreateOrderRequest;
+import cn.mogutrip.hotel.order.entity.Order;
+import cn.mogutrip.hotel.order.entity.OrderType;
 import cn.mogutrip.hotel.suggestion.entity.Destination;
 import cn.mogutrip.hotel.suggestion.entity.Nationality;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nehow.models.*;
+import com.nehow.models.Policies;
+import com.nehow.models.Voucher;
 import com.nehow.services.Context;
 import com.nehow.services.Pagination;
 import com.nehow.services.WebserviceManager;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,10 +20,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -336,6 +330,15 @@ public class ApiController extends BaseController {
         catch(Exception e){
         }
 
+        CreateOrderRequest createOrderRequest = new CreateOrderRequest();
+        createOrderRequest.setQueryId(queryId);
+        Order order = createOrderRequest.getOrder();
+        order.setOrderType(OrderType.BOOKING);
+        String orderId = apiManager.getOrderId();
+        order.setOrderId(orderId);
+        String customerId = Context.getCustomerId();
+        order.setCustomerId(Integer.parseInt(customerId));
+        //order.setUserName();
 
 
         String ret = "{\"status\":\"success\"}";

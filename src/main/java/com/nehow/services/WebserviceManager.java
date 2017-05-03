@@ -306,4 +306,12 @@ public class WebserviceManager {
         policy.setPolicies(policyText);
         return policy;
     }
+
+    public String getOrderId()
+    {
+        String strUrl = "/sequence/next-value?name=order.order_id";
+        String requestUrl = svcProperty.getRootUrl() + strUrl;
+        ResponseEntity<String> resp = restTemplate.getForEntity(requestUrl, String.class);
+        return resp.getBody();
+    }
 }

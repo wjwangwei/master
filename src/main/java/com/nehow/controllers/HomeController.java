@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
-import static com.nehow.services.TestRequests.request;
+//import static com.nehow.services.TestRequests.request;
 
 /**
  * Created by Igbalajobi Jamiu Okunade on 4/11/17.
