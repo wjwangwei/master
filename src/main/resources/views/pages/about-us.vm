@@ -1,1 +1,4 @@
 #set($title = "About Us")
+<div class="hero-content">
+    <h1>ABOUT US</h1>
+  </div>
