@@ -1,25 +1,22 @@
 package com.nehow.services;
 
 
-import cn.mogutrip.hotel.business.entity.*;
 import cn.mogutrip.hotel.business.entity.ExchangeRate;
 import cn.mogutrip.hotel.common.entity.*;
 import cn.mogutrip.hotel.common.utils.JsonUtil;
 import cn.mogutrip.hotel.order.entity.Order;
 import cn.mogutrip.hotel.suggestion.entity.Destination;
 import cn.mogutrip.hotel.suggestion.entity.Nationality;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nehow.models.*;
-import net.sf.json.JSON;
+import com.nehow.models.LoginStatus;
+import com.nehow.models.Policies;
+import com.nehow.models.Voucher;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;

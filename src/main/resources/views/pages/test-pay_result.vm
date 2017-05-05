@@ -1,0 +1,2 @@
+#set($title = "Test Pay result")
+${payresult}

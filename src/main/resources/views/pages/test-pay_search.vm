@@ -1,0 +1,53 @@
+#set($title = "Test Pay search")
+<table border="1" style="width: 100%">
+    <thead>
+    <tr><th>ID</th><th>金额</th><th>是否支付</th><th>操作</th></tr>
+    </thead>
+    <tbody>
+#foreach($cc in ${chargeList})
+    <tr>
+        <td>$cc.id </td>
+        <td>$cc.amount/100 </td>
+        <td>$cc.paid </td>
+        <td><input id="refund" type="button" value="退款" onclick='refund("$cc.id","$cc.amount");'/> </td>
+    </tr>
+
+#end
+    </tbody>
+</table>
+
+<script type="text/javascript">
+
+
+    function refund(chid,amount){
+alert(chid);
+        ajaxRequest({chid: chid, amount: amount});
+    }
+    function ajaxRequest(parameters) {
+        var chid = parameters.chid;
+        var amount = parameters.amount;
+        $.ajax({
+            url: "http://localhost:9090/refund/refundtest",
+            type: "POST",
+            dataType: "json",
+            data: {
+                "chid": chid,
+                "amount": amount
+            },
+            success: function(refund){
+                alert(refund);
+
+
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+
+                alert(XMLHttpRequest.responseText);
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus); // parser error;
+
+            }
+        });
+    }
+</script>
+

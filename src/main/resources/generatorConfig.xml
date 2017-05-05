@@ -7,6 +7,8 @@
     <!--导入属性配置-->
     <!--<properties resource="generator.properties"></properties>-->
 
+    <classPathEntry location="d:\duoduotrip\agent\lib\pingpp-java-2.2.3.jar"/>
+
     <!--指定特定数据库的jdbc驱动jar包的位置-->
     <classPathEntry location="d:\duoduotrip\agent\lib\mysql-connector-java-5.1.30.jar"/>
 

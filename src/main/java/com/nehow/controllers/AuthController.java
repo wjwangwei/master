@@ -4,7 +4,6 @@ import com.nehow.services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -33,10 +32,13 @@ public class AuthController extends BaseController {
         return "auth/reset-password";
     }
 
-    @RequestMapping(value = "/sign-up", method = RequestMethod.POST)
-    public String handleSignUp() {
-        return "auth/sign-up";
-    }
+    @RequestMapping("/sign-up")
+    public String handleSignUp() {return "auth/sign-up";}
+
+//    @RequestMapping(value = "/sign-up", method = RequestMethod.POST)
+//    public String handleSignUp() {
+//      return "auth/sign-up";
+//    }
 
     @RequestMapping("/logout")
     public void logout(HttpServletResponse response) {
