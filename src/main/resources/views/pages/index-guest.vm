@@ -6,7 +6,7 @@
             <h3>Strong Supply, Competitive Rate, Efficient Technology, Quality Experience</h3>
             <p>We are a global distributor of accommodation and a professional solution to the world's travel trade.  <br>When you choose us, you choose simplicity at a click of a button.</p>
             <hr class="break break10">
-            <a href="#" class="btn btn-purple arrow-circle-right">SIGNUP NOW</a>
+            <a href="/sign-up" class="btn btn-purple arrow-circle-right">SIGNUP NOW</a>
         </div>
         <div class="form-signin">
             <div class="form-signin-heading">SIGNIN NOW!!!</div>
