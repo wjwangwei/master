@@ -1,0 +1,111 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
+<body style="font-family:Microsoft YaHei;font-size:13px;">
+<div style="height: 5px;background-color: #7030A0;"></div>
+<div style="font-size: 15px;background-color: #E7E7E7;height: 30px;line-height: 30px;text-align: center;">PLEASE PRESENT THIS VOUCHER UPON ARRIVAL</div>
+<!--<div style="margin: 39px auto 8px auto;width: 167px;height: 47px;"><img src="#logourl#" style="width:100%;height:100%;"/></div>-->
+<div style="font-size: 25px;color: #7030A0;width: 212px;margin: 39px auto 28px auto;">HOTEL VOUCHER</div>
+<div style="width:660px;margin:0 auto;height: 125px;">
+    <div style="height:165px;margin: 7px 0;">
+        <div style="float:left;width:189px;background-color:#7030A0;height: 99px;text-align:center;padding: 33px 0;">
+            <div style="font-size:15px;color:#fff">Reference Number</div>
+            <div style="font-size:22px;color:#fff;">${request.referenceCode}</div>
+        </div>
+        <div style="width: 431px;float: left;background-color: #F0F0F0;height: 145px;padding: 10px 20px;">
+            <div style="font-size:18px;font-weight:700;">${request.hotelName}</div>
+            <div style="margin-top:5px; ${request.starcss}">
+            </div>
+            #if (${request.hotelAddress})
+                <div style="margin-top:13px;"><span style="font-weight:700;">Address: </span>${request.hotelAddress}</div>
+            #end
+            <div style="margin-top:5px;">
+            #if (${request.hotelPhone})
+                <span style="font-weight:700;">Tel. </span>${request.hotelPhone}<br/>
+            #end
+            #if (${request.hotelEmail})
+                <span style="font-weight:700;">Email. </span>${request.hotelEmail}</div>
+            #end
+        </div>
+    </div>
+#if (${request.hotelConfirmationNumber})
+    <div style="border-bottom: 2px solid #D1D1D1;padding: 11px 0px;">
+        <div style="width: 230px;font-size: 16px;float: left;color: #7030A0;margin-right: 12px;">Hotel Confirmation Number</div>
+        <div style="width: 416px;float: left;word-wrap: break-word;">${request.hotelConfirmationNumber}</div>
+        <div style="clear: both;"></div>
+    </div>
+#end
+    <table style="margin-top: 15px;border-bottom:1px solid #D1D1D1;padding-bottom:12px;">
+        <tr>
+            <td style="vertical-align: top;width:93px;color:#7030A0;">Booking Info</td>
+            <td style="width:310px">
+                <div style="margin-top: -20px;"><span style="font-weight:700;">Booking No.</span>:${request.orderId}</div>
+            </td>
+            <td style="width:262px;">
+                <div style="padding-bottom: 4px;"><span style="font-weight:700;">Check-in Date</span>: ${request.checkIn} - ${request.roomNights} night(s)</div>
+                <div style="padding-bottom: 4px;"><span style="font-weight:700;">Number of rooms</span>: ${request.roomNumber}</div>
+            </td>
+        </tr>
+    </table>
+    <div style="border-bottom:1px solid #D1D1D1">
+        <div style="float:left;width:92px;color: #7030A0;padding-top:13px;" >Rooms Info</div>
+        <div style="float:left;">
+            #foreach (${room} in ${request.roomList})
+            <div style="padding-top: 13px; #if(${room.roomIndex} != "1")border-top: 1px solid #D1D1D1; #end width: 568px;">
+                <div style="float:left;width:312px;">
+                    <span style="background-color: #7030A0;width: 18px;height: 18px;display: inline-block;text-align: center;color: #FFF;border-radius: 2px;margin-right:5px;">${room.roomIndex}</span>${room.roomName}
+                    #if(${room.extraBedDesc})
+                        <div>plus extra bed:${room.extraBedDesc}</div>
+                    #end
+                </div>
+
+                <div style="float:left;width:250px;">
+                #foreach (${pax} in ${room.paxList})
+                    #if(${pax.paxType} == "adult")
+                    <div style="padding-bottom:10px;">
+                        Adult ${pax.paxIndex}:${pax.paxName}
+                    </div>
+                    #else
+                    <div style="padding-bottom:10px;">
+                        Children ${pax.paxIndex} (AGE:${pax.age}): ${pax.paxName}
+                    </div>
+                    #end
+                #end
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            #end
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div style="padding:15px 0;width:650px;">
+        <div style="padding:3px 0"><span style="font-weight:700;">Meal Basis: </span><span>${request.mealPolicy}</span></div>
+        <div style="padding:3px 0"><span style="font-weight:700;">Meal Description: </span><span>${request.mealDesc}</span></div>
+    #if(${request.addService})
+        <div style="padding:5px 0"><span style="font-weight:700;">Add Service: </span><span>${request.addService}</span></div>
+    #end
+        <div style="padding:3px 0;margin-top:10px;"><span style="font-weight:700;">Payment Details </span><br/>This voucher is valid as payment only for the above mentioned services. Any extra cost will be paid directly by the client. <span style="font-weight:700">The hotel might need credit card as a guarantee by the clients.</span></div>
+    #if(${request.remark} != "")
+        <div style="padding:3px 0;margin-top:10px;"><span style="font-weight:700;">Important Information</span><br/>${request.remark}</div>
+    #end
+        <div style="padding:3px 0;margin-top:10px;"><span style="font-weight:700;">Additional Information </span></div>
+        <div style="padding:3px 0"><span style="font-style: italic">Late Check-in:</span> If late arrival is expected please inform the hotel as some hotels have limited reception services after 21:00 hours. Failing to inform the hotel of a late arrival can result in the space being released. </div>
+        <div style="padding:3px 0"><span style="font-style: italic">Requests: </span>Specific room types, smoking preferences and bedding types cannot be guaranteed and are subject to availability at the time of check-in. It is always guaranteed that the room provided by the hotel will accommodate the number of guests booked.</div>
+        <div style="padding:3px 0"><span style="font-style: italic">Hotel Charges: </span>Additional hotel services, resort fees and city taxes must be paid to the hotel directly. Mogutrip is not responsible for hidden hotel fees and have no control over their implementation. </div>
+        <div style="padding:3px 0"><span style="font-style: italic">Early Check-out:</span> Any early check-out is liable to full charges. In the event of an early check-out please obtain an early check-out slip from the hotel.</div>
+        <!--<div style="padding:3px 0;margin-top:10px;"><span style="font-weight:700;">Payable by</span><br/>#voucherreferencecode#</div>-->
+        <div style="padding:3px 0;margin-top:10px;"><span style="font-weight:700;">Emergency Contact Numbers</span><br/>In the case of an issue or emergency with your booking, when your agency is not reachable, please call on phone:
+            ${request.emergencyPhoneList}
+        </div>
+        <div>Please take note we will NOT CONSIDER any complaint/refund if you do not call the number above in case of problems with our services.</div>
+        <div style="padding:5px 0;margin-top:10px;"><span style="font-weight:700;">Issued Date: </span><span>${request.bookingDay}</span></div>
+    </div>
+    <div style="border-top: 1px solid #7030A0;color:#7030A0;padding-top:12px;">WARNING:  FOR SUPPLIER USE ONLY( DO NOT PRINT OUT INVOICE TO CLIENTS DIRECTLY)</div>
+    <div style="padding:15px 0 0 0">
+        <div style="padding:0 0 4px 0;font-weight:700;">入住警示</div>
+        <div style="padding:4px 0">入住问题处理: 如出现到店无房、订单确认后酒店告知无法安排入住等情况，请及时联系为您预订酒店的旅行社或酒店代理。如果未联系而自行入住其他酒店等，视为您放弃了订单保障权利。</div>
+        <div style="padding:4px 0">未到店(No show)或晚至: 如订单首晚未到店(No show)或延迟入住请务必联系酒店或旅行社，否则会有整单被取消的风险。</div>
+        <div style="padding:4px 0;color: #7030A0;">在重大节日或者庆典之间的订房，酒店有可能向客人直接收取强制性消费项目费用，如新年晚宴，圣诞派对等。</div>
+    </div>
+</div>
+</body>
+</html>

@@ -56,9 +56,8 @@ public class HomeController {
     }
 
     @RequestMapping("/contact-us")
-    public String contactUs() {
-        return "contact-us";
+    public String contactUs() { //return "contact-us";
+        return "user-info";
     }
-
 
 }

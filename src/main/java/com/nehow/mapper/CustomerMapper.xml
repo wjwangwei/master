@@ -1,0 +1,1598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nehow.dao.CustomerMapper">
+  <resultMap id="BaseResultMap" type="com.nehow.entity.Customer">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="customer_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="customer_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="customer_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="business_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="customer_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="country" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="province_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="province_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="city_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="city_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="register_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="register_address" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="legal_person" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contract_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contract_status" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contract_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="business_license" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="logo" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="customer_service_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="customer_service_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="salesman_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="salesman_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="deposit" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="deposit_currency" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="credit" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="credit_all" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="payment_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="deduct_balance" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="default_markup" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="settlement_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="settlement_period" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="settlement_date" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="settlement_date_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="settlement_currency" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="bill_date" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="safe_day" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="status" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updater" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, customer_no, customer_name, customer_type, business_type, customer_code, country, 
+    province_id, province_name, city_id, city_name, register_name, register_address, 
+    legal_person, contract_no, contract_status, contract_date, business_license, logo, 
+    customer_service_id, customer_service_name, salesman_id, salesman_name, deposit, 
+    deposit_currency, credit, credit_all, payment_type, deduct_balance, default_markup, 
+    settlement_type, settlement_period, settlement_date, settlement_date_type, settlement_currency, 
+    bill_date, safe_day, status, remark, create_time, update_time, updater
+  </sql>
+  <select id="selectByExample" parameterType="com.nehow.entity.CustomerExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_customer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_customer
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_customer
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.nehow.entity.CustomerExample">
+    delete from t_customer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.nehow.entity.Customer">
+    insert into t_customer (id, customer_no, customer_name, 
+      customer_type, business_type, customer_code, 
+      country, province_id, province_name, 
+      city_id, city_name, register_name, 
+      register_address, legal_person, contract_no, 
+      contract_status, contract_date, business_license, 
+      logo, customer_service_id, customer_service_name, 
+      salesman_id, salesman_name, deposit, 
+      deposit_currency, credit, credit_all, 
+      payment_type, deduct_balance, default_markup, 
+      settlement_type, settlement_period, settlement_date, 
+      settlement_date_type, settlement_currency, bill_date, 
+      safe_day, status, remark, 
+      create_time, update_time, updater
+      )
+    values (#{id,jdbcType=BIGINT}, #{customerNo,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, 
+      #{customerType,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, #{customerCode,jdbcType=VARCHAR}, 
+      #{country,jdbcType=CHAR}, #{provinceId,jdbcType=INTEGER}, #{provinceName,jdbcType=VARCHAR}, 
+      #{cityId,jdbcType=INTEGER}, #{cityName,jdbcType=VARCHAR}, #{registerName,jdbcType=VARCHAR}, 
+      #{registerAddress,jdbcType=VARCHAR}, #{legalPerson,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, 
+      #{contractStatus,jdbcType=VARCHAR}, #{contractDate,jdbcType=DATE}, #{businessLicense,jdbcType=VARCHAR}, 
+      #{logo,jdbcType=VARCHAR}, #{customerServiceId,jdbcType=INTEGER}, #{customerServiceName,jdbcType=VARCHAR}, 
+      #{salesmanId,jdbcType=INTEGER}, #{salesmanName,jdbcType=VARCHAR}, #{deposit,jdbcType=DECIMAL}, 
+      #{depositCurrency,jdbcType=CHAR}, #{credit,jdbcType=INTEGER}, #{creditAll,jdbcType=INTEGER}, 
+      #{paymentType,jdbcType=VARCHAR}, #{deductBalance,jdbcType=VARCHAR}, #{defaultMarkup,jdbcType=DECIMAL}, 
+      #{settlementType,jdbcType=VARCHAR}, #{settlementPeriod,jdbcType=SMALLINT}, #{settlementDate,jdbcType=SMALLINT}, 
+      #{settlementDateType,jdbcType=VARCHAR}, #{settlementCurrency,jdbcType=CHAR}, #{billDate,jdbcType=SMALLINT}, 
+      #{safeDay,jdbcType=SMALLINT}, #{status,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.nehow.entity.Customer">
+    insert into t_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="customerNo != null">
+        customer_no,
+      </if>
+      <if test="customerName != null">
+        customer_name,
+      </if>
+      <if test="customerType != null">
+        customer_type,
+      </if>
+      <if test="businessType != null">
+        business_type,
+      </if>
+      <if test="customerCode != null">
+        customer_code,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="provinceId != null">
+        province_id,
+      </if>
+      <if test="provinceName != null">
+        province_name,
+      </if>
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="cityName != null">
+        city_name,
+      </if>
+      <if test="registerName != null">
+        register_name,
+      </if>
+      <if test="registerAddress != null">
+        register_address,
+      </if>
+      <if test="legalPerson != null">
+        legal_person,
+      </if>
+      <if test="contractNo != null">
+        contract_no,
+      </if>
+      <if test="contractStatus != null">
+        contract_status,
+      </if>
+      <if test="contractDate != null">
+        contract_date,
+      </if>
+      <if test="businessLicense != null">
+        business_license,
+      </if>
+      <if test="logo != null">
+        logo,
+      </if>
+      <if test="customerServiceId != null">
+        customer_service_id,
+      </if>
+      <if test="customerServiceName != null">
+        customer_service_name,
+      </if>
+      <if test="salesmanId != null">
+        salesman_id,
+      </if>
+      <if test="salesmanName != null">
+        salesman_name,
+      </if>
+      <if test="deposit != null">
+        deposit,
+      </if>
+      <if test="depositCurrency != null">
+        deposit_currency,
+      </if>
+      <if test="credit != null">
+        credit,
+      </if>
+      <if test="creditAll != null">
+        credit_all,
+      </if>
+      <if test="paymentType != null">
+        payment_type,
+      </if>
+      <if test="deductBalance != null">
+        deduct_balance,
+      </if>
+      <if test="defaultMarkup != null">
+        default_markup,
+      </if>
+      <if test="settlementType != null">
+        settlement_type,
+      </if>
+      <if test="settlementPeriod != null">
+        settlement_period,
+      </if>
+      <if test="settlementDate != null">
+        settlement_date,
+      </if>
+      <if test="settlementDateType != null">
+        settlement_date_type,
+      </if>
+      <if test="settlementCurrency != null">
+        settlement_currency,
+      </if>
+      <if test="billDate != null">
+        bill_date,
+      </if>
+      <if test="safeDay != null">
+        safe_day,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="customerNo != null">
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerType != null">
+        #{customerType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCode != null">
+        #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=CHAR},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceName != null">
+        #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="cityName != null">
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerName != null">
+        #{registerName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerAddress != null">
+        #{registerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null">
+        #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractStatus != null">
+        #{contractStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="contractDate != null">
+        #{contractDate,jdbcType=DATE},
+      </if>
+      <if test="businessLicense != null">
+        #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null">
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerServiceId != null">
+        #{customerServiceId,jdbcType=INTEGER},
+      </if>
+      <if test="customerServiceName != null">
+        #{customerServiceName,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanId != null">
+        #{salesmanId,jdbcType=INTEGER},
+      </if>
+      <if test="salesmanName != null">
+        #{salesmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="deposit != null">
+        #{deposit,jdbcType=DECIMAL},
+      </if>
+      <if test="depositCurrency != null">
+        #{depositCurrency,jdbcType=CHAR},
+      </if>
+      <if test="credit != null">
+        #{credit,jdbcType=INTEGER},
+      </if>
+      <if test="creditAll != null">
+        #{creditAll,jdbcType=INTEGER},
+      </if>
+      <if test="paymentType != null">
+        #{paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="deductBalance != null">
+        #{deductBalance,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultMarkup != null">
+        #{defaultMarkup,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementType != null">
+        #{settlementType,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementPeriod != null">
+        #{settlementPeriod,jdbcType=SMALLINT},
+      </if>
+      <if test="settlementDate != null">
+        #{settlementDate,jdbcType=SMALLINT},
+      </if>
+      <if test="settlementDateType != null">
+        #{settlementDateType,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementCurrency != null">
+        #{settlementCurrency,jdbcType=CHAR},
+      </if>
+      <if test="billDate != null">
+        #{billDate,jdbcType=SMALLINT},
+      </if>
+      <if test="safeDay != null">
+        #{safeDay,jdbcType=SMALLINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.nehow.entity.CustomerExample" resultType="java.lang.Integer">
+    select count(*) from t_customer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_customer
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.customerNo != null">
+        customer_no = #{record.customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerName != null">
+        customer_name = #{record.customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerType != null">
+        customer_type = #{record.customerType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessType != null">
+        business_type = #{record.businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerCode != null">
+        customer_code = #{record.customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.country != null">
+        country = #{record.country,jdbcType=CHAR},
+      </if>
+      <if test="record.provinceId != null">
+        province_id = #{record.provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.provinceName != null">
+        province_name = #{record.provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityId != null">
+        city_id = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityName != null">
+        city_name = #{record.cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registerName != null">
+        register_name = #{record.registerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registerAddress != null">
+        register_address = #{record.registerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.legalPerson != null">
+        legal_person = #{record.legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractNo != null">
+        contract_no = #{record.contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractStatus != null">
+        contract_status = #{record.contractStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractDate != null">
+        contract_date = #{record.contractDate,jdbcType=DATE},
+      </if>
+      <if test="record.businessLicense != null">
+        business_license = #{record.businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logo != null">
+        logo = #{record.logo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerServiceId != null">
+        customer_service_id = #{record.customerServiceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerServiceName != null">
+        customer_service_name = #{record.customerServiceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesmanId != null">
+        salesman_id = #{record.salesmanId,jdbcType=INTEGER},
+      </if>
+      <if test="record.salesmanName != null">
+        salesman_name = #{record.salesmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deposit != null">
+        deposit = #{record.deposit,jdbcType=DECIMAL},
+      </if>
+      <if test="record.depositCurrency != null">
+        deposit_currency = #{record.depositCurrency,jdbcType=CHAR},
+      </if>
+      <if test="record.credit != null">
+        credit = #{record.credit,jdbcType=INTEGER},
+      </if>
+      <if test="record.creditAll != null">
+        credit_all = #{record.creditAll,jdbcType=INTEGER},
+      </if>
+      <if test="record.paymentType != null">
+        payment_type = #{record.paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deductBalance != null">
+        deduct_balance = #{record.deductBalance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defaultMarkup != null">
+        default_markup = #{record.defaultMarkup,jdbcType=DECIMAL},
+      </if>
+      <if test="record.settlementType != null">
+        settlement_type = #{record.settlementType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.settlementPeriod != null">
+        settlement_period = #{record.settlementPeriod,jdbcType=SMALLINT},
+      </if>
+      <if test="record.settlementDate != null">
+        settlement_date = #{record.settlementDate,jdbcType=SMALLINT},
+      </if>
+      <if test="record.settlementDateType != null">
+        settlement_date_type = #{record.settlementDateType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.settlementCurrency != null">
+        settlement_currency = #{record.settlementCurrency,jdbcType=CHAR},
+      </if>
+      <if test="record.billDate != null">
+        bill_date = #{record.billDate,jdbcType=SMALLINT},
+      </if>
+      <if test="record.safeDay != null">
+        safe_day = #{record.safeDay,jdbcType=SMALLINT},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updater != null">
+        updater = #{record.updater,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_customer
+    set id = #{record.id,jdbcType=BIGINT},
+      customer_no = #{record.customerNo,jdbcType=VARCHAR},
+      customer_name = #{record.customerName,jdbcType=VARCHAR},
+      customer_type = #{record.customerType,jdbcType=VARCHAR},
+      business_type = #{record.businessType,jdbcType=VARCHAR},
+      customer_code = #{record.customerCode,jdbcType=VARCHAR},
+      country = #{record.country,jdbcType=CHAR},
+      province_id = #{record.provinceId,jdbcType=INTEGER},
+      province_name = #{record.provinceName,jdbcType=VARCHAR},
+      city_id = #{record.cityId,jdbcType=INTEGER},
+      city_name = #{record.cityName,jdbcType=VARCHAR},
+      register_name = #{record.registerName,jdbcType=VARCHAR},
+      register_address = #{record.registerAddress,jdbcType=VARCHAR},
+      legal_person = #{record.legalPerson,jdbcType=VARCHAR},
+      contract_no = #{record.contractNo,jdbcType=VARCHAR},
+      contract_status = #{record.contractStatus,jdbcType=VARCHAR},
+      contract_date = #{record.contractDate,jdbcType=DATE},
+      business_license = #{record.businessLicense,jdbcType=VARCHAR},
+      logo = #{record.logo,jdbcType=VARCHAR},
+      customer_service_id = #{record.customerServiceId,jdbcType=INTEGER},
+      customer_service_name = #{record.customerServiceName,jdbcType=VARCHAR},
+      salesman_id = #{record.salesmanId,jdbcType=INTEGER},
+      salesman_name = #{record.salesmanName,jdbcType=VARCHAR},
+      deposit = #{record.deposit,jdbcType=DECIMAL},
+      deposit_currency = #{record.depositCurrency,jdbcType=CHAR},
+      credit = #{record.credit,jdbcType=INTEGER},
+      credit_all = #{record.creditAll,jdbcType=INTEGER},
+      payment_type = #{record.paymentType,jdbcType=VARCHAR},
+      deduct_balance = #{record.deductBalance,jdbcType=VARCHAR},
+      default_markup = #{record.defaultMarkup,jdbcType=DECIMAL},
+      settlement_type = #{record.settlementType,jdbcType=VARCHAR},
+      settlement_period = #{record.settlementPeriod,jdbcType=SMALLINT},
+      settlement_date = #{record.settlementDate,jdbcType=SMALLINT},
+      settlement_date_type = #{record.settlementDateType,jdbcType=VARCHAR},
+      settlement_currency = #{record.settlementCurrency,jdbcType=CHAR},
+      bill_date = #{record.billDate,jdbcType=SMALLINT},
+      safe_day = #{record.safeDay,jdbcType=SMALLINT},
+      status = #{record.status,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      updater = #{record.updater,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nehow.entity.Customer">
+    update t_customer
+    <set>
+      <if test="customerNo != null">
+        customer_no = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null">
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerType != null">
+        customer_type = #{customerType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        business_type = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCode != null">
+        customer_code = #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=CHAR},
+      </if>
+      <if test="provinceId != null">
+        province_id = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceName != null">
+        province_name = #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="cityName != null">
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerName != null">
+        register_name = #{registerName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerAddress != null">
+        register_address = #{registerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null">
+        legal_person = #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null">
+        contract_no = #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractStatus != null">
+        contract_status = #{contractStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="contractDate != null">
+        contract_date = #{contractDate,jdbcType=DATE},
+      </if>
+      <if test="businessLicense != null">
+        business_license = #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null">
+        logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerServiceId != null">
+        customer_service_id = #{customerServiceId,jdbcType=INTEGER},
+      </if>
+      <if test="customerServiceName != null">
+        customer_service_name = #{customerServiceName,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanId != null">
+        salesman_id = #{salesmanId,jdbcType=INTEGER},
+      </if>
+      <if test="salesmanName != null">
+        salesman_name = #{salesmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="deposit != null">
+        deposit = #{deposit,jdbcType=DECIMAL},
+      </if>
+      <if test="depositCurrency != null">
+        deposit_currency = #{depositCurrency,jdbcType=CHAR},
+      </if>
+      <if test="credit != null">
+        credit = #{credit,jdbcType=INTEGER},
+      </if>
+      <if test="creditAll != null">
+        credit_all = #{creditAll,jdbcType=INTEGER},
+      </if>
+      <if test="paymentType != null">
+        payment_type = #{paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="deductBalance != null">
+        deduct_balance = #{deductBalance,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultMarkup != null">
+        default_markup = #{defaultMarkup,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementType != null">
+        settlement_type = #{settlementType,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementPeriod != null">
+        settlement_period = #{settlementPeriod,jdbcType=SMALLINT},
+      </if>
+      <if test="settlementDate != null">
+        settlement_date = #{settlementDate,jdbcType=SMALLINT},
+      </if>
+      <if test="settlementDateType != null">
+        settlement_date_type = #{settlementDateType,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementCurrency != null">
+        settlement_currency = #{settlementCurrency,jdbcType=CHAR},
+      </if>
+      <if test="billDate != null">
+        bill_date = #{billDate,jdbcType=SMALLINT},
+      </if>
+      <if test="safeDay != null">
+        safe_day = #{safeDay,jdbcType=SMALLINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nehow.entity.Customer">
+    update t_customer
+    set customer_no = #{customerNo,jdbcType=VARCHAR},
+      customer_name = #{customerName,jdbcType=VARCHAR},
+      customer_type = #{customerType,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=VARCHAR},
+      customer_code = #{customerCode,jdbcType=VARCHAR},
+      country = #{country,jdbcType=CHAR},
+      province_id = #{provinceId,jdbcType=INTEGER},
+      province_name = #{provinceName,jdbcType=VARCHAR},
+      city_id = #{cityId,jdbcType=INTEGER},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      register_name = #{registerName,jdbcType=VARCHAR},
+      register_address = #{registerAddress,jdbcType=VARCHAR},
+      legal_person = #{legalPerson,jdbcType=VARCHAR},
+      contract_no = #{contractNo,jdbcType=VARCHAR},
+      contract_status = #{contractStatus,jdbcType=VARCHAR},
+      contract_date = #{contractDate,jdbcType=DATE},
+      business_license = #{businessLicense,jdbcType=VARCHAR},
+      logo = #{logo,jdbcType=VARCHAR},
+      customer_service_id = #{customerServiceId,jdbcType=INTEGER},
+      customer_service_name = #{customerServiceName,jdbcType=VARCHAR},
+      salesman_id = #{salesmanId,jdbcType=INTEGER},
+      salesman_name = #{salesmanName,jdbcType=VARCHAR},
+      deposit = #{deposit,jdbcType=DECIMAL},
+      deposit_currency = #{depositCurrency,jdbcType=CHAR},
+      credit = #{credit,jdbcType=INTEGER},
+      credit_all = #{creditAll,jdbcType=INTEGER},
+      payment_type = #{paymentType,jdbcType=VARCHAR},
+      deduct_balance = #{deductBalance,jdbcType=VARCHAR},
+      default_markup = #{defaultMarkup,jdbcType=DECIMAL},
+      settlement_type = #{settlementType,jdbcType=VARCHAR},
+      settlement_period = #{settlementPeriod,jdbcType=SMALLINT},
+      settlement_date = #{settlementDate,jdbcType=SMALLINT},
+      settlement_date_type = #{settlementDateType,jdbcType=VARCHAR},
+      settlement_currency = #{settlementCurrency,jdbcType=CHAR},
+      bill_date = #{billDate,jdbcType=SMALLINT},
+      safe_day = #{safeDay,jdbcType=SMALLINT},
+      status = #{status,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      updater = #{updater,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.nehow.entity.Customer">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="customer_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="customer_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="customer_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="business_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="customer_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="country" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="province_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="province_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="city_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="city_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="register_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="register_address" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="legal_person" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contract_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contract_status" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contract_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="business_license" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="logo" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="customer_service_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="customer_service_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="salesman_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="salesman_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="deposit" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="deposit_currency" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="credit" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="credit_all" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="payment_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="deduct_balance" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="default_markup" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="settlement_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="settlement_period" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="settlement_date" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="settlement_date_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="settlement_currency" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="bill_date" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="safe_day" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="status" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updater" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, customer_no, customer_name, customer_type, business_type, customer_code, country, 
+    province_id, province_name, city_id, city_name, register_name, register_address, 
+    legal_person, contract_no, contract_status, contract_date, business_license, logo, 
+    customer_service_id, customer_service_name, salesman_id, salesman_name, deposit, 
+    deposit_currency, credit, credit_all, payment_type, deduct_balance, default_markup, 
+    settlement_type, settlement_period, settlement_date, settlement_date_type, settlement_currency, 
+    bill_date, safe_day, status, remark, create_time, update_time, updater
+  </sql>
+  <select id="selectByExample" parameterType="com.nehow.entity.CustomerExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_customer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_customer
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_customer
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.nehow.entity.CustomerExample">
+    delete from t_customer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.nehow.entity.Customer">
+    insert into t_customer (id, customer_no, customer_name, 
+      customer_type, business_type, customer_code, 
+      country, province_id, province_name, 
+      city_id, city_name, register_name, 
+      register_address, legal_person, contract_no, 
+      contract_status, contract_date, business_license, 
+      logo, customer_service_id, customer_service_name, 
+      salesman_id, salesman_name, deposit, 
+      deposit_currency, credit, credit_all, 
+      payment_type, deduct_balance, default_markup, 
+      settlement_type, settlement_period, settlement_date, 
+      settlement_date_type, settlement_currency, bill_date, 
+      safe_day, status, remark, 
+      create_time, update_time, updater
+      )
+    values (#{id,jdbcType=BIGINT}, #{customerNo,jdbcType=VARCHAR}, #{customerName,jdbcType=VARCHAR}, 
+      #{customerType,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, #{customerCode,jdbcType=VARCHAR}, 
+      #{country,jdbcType=CHAR}, #{provinceId,jdbcType=INTEGER}, #{provinceName,jdbcType=VARCHAR}, 
+      #{cityId,jdbcType=INTEGER}, #{cityName,jdbcType=VARCHAR}, #{registerName,jdbcType=VARCHAR}, 
+      #{registerAddress,jdbcType=VARCHAR}, #{legalPerson,jdbcType=VARCHAR}, #{contractNo,jdbcType=VARCHAR}, 
+      #{contractStatus,jdbcType=VARCHAR}, #{contractDate,jdbcType=DATE}, #{businessLicense,jdbcType=VARCHAR}, 
+      #{logo,jdbcType=VARCHAR}, #{customerServiceId,jdbcType=INTEGER}, #{customerServiceName,jdbcType=VARCHAR}, 
+      #{salesmanId,jdbcType=INTEGER}, #{salesmanName,jdbcType=VARCHAR}, #{deposit,jdbcType=DECIMAL}, 
+      #{depositCurrency,jdbcType=CHAR}, #{credit,jdbcType=INTEGER}, #{creditAll,jdbcType=INTEGER}, 
+      #{paymentType,jdbcType=VARCHAR}, #{deductBalance,jdbcType=VARCHAR}, #{defaultMarkup,jdbcType=DECIMAL}, 
+      #{settlementType,jdbcType=VARCHAR}, #{settlementPeriod,jdbcType=SMALLINT}, #{settlementDate,jdbcType=SMALLINT}, 
+      #{settlementDateType,jdbcType=VARCHAR}, #{settlementCurrency,jdbcType=CHAR}, #{billDate,jdbcType=SMALLINT}, 
+      #{safeDay,jdbcType=SMALLINT}, #{status,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.nehow.entity.Customer">
+    insert into t_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="customerNo != null">
+        customer_no,
+      </if>
+      <if test="customerName != null">
+        customer_name,
+      </if>
+      <if test="customerType != null">
+        customer_type,
+      </if>
+      <if test="businessType != null">
+        business_type,
+      </if>
+      <if test="customerCode != null">
+        customer_code,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="provinceId != null">
+        province_id,
+      </if>
+      <if test="provinceName != null">
+        province_name,
+      </if>
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="cityName != null">
+        city_name,
+      </if>
+      <if test="registerName != null">
+        register_name,
+      </if>
+      <if test="registerAddress != null">
+        register_address,
+      </if>
+      <if test="legalPerson != null">
+        legal_person,
+      </if>
+      <if test="contractNo != null">
+        contract_no,
+      </if>
+      <if test="contractStatus != null">
+        contract_status,
+      </if>
+      <if test="contractDate != null">
+        contract_date,
+      </if>
+      <if test="businessLicense != null">
+        business_license,
+      </if>
+      <if test="logo != null">
+        logo,
+      </if>
+      <if test="customerServiceId != null">
+        customer_service_id,
+      </if>
+      <if test="customerServiceName != null">
+        customer_service_name,
+      </if>
+      <if test="salesmanId != null">
+        salesman_id,
+      </if>
+      <if test="salesmanName != null">
+        salesman_name,
+      </if>
+      <if test="deposit != null">
+        deposit,
+      </if>
+      <if test="depositCurrency != null">
+        deposit_currency,
+      </if>
+      <if test="credit != null">
+        credit,
+      </if>
+      <if test="creditAll != null">
+        credit_all,
+      </if>
+      <if test="paymentType != null">
+        payment_type,
+      </if>
+      <if test="deductBalance != null">
+        deduct_balance,
+      </if>
+      <if test="defaultMarkup != null">
+        default_markup,
+      </if>
+      <if test="settlementType != null">
+        settlement_type,
+      </if>
+      <if test="settlementPeriod != null">
+        settlement_period,
+      </if>
+      <if test="settlementDate != null">
+        settlement_date,
+      </if>
+      <if test="settlementDateType != null">
+        settlement_date_type,
+      </if>
+      <if test="settlementCurrency != null">
+        settlement_currency,
+      </if>
+      <if test="billDate != null">
+        bill_date,
+      </if>
+      <if test="safeDay != null">
+        safe_day,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="customerNo != null">
+        #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerType != null">
+        #{customerType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCode != null">
+        #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=CHAR},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceName != null">
+        #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="cityName != null">
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerName != null">
+        #{registerName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerAddress != null">
+        #{registerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null">
+        #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null">
+        #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractStatus != null">
+        #{contractStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="contractDate != null">
+        #{contractDate,jdbcType=DATE},
+      </if>
+      <if test="businessLicense != null">
+        #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null">
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerServiceId != null">
+        #{customerServiceId,jdbcType=INTEGER},
+      </if>
+      <if test="customerServiceName != null">
+        #{customerServiceName,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanId != null">
+        #{salesmanId,jdbcType=INTEGER},
+      </if>
+      <if test="salesmanName != null">
+        #{salesmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="deposit != null">
+        #{deposit,jdbcType=DECIMAL},
+      </if>
+      <if test="depositCurrency != null">
+        #{depositCurrency,jdbcType=CHAR},
+      </if>
+      <if test="credit != null">
+        #{credit,jdbcType=INTEGER},
+      </if>
+      <if test="creditAll != null">
+        #{creditAll,jdbcType=INTEGER},
+      </if>
+      <if test="paymentType != null">
+        #{paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="deductBalance != null">
+        #{deductBalance,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultMarkup != null">
+        #{defaultMarkup,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementType != null">
+        #{settlementType,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementPeriod != null">
+        #{settlementPeriod,jdbcType=SMALLINT},
+      </if>
+      <if test="settlementDate != null">
+        #{settlementDate,jdbcType=SMALLINT},
+      </if>
+      <if test="settlementDateType != null">
+        #{settlementDateType,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementCurrency != null">
+        #{settlementCurrency,jdbcType=CHAR},
+      </if>
+      <if test="billDate != null">
+        #{billDate,jdbcType=SMALLINT},
+      </if>
+      <if test="safeDay != null">
+        #{safeDay,jdbcType=SMALLINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.nehow.entity.CustomerExample" resultType="java.lang.Integer">
+    select count(*) from t_customer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_customer
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.customerNo != null">
+        customer_no = #{record.customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerName != null">
+        customer_name = #{record.customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerType != null">
+        customer_type = #{record.customerType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessType != null">
+        business_type = #{record.businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerCode != null">
+        customer_code = #{record.customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.country != null">
+        country = #{record.country,jdbcType=CHAR},
+      </if>
+      <if test="record.provinceId != null">
+        province_id = #{record.provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.provinceName != null">
+        province_name = #{record.provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityId != null">
+        city_id = #{record.cityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cityName != null">
+        city_name = #{record.cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registerName != null">
+        register_name = #{record.registerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registerAddress != null">
+        register_address = #{record.registerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.legalPerson != null">
+        legal_person = #{record.legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractNo != null">
+        contract_no = #{record.contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractStatus != null">
+        contract_status = #{record.contractStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contractDate != null">
+        contract_date = #{record.contractDate,jdbcType=DATE},
+      </if>
+      <if test="record.businessLicense != null">
+        business_license = #{record.businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logo != null">
+        logo = #{record.logo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerServiceId != null">
+        customer_service_id = #{record.customerServiceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerServiceName != null">
+        customer_service_name = #{record.customerServiceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesmanId != null">
+        salesman_id = #{record.salesmanId,jdbcType=INTEGER},
+      </if>
+      <if test="record.salesmanName != null">
+        salesman_name = #{record.salesmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deposit != null">
+        deposit = #{record.deposit,jdbcType=DECIMAL},
+      </if>
+      <if test="record.depositCurrency != null">
+        deposit_currency = #{record.depositCurrency,jdbcType=CHAR},
+      </if>
+      <if test="record.credit != null">
+        credit = #{record.credit,jdbcType=INTEGER},
+      </if>
+      <if test="record.creditAll != null">
+        credit_all = #{record.creditAll,jdbcType=INTEGER},
+      </if>
+      <if test="record.paymentType != null">
+        payment_type = #{record.paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deductBalance != null">
+        deduct_balance = #{record.deductBalance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defaultMarkup != null">
+        default_markup = #{record.defaultMarkup,jdbcType=DECIMAL},
+      </if>
+      <if test="record.settlementType != null">
+        settlement_type = #{record.settlementType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.settlementPeriod != null">
+        settlement_period = #{record.settlementPeriod,jdbcType=SMALLINT},
+      </if>
+      <if test="record.settlementDate != null">
+        settlement_date = #{record.settlementDate,jdbcType=SMALLINT},
+      </if>
+      <if test="record.settlementDateType != null">
+        settlement_date_type = #{record.settlementDateType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.settlementCurrency != null">
+        settlement_currency = #{record.settlementCurrency,jdbcType=CHAR},
+      </if>
+      <if test="record.billDate != null">
+        bill_date = #{record.billDate,jdbcType=SMALLINT},
+      </if>
+      <if test="record.safeDay != null">
+        safe_day = #{record.safeDay,jdbcType=SMALLINT},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updater != null">
+        updater = #{record.updater,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_customer
+    set id = #{record.id,jdbcType=BIGINT},
+      customer_no = #{record.customerNo,jdbcType=VARCHAR},
+      customer_name = #{record.customerName,jdbcType=VARCHAR},
+      customer_type = #{record.customerType,jdbcType=VARCHAR},
+      business_type = #{record.businessType,jdbcType=VARCHAR},
+      customer_code = #{record.customerCode,jdbcType=VARCHAR},
+      country = #{record.country,jdbcType=CHAR},
+      province_id = #{record.provinceId,jdbcType=INTEGER},
+      province_name = #{record.provinceName,jdbcType=VARCHAR},
+      city_id = #{record.cityId,jdbcType=INTEGER},
+      city_name = #{record.cityName,jdbcType=VARCHAR},
+      register_name = #{record.registerName,jdbcType=VARCHAR},
+      register_address = #{record.registerAddress,jdbcType=VARCHAR},
+      legal_person = #{record.legalPerson,jdbcType=VARCHAR},
+      contract_no = #{record.contractNo,jdbcType=VARCHAR},
+      contract_status = #{record.contractStatus,jdbcType=VARCHAR},
+      contract_date = #{record.contractDate,jdbcType=DATE},
+      business_license = #{record.businessLicense,jdbcType=VARCHAR},
+      logo = #{record.logo,jdbcType=VARCHAR},
+      customer_service_id = #{record.customerServiceId,jdbcType=INTEGER},
+      customer_service_name = #{record.customerServiceName,jdbcType=VARCHAR},
+      salesman_id = #{record.salesmanId,jdbcType=INTEGER},
+      salesman_name = #{record.salesmanName,jdbcType=VARCHAR},
+      deposit = #{record.deposit,jdbcType=DECIMAL},
+      deposit_currency = #{record.depositCurrency,jdbcType=CHAR},
+      credit = #{record.credit,jdbcType=INTEGER},
+      credit_all = #{record.creditAll,jdbcType=INTEGER},
+      payment_type = #{record.paymentType,jdbcType=VARCHAR},
+      deduct_balance = #{record.deductBalance,jdbcType=VARCHAR},
+      default_markup = #{record.defaultMarkup,jdbcType=DECIMAL},
+      settlement_type = #{record.settlementType,jdbcType=VARCHAR},
+      settlement_period = #{record.settlementPeriod,jdbcType=SMALLINT},
+      settlement_date = #{record.settlementDate,jdbcType=SMALLINT},
+      settlement_date_type = #{record.settlementDateType,jdbcType=VARCHAR},
+      settlement_currency = #{record.settlementCurrency,jdbcType=CHAR},
+      bill_date = #{record.billDate,jdbcType=SMALLINT},
+      safe_day = #{record.safeDay,jdbcType=SMALLINT},
+      status = #{record.status,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      updater = #{record.updater,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nehow.entity.Customer">
+    update t_customer
+    <set>
+      <if test="customerNo != null">
+        customer_no = #{customerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null">
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerType != null">
+        customer_type = #{customerType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        business_type = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCode != null">
+        customer_code = #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=CHAR},
+      </if>
+      <if test="provinceId != null">
+        province_id = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="provinceName != null">
+        province_name = #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="cityName != null">
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerName != null">
+        register_name = #{registerName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerAddress != null">
+        register_address = #{registerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null">
+        legal_person = #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNo != null">
+        contract_no = #{contractNo,jdbcType=VARCHAR},
+      </if>
+      <if test="contractStatus != null">
+        contract_status = #{contractStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="contractDate != null">
+        contract_date = #{contractDate,jdbcType=DATE},
+      </if>
+      <if test="businessLicense != null">
+        business_license = #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null">
+        logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="customerServiceId != null">
+        customer_service_id = #{customerServiceId,jdbcType=INTEGER},
+      </if>
+      <if test="customerServiceName != null">
+        customer_service_name = #{customerServiceName,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanId != null">
+        salesman_id = #{salesmanId,jdbcType=INTEGER},
+      </if>
+      <if test="salesmanName != null">
+        salesman_name = #{salesmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="deposit != null">
+        deposit = #{deposit,jdbcType=DECIMAL},
+      </if>
+      <if test="depositCurrency != null">
+        deposit_currency = #{depositCurrency,jdbcType=CHAR},
+      </if>
+      <if test="credit != null">
+        credit = #{credit,jdbcType=INTEGER},
+      </if>
+      <if test="creditAll != null">
+        credit_all = #{creditAll,jdbcType=INTEGER},
+      </if>
+      <if test="paymentType != null">
+        payment_type = #{paymentType,jdbcType=VARCHAR},
+      </if>
+      <if test="deductBalance != null">
+        deduct_balance = #{deductBalance,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultMarkup != null">
+        default_markup = #{defaultMarkup,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementType != null">
+        settlement_type = #{settlementType,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementPeriod != null">
+        settlement_period = #{settlementPeriod,jdbcType=SMALLINT},
+      </if>
+      <if test="settlementDate != null">
+        settlement_date = #{settlementDate,jdbcType=SMALLINT},
+      </if>
+      <if test="settlementDateType != null">
+        settlement_date_type = #{settlementDateType,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementCurrency != null">
+        settlement_currency = #{settlementCurrency,jdbcType=CHAR},
+      </if>
+      <if test="billDate != null">
+        bill_date = #{billDate,jdbcType=SMALLINT},
+      </if>
+      <if test="safeDay != null">
+        safe_day = #{safeDay,jdbcType=SMALLINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nehow.entity.Customer">
+    update t_customer
+    set customer_no = #{customerNo,jdbcType=VARCHAR},
+      customer_name = #{customerName,jdbcType=VARCHAR},
+      customer_type = #{customerType,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=VARCHAR},
+      customer_code = #{customerCode,jdbcType=VARCHAR},
+      country = #{country,jdbcType=CHAR},
+      province_id = #{provinceId,jdbcType=INTEGER},
+      province_name = #{provinceName,jdbcType=VARCHAR},
+      city_id = #{cityId,jdbcType=INTEGER},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      register_name = #{registerName,jdbcType=VARCHAR},
+      register_address = #{registerAddress,jdbcType=VARCHAR},
+      legal_person = #{legalPerson,jdbcType=VARCHAR},
+      contract_no = #{contractNo,jdbcType=VARCHAR},
+      contract_status = #{contractStatus,jdbcType=VARCHAR},
+      contract_date = #{contractDate,jdbcType=DATE},
+      business_license = #{businessLicense,jdbcType=VARCHAR},
+      logo = #{logo,jdbcType=VARCHAR},
+      customer_service_id = #{customerServiceId,jdbcType=INTEGER},
+      customer_service_name = #{customerServiceName,jdbcType=VARCHAR},
+      salesman_id = #{salesmanId,jdbcType=INTEGER},
+      salesman_name = #{salesmanName,jdbcType=VARCHAR},
+      deposit = #{deposit,jdbcType=DECIMAL},
+      deposit_currency = #{depositCurrency,jdbcType=CHAR},
+      credit = #{credit,jdbcType=INTEGER},
+      credit_all = #{creditAll,jdbcType=INTEGER},
+      payment_type = #{paymentType,jdbcType=VARCHAR},
+      deduct_balance = #{deductBalance,jdbcType=VARCHAR},
+      default_markup = #{defaultMarkup,jdbcType=DECIMAL},
+      settlement_type = #{settlementType,jdbcType=VARCHAR},
+      settlement_period = #{settlementPeriod,jdbcType=SMALLINT},
+      settlement_date = #{settlementDate,jdbcType=SMALLINT},
+      settlement_date_type = #{settlementDateType,jdbcType=VARCHAR},
+      settlement_currency = #{settlementCurrency,jdbcType=CHAR},
+      bill_date = #{billDate,jdbcType=SMALLINT},
+      safe_day = #{safeDay,jdbcType=SMALLINT},
+      status = #{status,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      updater = #{updater,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

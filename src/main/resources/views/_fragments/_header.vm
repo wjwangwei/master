@@ -18,8 +18,8 @@
     <link href="/css/nprogress.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" type="text/css">
 
-    <!--SJW uses this css-->
-    <link href="/css/pinus.css" rel="stylesheet" type="text/css" >
+    <!--SJW uses this css
+    <link href="/css/pinus.css" rel="stylesheet" type="text/css" >-->
 
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>

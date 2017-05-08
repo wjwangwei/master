@@ -1,9 +1,7 @@
 package com.nehow.models;
 
-/**
- * Created by andrew on 4/29/2017.
- */
 public class Voucher {
+
     private String orderId;
     private String voucherUrl;
 

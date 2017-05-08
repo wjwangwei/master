@@ -1,0 +1,94 @@
+#set($title = "user info")
+	<section class="page-heading">
+		<div class="container">
+			<h1>User Informations</h1>
+		</div>
+	</section>
+
+	<section class="space-lg">
+		<div class="container">
+
+			<div class="tabled">
+				<table class="table table-account">
+					<thead>
+                    <tr class="table-heading">
+                        <th colspan="8">
+                            <h2>COMPANY</h2>
+                            <h4>CUSTMER: <span class="balance">XXX<span></h4>
+                        </th>
+                        <th class="table-heading-action">
+                            <div class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle btn btn-sm btn-purple btn-purple-dark-border cog-left">Actions<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action one</a></li>
+                                    <li><a href="#">Action two</a></li>
+                                    <li><a href="#">Action three</a></li>
+                                    <li><a href="#">Action four</a></li>
+                                </ul>
+                            </div>
+                        </th>
+                    </tr>
+					<tr>
+							<th>&nbsp;</th>
+							<th>用户名</th>
+							<th>邮件</th>
+							<th>手机号</th>
+							<th>QQ号码</th>
+                            <th>用户类型</th>
+                            <th>状态</th>
+                            <th>创建日期</th>
+                            <th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						#foreach($cc in ${userList})
+						<tr>
+                            <td width="40"><span class="ico ico-doc"></span></td>
+							<td width="15%" class="account-transactionid">$cc.user_name</td>
+                            <td width="15%">$cc.mail</td>
+                            <td width="15%">$cc.mobile</td>
+                            <td width="15%">$cc.qq</td>
+							<td width="10%">$cc.user_type</td>
+                            <td width="10%">$cc.status</td>
+                            <td width="10%">$cc.create_time</td>
+                            <td width="10%">oper1, oper2</td>
+						</tr>
+						#end
+					</tbody>
+					<tfoot>
+						<tr>
+							<th colspan="7">
+								<ul class="pagination">
+									<li><a href="#" aria-label="Previous"><span aria-hidden="true">Prevous</span></a></li>
+									<li><a href="#">1</a></li>
+									<li><span>...</span></li>
+									<li><a href="#">2</a></li>
+									<li class="active"><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li><a href="#">7</a></li>
+									<li><a href="#">8</a></li>
+									<li><span>...</span></li>
+									<li><a href="#">112</a></li>
+									<li><a href="#" aria-label="Next"><span aria-hidden="true">Next</span></a></li>
+								</ul>
+							</th>
+							<th colspan="2">
+								<div class="table-filter">
+									<a href="#">40 Transactions</a>
+									<a href="#">40 per Page<span class="caret"></span></a>
+								</div>
+							</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+
+		</div>
+	</section>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.plugins.js"></script>
+<script src="js/custom.js"></script>
