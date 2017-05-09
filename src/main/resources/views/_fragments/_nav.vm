@@ -23,7 +23,8 @@
                         <li><a href="/about-us">About Us</a></li>
                         <li><a href="/contact-us">Contact Us</a></li>
                         <li><a href="/logout">Logout</a></li>
-                        <li><a href="/test-pay">Test Pay</a></li>
+                        <li><a href="/test-pay">paytest</a></li>
+                        <li><a href="/orderlist">订单管理</a></li>
                     </ul>
                 </div>
             </nav>

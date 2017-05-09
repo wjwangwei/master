@@ -60,4 +60,14 @@ public class HomeController {
         return "user-info";
     }
 
+    @RequestMapping("/paytest")
+    public String paytest() { //return "contact-us";
+        return "test-pay";
+    }
+
+    @RequestMapping("/orderlist")
+    public String orderlist() { //return "contact-us";
+        return "orderlist";
+    }
+
 }

@@ -18,11 +18,22 @@
     <link href="/css/nprogress.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" type="text/css">
 
-    <!--SJW uses this css
-    <link href="/css/pinus.css" rel="stylesheet" type="text/css" >-->
+    <!--SJW uses this css-->
+    <link href="/css/pinus.css" rel="stylesheet" type="text/css" >
 
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
 </head>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.async = true;
+        hm.src = "//hm.baidu.com/hm.js?f397d91e6a1e202ffb3d21d9540f0285";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>

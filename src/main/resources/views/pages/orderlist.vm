@@ -1,0 +1,21 @@
+#set($title = "OrderList")
+<link rel="stylesheet" type="text/css" href="./css/comm.css">
+<link rel="stylesheet" type="text/css" href="./css/index.css">
+<link rel="stylesheet" type="text/css" href="./css/divSelect.css">
+<link rel="stylesheet" type="text/css" href="./css/css.css">
+<link rel="stylesheet" type="text/css" href="./css/order.css">
+<link rel="stylesheet" type="text/css" href="./css/tip.css">
+<link rel="stylesheet" type="text/css" href="./css/datePicker.css">
+<section class="section_hero hero_home_search">
+    <div class="container" style="height: 550px;">
+        <div class="hero-content">
+#*
+            <h1>WELCOME TO HOTELEVERLINK.COM</h1>
+            <h3>Strong Supply, Competitive Rate, Efficient Technology, Quality Experience</h3>
+*#
+            <div>
+                #parse("_fragments/_order-list.vm")
+            </div>
+        </div>
+    </div>
+</section>

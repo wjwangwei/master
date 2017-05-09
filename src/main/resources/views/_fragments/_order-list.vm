@@ -1,0 +1,338 @@
+<div class="clearfix order-search-content">
+    <div class="clearfix search-order-title">
+        <div  class="fl search-order-status-ch search-tab-first"  style="width:12%;" >
+            <div class="search-order-status-tabs" status-type="0" style="border: 0;">所有订单</div>
+        </div>
+        <div  class="fl search-order-status-un"   style="width:10%;" onclick="_hmt.push(['_trackEvent', 'orderList', 'confirmed', 'fifter conditions']);">
+            <div class="search-order-status-tabs" status-type="120">已确认</div>
+        </div>
+        <div  class="fl search-order-status-un"   style="width:10%;" onclick="_hmt.push(['_trackEvent', 'orderList', 'canceled', 'fifter conditions']);">
+            <div class="search-order-status-tabs search-order-status-border" status-type="320">已取消</div>
+        </div>
+        <div  class="fl search-order-status-un"  style="width:68%;cursor:default" >
+            &nbsp;
+        </div>
+
+    </div>
+
+    <div class="search-condition-area">
+        <form action="./queryList" id="queryFromSample" method="get">
+            <div class="condition-input-area">
+                <div class="clearfix cond-row-normal">
+                    <div class="fl condition-item-title">多多订单编号</div>
+                    <div class="fl order-condition-date-form">
+                        <input type="text" style="width:312px;"class="order-condition-input condition-long-size select-condition-item" name="order.orderId" onfocus="_hmt.push(['_trackEvent','orderlist','mogudingdanbianhao','-','-'])" id="orderIdSample"/>
+                    </div>
+                    <div class="fl search-condition-btn" id="submitQueryConditionSimple">搜索</div>
+                    <div class="fl condition-item-title condition-more" id="more-condition" onclick="_hmt.push(['_trackEvent', 'orderList', 'more conditions', 'filter conditions']);">更多筛选条件</div>
+
+                </div>
+            </div>
+        </form>
+
+
+
+
+        <form action="./queryList" id="queryForm" method="get" class="none-display">
+            <div class="condition-input-area">
+                <div class="clearfix cond-row-normal">
+                    <div class="fl condition-item-title">多多订单编号</div>
+
+                    <div class="fl order-condition-date-form">
+                        <input type="text" style="width:312px;"class="order-condition-input condition-long-size select-condition-item" name="order.orderId" onfocus="_hmt.push(['_trackEvent','orderlist','mogudingdanbianhao','-','-'])" id="orderIdFull"/>
+                    </div>
+
+                    <div class="fl condition-item-title">团号</div>
+                    <div class="fl order-condition-date-form">
+                        <input type="text" class="order-condition-input condition-end-size select-condition-item"
+                               name="order.companyGroupCode" onfocus="_hmt.push(['_trackEvent','orderlist','tuanhao','-','-'])"/>
+                    </div>
+
+                    <div class="fl condition-item-title">reference</div>
+                    <div class="fl order-condition-date-form">
+                        <input type="text" class="order-condition-input condition-end-size select-condition-item"
+                               name="order.referenceCode" onfocus="_hmt.push(['_trackEvent','orderlist','referencecode','-','-'])"/>
+                    </div>
+                </div>
+
+                <div class="clearfix cond-row-normal">
+
+                    <div class="fl condition-item-title">入住日期</div>
+                    <div class="fl order-condition-date-form">
+                        <input type="text" class="order-condition-input condition-front-size select-condition-item" id="checkInTime"
+                               name="checkInStart" onfocus="_hmt.push(['_trackEvent','orderlist','ruzhushijiankaishi','-','-'])"/>
+
+                    </div>
+
+                    <div class="fl condition-date-range-title">至</div>
+                    <div class="fl order-condition-date-form">
+                        <input type="text" class="order-condition-input condition-front-size select-condition-item" id="checkOutTime"
+                               name="checkInEnd" onfocus="_hmt.push(['_trackEvent','orderlist','ruzhushijianjieshu','-','-'])"/>
+
+                    </div>
+
+                    <div class="fl condition-item-title">订单状态</div>
+                    <div class="fl">
+                        <div class="select-box condition-end-size default-zero-select-condition-item">
+                            <div class="" id="order-stauts-all">
+                                <input type="hidden" value="0" name="order.orderStatus" id="order_status">
+                                <span class="dispaly-value">全部</span><span class="icon-item"></span>
+                                <ul class="select_ul" onclick="_hmt.push(['_trackEvent','orderlist','dingdanzhuangtai','-','-'])">
+                                    <li nation-id="0">全部</li>
+                                    <li nation-id="130">无房</li>
+                                    <li nation-id="110">预订待确认</li>
+                                    <li nation-id="120">已确认</li>
+                                    <li nation-id="200">修改申请中</li>
+                                    <li nation-id="210">修改成功</li>
+                                    <li nation-id="220">修改失败</li>
+                                    <li nation-id="300">取消待确认</li>
+                                    <li nation-id="310">取消失败</li>
+                                    <li nation-id="320">已取消</li>
+                                </ul>
+                            </div>
+                            <div class="disabledAreaBox none-display ">全部</div>
+                        </div>
+                    </div>
+
+                    <div class="fl condition-item-title">国家</div>
+                    <div class="fl">
+                        <input type="text" class="order-condition-input condition-end-size select-condition-item"
+                               name="order.countryName" onfocus="_hmt.push(['_trackEvent','orderlist','guojia','-','-'])"/>
+                    </div>
+
+                </div>
+
+                <div class="clearfix cond-row-normal">
+                    <div class="fl condition-item-title">预订日期</div>
+                    <div class="fl order-condition-date-form">
+                        <input type="text" class="order-condition-input condition-front-size select-condition-item" id="bookStartTime"
+                               name="createTimeStart" onfocus="_hmt.push(['_trackEvent','orderlist','xiadanriqikaishi','-','-'])"/>
+
+                    </div>
+
+                    <div class="fl condition-date-range-title">至</div>
+                    <div class="fl order-condition-date-form">
+                        <input type="text" class="order-condition-input condition-front-size select-condition-item" id="bookEndTime"
+                               name="createTimeEnd" onfocus="_hmt.push(['_trackEvent','orderlist','xiadanriqijieshu','-','-'])"/>
+
+                    </div>
+                    <div class="fl condition-item-title">结算状态</div>
+                    <div class="fl">
+                        <div class="select-box condition-end-size default--negative-select-condition-item">
+                            <input type="hidden" value="-1" name="order.customerPayStatus">
+                            <span class="dispaly-value">全部</span><span class="icon-item"></span>
+                            <ul class="select_ul" onclick="_hmt.push(['_trackEvent','orderlist','jiesuanzhuangtai','-','-'])">
+                                <li nation-id="-1">全部</li>
+                                <li nation-id="1">未出账单</li>
+                                <li nation-id="2">已出帐单未结算</li>
+                                <li nation-id="3">已结算</li>
+                                <li nation-id="4">逾期</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="fl condition-item-title">城市</div>
+                    <div class="fl order-condition-date-form">
+                        <input type="text" class="order-condition-input condition-end-size select-condition-item"
+                               name="order.cityName" onfocus="_hmt.push(['_trackEvent','orderlist','chengshi','-','-'])"/>
+                    </div>
+                </div>
+
+                <div class="clearfix cond-row-normal">
+                    <div class="fl condition-item-title">取消截止日</div>
+                    <div class="fl order-condition-date-form">
+                        <input type="text" class="order-condition-input condition-front-size select-condition-item" id="cancelStartTime"
+                               name="optionDayStart" onfocus="_hmt.push(['_trackEvent','orderlist','quxiaojiezhirikaishi','-','-'])"/>
+
+                    </div>
+
+                    <div class="fl condition-date-range-title">至</div>
+                    <div class="fl order-condition-date-form">
+                        <input type="text" class="order-condition-input condition-front-size select-condition-item" id="cancelEndTime"
+                               name="optionDayEnd" onfocus="_hmt.push(['_trackEvent','orderlist','quxiaojiezhirijieshu','-','-'])"/>
+
+                    </div>
+
+                    <div class="fl condition-item-title">操作员</div>
+                    <div class="fl">
+                        <div class="select-box condition-end-size default-zero-select-condition-item" id="searchUsers">
+                            <input type="hidden" value="0" name="order.userId">
+                            <span class="dispaly-value">全部</span><span class="icon-item"></span>
+                            <ul class="select_ul"  onclick="_hmt.push(['_trackEvent','orderlist','caozuoyuan','-','-'])">
+                                <li nation-id="0">全部</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="fl condition-item-title">客人姓名</div>
+                    <div class="fl">
+                        <input type="text" class="order-condition-input condition-end-size select-condition-item"
+                               name="travellerName" onfocus="_hmt.push(['_trackEvent','orderlist','kerenxingming','-','-'])"/>
+                    </div>
+
+                </div>
+
+            </div>
+            <input type="hidden" name="sortname" id="sortname" value="orders.booking_date">
+            <input type="hidden" name="sortflag" id="sortflag" value="DESC">
+            <input type="hidden" name="rows" value="20" class="pageSize">
+        </form>
+        <input type="hidden" id="searchOrderType" value="${orderType}"/>
+
+        <div class="search-btn-area none-display">
+            <div class="search-condition-btn" id="submitQueryCondition">搜索</div>
+            <div id="hidden-all-condition" class="clear-condition">收起</div><div class="clear-condition" id="clear-all-condition">清空</div>
+        </div>
+        <div class="clearfix quick-option-area">
+            <div class="fl">
+                <span class="fl quick-item-sec" id="optionAfterWeek">7天内取消截止日&nbsp;(<i class ="c-red made-fee-in-week">0</i>)</span><span class="fl quick-item-split">|</span>
+                <span class="fl quick-item-sec" id="checkInFuture">未入住&nbsp;(<i class ="c-red not-checkIn">0</i>)</span><span class="fl quick-item-split">|</span>
+                <span class="fl quick-item-sec" id="feeCancelOrder">不可免费取消&nbsp;(<i class ="c-red made-pay-cancel">0</i>)</span><span class="fl quick-item-split">|</span>
+                <span class="fl quick-item-sec" id="freeCancelOrder">可免费取消&nbsp;(<i class ="c-red made-free-cancel">0</i>)</span><span class="fl quick-item-split">|</span>
+                <span class="fl quick-item-sec" id="hasEditOrderInWeek">最近7天修改完成&nbsp;(<i class ="c-red has-edited-in-week">0</i>)</span><span class="fl quick-item-split">|</span>
+                <span class="fl quick-item-sec" id="excptOrder">异常订单&nbsp;(<i class ="c-red except-order-num">0</i>)</span><span class="fl quick-item-split">|</span>
+                <span class="fl quick-item-sec" id="CancelWithFee">取消产生费用&nbsp;(<i class ="c-red has-canceled-with-fee">0</i>)</span>
+            </div>
+        </div>
+
+
+        <div class="none-display">
+            <span class="fl quick-item" id="bookBeforeWeek">7天内预定</span>
+            <span class="fl quick-item" id="bookBeforeMonth">30天内预定</span>
+            <span class="fl quick-item" id="editWaiting">修改待确认</span>
+            <span class="fl quick-item" id="hasCanceledOrderInWeek">最近7天取消完成</span>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<div id="searchResultDiv">
+
+    <div class="search-result-title-area clearfix search-type">
+        <div class="fl search-type-sort" id="search-formal" onclick="_hmt.push(['_trackEvent', 'orderList', 'order with mogureference', 'organization']);">按订单排列</div><div class="fl" >|
+    </div><div class="fl search-type-sort" id="search-group" onclick="_hmt.push(['_trackEvent', 'orderList', 'order with team eference', 'organization']);">按团号排列</div><div class="fl search-sort-mark" >(仅显示有团号订单)</div>
+    </div>
+
+
+    <div class="search-result-title-area clearfix">
+        <div class="fr search-result-number0 bold"><span id="searchResultTitle">最近的</span> <span class="important bold" id="searchHotelNum">0</span> 个<span id="searchHotelNumUnit">订单</span></div>
+        <div class="fl select-all-orders-btn"><i class="check-box-icon" id="selectAllOrders"></i><i class="bold">全选 &nbsp;</i></div>
+                <span id= "selectResultShowArea" class="none-display fr">已选中<i id="selectResultNum" class="c-red"></i>个订单，共<i id="allResultNum" class="c-red"></i>个订单，共计<i id="totalAmount" class="c-red"></i>
+                    <div class="pop-order-option-bd">
+                        <div class="order-cate-num bold">其中包含&nbsp;<span class="important" id="hotelOrderNum">0</span>&nbsp;份预订确认单，<span class="important" id="voucherOrderNum">0</span>份入住确认单</div>
+                        <div>-可发送/下载的预订确认单条件为：已确认；</div>
+                        <div>-可发送/下载的入住确认单条件为：已确认（固定账期用户）、订单已结算或由客服人员标记（单结用户）；</div>
+                    </div>
+                </span>
+
+        <span class="fl search-result-option-btn none-display ml10 enabled" id="benchSendHotelOrders"><i class="send-email-icon"></i>预订确认单(<span>0</span>)</span>
+        <span class="fl search-result-option-btn none-display ml10 enabled" id="benchSendVoucherOrders"><i class="send-email-icon"></i>入住确认单(<span>0</span>)</span>
+        <span class="fl search-result-option-btn none-display ml10 enabled" id="benchDownloadHotelOrders"><i class="download-pdf-icon"></i>预订确认单(<span>0</span>)</span>
+        <span class="fl search-result-option-btn none-display ml10 enabled" id="benchDownloadVoucherOrders"><i class="download-pdf-icon"></i>入住确认单(<span>0</span>)</span>
+
+        <span class="fl search-result-option-btn ml10 disabled opact40" id="benchDisableSendHotelOrders"><i class="send-email-icon"></i>预订确认单</span>
+        <span class="fl search-result-option-btn ml10 disabled opact40" id="benchDisableSendVoucherOrders"><i class="send-email-icon"></i>入住确认单</span>
+        <span class="fl search-result-option-btn ml10 disabled opact40" id="benchDisableDownloadHotelOrders"><i class="download-pdf-icon"></i>预订确认单</span>
+        <span class="fl search-result-option-btn ml10 disabled opact40" id="benchDisableDownloadVoucherOrders"><i class="download-pdf-icon"></i>入住确认单</span>
+    </div>
+
+
+
+
+    <div class="search-result-area">
+        <table class="so-table" id="soResults">
+            <tr class="search-result-title ">
+                <th class="wid50 ta-c pd8 soResults1">选择<br/>订单</th>
+                <th class="wid130 ta-c pd8 soResults2" ><span id="sortbyid" style="cursor: pointer">多多订单编号<br/>团号<br/>reference</span></th>
+                <th class="wid95 ta-c pd8 soResults3" >国家<br/>城市</th>
+                <th class="wid160 ta-c pd8 soResults4" >酒店名称</th>
+                <th class="wid95 ta-c pd8 soResults5" ><span id="sortbycheckin" style="cursor: pointer">入住日期<br/>退房日期<br/>间数/晚数</span></th>
+                <th class="wid120 ta-c pd8 soResults6">客人姓名<br/>人数</th>
+                <th class="wid85 ta-c pd8" ><span id="sortbyoption" style="cursor: pointer">取消截止时间</span></th>
+                <th class="wid110 ta-c pd8">预订金额</th>
+                <th class="wid100 ta-c pd8">订单状态<br/>结算状态<span id="listPaymentStatus">
+                    #if($!sessionScope.loginSession.accountPayType == 1)
+                        <br/>支付状态
+                    #end
+                </span>
+                </th>
+                <th class="wid90 ta-c pd8">操作员</th>
+                <th class="wid92 ta-c pd8">操作</th>
+            <tr>
+
+        </table>
+
+
+        <div class="clearfix">
+            <div class="fl rowsNum none-display" style="padding:18px" id="rowsNum">显示行数
+                <select onchange="changeCows();" id="rowsNumSelect">
+                    <option value="20" >20</option>
+                    <option value="30" >30</option>
+                    <option value="40" >40</option>
+                    <option value="50" >50</option>
+                </select></div>
+            <div id="orderPagination" class="Flip"></div>
+        </div>
+    </div>
+</div>
+<div class="currency none-display">${currency}</div>
+<%@ include file="common/footer.jsp" %>
+<%@ include file="common/order/orderTip.jsp" %>
+<%@ include file="common/commonTip.jsp" %>
+<div id="benchDownloadArea">
+    <form action="downloadBatchPdf" id="bdPdfForm" method="post">
+        <input type="hidden" name="orderIds" id="bdOrderIds" />
+        <input type="hidden" name="fileType" id="bdFileType"/>
+    </form>
+</div>
+<script type="text/javascript" src="js/agentLogin/loginCookie.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/datePickerSearch.js"></script>
+<script type="text/javascript" src="js/orderOption.js"></script>
+<script type="text/javascript" src="js/jquery.pagination.js"></script>
+
+
+<script>
+    $(function () {
+        //初始化订单查询页面的搜索点击事件和时间空间的初始化
+        initSearchOrder();
+        //初始化数据加载
+        initSearchData();
+        //获取操作员列表
+        getOperatUsers();
+        //下拉菜单的div事件绑定
+        $(".select-box span").bind("click", function () {
+            selectDropdownEvent($(this));
+        });
+        //下拉菜单的消失事件
+        $(".select-box span.dispaly-value").each(function () {
+            hideSelect($(this));
+        });
+
+        //搜索结果的默认勾选效果
+        selectAllOrderBtn();
+        bindTipEevet();
+
+        //返回顶部
+        backToTop();
+        OrderListbackToTopShowContorll();
+    });
+
+
+    /**
+     * edit by wangjie on 2016/9/8.
+     * 返回顶部样式，orderList页面专属
+     */
+    function OrderListbackToTopShowContorll(){
+        var win = $(window);
+        var side_right_obj = $(".side_right");
+
+        win.resize(function(){side_right_obj.css({right : (win.width() - 1090)/2 - 30});});
+        side_right_obj.css({right : (win.width() - 1090)/2 - 30});
+    };
+
+</script>

@@ -2,15 +2,13 @@ package com.nehow.controllers;
 
 import cn.mogutrip.hotel.common.utils.JsonUtil;
 import static cn.mogutrip.hotel.common.utils.StringUtil.*;
-import com.nehow.entity.*;
-import com.nehow.dao.UserMapper;
-import com.nehow.dao.CustomerMapper;
-import com.nehow.dao.SupplierMapper;
-import com.nehow.dao.CustomerSupplierMapper;
+import com.nehow.dao.entity.*;
+import com.nehow.dao.mapper.*;
 
 import com.nehow.models.LoginStatus;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,19 +51,6 @@ public class UserController {
             userInfo.put("username", user.getUserName());
             userInfo.put("customername", customer.getCustomerName());
 
-
-            /*
-
-            String customerId = String.valueOf(user.getCustomerId());
-            String userType = user.getUserType();
-
-            String safeDay = customer.getSafeDay().toString();
-
-            userInfo.put("userName", user.getUserName());
-            userInfo.put("customerType", customerType);
-            userInfo.put("users", suppliers);
-            userInfo.put("safeDay", safeDay);
-            */
 
             message = JsonUtil.toJson(userInfo);
         }
