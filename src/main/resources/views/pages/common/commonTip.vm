@@ -1,0 +1,6 @@
+#set($title = "commonTip")
+<div class="no-result-info-div mt25 middle-box none-display" id="noResultShow">
+    <div class="no-result-warning-icon"></div>
+    <div class="no-result-warning-title">您的搜索条件无返回结果</div>
+    <div class="no-result-warning-sub-title">可以通过搜索条件重新搜索</div>
+</div>

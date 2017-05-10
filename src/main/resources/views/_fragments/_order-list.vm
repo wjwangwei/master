@@ -279,9 +279,10 @@
     </div>
 </div>
 <div class="currency none-display">${currency}</div>
-<%@ include file="common/footer.jsp" %>
-<%@ include file="common/order/orderTip.jsp" %>
-<%@ include file="common/commonTip.jsp" %>
+
+#parse("pages/common/commonTip.vm")
+
+
 <div id="benchDownloadArea">
     <form action="downloadBatchPdf" id="bdPdfForm" method="post">
         <input type="hidden" name="orderIds" id="bdOrderIds" />

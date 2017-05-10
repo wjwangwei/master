@@ -57,12 +57,15 @@ public class HomeController {
 
     @RequestMapping("/contact-us")
     public String contactUs() { //return "contact-us";
-        return "user-info";
+        return "contact-us";
     }
 
-    @RequestMapping("/paytest")
-    public String paytest() { //return "contact-us";
-        return "test-pay";
+    @RequestMapping("/userlist")
+    public String userlist() { return "user-info";}
+
+    @RequestMapping("/test-pay")
+    public String testPay() {
+        return "/hotel/booking";
     }
 
     @RequestMapping("/orderlist")

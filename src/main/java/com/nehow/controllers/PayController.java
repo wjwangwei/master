@@ -1,6 +1,7 @@
 package com.nehow.controllers;
 
 import com.nehow.services.PayService;
+import com.nehow.services.WebhooksVerifyService;
 import com.pingplusplus.exception.*;
 import com.pingplusplus.model.Charge;
 import com.pingplusplus.model.ChargeCollection;
@@ -17,7 +18,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
+import java.security.PublicKey;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sjw on 2017/5/2.
@@ -26,14 +31,8 @@ import java.util.*;
 public class PayController {
     @Autowired
     private PayService payService;
-
-    @RequestMapping("/test-pay")
-    public String testpay() {
-        return "test-pay";
-    }
-
     @RequestMapping("/pay/paytest")
-    public void paytest(
+    public void testpay(
            // @RequestParam("amount") String amount,
             HttpServletRequest request,HttpServletResponse response,
             Map<String, Object> model) {
@@ -83,7 +82,6 @@ public class PayController {
         model.put("payresult", "success");
         return "test-pay_result";
     }
-
     @RequestMapping("/pay/paytest_failure")
     public String testpay_failure(
             // @RequestParam("amount") String amount,
@@ -140,7 +138,7 @@ public class PayController {
         }
     }
 
-    @RequestMapping("/webhooks")
+    @RequestMapping("webhooks")
     @ResponseBody
     public void webhooks ( HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException  {
        /*System.out.println("ping++　webhooks");*/
@@ -170,14 +168,14 @@ public class PayController {
         reader.close();
         JSONObject event=new JSONObject(eventJson.toString());
         boolean verifyRS=false;
-       /* try {
+        try {
             PublicKey publicKey= WebhooksVerifyService.getPubKey();
-         *//*  System.out.println(publicKey);*//*
-            verifyRS=WebhooksVerifyService.verifyData(eventJson.toString(),signature,publicKey);
+           System.out.println(publicKey);
+            verifyRS= WebhooksVerifyService.verifyData(eventJson.toString(),signature,publicKey);
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
-        verifyRS=true;
+        }
+       // verifyRS=true;
         if(verifyRS) {
            /*System.out.println("签名验证成功");*/
             if ("charge.succeeded".equals(event.get("type"))) {
@@ -205,27 +203,28 @@ public class PayController {
                 }
                 Double couponInput;
 
-                /*ReserveVenueCons order = reserveAppVenueConsService.get(orderId);
+                //这里写酒店订单数据库信息
+                Object order = "hotel order object";
 
                 if (order != null) {
-                    Double orderPrice = order.getShouldPrice();
-                    couponInput = orderPrice - amountYuan;//订单金额-ping++扣款 等于优惠金额
-                    Boolean bool = reserveAppVenueConsService.saveSettlement(order, payType, amountYuan,
-                            0.0, bankCardInput, weiXinInput, aliPayInput, couponInput);
+                   //Double orderPrice = order.getShouldPrice();//应付金额
+                    //couponInput = orderPrice - amountYuan;//订单金额-ping++扣款 等于优惠金额
+                    //Boolean bool = reserveAppVenueConsService.saveSettlement(order, payType, amountYuan,0.0, bankCardInput, weiXinInput, aliPayInput, couponInput);
+                    Boolean bool=true;
                     if (bool) {
-                     *//*  System.out.println("订单结算成功");*//*
+                       System.out.println("订单结算成功");
                         response.setStatus(200);
                         //return "订单结算成功";
                     } else {
-                      *//* System.out.println("订单结算失败");*//*
+                       System.out.println("订单结算失败");
                         //return "订单结算失败";
                         response.setStatus(500);
                     }
                 } else {
-                  *//* System.out.println("该订单不存在");*//*
+                   System.out.println("该订单不存在");
                     //return "该订单不存在";
                     response.setStatus(500);
-                }*/
+                }
             }
         }else{
            /*System.out.println("签名验证失败");*/

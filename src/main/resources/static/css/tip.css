@@ -1,0 +1,419 @@
+.pop-info-tip{
+    position: fixed;
+    top:20%;
+    left:50%;
+    margin-left: -222px;
+    width: 443px;
+    background: #FFF;
+    padding: 40px 50px;
+    z-index: 1000001;
+}
+.pop-info-tip.pd40-0{
+    padding: 40px 0;
+}
+
+.order-Modify-Tip{
+    top: 0;
+    width: 800px;
+    left: 50%;
+    margin-left: -400px;
+    margin-top: 41px;
+    padding: 25px;
+    border: 1px solid #DCDCDC;
+    position: absolute;
+    z-index: 1000001;
+    background: #FFF;
+
+}
+
+.order-Modify-Tip-title{
+    width: 750px;
+    margin-left: -375px;
+    padding:0;
+    border: 1px solid #DCDCDC;
+    border-top: 0px;
+}
+.Modify-title{
+    font-size: 17px;
+    color: #000000;
+    line-height: 24px;
+    padding: 0px 0;
+}
+.payment{
+    width: 454px;
+}
+.pop-info-title{
+    font-size: 24px;
+    color: #363636;
+    line-height: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.pop-info-content-payment{
+    margin-bottom: 30px;
+}
+.tip-warning-center-icon{
+    background: url("../images/tip/no-room-warning-icon.png");
+    display: block;
+    width: 70px;
+    height: 70px;
+    vertical-align: middle;
+    margin: 8px auto 16px auto;
+}
+
+.tip-ok-center-icon{
+    background: url("../images/tip/order-success-normal.png");
+    display: block;
+    width: 70px;
+    height: 70px;
+    vertical-align: middle;
+    margin: 8px auto 16px auto;
+}
+
+.tip-warning-icon{
+    background: url("../images/tip/tip-warning-icon.png");
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+.tip-price{
+	font-size: 16px;
+	color: #F9543C;
+}
+.tip-question-content-div{
+    margin: 14px 0;
+}
+
+
+.tip-orange-btn{
+    color: #FFF;
+    background: #F9543C;
+    padding: 8px 22px;
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+}
+.tip-orange-btn:hover{
+	background: #DD3C25;
+}
+.tip-white-btn{
+    color: #D8D8D8;
+    background: #FFF;
+    padding: 7px 22px;
+    border-radius: 2px;
+    border: 1px solid #555555;
+    text-align: center;
+    cursor: pointer;
+}
+.tip-white-btn:hover{
+	color: #FFF;
+    background: #555555;
+}
+.mr18{
+	margin-right: 18px;
+}
+.tip-close-area{
+    margin: 8px;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+.tip-close-icon{
+    height: 11px;
+    width: 11px;
+    background: url("../images/tip/tip-close-icon.png") no-repeat;
+    display: block;
+}
+.tip-close-area:hover{
+	background: #F0F0F0;
+}
+
+.wd100{
+	width: 100px;
+}
+.wd140{width:140px;}
+.width180{
+	width: 180px;
+}
+#vertifPriceDiv{
+    width: 353px;
+    height:175px;
+    background: #FFF;
+    z-index: 1000001;
+    position: fixed;
+    top:20%;
+    left:30%;
+}
+#vertifPriceDiv img{
+    width: 128px;
+    height:15px;
+    display: block;
+    margin: 0 auto 20px auto;
+    padding-top:60px;
+}
+
+#searchOtherRoom{
+    margin: 34px auto 0 auto;
+    width: 180px;
+}
+
+.pop-send-mail-tip{
+    width: 552px;
+    background: #FFF;
+    padding: 30px 40px;
+    position: fixed;
+    left:30%;
+    top:20%;
+    z-index: 1000001;
+}
+
+.send-mail-title{
+    text-align: center;
+    /* 邮件信息: */
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.send-mail-item-input{
+    /* Rectangle 18 Copy 34: */
+    background: #FFFFFF;
+    border: 1px solid #C1C1C1;
+    border-radius: 2px;
+    width: 387px;
+}
+.h28{
+    height:28px;
+}
+.h93{
+    height:93px;
+}
+.send-mail-item-title{
+    width: 50px;
+    text-align: right;
+    margin-right: 9px;
+}
+.send-mail-content-item{
+    margin-bottom: 10px;
+}
+.send-mail-btn, .bench-download-btn{
+    width: 110px;
+    margin: 30px auto 10px auto;
+    height: 35px;
+}
+
+.eo-qq-title{
+    margin: 20px 0;
+}
+.eo-qq-contact{
+    width: 100px;
+    text-align: center;
+    margin: 0 auto;
+}
+.append-title{
+    color: #333;
+    line-height: 20px;
+    font-weight: bold;
+    margin-bottom: 17px;
+    font-size: 15px;
+}
+
+.modify-ch{
+    border:1px solid #DCDCDC ;
+    border-top: 1px solid #000;
+    border-bottom:0px ;
+    background: #fff;
+    padding: 11px 0px;
+    cursor: pointer;
+}
+
+.modify-un{
+    border-bottom:1px solid #DCDCDC ;
+    padding: 11px 0px;
+    color: grey;
+    cursor: pointer;
+}
+.modify-res{
+    border-bottom:1px solid #DCDCDC ;
+    padding: 0px;
+}
+.modify-tabs{
+    padding: 0px 20px;
+
+}
+.modify-border{
+    border-left: 1px solid grey;
+}
+.modify-det{
+    padding: 15px 30px;
+    padding-top: 0;
+}
+.wid150{
+    width: 150px;
+}
+.wid127{
+    width: 127px;
+}
+.wid173{
+    width: 173px;
+}
+.curdef{
+    cursor:default
+}
+.check-in-fir{
+    padding: 30px 0;
+
+}
+.modify-item-date-form{
+     position: relative;
+    padding-right: 30px;
+}
+.modify-item-input{
+    float: left;
+    background: #FFFFFF;
+    border: 1px solid #C1C1C1;
+    border-radius: 2px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    font-size: 14px;
+    position: relative;
+    width: 141px;
+}
+.modify-item-title{
+    line-height: 28px;
+}
+.modify-border-top{
+    border-top: 1px solid #DCDCDC;
+}
+.modify-policy-ti{
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.select-agree-btn{
+    line-height: 26px;
+}
+
+.modify-submit{
+    margin-right: 25px;
+    margin-left: 248px;
+    font-size: 13px;
+    color: #fff;
+    background-color: #F9543C;
+    line-height: 20px;
+    padding: 5px 26px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    float: left !important;
+    margin-top: 18px;
+}
+
+.modify-can{
+    font-size: 13px;
+    color: #333;
+    line-height: 20px;
+    padding: 5px 26px;
+    border: 1px solid #888;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    float: left !important;
+    margin-top: 18px;
+}
+
+.ch-operator{
+    background: #FFFFFF;
+    border: 1px solid #C1C1C1;
+    border-radius: 2px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    font-size: 14px;
+    position: relative;
+    width:315px;
+    margin: 5px 10px;
+}
+
+
+
+.delete-room-btn{
+    font-size: 13px;
+    color: #fff;
+    background-color: #F9543C;
+    line-height: 20px;
+    padding: 5px 6px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    right: 0;
+}
+
+.input-cust-name {
+    background: #FFFFFF;
+    border: 1px solid #C1C1C1;
+    border-radius: 2px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    font-size: 14px;
+    width: 220px;
+    margin: 5px 10px;
+    margin-right: 0;
+}
+.input-cust-name-td{
+    width: 315px;
+    text-align: right;
+}
+.hotel-room-name .hotel-room-index{
+    color: #FFF;
+    background-color: #F9543C;
+    border-radius: 2px;
+    margin-right: 5px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    text-align: center;
+}
+.zindex9999{
+    z-index:9999;
+}
+.modify-people-number{
+    text-align: center;
+    width: 72px;
+}
+
+.room-custom-name{
+    width: 252px;
+    padding: 20px;
+}
+
+.room-List tr td.hotel-room-name{
+    width:300px;
+}
+.change-cust-name tr td.hotel-room-name{
+    width:300px;
+}
+
+.tip-ModifyFile-area{
+    margin: 8px;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.tip-ModifyFile-area:hover{
+    background: #F0F0F0;
+}
+
+.width40p{
+    width:40% !important;
+}

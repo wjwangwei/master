@@ -1,0 +1,407 @@
+#set($title = "orderTip")
+
+<div class="mask-area none-display" id="orderMask">
+
+
+</div>
+<!-- 重复提交提示 -->
+<div class="pop-info-tip none-display" id="reSubmitTip">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i>重复预定
+    </div>
+    <div class="pop-info-content" id="reSumitTrue">
+        您已有一个相同的订单预定成功或者处于待确认状态，请勿重复预定。如有疑问请联系客服。<br/>
+    </div>
+
+    <div class="tip-option-btn-area clearfix mt30">
+        <div class="tip-orange-btn fn mr18 wd100" >确定</div>
+        <%--<div class="tip-white-btn fl wd100 close-tip-btn unbind-high-price-event">取消</div>--%>
+    </div>
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+</div>
+<!-- End 重复提交 -->
+
+<div class="pop-info-tip none-display " id="policyAndPriceChangeTip">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i><span id="policyAndPriceChangeTitle">房间组合变动</span>
+    </div>
+
+    <div class="pop-info-content">
+        <span id="policyAndPriceChangeContent"></span><span id="policyChangeArea"><br/>最新总价格为：<span class="important tip-price hiragino" id="orderHighPriceInPolicyChanged"></span></span>
+    </div>
+    <div id="policyChangeDetail"></div>
+    <div class="tip-question-content-div">是否继续预订?</div>
+    <div class="tip-option-btn-area clearfix mt30">
+        <div class="tip-orange-btn fl mr18 wd100" id="continuePolicyBooking">继续预订</div>
+        <div class="tip-white-btn fl wd100 close-tip-btn">取消</div>
+    </div>
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+
+</div>
+
+<div class="pop-info-tip none-display" id="orderImportantMessageTip">
+    <div class="pop-info-title ta-c f18">
+        <i class="tip-warning-center-icon "></i>重要提示</div>
+
+    <div class="pop-info-content">
+        <div id="reminderInTip"></div>
+        <div> 一经发现,蘑菇网站有权 <span class="important"> 取消订单</span>或者<span class="important">扣除房款</span>,并有权按照酒店相关规定执行进一步措施</div>
+    </div>
+
+    <div>
+        <div class="tip-orange-btn mt20 close-tip-btn div-center wid120">知道了</div>
+    </div>
+
+</div>
+
+<div class="pop-info-tip none-display" id="highPriceTip">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i>价格变动
+    </div>
+
+    <div class="pop-info-content">
+        我们抱歉的通知您，您想预订的价格组合已发生变化，<br/>最新总价格为：<span class="important tip-price hiragino" id="orderHighPrice"></span>
+    </div>
+    <div class="tip-question-content-div">是否继续预订?</div>
+    <div class="tip-option-btn-area clearfix mt30">
+        <div class="tip-orange-btn fl mr18 wd100" id="continueBooking">继续预订</div>
+        <div class="tip-white-btn fl wd100 close-tip-btn">取消</div>
+    </div>
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+</div>
+
+<div class="pop-info-tip none-display" id="noRoomLeave">
+    <div class="pop-info-title ta-c f18">
+        <i class="tip-warning-center-icon "></i>该房型已售罄
+    </div>
+
+    <div class="pop-info-content ta-c">
+        您可以选择其他房型或酒店，给您带来的不便请谅解。
+    </div>
+
+    <div class="tip-orange-btn mt20" id="searchOtherRoom">选择其他房型或酒店</div>
+
+</div>
+
+<div class="pop-info-tip none-display" id="optionSuccess">
+    <div class="pop-info-title ta-c f18">
+        <i class="tip-warning-center-icon "></i>
+        <span id="tipSuccessTilte">取消成功</span>
+    </div>
+
+    <div class="tip-orange-btn mt20 reload-close-btn div-center wid120">知道了</div>
+
+    <div class="tip-close-area reload"><i class="tip-close-icon"></i></div>
+</div>
+
+<div class="pop-info-tip none-display" id="sendEmailSuccess">
+    <div class="pop-info-title ta-c f18">
+        <i class="tip-warning-center-icon "></i>
+        <span id="sendEmailSuccessTilte">发送成功</span>
+    </div>
+    <div>
+        <div class="tip-orange-btn mt20 close-tip-btn div-center wid120">知道了</div>
+    </div>
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+</div>
+
+<div class="pop-info-tip none-display" id="cancelOrderTip">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i>是否确认取消该订单
+    </div>
+
+    <div class="pop-info-content">
+        <div class="co-title">您当前的订单的取消政策如下：</div>
+        <div class="co-content important" id="cancelContPolicies"></div>
+    </div>
+    <div class="tip-question-content-div">是否继续?</div>
+    <div class="tip-option-btn-area clearfix mt35">
+        <div class="tip-orange-btn fl mr18 wd125">确认取消订单</div>
+        <div class="tip-white-btn fl wd100 close-tip-btn clear-cancel-event">放弃取消</div>
+    </div>
+    <div class="tip-close-area tip-cancel-close-area"><i class="tip-close-icon"></i></div>
+</div>
+
+<div class="pop-info-tip none-display" id="cancelOrderTipFail">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i><span id="">申请取消订单</span>
+    </div>
+
+    <div class="eo-qq-title">
+        <div class="co-title">此订单已经修改过，如需取消，请联系客服协助。
+        </div>
+    </div>
+
+    <div class="pop-info-content">
+        蘑菇客服电话<br/>
+        <span class="important">4000-437-837</span>（周一到周六9:30-19:00)<br/>
+        <span class="important">13811467515</span>，<span class="important">13811467115</span>(仅限于非工作时间紧急情况及入住问题)
+    </div>
+
+    <div class="eo-qq-title">
+        或者联系在线客服
+    </div>
+
+    <div class="tip-option-btn-area clearfix mt35">
+        <div class="tip-orange-btn fl mr18 wd125" onclick=window.open('http://crm2.qq.com/page/portalpage/wpa.php?uin=4000437837&f=1&ty=1')>联系客服</div>
+    </div>
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+</div>
+
+<div class="pop-info-tip none-display" id="NotEnoughTip">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i><span id="NotEnough" >账户余额不足</span>
+    </div>
+
+    <div class="eo-qq-title">
+        <div class="co-title">您的账户余额不足，如需协助情联系客服。
+        </div>
+    </div>
+
+    <div class="pop-info-content">
+        蘑菇客服电话<br/>
+        <span class="important">4000-437-837</span>（周一到周六9:30-19:00)<br/>
+        <span class="important">13811467515</span>，<span class="important">13811467115</span>(仅限于非工作时间紧急情况及入住问题)
+    </div>
+
+    <div class="eo-qq-title">
+        或者联系在线客服
+    </div>
+
+    <div class="tip-option-btn-area clearfix mt35">
+        <div class="tip-orange-btn fl mr18 wd125" onclick=window.open('http://crm2.qq.com/page/portalpage/wpa.php?uin=4000437837&f=1&ty=1')>联系客服</div>
+    </div>
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+</div>
+
+<div class="pop-info-tip ta-c none-display" id="loadingTip">
+    <img src="/images/common/loading.gif">
+    <div id="loadTipContent">正在下单，请稍候...</div>
+</div>
+
+<div class="pop-info-tip none-display" id="contactUsDiv">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i><span id="contactUsTitle">申请修改订单</span>
+    </div>
+
+    <div class="eo-qq-title">
+        蘑菇客服电话<br/>
+        <span class="important">4000-437-837</span>（周一到周六9:30-19:00)<br/>
+        <span class="important">13811467515</span>，<span class="important">13811467115</span>(仅限于非工作时间紧急情况及入住问题)
+    </div>
+
+    <div class="eo-qq-title">
+        或者联系在线客服
+    </div>
+
+    <div class="tip-option-btn-area clearfix mt35">
+        <div class="tip-orange-btn fl mr18 wd125" onclick=window.open('http://crm2.qq.com/page/portalpage/wpa.php?uin=4000437837&f=1&ty=1')>联系客服</div>
+    </div>
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+</div>
+
+<div class="pop-send-mail-tip none-display" id="sendEmailDiv">
+    <div class="send-mail-title">邮件信息</div>
+    <form id="sendMailInfo">
+        <div class="send-mail-content">
+            <div class="send-mail-content-item clearfix">
+                <div class="fl send-mail-item-title">收件人</div>
+                <div class="fl">
+                    <input type="text" class="send-mail-item-input h28" name="sendPeople">
+                </div>
+            </div>
+            <div class="send-mail-content-item clearfix">
+                <div class="fl send-mail-item-title">备注</div>
+                <div class="fl">
+                    <textarea class="send-mail-item-input h93" name="sendRemark"></textarea>
+                </div>
+            </div>
+            <div class="send-mail-info-title important ta-c" id="sendMailMessage">
+
+            </div>
+        </div>
+    </form>
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+    <div class="tip-orange-btn send-mail-btn" onclick="sendEmail()">马上发送</div>
+</div>
+
+
+<div class="pop-info-tip none-display" id="appendOrderDiv">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i><span id="appendOrderTitle">订单确认中，请稍候！</span>
+    </div>
+
+    <div class="pop-info-content">
+        您的订单在下单过程中遇到了点问题，系统正在帮您确认。<br/>
+        15分钟内勿重复下单。请在订单管理中关注该订单的状态。<br/>
+        超过15分钟订单未确认，请您拨打我们的客服电话<br/>
+        4000-437-837（周一到周五 10:00-19:00）<br/>
+        13811467515，13811467115（非工作时间紧急电话）<br/>
+    </div>
+
+    <div class="eo-qq-title">
+        或者联系在线客服
+    </div>
+    <a href="searchOrder"><div class="wd125 tip-orange-btn">查看订单状态</div></a>
+    <%--<div class="tip-orange-btn eo-qq-contact" id="apendOrderBtn">联系客服</div>--%>
+</div>
+
+<div class="pop-info-tip none-display" id="refundableOrderTip">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i>该订单是付费取消订单
+    </div>
+
+    <div class="pop-info-content important">
+
+    </div>
+    <div class="tip-question-content-div">${sessionScope.loginSession.accountPayType == 1? "必须完成在线支付后，方可完成预订，":""}是否继续预订?</div>
+    <div class="tip-option-btn-area clearfix mt30">
+        <div class="tip-orange-btn fl mr18 wd100 bo-make-btn" id="payCancelOrderBtn">继续预订</div>
+        <div class="tip-white-btn fl wd100 close-tip-btn" id="payCancelResearchBtn">重新搜索</div>
+    </div>
+</div>
+
+<div class="pop-info-tip none-display" id="NoRoomOrderTip">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i>抱歉，该房间已售罄
+    </div>
+
+    <div class="pop-info-content">
+        请您选择该酒店其它房间或重新搜索相同条件的酒店。
+    </div>
+    <div class="tip-question-content-div" id="nestGroupReminder">下次填单时使用团号：<span id="noRoomGroupId"></span>，可以快速填单。</div>
+    <div class="tip-option-btn-area clearfix mt30">
+        <a  class="tip-orange-btn fl mr18 wd100 bo-make-btn" id="backToHotelBtn">返回该酒店</a>
+        <a href="/noRoomResearch?searchId=${uuid}&roomSpeciId=${roomSpeciId}&hotelDetailName=${sessionScope[orderId].hotel.hotelName}/${sessionScope[orderId].hotel.hotelCnName}"class="tip-white-btn fl wd100 close-tip-btn" id="noRoomResearchBtn">重新搜索</a>
+    </div>
+</div>
+
+<div class="pop-info-tip none-display" id="standardRoomTip">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i>房型提示
+    </div>
+
+    <div class="pop-info-content">
+        该房间可能会安排大床房，也可能会安排双床房。<br>具体床型由酒店确定，不保证满足指定要求。
+    </div>
+    <div class="tip-question-content-div">是否继续预订？</div>
+    <div class="tip-option-btn-area clearfix mt30">
+        <div class="tip-orange-btn fl mr18 wd100 bo-make-btn" id="goBoBtn">继续预订</div>
+        <div class="tip-white-btn fl wd100 close-tip-btn">取消</div>
+    </div>
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+</div>
+
+<div class="pop-info-tip none-display" id="compatRoomTip">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i>非指定房型提示
+    </div>
+
+    <div class="pop-info-content">
+        您的搜索条件中含3人间或4人间，但预订的是非指定房型，<br/>入住时有可能需要加床并产生费用，且前台现付。
+    </div>
+
+    <div class="tip-question-content-div">是否继续预订？</div>
+    <div class="tip-option-btn-area clearfix mt30">
+        <div class="tip-orange-btn fl mr18 wd100 bo-make-btn" id="compatAvailBtn">继续预订</div>
+        <div class="tip-white-btn fl wd100 close-tip-btn">取消</div>
+    </div>
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+</div>
+
+<%--订单列表，订单详情点击支付按钮提示框--%>
+<div class="pop-info-tip none-display" id="orderPaymentTip">
+    <div class="pop-info-title ta-c f18">
+        <i class="tip-warning-center-icon "></i>
+        <span id="orderPayment">该订单正在支付中，请稍后再支付</span>
+    </div>
+
+    <div class="tip-orange-btn mt20 reload-close-btn div-center wid120">知道了</div>
+
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+</div>
+
+<%--订单列表，订单详情点击支付按钮提示框--%>
+<div class="pop-info-tip none-display" id="orderPaymentTipSkip">
+    <div class="pop-info-title ta-c f18">
+        <i class="tip-warning-center-icon "></i>
+        <span id="orderPaymentSkip">该订单正在支付中，请稍后再支付</span>
+    </div>
+
+    <div class="tip-orange-btn mt20 reload-close-btn-skip div-center wid120">知道了</div>
+
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+</div>
+<div class="pop-info-tip none-display" id="orderModfiyAgreeTip">
+    <div class="pop-info-title ta-c f18">
+        <i class="tip-warning-center-icon "></i>请确认修改请求</div>
+    <div>
+        <div class="tip-orange-btn mt20 close-modfiy-disagreeTip div-center wid120">知道了</div>
+    </div>
+</div>
+
+<div class="pop-info-tip none-display" id="ModifySuccess">
+    <div class="pop-info-title ta-c f18">
+        <i class="tip-ok-center-icon"></i>
+        <span id="tipModifySuccessTilte">申请修改成功</span>
+    </div>
+
+    <div class="tip-orange-btn tip-ModifySuccess-btn mt20 reload-close-btn div-center wid120">知道了</div>
+</div>
+
+<div class="pop-info-tip none-display" id="ModifyFile">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i><span id="ModifyFileTitle">申请修改失败</span>
+    </div>
+
+    <div class="eo-qq-title">
+        蘑菇客服电话<br/>
+        <span class="important">4000-437-837</span>（周一到周六9:30-19:00)<br/>
+        <span class="important">13811467515</span>，<span class="important">13811467115</span>(仅限于非工作时间紧急情况及入住问题)
+    </div>
+
+    <div class="eo-qq-title">
+        或者联系在线客服
+    </div>
+
+    <div class="tip-option-btn-area clearfix mt35">
+        <div class="tip-orange-btn fl mr18 wd125" onclick=window.open('http://crm2.qq.com/page/portalpage/wpa.php?uin=4000437837&f=1&ty=1')>联系客服</div>
+    </div>
+    <div class="tip-ModifyFile-area"><i class="tip-close-icon"></i></div>
+
+</div>
+
+<div class="pop-info-tip none-display" id="unableEditDiv">
+    <div class="pop-info-title">
+        <i class="tip-warning-icon"></i>您的订单暂时无法修改
+    </div>
+    <div class="pop-info-content" >
+        您的订单需要确认或结算后才能修改。如需更多帮助，请联系客服。<br>
+    </div>
+
+    <div class="tip-option-btn-area clearfix mt30">
+        <div class="tip-orange-btn fn mr18 wd100" onclick=window.open('http://crm2.qq.com/page/portalpage/wpa.php?uin=4000437837&f=1&ty=1')>联系客服</div>
+
+    </div>
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+</div>
+
+<div class="pop-info-tip none-display" id="inputUnchangdTip">
+    <div class="pop-info-title ta-c f18">
+        <i class="tip-warning-center-icon "></i>您要修改的内容与当前一致，请检查后再提交。</div>
+    <div>
+        <div class="tip-orange-btn mt20 close-inputUnchangdTip div-center wid120">知道了</div>
+    </div>
+</div>
+
+<div class="pop-info-tip none-display" id="orderFailTip">
+    <div class="append-title ta-c">
+        <i class="tip-warning-icon "></i>
+        <span>下单失败！</span>
+    </div>
+    <div>
+        <div class="tip-orange-btn mt20 close-tip-btn div-center wid120">确定</div>
+    </div>
+    <div class="tip-close-area"><i class="tip-close-icon"></i></div>
+</div>
+
