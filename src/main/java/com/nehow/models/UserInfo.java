@@ -14,4 +14,6 @@ public class UserInfo {
     private String suppliers;
     private String safeDay;
     private String userName;
+    private String userId;
+    private String customerCurrency;
 }

@@ -1,13 +1,12 @@
 package com.nehow;
 
+import com.nehow.dao.mapper.*;
+import com.nehow.dao.entity.*;
 import cn.mogutrip.hotel.common.utils.JsonUtil;
-import com.nehow.controllers.BaseController;
 import com.nehow.models.LoginStatus;
 import com.nehow.models.UserInfo;
 import com.nehow.services.Context;
 import com.nehow.services.WebserviceManager;
-import org.apache.http.auth.AUTH;
-import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -15,7 +14,6 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
-
 
 import java.util.Set;
 
@@ -25,6 +23,15 @@ import java.util.Set;
 public class MyRealm extends AuthorizingRealm {
     @Autowired
     private WebserviceManager apiManager;
+
+    @Autowired
+    private UserMapper userDao;
+    @Autowired
+    private RoleMapper roleDao;
+    @Autowired
+    private PermissionMapper permDao;
+    @Autowired
+    private CustomerMapper customerDao;
 
 //    UsersHome usersHome = new UsersHome();
 

@@ -74,6 +74,7 @@ public class UserController {
             User user = userDao.selectByExample(userExample).get(0);
             String customerId = String.valueOf(user.getCustomerId());
             String customerType = user.getUserType();
+            String userId=user.getId().toString();
             Customer customer = customerDao.selectByPrimaryKey(user.getCustomerId());
             String safeDay = customer.getSafeDay().toString();
             SupplierExample supplierExample = new SupplierExample();
@@ -102,6 +103,8 @@ public class UserController {
             userInfo.put("customerType", customerType);
             userInfo.put("suppliers", suppliers);
             userInfo.put("safeDay", safeDay);
+            userInfo.put("userId",userId);
+            userInfo.put("customerCurrency","CNY");
             message = JsonUtil.toJson(userInfo);
         }
         else{
