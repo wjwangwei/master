@@ -60,10 +60,7 @@ public class HomeController {
         return "contact-us";
     }
 
-    @RequestMapping("/userlist")
-    public String userlist() { return "user-info";}
-
-    @RequestMapping("/test-pay")
+   @RequestMapping("/test-pay")
     public String testPay() {
         return "/hotel/booking";
     }

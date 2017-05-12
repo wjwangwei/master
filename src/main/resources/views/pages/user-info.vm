@@ -43,15 +43,15 @@
 					<tbody>
 						#foreach($cc in ${userList})
 						<tr>
-                            <td width="40"><span class="ico ico-doc"></span></td>
-							<td width="15%" class="account-transactionid">$cc.user_name</td>
-                            <td width="15%">$cc.mail</td>
-                            <td width="15%">$cc.mobile</td>
-                            <td width="15%">$cc.qq</td>
-							<td width="10%">$cc.user_type</td>
-                            <td width="10%">$cc.status</td>
-                            <td width="10%">$cc.create_time</td>
-                            <td width="10%">oper1, oper2</td>
+                            <td width="40">$velocityCount</td><!--<span class="ico ico-doc"></span>-->
+							<td width="15%" class="account-transactionid">$!cc.userName</td>
+                            <td width="15%">$!cc.mail</td>
+                            <td width="15%">$!cc.mobile</td>
+                            <td width="15%">$!cc.qq</td>
+							<td width="10%">$!cc.userType</td>
+                            <td width="10%">$!cc.status</td>
+                            <td width="10%">$!{cc.createTime}</td>
+                            <td width="10%">edit, delete</td>
 						</tr>
 						#end
 					</tbody>

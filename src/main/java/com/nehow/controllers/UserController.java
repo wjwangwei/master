@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,9 +36,19 @@ public class UserController {
     @Autowired
     private CustomerSupplierMapper customerSupplierDao;
 
-
+    @RequestMapping("/userlist")
+    public ModelAndView getUserlist(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    ModelAndView mv) {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andStatusEqualTo("VALID");
+        List<User> userlist = userDao.selectByExample(userExample);
+        mv.addObject("userList", userlist);
+        mv.setViewName("user-info");
+        return mv;
+    }
     @RequestMapping("/service/userlist")
-    public LoginStatus userlist(@RequestParam(value="customerid", defaultValue="") String customerid) {
+    public LoginStatus userlist(@RequestParam(value="customerid", defaultValue="1054") String customerid) {
         UserExample userExample = new UserExample();
         userExample.createCriteria().andCustomerIdEqualTo(parseLong(customerid));
         int count = userDao.countByExample(userExample);
@@ -49,8 +61,12 @@ public class UserController {
             Customer customer = customerDao.selectByPrimaryKey(user.getCustomerId());
             userInfo.put("count", String.valueOf(count));
             userInfo.put("username", user.getUserName());
+            userInfo.put("password", user.getPassword());
+            userInfo.put("customerid", user.getCustomerId().toString());
+            userInfo.put("usertype", user.getUserType());
+            userInfo.put("mail", user.getMail());
+            userInfo.put("mobile", user.getMobile());
             userInfo.put("customername", customer.getCustomerName());
-
 
             message = JsonUtil.toJson(userInfo);
         }
