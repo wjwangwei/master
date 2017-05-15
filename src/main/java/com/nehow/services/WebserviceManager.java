@@ -1,6 +1,6 @@
 package com.nehow.services;
 
-
+import com.nehow.dao.entity.OrdersAvailabilityResponse;
 import cn.mogutrip.hotel.business.entity.ExchangeRate;
 import cn.mogutrip.hotel.common.entity.*;
 import cn.mogutrip.hotel.common.utils.JsonUtil;
@@ -310,5 +310,38 @@ public class WebserviceManager {
         String requestUrl = svcProperty.getRootUrl() + strUrl;
         ResponseEntity<String> resp = restTemplate.getForEntity(requestUrl, String.class);
         return resp.getBody();
+    }
+
+    //orderList
+    public OrdersAvailabilityResponse getOrdersAvailability(Order orderRequest){
+        String param = JsonUtil.toJsonIgnoreAnnotations(orderRequest);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+
+        HttpEntity<String> entity = new HttpEntity<String>(param, headers);
+
+        // determine url
+        String strUrl = "/order/availability/order";
+
+        // call available web service
+        System.out.println(svcProperty.getRootUrl() + strUrl);
+        ResponseEntity<JSONObject> response = restTemplate.exchange(svcProperty.getRootUrl() + strUrl, HttpMethod.POST, entity, JSONObject.class);
+        JSONObject jsonResponse = response.getBody();
+
+        JSONArray jsonArray = new JSONArray();
+        try {
+            jsonArray = jsonResponse.getJSONArray("orderAvailabilities");
+        } catch (Exception ignored) {
+        }
+
+        //
+        // transfer json to object
+        //
+        OrdersAvailabilityResponse odersAvalResp = null;
+        odersAvalResp = JsonUtil.fromJsonIgnoreAnnotations(jsonResponse.toString(),OrdersAvailabilityResponse.class);
+
+        System.out.println("RESPONSE: " + response.getBody().toString());
+        return odersAvalResp;
     }
 }

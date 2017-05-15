@@ -1,0 +1,93 @@
+.pop-date-table .date-number.disable-date{
+	cursor: default;
+	color: #C0C0C0;
+}
+
+.enable-date.select-element-start, .enable-date.select-element-end{
+	background-color: #32BA88;
+	color:#FFF !important;
+}
+.disable-date.select-element-start{
+	background-color: #32BA88;
+	color:#FFF !important;
+}
+
+
+.enable-date{
+	cursor: pointer;
+	color: #222;
+}
+.next-month-title{
+	color: #222;
+	height: 28px;
+	padding: 0 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	font: normal normal normal 15px/30px pingfang SC,"微软雅黑","Microsoft YaHei" !important;
+}
+.datePickerSelect{
+	color: #222;
+	padding: 2px 10px;
+	font: normal normal 600 21px/35px pingfang SC,"微软雅黑","Microsoft YaHei" !important
+}
+.enable-date.on{
+	background-color: #8CE3C1 !important;
+}
+
+.enable-date.span-area{
+	background-color: #CAEFE1;
+	border-color: #888;
+}
+
+.monthdetail.focus{
+	background: #32BB88;
+	cursor: pointer;
+	color: #FFF;
+}
+
+.calendar{
+	border: 1px solid #888;
+	border-radius: 2px;
+}
+
+.select-cur-month-value{
+	border: 1px solid #DDDDDD;
+	padding: 0 8px;
+	font: normal normal normal 15px/30px pingfang SC,微软雅黑,Microsoft YaHei;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.select-cur-month-value:hover{
+	border-color: #888;
+}
+.month-select-detail{
+	border: 1px solid #DDDDDD;
+	position: absolute;
+	border-radius: 2px;
+	z-index: 1000;
+	width: 120px;
+	background-color: #fff;
+}
+.month-select-detail ul li.monthdetail{
+	font: normal normal normal 15px/30px pingfang SC,微软雅黑,Microsoft YaHei;
+}
+.month-select-detail.none-display{
+	display: none;
+}
+.select-current-month-icon{
+	background: url(../../images/lxgOrder/select-arrow-down.png) no-repeat;
+    height: 7px;
+    width: 10px;
+    display: inline-block;
+    margin-left: 16px;
+}
+.select-current-month-icon.detail{
+	background: url(../../images/lxgOrder/select-arrow-up.png) no-repeat;
+}
+
+.date-outside{
+	border: 0 !important;
+}
+
+
+

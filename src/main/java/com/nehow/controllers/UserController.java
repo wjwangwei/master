@@ -44,10 +44,26 @@ public class UserController {
         userExample.createCriteria().andStatusEqualTo("VALID");
         List<User> userlist = userDao.selectByExample(userExample);
         mv.addObject("userList", userlist);
-        mv.setViewName("user-info");
+        mv.setViewName("/user/user-info");
         return mv;
     }
-    @RequestMapping("/service/userlist")
+
+    @RequestMapping("/addNewCustomer")
+    public ModelAndView addNewCustomer(HttpServletRequest request,
+            HttpServletResponse response,
+            ModelAndView mv) {
+        mv.setViewName("/user/addNewCustomer");
+        return mv;
+    }
+
+    @RequestMapping("/addNewUser")
+    public ModelAndView addNewUser(HttpServletRequest request,
+                                HttpServletResponse response,
+                                ModelAndView mv) {
+        mv.setViewName("/user/addNewUser");
+        return mv;
+    }
+            @RequestMapping("/service/userlist")
     public LoginStatus userlist(@RequestParam(value="customerid", defaultValue="1054") String customerid) {
         UserExample userExample = new UserExample();
         userExample.createCriteria().andCustomerIdEqualTo(parseLong(customerid));

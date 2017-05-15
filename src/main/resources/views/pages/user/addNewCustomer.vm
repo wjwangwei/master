@@ -1,0 +1,98 @@
+#set($title = "Add New Customer")
+<section class="page-heading" xmlns="http://www.w3.org/1999/html">
+    <div class="container">
+        <h1>新增客户</h1>
+    </div>
+</section>
+
+<section class="space-sm">
+    <div class="container">
+
+        <div class="tabled">
+            <div class="tabled-heading">
+                <h2>新增客户</h2>
+            </div>
+            <div class="tabled-body">
+                <div class="row">
+                    <div class="col-md-2 col-border col-border-right">
+                    </div>
+                    <div class="col-md-4 col-border col-border-right">
+                        <form method="POST" action="#springUrl("/account/adduser")" class="inputs-default">
+                            <div class="form-group">
+                                <label class="control-label">* 企业名称</label>
+                                <textarea rows="2" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">企业编号</label>
+                                <input type="text" class="form-control" placeholder="P70099">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">* 主账号</label>
+                                <input type="password" class="form-control" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">* 初始密码</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"> 手机</label>
+                                <input type="password" class="form-control" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"> QQ</label>
+                                <input type="password" class="form-control" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"> 邮箱</label>
+                                <input type="password" class="form-control" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">* 用户利润率(%)</label>
+                                <input type="password" class="form-control" placeholder="">
+                           </div>
+
+                            <div class="form-group">
+                                <label class="control-label">用户状态</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="chk"  onclick= "" value="正常"/><label class="control-label">&nbsp;&nbsp;正常</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="chk"  onclick= "" value="冻结"/><label class="control-label">&nbsp;&nbsp;冻结</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="chk"  onclick= "" value="停用"/><label class="control-label">&nbsp;&nbsp;停用</label>
+
+                            </div>
+
+                            <hr class="break break10">
+                            <div class="mark-required">* 必填项目</div>
+                            <div align="center"><button type="submit" class="btn btn-purple-dark arrow-circle-right">提交</button>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <button type="submit" class="btn btn-purple-dark arrow-circle-left">取消</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="sidebar">
+                            <div class="tabled_widget">
+                                <h3 class="tabled_widget_title">客户须知</h3>
+                                <ul class="checkmark-circle">
+                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since</li>
+                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</li>
+                                    <li>Lorem Ipsum is simply dumm printing and typesetting</li>
+                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s</li>
+                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the</li>
+                                    <li>Lorem Ipsum is simply dumm printing and typesetting</li>
+                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s,.</li>
+                                </ul>
+                                <div class="tabled_widget_footer text-center">
+                                    <a href="#" class="readmore">更多信息</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

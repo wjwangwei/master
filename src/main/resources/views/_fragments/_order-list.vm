@@ -16,7 +16,7 @@
     </div>
 
     <div class="search-condition-area">
-        <form action="./queryList" id="queryFromSample" method="get">
+        <form action="./queryList" id="queryFormSample" method="get">
             <div class="condition-input-area">
                 <div class="clearfix cond-row-normal">
                     <div class="fl condition-item-title">多多订单编号</div>
@@ -279,22 +279,21 @@
     </div>
 </div>
 <div class="currency none-display">${currency}</div>
-
-#parse("pages/common/commonTip.vm")
-
-
+<%@ include file="common/footer.jsp" %>
+<%@ include file="common/order/orderTip.jsp" %>
+<%@ include file="common/commonTip.jsp" %>
 <div id="benchDownloadArea">
     <form action="downloadBatchPdf" id="bdPdfForm" method="post">
         <input type="hidden" name="orderIds" id="bdOrderIds" />
         <input type="hidden" name="fileType" id="bdFileType"/>
     </form>
 </div>
-<script type="text/javascript" src="js/agentLogin/loginCookie.js"></script>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
-<script type="text/javascript" src="js/datePickerSearch.js"></script>
-<script type="text/javascript" src="js/orderOption.js"></script>
-<script type="text/javascript" src="js/jquery.pagination.js"></script>
+
+<script type="text/javascript" src="js/lxgOrder/jquery.min.js"></script>
+<script type="text/javascript" src="js/lxgOrder/common.js"></script>
+<script type="text/javascript" src="js/lxgOrder/datePickerSearch.js"></script>
+<script type="text/javascript" src="js/lxgOrder/orderOption.js"></script>
+<script type="text/javascript" src="js/lxgOrder/jquery.pagination.js"></script>
 
 
 <script>

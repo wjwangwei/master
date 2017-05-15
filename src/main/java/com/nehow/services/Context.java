@@ -4,7 +4,10 @@ import cn.mogutrip.hotel.common.entity.ExchangeRate;
 import cn.mogutrip.hotel.common.entity.SearchAvailabilityRequest;
 import cn.mogutrip.hotel.common.entity.SearchAvailabilityResponse;
 import cn.mogutrip.hotel.common.entity.VerifyAvailabilityResponse;
+import cn.mogutrip.hotel.order.entity.Order;
+
 import com.nehow.models.UserInfo;
+import com.nehow.dao.entity.OrdersAvailabilityResponse;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -216,5 +219,18 @@ public class Context implements ApplicationContextAware {
     public static void setObjectToSession(String key, Object o)
     {
         SecurityUtils.getSubject().getSession().setAttribute(key, o);
+    }
+
+    public static void setOrderRequest(String queryId, Order request)
+    {
+        String key = "SEARCHREQUEST" + queryId;
+        Context.setObjectToSession(key, request);
+
+    }
+    public static void setOrderResult(String queryId, OrdersAvailabilityResponse result)
+    {
+        String key = "SEARCHRESULT" + queryId;
+        Context.setObjectToSession(key, result);
+
     }
 }
