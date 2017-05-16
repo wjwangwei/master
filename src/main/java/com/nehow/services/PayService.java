@@ -30,7 +30,7 @@ public class PayService {
     /**
      * 你生成的私钥路径
      */
-    private final static String privateKeyFilePath = "D:\\project\\rsa_private_key.pem";
+    private final static String privateKeyFilePath = "d:\\project\\rsa_private_key.pem";
 
 
     public  String charge(String orderNo,String amount,String subject,String body,String channel,String clientIP){

@@ -37,9 +37,10 @@ public class PayController {
             HttpServletRequest request,HttpServletResponse response,
             Map<String, Object> model) {
         //String amount="1";
+
         String amount=request.getParameter("amount");
         String channel=request.getParameter("channel");
-        String chargeString=payService.charge("order123", amount,"subject","body",channel,"127.0.0.1");
+        String chargeString=payService.charge("order126", amount,"subject","body",channel,"127.0.0.1");
         //model.put("chargeString", chargeString);
         //return "test-pay_result";
 
